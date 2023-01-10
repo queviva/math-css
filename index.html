@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
     
 <head>
-<title>formathematics</title>
+<title>format-0-matics</title>
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 <style id="demoStyles">
@@ -241,54 +241,7 @@ hr {
 }
 
 </style>
-<style id="chartStyles">
-
-#chart {
-    height: 200px;
-    width: 100%;
-    display: grid;
-    grid-column-gap: 2px;
-    grid-row-gap: 5px;
-    --barH: 50px;
-    cursor: auto;
-    overflow: scroll;
-    resize: vertical;
-}
-
-#chart > div {
-    position: relative;
-    text-align: center;
-    height: var(--barH);
-}
-
-#chart > div > div {
-    position: absolute;
-    width: 100%;
-}
-
-.msg {
-    text-align: center;
-    grid-column: 1 / -1;
-    cursor: pointer;
-}
-
-.txt {
-    color: var(--darkness);
-    transition: color linear 250ms;
-}
-
-.txt:hover {
-    color: var(--midness);
-    transition: color linear 250ms;
-}
-
-#dataDiv {
-    text-align: justify;
-}
-
-</style>
-
-<style id="mathStyles">
+<style id="f-rac">
 
 f-rac {
     display: inline-grid;
@@ -300,7 +253,7 @@ f-rac {
     word-spacing: -0.4ch;
 }
 
-f-rac > :nth-child(1){
+f-rac > :nth-child(1) {
     border-bottom: 1px solid;
 }
 
@@ -311,11 +264,13 @@ f-rac > :nth-child(1)::after {
 }
 
 f-rac > p {
-    margin: 0;
-    padding: 0;
     display: inline;
+    margin: 0px;
+    padding: 0px;
 }
 
+</style>
+<style id="mathStuff">
 p-t::after {
     content: "\00a0\00b7";
 }
@@ -340,7 +295,7 @@ dy-dx::after{
 }
 
 </style>
-<style>
+<style id="moreMath">
 sup, sub {
     font-size: 0.5em;
 }
@@ -362,38 +317,21 @@ com::after {
     content: "]";
 }
 
-[data-distro]{
-    position: relative;
-    --distro-wide: 100%;
-    --distro-color: var(--lightness);
-}
+</style>
+<style id="c-ankels">
 
-[data-distro]::after {
-    
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: calc((100% - var(--distro-wide))/2);
-    width: var(--distro-wide);
-    height: 60%;
-    -webkit-mask:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none' %3E%3Cpath d='M10 100A27.5 80 180 0 1 65 100A15 46 180 0 0 35 100A27.5 80 180 0 1 90 100C90 -30 10 -30 10 100' fill='none' stroke-width='4' stroke='%23000' /%3E%3C/svg%3E");
-    -webkit-mask-size: cover;
-    background-color: var(--distro-color);
-}
-
-c-anc {
+[data-canc], c-anc {
     
     --canc-color: var(--midness);
     --canc-top: 20%;
     --canc-bot: 10%;
     --canc-wide: 120%;
-    --canc-scale: 1,1;
+    --canc-opacity: 1;
     
     position: relative;
 }
 
-c-anc::after {
+[data-canc]::after, c-anc::after {
     
     content: '';
     position: absolute;
@@ -401,13 +339,15 @@ c-anc::after {
     left: calc((100% - var(--canc-wide))/2);
     width: var(--canc-wide);
     height: calc(100% - var(--canc-top) - var(--canc-bot));
-    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none' vector-effect='non-scaling-stroke' %3E%3Cpath d='M0 100L100 0' fill='none' stroke-width='8' stroke='%23000' /%3E%3C/svg%3E");
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none' %3E%3Cpath vector-effect='non-scaling-stroke' d='M0 100L100 0' fill='none' stroke-width='2px' stroke='%23000' /%3E%3C/svg%3E");
     -webkit-mask-size: cover;
     background-color: var(--canc-color);
-    opacity: 1;
-    transform:scale(var(--canc-scale));
+    opacity: var(--canc-opacity);
+    
 }
 
+</style>
+<style id="integral_and_parens">
 i-teg {
     
     --iteg-color: var(--lightness);
@@ -449,26 +389,193 @@ p-rens::after{
 }
 
 </style>
+<style id="s-ig">
+
+s-ig {
+    
+    --sig-val: 'n=100';
+    position: relative;
+    height: 200%;
+    border: 1px solid #f0f;
+    
+}
+
+s-ig::before {
+    
+    content: '\2211';
+    font-size: 130%;
+}
+
+s-ig::after {
+    
+    content: var(--sig-val);
+    position: absolute;
+    top: 130%;
+    left: 0;
+    
+    font-size: 0.4em;
+}
+
+</style>
+<style id="r-oot">
+
+r-oot {
+    
+    --root-color: var(--midness);
+    --root-style: normal;
+    
+    position: relative;
+    border-top: 2px solid var(--root-color);
+    
+    margin-left: 2ch;
+    margin-right: 1ch;
+    font-size: 0.8em;
+    word-spacing: -0.2em;
+    
+}
+
+r-oot::after {
+    
+    content: var(--root-val);
+    position: absolute;
+    right: calc(100% + 0.5em);
+    top: -0.2em;
+    font-size: 0.5em;
+    font-style: var(--root-style);
+    color: var(--root-color);
+    
+}
+
+r-oot::before {
+    
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -0.5em;
+    width: 0.5em;
+    height: calc(100% + 2px);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 100' preserveAspectRatio='none' %3E%3Cpath d='M0 50H5L13 100L28 0H30' vector-effect='non-scaling-stroke' fill='none' stroke-width='2px' stroke='%23000' /%3E%3C/svg%3E");
+    -webkit-mask-size: cover;
+    background-color: var(--root-color);
+    
+}
+
+</style>
+<style id="distros">
+
+[data-dist], d-ist,
+[data-dist-right], d-ist-right,
+[data-dist-left], d-ist-left
+{
+    --dist-wide: 100%;
+    --dist-color: var(--lightness);
+    position: relative;
+}
+
+[data-dist]::after, d-ist::after,
+[data-dist-right]::after, d-ist-right::after,
+[data-dist-left]::after, d-ist-left::after
+{
+    content: '';
+    position: absolute;
+    bottom: 95%;
+    left: calc((100% - var(--dist-wide))/2);
+    width: var(--dist-wide);
+    height: 150%;
+    background-color: var(--dist-color);
+    -webkit-mask-size: cover;
+}
+
+[data-dist]::after, d-ist::after {
+    clip-path: url(#distNorm);
+}
+
+[data-dist-right]::after, d-ist-right::after {
+    clip-path: url(#distRite);
+}
+
+[data-dist-left]::after, d-ist-left::after {
+    clip-path: url(#distLeft);
+}
+
+</style>
 </head>
 
-<body><br><br><div class="holder">
+<svg width="0" height="0">
     
+	<clipPath id="distNorm" clipPathUnits="objectBoundingBox">
+		<path d="
+		    M .08 1
+		    A .15 .15 180 0 1 .67 1
+		    H .62
+		    A .1 .11 180 0 0 .13 1
+		    H .08
+		    A .35 .35 180 0 1 .92 1
+		    H .87
+		    A .2 .21 180 0 0 .13 1
+		    Z
+		    M .33 1
+		    A .15 .15 180 0 1 .92 1
+		    H .87
+		    A .2 .22 180 0 0 .38 1
+		    H .33
+		    A .17 .17 180 0 1 .67 1
+		    H .62
+		    A .1 .12 180 0 0 .38 1
+		    Z
+		    
+		"/>
+	</clipPath>
+
+	<clipPath id="distRite" clipPathUnits="objectBoundingBox">
+		<path d="
+		    M .05 1
+		    A .35 .35 180 0 1 .88 1
+		    H .83
+		    A .35 .33 180 0 0 .1 1
+		    H .05
+		    A .2 .2 180 0 1 .5 1
+		    H .45
+		    A .15 .14 180 0 0 .1 1
+		    Z
+		"/>
+	</clipPath>
+
+	<clipPath id="distLeft" clipPathUnits="objectBoundingBox">
+		<path d="
+		    M .95 1
+		    A .35 .35 180 0 0 .12 1
+		    H .17
+		    A .35 .33 180 0 1 .9 1
+		    H .95
+		    A .21 .2 180 0 0 .49 1
+		    H .54
+		    A .15 .13 180 0 1 .9 1
+		    Z
+		"/>
+	</clipPath>
+
+</svg>
+
+<body><br><br><div class="holder">
 <div class="qr" style="font-size:30px;text-align:center;">
-
-<dy-dx></dy-dx><i>3x<sup>5</sup></i>
-
-<br><br>
-<p style="text-align:justify;hyphens:auto;">
-you want the derivative, or <dy-dx></dy-dx> of
-<i>3x<sup>5</sup></i>, which can be found simply
-by using the <i>power rule</i>, like so:</p>
-<i><p-t>(5</p-t> 3) x <sup><c-anc>(5-1)</c-anc>(5-1)</sup></i>
-
 <br><br>
 
-<span data-distro>
-<p-t>(1 + 2)</p-t> (3 + 4)
-</span>
+<d-ick data-dist style="font-size:50px;">(x - 3) &middot; (x + 5)</d-ick>
+<br>
+<br>
+<br>
+<span data-dist style="font-size:30px;"><p-t>(sin - tan)</p-t> (cos + 5)</span>
+<br>
+<div style="
+    height: 300px;
+    width: 300px;
+    background-color:#ea0;
+    clip-path: url(#distNorm);
+"></div>
+
+<br><br>
+</div>
 
 
 </div></body>
