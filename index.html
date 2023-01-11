@@ -270,32 +270,6 @@ f-rac > p {
 }
 
 </style>
-<style id="mathStuff">
-
-p-t::after {
-    content: "\00a0\00b7";
-}
-
-dy-dx {
-    display: inline-grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    font-size: 0.6em;
-    vertical-align: 68%;
-    text-align: center;
-    font-style: italic;
-}
-
-dy-dx::before {
-    content: '\00a0 dy\00a0';
-    border-bottom: 1px solid;
-}
-
-dy-dx::after{
-    content: 'dx';
-}
-
-</style>
 <style id="moreMath">
 sup, sub {
     font-size: 0.5em;
@@ -349,6 +323,7 @@ com::after {
 
 </style>
 <style id="integral_and_parens">
+
 i-teg {
     
     --iteg-color: var(--lightness);
@@ -434,6 +409,119 @@ r-oot::before {
 }
 
 </style>
+<style id="s-ig">
+
+s-ig {
+    position: relative;
+}
+
+s-ig::before {
+    content: '\2211';
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+s-ig > :nth-child(1) {
+    position: absolute;
+    font-size: 0.4em;
+    top: calc(100% + 0.2em);
+    left: 0;
+}
+
+s-ig > :nth-child(2) {
+    position: absolute;
+    font-size: 0.4em;
+    bottom: calc(100% + 0.2em);
+    left: 0;
+}
+
+</style>
+<style id="i-teg">
+
+i-teg {
+    position: relative;
+    margin-left: 0.5em;
+}
+
+i-teg::before {
+    content: '\222b';
+    position: absolute;
+    left: -0.7em;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+i-teg > :nth-child(1) {
+    position: absolute;
+    font-size: 0.4em;
+    top: calc(100% + 1.3em);
+    right: calc(100% + 0.8em);
+}
+
+i-teg > :nth-child(2) {
+    position: absolute;
+    font-size: 0.4em;
+    bottom: calc(100% + 0.5em);
+    right: 100%;
+}
+
+i-teg > :nth-child(4) {
+    font-size: 0.8em;
+    font-style: italic;
+    letter-spacing: -0.3ch;
+}
+
+</style>
+<style id="e-val">
+
+e-val {
+    position: relative;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+e-val::before {
+    content: '\005b';
+    position: absolute;
+    left: -0.5em;
+    top: 0.0em;
+    font-size: 1em;
+    transform:scale(1,2.0);
+    font-weight: bold;
+}
+
+e-val::after {
+    content: '\005d';
+    position: absolute;
+    left: 100%;
+    top: 0;
+    font-size: 1em;
+    transform:scale(1,2.0);
+    font-weight: bold;
+}
+
+e-val > :nth-child(1) {
+    position: absolute;
+    font-size: 0.4em;
+    top: calc(100% + 1.3em);
+    left: 100%;
+}
+
+e-val > :nth-child(2) {
+    position: absolute;
+    font-size: 0.4em;
+    bottom: calc(100% + 0.5em);
+    left: 100%;
+}
+
+
+f-rac > p, s-ig > p, i-teg > p, e-val > p {
+    display: inline-block;
+    margin: 0%;
+    padding: 0%;
+}
+
+</style>
 <style id="distros">
 
 [data-dist], d-ist,
@@ -473,11 +561,49 @@ r-oot::before {
 }
 
 </style>
+<style id="p-times">
+
+p-t::after {
+    content: "\00a0\00b7";
+}
+
+</style>
+<style id="dy-dx">
+
+d-dx, dy-dx {
+    display: inline-grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    font-size: 0.6em;
+    vertical-align: 68%;
+    text-align: center;
+    font-style: italic;
+}
+
+d-dx::before {
+    content: '\00a0 d\00a0';
+    border-bottom: 1px solid;
+}
+
+dy-dx::before {
+    content: '\00a0 dy\00a0';
+    border-bottom: 1px solid;
+}
+
+d-dx::after, dy-dx::after {
+    content: 'dx';
+}
+
+</style>
+
+
 </head>
 <body><br><br><div class="holder">
 
 <div class="qr" style="font-size:30px;text-align:center;">
     
+    <p-t><d-dx></d-dx>3x<sup>5</sup></p-t>
+    <d-dx></d-dx>5x<sup>3</sup>
 <svg id="distroClips" width="0" height="0">
     
 	<clipPath id="distNorm" clipPathUnits="objectBoundingBox">
@@ -544,118 +670,6 @@ r-oot::before {
 
 </svg>
 
-<style id="s-ig_i-teg">
-
-s-ig {
-    position: relative;
-}
-
-s-ig::before {
-    content: '\2211';
-    font-size: 1.4em;
-    font-weight: bold;
-}
-
-s-ig > :nth-child(1) {
-    position: absolute;
-    font-size: 0.4em;
-    top: calc(100% + 0.2em);
-    left: 0;
-}
-
-s-ig > :nth-child(2) {
-    position: absolute;
-    font-size: 0.4em;
-    bottom: calc(100% + 0.2em);
-    left: 0;
-}
-
-i-teg {
-    position: relative;
-    margin-left: 0.5em;
-}
-
-i-teg::before {
-    content: '\222b';
-    position: absolute;
-    left: -0.7em;
-    font-size: 1em;
-    font-weight: bold;
-}
-
-i-teg > :nth-child(1) {
-    position: absolute;
-    font-size: 0.4em;
-    top: calc(100% + 1.3em);
-    right: calc(100% + 0.8em);
-}
-
-i-teg > :nth-child(2) {
-    position: absolute;
-    font-size: 0.4em;
-    bottom: calc(100% + 0.5em);
-    right: 100%;
-}
-
-i-teg > :nth-child(4) {
-    font-size: 0.8em;
-    font-style: italic;
-    letter-spacing: -0.4ch;
-}
-
-</style>
-
-<style id="e-val">
-
-e-val {
-    position: relative;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-}
-
-e-val::before {
-    content: '\005b';
-    position: absolute;
-    left: -0.5em;
-    top: 0.0em;
-    font-size: 1em;
-    transform:scale(1,2.0);
-    font-weight: bold;
-}
-
-e-val::after {
-    content: '\005d';
-    position: absolute;
-    left: 100%;
-    top: 0;
-    font-size: 1em;
-    transform:scale(1,2.0);
-    font-weight: bold;
-}
-
-e-val > :nth-child(1) {
-    position: absolute;
-    font-size: 0.4em;
-    top: calc(100% + 1.3em);
-    left: 100%;
-}
-
-e-val > :nth-child(2) {
-    position: absolute;
-    font-size: 0.4em;
-    bottom: calc(100% + 0.5em);
-    left: 100%;
-}
-
-
-f-rac > p, s-ig > p, i-teg > p, e-val > p {
-    display: inline-block;
-    margin: 0%;
-    padding: 0%;
-}
-
-</style>
-
 <br><br>
 
 3 &middot;
@@ -663,7 +677,7 @@ f-rac > p, s-ig > p, i-teg > p, e-val > p {
     <p>x=0</p>
     <p>x=5</p>
     <p>x<sup>2</sup></p>
-    <p>dx</p>
+    <p>d&theta;</p>
 </i-teg>
 &Implies;
 
@@ -675,7 +689,7 @@ f-rac > p, s-ig > p, i-teg > p, e-val > p {
 </e-val>
 
 <br><br>
-&Implies;
+&Implies; 3 &middot;
 <e-val>
     <p></p>
     <p></p>
