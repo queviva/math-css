@@ -561,7 +561,6 @@ s-ig > :nth-child(1) {
     font-size: 0.4em;
     top: calc(100% + 0.2em);
     left: 0;
-    /*border: 2px solid #ea0;*/
 }
 
 s-ig > :nth-child(2) {
@@ -569,10 +568,40 @@ s-ig > :nth-child(2) {
     font-size: 0.4em;
     bottom: calc(100% + 0.2em);
     left: 0;
-    /*border: 2px solid #090;*/
 }
 
-s-ig > p {
+i-teg {
+    position: relative;
+}
+
+i-teg::before {
+    content: '\222b';
+    position: absolute;
+    left: -0.7em;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+i-teg > :nth-child(1) {
+    position: absolute;
+    font-size: 0.4em;
+    top: calc(100% + 1.3em);
+    right: calc(100% + 0.8em);
+}
+
+i-teg > :nth-child(2) {
+    position: absolute;
+    font-size: 0.4em;
+    bottom: calc(100% + 0.5em);
+    right: 100%;
+}
+
+i-teg > :nth-child(4) {
+    font-size: 0.8em;
+    font-style: italic;
+    letter-spacing: -0.4ch;
+}
+f-rac > p, s-ig > p, i-teg > p {
     display: inline-block;
     margin: 0%;
     padding: 0%;
@@ -604,9 +633,19 @@ sin<sup>2</sup> + cos<sup>2</sup>
     <p>x=&infin;</p>
     <p>x<sup>2</sup></p>
 </s-ig>
-</div>
+<br><br>
+
+<i-teg>
+    <p>-&pi;</p>
+    <p>&infin;</p>
+    <p>x<sup>2</sup></p>
+    <p>d&theta;</p>
+</i-teg>
 
 
+
+
+</div end_qr>
 </div>
 </body>
 
