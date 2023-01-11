@@ -271,6 +271,7 @@ f-rac > p {
 
 </style>
 <style id="mathStuff">
+
 p-t::after {
     content: "\00a0\00b7";
 }
@@ -389,34 +390,6 @@ p-rens::after{
 }
 
 </style>
-<style id="s-ig">
-
-s-ig {
-    
-    --sig-val: 'n=100';
-    position: relative;
-    height: 200%;
-    border: 1px solid #f0f;
-    
-}
-
-s-ig::before {
-    
-    content: '\2211';
-    font-size: 130%;
-}
-
-s-ig::after {
-    
-    content: var(--sig-val);
-    position: absolute;
-    top: 130%;
-    left: 0;
-    
-    font-size: 0.4em;
-}
-
-</style>
 <style id="r-oot">
 
 r-oot {
@@ -468,6 +441,7 @@ r-oot::before {
 [data-dist-left], d-ist-left
 {
     --dist-wide: 100%;
+    --dist-high: 50px;
     --dist-color: var(--lightness);
     position: relative;
 }
@@ -478,12 +452,12 @@ r-oot::before {
 {
     content: '';
     position: absolute;
-    bottom: 95%;
+    bottom: 90%;
     left: calc((100% - var(--dist-wide))/2);
     width: var(--dist-wide);
-    height: 150%;
+    height: var(--dist-high);
     background-color: var(--dist-color);
-    -webkit-mask-size: cover;
+    background-color:none;
 }
 
 [data-dist]::after, d-ist::after {
@@ -500,8 +474,11 @@ r-oot::before {
 
 </style>
 </head>
+<body><br><br><div class="holder">
 
-<svg width="0" height="0">
+<div class="qr" style="font-size:30px;text-align:center;">
+    
+<svg id="distroClips" width="0" height="0">
     
 	<clipPath id="distNorm" clipPathUnits="objectBoundingBox">
 		<path d="
@@ -554,30 +531,83 @@ r-oot::before {
 		    Z
 		"/>
 	</clipPath>
+	
+	<clipPath id="sigma" clipPathUnits="objectBoundingBox">
+	    <path d="
+	        M 0 0
+	        H 100
+	        V 100
+	        H 88
+	        Z
+	    "/>
+	</clipPath>
 
 </svg>
 
-<body><br><br><div class="holder">
-<div class="qr" style="font-size:30px;text-align:center;">
-<br><br>
+<style id="s-ig">
 
-<d-ick data-dist style="font-size:50px;">(x - 3) &middot; (x + 5)</d-ick>
-<br>
-<br>
-<br>
-<span data-dist style="font-size:30px;"><p-t>(sin - tan)</p-t> (cos + 5)</span>
-<br>
-<div style="
-    height: 300px;
-    width: 300px;
-    background-color:#ea0;
-    clip-path: url(#distNorm);
-"></div>
+s-ig {
+    position: relative;
+}
+
+s-ig::before {
+    content: '\2211';
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+s-ig > :nth-child(1) {
+    position: absolute;
+    font-size: 0.4em;
+    top: calc(100% + 0.2em);
+    left: 0;
+    /*border: 2px solid #ea0;*/
+}
+
+s-ig > :nth-child(2) {
+    position: absolute;
+    font-size: 0.4em;
+    bottom: calc(100% + 0.2em);
+    left: 0;
+    /*border: 2px solid #090;*/
+}
+
+s-ig > p {
+    display: inline-block;
+    margin: 0%;
+    padding: 0%;
+}
+
+</style>
+
+<s-ig>
+    <span>x=1</span>
+    <span>x=55</span>
+    (
+    <f-rac>
+        <span><c-anc>x</c-anc></span>
+        <p>x<sup data-canc>2</sup></p>
+    </f-rac>
+    =
+    <f-rac>
+        <p>1</p>
+        <p>x</p>
+    </f-rac>
+    )
+</s-ig>
 
 <br><br>
+sin<sup>2</sup> + cos<sup>2</sup>
+=
+<s-ig>
+    <p>x=1</p>
+    <p>x=&infin;</p>
+    <p>x<sup>2</sup></p>
+</s-ig>
 </div>
 
 
-</div></body>
+</div>
+</body>
 
 </html>
