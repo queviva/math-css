@@ -518,7 +518,8 @@ d-dx::after, dy-dx::after {
 
 p-owr {
     
-    --pow-color: var(--darkness, #900);
+    --powr-color: var(--darkness, #900);
+    --powr-wide: 100%;
     
     position: relative;
     
@@ -532,8 +533,8 @@ p-owr::before {
     right: -0.3ch;
     top: 0;
     height: 2ch;
-    width: 3ch;
-    background-color: var(--pow-color);
+    width: var(--powr-wide);
+    background-color: var(--powr-color);
     
     clip-path: url(#powerRule);
     
@@ -545,7 +546,7 @@ p-owr::after {
     content: '-1';
     position: absolute;
     font-size: 0.35em;
-    color: var(--pow-color);
+    color: var(--powr-color);
     left: calc(100% + 0.0em);
     top: -0.5em;
     transform: rotate(-15deg);
@@ -887,6 +888,8 @@ l-ogg > p {
 <div>
     <l-ogg><r-ed style="color:#900">23</r-ed>69</l-ogg>
 
+
+<p-owr>4x<sup>19</sup></p-owr>
 
 </div>
 
