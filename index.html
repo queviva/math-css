@@ -315,26 +315,26 @@ p-ren::after{
 }
 
 </style>
-<style id="s-ig">
+<style id="s-umm">
 
-s-ig {
+s-umm {
     position: relative;
 }
 
-s-ig::before {
+s-umm::before {
     content: '\2211';
     font-size: 1.4em;
     font-weight: bold;
 }
 
-s-ig > :nth-child(1) {
+s-umm > :nth-child(1) {
     position: absolute;
     font-size: 0.4em;
     top: calc(100% + 0.2em);
     left: 0;
 }
 
-s-ig > :nth-child(2) {
+s-umm > :nth-child(2) {
     position: absolute;
     font-size: 0.4em;
     bottom: calc(100% + 0.2em);
@@ -434,7 +434,7 @@ e-val > :nth-child(2) {
 }
 
 
-f-rac > p, s-ig > p, i-teg > p, e-val > p {
+f-rac > p, s-umm > p, i-teg > p, e-val > p {
     display: inline-block;
     margin: 0%;
     padding: 0%;
@@ -558,13 +558,13 @@ p-owr::after {
 
 [data-fact], f-act {
     
-    --fact-color: var(--darkness);
+    --fact-color: var(--midness);
     --fact-var: 'x';
     position: relative;
 }
 
 [data-fact]::after, f-act::after {
-    content: '(' var(--fact-var) '\00a0\00b1\00a0.?.)\00a0(' var(--fact-var) '\00a0\00b1\00a0.?.)';
+    content: '(' var(--fact-var) '\00a0\00b1\00a0.?.)(' var(--fact-var) '\00a0\00b1\00a0.?.)';
     position: absolute;
     left: 0;
     bottom: 80%;
@@ -579,7 +579,7 @@ p-owr::after {
 
 [data-cank], c-ank {
     
-    --cank-color: var(--darkness, #900);
+    --cank-color: var(--midness, #900);
     --cank-wide: 120%;
     --cank-rot: 0deg;
     --cank-opacity: 1;
@@ -623,7 +623,7 @@ s-tar::before, s-tar::after {
 }
     
 </style>
-<style id="bd-rak">
+<style id="b-rak">
     
 [data-brak], b-rak,
 [data-drak], d-rak {
@@ -709,25 +709,26 @@ r-oot > p {
 }
 
 </style>
-<style id='l-ogg'>
-l-ogg {
+<style id="l-ogb">
+
+l-ogb {
     
     position: relative;
     margin-left: 4ch;
 }
 
-l-ogg::before {
+l-ogb::before {
     content: 'log\00a0(';
     position: absolute;
     right: 100%;
 }
 
-l-ogg::after {
+l-ogb::after {
     content: ')';
     
 }
 
-l-ogg > :nth-child(1) {
+l-ogb > :nth-child(1) {
     
     position: absolute;
     left: -1.4em;
@@ -740,11 +741,49 @@ l-ogg > :nth-child(1) {
     
 }
 
-l-ogg > p {
+l-ogb > p {
     display: inline;
     margin: 0;
     padding: 0;
 }
+
+</style>
+<style id="c-irk">
+
+[data-cirk], c-irk {
+    
+    --cirk-color: var(--midness);
+    --cirk-rad: 120%;
+    --cirk-rot: 0deg;
+    --cirk-dir: 1;
+    --cirk-opacity: 1;
+    --cirk-clip: url('#cirk01');
+    position: relative;
+}
+
+[data-cirk][data-opt],
+c-irk[data-opt] {
+    --cirk-clip: url('#cirk02');
+}
+
+[data-cirk]::before,
+c-irk::before {
+    
+    content: '';
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    height: var(--cirk-rad);
+    width: var(--cirk-rad);
+    top: calc((100% - var(--cirk-rad))/2);
+    left: calc((100% - var(--cirk-rad))/2);
+    transform: rotate(var(--cirk-rot)) scale(var(--cirk-dir), 1);
+    background-color: var(--cirk-color);
+    opacity: var(--cirk-opacity);
+    clip-path: var(--cirk-clip);
+    
+}
+
 
 </style>
 
@@ -875,23 +914,61 @@ l-ogg > p {
 	        A .1 .2 0 0 1 .5 .65
 	        A .1 .2 0 0 1 .4 .8
 	        H .1
-	        A .1 .2 0 0 0 0 1kkk
+	        A .1 .2 0 0 0 0 1
 	        Z
 	    " fill="#000"/>
 	</clipPath>
+	
+	<clipPath id="cirk01" clipPathUnits="objectBoundingBox">
+	    <path  d="
+	        M .9 .4
+	        Q .8 0 .6 0
+	        C .3 0 0 .3 0 .6
+	        S .2 1 .4 1
+	        S 1.2 .8 .9 .1
+	        Q 1.1 .82 .4 .94
+	        C .2 .97 .05 .8 .05 .6
+	        C .05 .2 .6 -.2 .9 .4
+	        Z
+	    " fill="#000"/>
+	</clipPath>
+	
+	<clipPath id="cirk02" clipPathUnits="objectBoundingBox">
+	    <path d="
+    	    M .9 .38
+    	    C .88 .14 .62 -.13 .3 .07
+    	    C .06 .21 -.06 .53 .03 .77
+    	    C .12 1.01 .38 1.05 .63 .95
+    	    C .95 .82 1.08 .33 .95 .13
+    	    C 1.02 .34 .88 .74 .65 .85
+    	    C .43 .95 .21 .92 .13 .72
+    	    C .06 .52 .17 .25 .38 .12
+    	    C .61 -.02 .82 .22 .9 .38
+    	    Z
+	    " fill="#000"/>
+	</clipPath>
+
 </svg>
 <div class="holder">
 <div class="qr" style="font-size:50px;text-align:center;">
-    
-
-<com>try to find an nth base log</com>
-<div>
-    <l-ogg><r-ed style="color:#900">23</r-ed>69</l-ogg>
 
 
-<p-owr>4x<sup>19</sup></p-owr>
 
-</div>
+<br><br>
+
+<c-irk>3x<sup>2</sup> - 3</c-irk>
+then there's
+<r-ed data-cirk data-opt style="
+    --cirk-dir:-1;
+    --cirk-rot: 90deg;
+">5x</r-ed>
+<br><br>
+
+<span data-fact>thease are</span>
+<br><br>
+
+<span data-dist>(x + 1)(x - 2)</span>
+
 
 
 
