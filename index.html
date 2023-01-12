@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
     
 <head>
-<title>format-0-matics</title>
+<title>viva-matics</title>
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 <style id="demoStyles">
@@ -664,14 +664,12 @@ s-tar::before, s-tar::after {
 
 r-oot {
     
-    --root-color: var(--midness);
-    --root-style: normal;
+    --root-color: var(--lightness);
     
     position: relative;
-    
     font-size: 0.8em;
     word-spacing: -0.2em;
-    margin-left: 2ch;
+    margin-left: 1.6ch;
     margin-right: 0.4ch;
     
 }
@@ -688,6 +686,7 @@ r-oot::before {
     left: -1em;
     clip-path: url(#rootBef);
 }
+
 r-oot::after {
     
     width: calc(100% + 2px);
@@ -709,6 +708,44 @@ r-oot > p {
 }
 
 </style>
+<style id='l-ogg'>
+l-ogg {
+    
+    position: relative;
+    margin-left: 4ch;
+}
+
+l-ogg::before {
+    content: 'log\00a0(';
+    position: absolute;
+    right: 100%;
+}
+
+l-ogg::after {
+    content: ')';
+    
+}
+
+l-ogg > :nth-child(1) {
+    
+    position: absolute;
+    left: -1.4em;
+    bottom: 0;
+    transform: rotate(-12deg);
+    font-size: 0.5em;
+    font-weight: bold;
+    font-family: luckiest;
+    -webkit-text-stroke: 1px var(--darkness);
+    
+}
+
+l-ogg > p {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+</style>
 
 </head>
 <body>
@@ -717,13 +754,13 @@ r-oot > p {
         
 	<clipPath id="rootBef" clipPathUnits="objectBoundingBox">
 	    <path d="
-	        M .3 .3
+	        M .32 .3
 	        H .5
-	        L .67 .7
-	        L .8 0
+	        Q .58 .58 .67 .66
+	        Q .75 .5 .8 0
 	        H 1 V .1 H .9
-	        L .7 1
-	        L .4 .4
+	        Q .75 .5 .7 1
+	        Q .6 .6 .42 .4
 	        H .3
 	        
 	        Z
@@ -734,13 +771,12 @@ r-oot > p {
 	    <path d="
 	        M 0 0
 	        H 1
-	        V .1
+	        L .9 .1
 	        H 0
 	        Z
 	    " fill="#000"/>
 	</clipPath>
 	    
-    
 	<clipPath id="distNorm" clipPathUnits="objectBoundingBox">
 		<path d="
 		    M .08 1
@@ -847,28 +883,19 @@ r-oot > p {
 <div class="qr" style="font-size:50px;text-align:center;">
     
 
-<com>try putting a root in a fraction</com>
+<com>try to find an nth base log</com>
 <div>
-    4 +
-    <f-rac>
-        <span><p-t>3</p-t><r-oot><p>j</p>cos<sup>2</sup></r-oot> +  six</span>
-        <p><c-ank>one</c-ank></p>
-    </f-rac>
-    
-    
+    <l-ogg><r-ed style="color:#900">23</r-ed>69</l-ogg>
+
+
 </div>
 
-
-
-
-    
 
 
 
 
 
 <br><br>
-<div class="signature">~queviva</div>
 </div end_qr>
 </div>
 </body>
