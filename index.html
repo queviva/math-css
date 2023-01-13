@@ -927,6 +927,41 @@ c-irk::before {
 }
 
 </style>
+<style id="g-irk">
+
+[data-girk], g-irk{
+    
+    --girk-wide: 180%;
+    --girk-high: 150%;
+    --girk-top: 0%;
+    --girk-rot: 0deg;
+    --girk-back: url("girk00.svg");
+    
+    position: relative;
+    
+}
+
+[data-girk][data-opt1]::after, g-irk[data-opt1]::after {
+    --girk-back: url("girk01.svg");
+}
+
+[data-girk]::after, g-irk::after {
+    
+    content: '';
+    position: absolute;
+    width: var(--girk-wide);
+    height: var(--girk-high);
+    left: calc((100% - var(--girk-wide))/2);
+    top: calc((100% - var(--girk-high))/2 + var(--girk-top));
+    transform: rotate(var(--girk-rot));
+    background-image: var(--girk-back);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+
+
+</style>
 
 </head>
 <body>
@@ -1103,17 +1138,20 @@ c-irk::before {
 </svg>
 <div class="holder">
 <div class="qr" style="font-size:50px;text-align:center;">
-
 <br><br>
 
-<g-rak style="
-    --grak-wide: 80%;
-">3y<sup>5</sup> + 5y<sup>5</sup></g-rak>
+<g-low>9x<sup>2</sup></g-low>
++
+<g-irk data-opt1>3x<sup>5</sup></g-irk>
 <br><br>
-
-9x<sup>3</sup> +
-<span data-grak data-low>3x<sup>2</sup> + 9x<sup>2</sup></span>
-+ 12x
+<span data-cirk data-opt1 style="
+    --cirk-rot: 30deg;
+    --cirk-dir: -1;
+">7x<sup>n</sup></span>
+-
+<span data-girk style="
+    --girk-rot:23deg;
+">9y<sup>2</sup></span>
 
 
 

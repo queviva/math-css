@@ -1,0 +1,57 @@
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="130px"
+height="130px"
+xviewbox="0 0 130 130"
+preserveAspectRatio="none"
+xstyle="border: 1px solid #fff;"
+>
+  <defs>
+    <filter id="b1"
+    filterUnits="objectBoundingBox"
+        x="-50%" y="-50%" width="170%" height="170%"
+    >
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+    </filter>
+    <filter id="b2"
+    filterUnits="objectBoundingBox"
+        x="-50%" y="-50%" width="170%" height="170%"
+    >
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+    </filter>
+    <filter id="b3"
+    filterUnits="objectBoundingBox"
+        x="-50%" y="-50%" width="170%" height="170%"
+    >
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" />
+    </filter>
+    <filter id="b4"
+    filterUnits="objectBoundingBox"
+        x="-50%" y="-50%" width="200%" height="200%"
+    >
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
+    </filter>
+    <path id="cirk"
+	   d="
+	        M 90 40
+	        Q 80 0 60 0
+	        C 30 0 0 30 0 60
+	        S 20 100 40 100
+	        S 120 80 90 10
+	        Q 110 82 40 94
+	        C 20 97 5 80 5 60
+	        C 5 20 60 -20 90 40
+	        Z
+    "/>
+  </defs>
+
+  <g transform="
+    translate(15 15)
+  ">
+  <use href="#cirk" fill="#fd0" filter="url(#b1)" />
+  <use href="#cirk" fill="#b22" filter="url(#b2)" />
+  <use href="#cirk" fill="#fcc" filter="url(#b3)" />
+  <use href="#cirk" fill="#fb0" filter="url(#b4)" />
+  <use href="#cirk" fill="hsla(40,100%,90%,1)" />
+  </g>
+</svg>
