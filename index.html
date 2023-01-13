@@ -341,6 +341,12 @@ s-umm > :nth-child(2) {
     left: 0;
 }
 
+s-umm > p {
+    display: inline-block;
+    margin: 0%;
+    padding: 0%;
+}
+
 </style>
 <style id="i-teg">
 
@@ -390,10 +396,19 @@ i-teg > :nth-child(4) {
     color: var(--iteg-d-color, var(--iteg-color));
 }
 
+i-teg > p {
+    display: inline-block;
+    margin: 0%;
+    padding: 0%;
+}
+
 </style>
 <style id="e-val">
 
 e-val {
+    
+    --eval-color: var(--midness);
+    
     position: relative;
     margin-left: 0.5em;
     margin-right: 0.5em;
@@ -403,10 +418,11 @@ e-val::before {
     content: '\005b';
     position: absolute;
     left: -0.5em;
-    top: 0.0em;
+    top: 0;
     font-size: 1em;
     transform:scale(1,2.0);
     font-weight: bold;
+    color: var(--eval-color);
 }
 
 e-val::after {
@@ -417,6 +433,7 @@ e-val::after {
     font-size: 1em;
     transform:scale(1,2.0);
     font-weight: bold;
+    color: var(--eval-color);
 }
 
 e-val > :nth-child(1) {
@@ -424,6 +441,7 @@ e-val > :nth-child(1) {
     font-size: 0.4em;
     top: calc(100% + 1.3em);
     left: 100%;
+    color: var(--eval-color);
 }
 
 e-val > :nth-child(2) {
@@ -431,10 +449,50 @@ e-val > :nth-child(2) {
     font-size: 0.4em;
     bottom: calc(100% + 0.5em);
     left: 100%;
+    color: var(--eval-color);
 }
 
+e-val > p {
+    display: inline-block;
+    margin: 0%;
+    padding: 0%;
+}
 
-f-rac > p, s-umm > p, i-teg > p, e-val > p {
+</style>
+<style id="f-rom">
+
+f-rom {
+    position: relative;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+f-rom::after {
+    content: '|';
+    position: absolute;
+    height: 100%;
+    left: 100%;
+    top: -9%;
+    font-size: 1em;
+    transform:scale(1,2.0);
+    font-weight: bold;
+}
+
+f-rom > :nth-child(1) {
+    position: absolute;
+    font-size: 0.4em;
+    top: calc(100% + 1.3em);
+    left: 100%;
+}
+
+f-rom > :nth-child(2) {
+    position: absolute;
+    font-size: 0.4em;
+    bottom: calc(100% + 0.5em);
+    left: 100%;
+}
+
+f-rom > p {
     display: inline-block;
     margin: 0%;
     padding: 0%;
@@ -449,7 +507,7 @@ f-rac > p, s-umm > p, i-teg > p, e-val > p {
 {
     --dist-wide: 100%;
     --dist-high: 50px;
-    --dist-color: var(--lightness);
+    --dist-color: var(--midness);
     position: relative;
 }
 
@@ -483,7 +541,7 @@ f-rac > p, s-umm > p, i-teg > p, e-val > p {
 
 p-t::after {
     content: "\00b7";
-    color: var(--pt-color, var(--darkness));
+    color: var(--pt-color, var(--midness));
 }
 
 </style>
@@ -581,10 +639,16 @@ p-owr::after {
     
     --cank-color: var(--midness, #900);
     --cank-wide: 120%;
+    --cank-high: 80%;
     --cank-rot: 0deg;
     --cank-opacity: 1;
     
     position: relative;
+}
+
+[data-cank][data-hi],
+c-ank[data-hi] {
+    --cank-high: 100%;
 }
 
 [data-cank]::after, c-ank::after {
@@ -592,9 +656,9 @@ p-owr::after {
     content: '';
     
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
+    bottom: 0;
+    left: calc((100% - var(--cank-wide))/2);
+    height: var(--cank-high);
     width: var(--cank-wide);
     transform: var(--cank-rot);
     transform: rotate(var(--cank-rot));
@@ -786,7 +850,46 @@ c-irk::before {
 
 
 </style>
+<style id="g-low">
+    
+[data-glow], g-low {
+    text-shadow: 0 0 10px #fd0, 0 0 20px #b22, 0 0 40px #fcc, 0 0 80px #f00;
+    
+}
 
+[data-neon], n-eon {
+    text-shadow: 0 0 10px #d0d, 0 0 20px #00d, 0 0 40px #fff, 0 0 80px #f0f;
+}
+
+</style>
+<style id="h-lit">
+
+[data-hlit], h-lit {
+    --hlit-color: 130,255,173;
+    color: 111;
+    padding: 0.1em 0.3em;
+    line-height: 1.8em;
+    background:
+        linear-gradient(
+            104deg,
+            rgba(var(--hlit-color), 0.2) 0.9%,
+            rgba(var(--hlit-color), 1.25) 2.4%,
+            rgba(var(--hlit-color), 0.5) 5.8%,
+            rgba(var(--hlit-color), 0.0) 93%,
+            rgba(var(--hlit-color), 0.7) 96%,
+            rgba(var(--hlit-color), 0.2) 98%
+        ),
+        linear-gradient(
+            183deg,
+            rgba(var(--hlit-color), 0) 0%,
+            rgba(var(--hlit-color), 0.3) 7.9%,
+            rgba(var(--hlit-color), 0) 15%
+        );
+    border-radius: 7px 0px;
+    clip-path: url("#hlit");
+}
+
+</style>
 </head>
 <body>
 <svg id="clipPaths" width="0" height="0">
@@ -948,26 +1051,196 @@ c-irk::before {
 	    " fill="#000"/>
 	</clipPath>
 
+	<clipPath id="hlit" clipPathUnits="objectBoundingBox">
+	    <path d="
+	        M 0 0
+	        H .6
+	        L .61 .1
+	        L .59 .2
+	        L .62 .13
+	        L .63 0
+	        H 1 V 1 H 0
+	        Z
+	    " fill="#000"/>
+	</clipPath>
+	
 </svg>
 <div class="holder">
 <div class="qr" style="font-size:50px;text-align:center;">
 
+<style>p{display:inline;margin:0;padding:0}</style>
 
 
-<br><br>
+<com>asked to solve this <b>system of equations</b></com>
+<div>
+<p>y = -3x + 4</p><br>
+<p/>x + 4y = -6</p>
+</div>
 
-<c-irk>3x<sup>2</sup> - 3</c-irk>
-then there's
-<r-ed data-cirk data-opt style="
-    --cirk-dir:-1;
-    --cirk-rot: 90deg;
-">5x</r-ed>
-<br><br>
+<com>luckily, one of them is already solved for <b>y</b></com>
+<div>
+<p data-glow>y = -3x + 4</p><br>
+<p/>x + 4y = -6</p>
+</div>
 
-<span data-fact>thease are</span>
-<br><br>
+<com>replace the <b>y</b> in the second equation
+with the value from the first</com>
+<div>
+<p>y = <r-ed>-3x + 4</r-ed></p><br>
+<p/>x + 4<r-ed>y</r-ed> = -6</p>
+</div>
 
-<span data-dist>(x + 1)(x - 2)</span>
+<com>now the second equation becomes</com>
+<div>
+<p>x + <p-t>4</p-t><r-ed>(-3x + 4)</r-ed> = -6</p>
+</div>
+
+<com>distribute the multiplication</com>
+<div>
+x + <p data-dist-right><p-t>4</p-t>(-3x + 4)</p>
+= -6
+</div>
+
+<com>that turns into</com>
+<div>
+x
++ <r-ed><p-t>4</p-t>-3x</r-ed>
++ <r-ed><p-t>4</p-t>4</r-ed>
+= -6
+</div>
+
+<com>do the actual multiplication</com>
+<div>
+x
++ <r-ed>-12x</r-ed>
++ <r-ed>16</r-ed>
+= -6
+</div>
+
+<com>combine the plus/minus</com>
+<div>
+x
+<g-low>+ -</g-low>12x + 16 = -6
+</div>
+
+<com>that becomes</com>
+<div>
+x <g-low>-</g-low> 12x + 16 = -6
+</div>
+
+<com>combine the like terms</com>
+<div>
+<r-ed>(</r-ed>x - 12x<r-ed>)</r-ed> + 16 = -6
+</div>
+
+<com>do the subraction</com>
+<div>
+<r-ed>-11x</r-ed> + 16 = -6
+</div>
+
+<com>subtract sixteen to help isolate the <b>x</b></com>
+<div>
+-11x + 16 <r-ed>-16</r-ed> = -6 <r-ed>-16</r-ed>
+</div>
+
+<com>cancel and do the arithmetic</com>
+<div>
+-11x + <c-ank data-low>16 - 16</c-ank> = <r-ed>-22</r-ed>
+</div>
+
+<com>reduce that to</com>
+<div>
+-11x = -22
+</div>
+
+<com>undo that multiplication by negative eleven</com>
+<div>
+<f-rac>
+    <p>-11x</p>
+    <p data-red>-11</p>
+</f-rac>
+=
+<f-rac>
+    <p>-22</p>
+    <p data-red>-11</p>
+</f-rac>
+</div>
+
+<com>canceling the negative eleven was the point</com>
+<div>
+<f-rac>
+    <p><r-ed data-cank>-11</r-ed>x</p>
+    <p><r-ed data-cank>-11</r-ed></p>
+</f-rac>
+=
+<f-rac>
+    <p>-22</p>
+    <p>-11</p>
+</f-rac>
+</div>
+
+<com>that leaves you with some simple math</com>
+<div>
+x =
+<f-rac>
+    <p>-22</p>
+    <p>-11</p>
+</f-rac>
+</div>
+
+<com>now, finally, we <b>still</b> aren't done;
+we need to find a value for <b>y</b> also</com>
+<div>
+    x = 2
+</div>
+
+<com>look back at the original system</com>
+<div>
+<p>y = -3x + 4</p><br>
+<p/>x + 4y = -6</p>
+</div>
+
+<com>again, one equation is already solved for <b>y</b></com>
+<div>
+<p data-glow>y = -3x + 4</p><br>
+<p/>x + 4y = -6</p>
+</div>
+
+<com>evaluate that equation, with your value for x</com>
+<div>
+<f-rom>
+    <p></p>
+    <p></p>
+    <p>y = -3x + 4</p>
+</f-rom>
+<i>x = 2</i>
+</div>
+
+<com>that <b>means</b> to replace the value</com>
+<div>
+<r-ed>&Implies;</r-ed>
+y = <p-t>-3</p-t><r-ed>(2)</r-ed> + 4
+</div>
+
+<com>do the arithmetic</com>
+<div>
+y = <r-ed>-6</r-ed> + 4
+</div>
+
+<com>now you've also solved for <b>y</b></com>
+<div>
+y = <r-ed>-2</r-ed>
+</div>
+
+<com>to solve the <b>system</b>, report <b>both</b>
+values</com>
+<div>
+<s-tar style="letter-spacing:0.04em;">
+{x = 2,&nbsp; y = -2}
+</s-tar>
+</div>
+
+
 
 
 
