@@ -13,7 +13,7 @@ content="width=device-width, initial-scale=1.0">
 
 :root {
     
-    --nose-hsla: hsla(40, 100%, 90%, 1);
+    --nose-hsla: hsla(0, 40%, 100%, 1);
     
     --nose-h: 40;
     --nose-s: 100%;
@@ -271,9 +271,9 @@ com::after {
 }
 
 </style>
-<style id="f-rak">
+<style id="f-rac">
 
-f-rak {
+f-rac {
     display: inline-grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
@@ -283,17 +283,17 @@ f-rak {
     word-spacing: -0.4ch;
 }
 
-f-rak > :nth-child(1) {
+f-rac > :nth-child(1) {
     border-bottom: 1px solid;
 }
 
-f-rak > :nth-child(1)::before,
-f-rak > :nth-child(1)::after {
+f-rac > :nth-child(1)::before,
+f-rac > :nth-child(1)::after {
     content: "\00a0";
     word-spacing: 1ch;
 }
 
-f-rak > p {
+f-rac > p {
     display: inline;
     margin: 0px;
     padding: 0px;
@@ -689,11 +689,11 @@ s-tar::before, s-tar::after {
 </style>
 <style id="b-rak">
     
-[data-brak], b-rak {
+[data-brak], b-rak,
+[data-drak], d-rak {
     
     --brak-color: var(--midness, #900);
     --brak-wide: 110%;
-    --brak-high: 100%;
     --brak-top: 20%;
     --brak-rot: 0deg;
     
@@ -701,20 +701,25 @@ s-tar::before, s-tar::after {
     
 }
 
-[data-brak]::after, b-rak::after {
+[data-brak]::after, b-rak::after,
+[data-drak]::after, d-rak::after {
     
     content: '';
     position: absolute;
+    height: 100%;
     width: var(--brak-wide);
-    height: var(--brak-high);
     left: calc((100% - var(--brak-wide))/2);
-    bottom: calc(100% - var(--brak-top));
     transform: rotate(var(--brak-rot));
     background-color: var(--brak-color);
     clip-path: url(#brak);
+    
 }
 
-[data-brak][data-low]::after, b-rak[data-low]::after {
+[data-brak]::after, b-rak::after {
+    bottom: calc(100% - var(--brak-top));
+}
+
+[data-drak]::after, d-rak::after {
     top: calc(100% - var(--brak-top));
     transform: rotate(calc(180deg + var(--brak-rot)));
 }
@@ -848,20 +853,12 @@ c-irk::before {
 <style id="g-low">
     
 [data-glow], g-low {
-    text-shadow:
-        0 0 10px #fd0,
-        0 0 20px #b22,
-        0 0 40px #fcc,
-        0 0 80px #f00;
+    text-shadow: 0 0 10px #fd0, 0 0 20px #b22, 0 0 40px #fcc, 0 0 80px #f00;
     
 }
 
 [data-neon], n-eon {
-    text-shadow:
-        0 0 10px #d0d,
-        0 0 20px #00d,
-        0 0 40px #fff,
-        0 0 80px #f0f;
+    text-shadow: 0 0 10px #d0d, 0 0 20px #00d, 0 0 40px #fff, 0 0 80px #f0f;
 }
 
 </style>
@@ -893,45 +890,10 @@ c-irk::before {
 }
 
 </style>
-<style id="g-rak">
-    
-[data-grak], g-rak{
-    
-    --grak-wide: 120%;
-    --grak-high: 1.3ch;
-    --grak-top: 17%;
-    --grak-rot: 0deg;
-    
-    position: relative;
-    
-}
-
-[data-grak]::after, g-rak::after {
-    
-    content: '';
-    position: absolute;
-    width: var(--grak-wide);
-    height: var(--grak-high);
-    left: calc((100% - var(--grak-wide))/2);
-    bottom: calc(100% - var(--grak-top));
-    transform: rotate(var(--grak-rot));
-    background-image: url("grak.svg");
-    background-repeat: no-repeat;
-    background-size: 100% 190%;
-
-}
-
-[data-grak][data-low]::after, g-rak[data-low]::after {
-    top: calc(100% - var(--grak-top));
-    transform: rotate(calc(180deg + var(--grak-rot)));
-}
-
-</style>
-
 </head>
 <body>
 <svg id="clipPaths" width="0" height="0">
-
+    
 	<clipPath id="rootBef" clipPathUnits="objectBoundingBox">
 	    <path d="
 	        M .32 .3
@@ -977,7 +939,8 @@ c-irk::before {
 		    H .62
 		    A .1 .12 180 0 0 .38 1
 		    Z
-		" fill="#000"/>
+		    
+		"/>
 	</clipPath>
 
 	<clipPath id="distRite" clipPathUnits="objectBoundingBox">
@@ -1104,16 +1067,181 @@ c-irk::before {
 <div class="holder">
 <div class="qr" style="font-size:50px;text-align:center;">
 
-<br><br>
+<style>p{display:inline;margin:0;padding:0}</style>
 
-<g-rak style="
-    --grak-wide: 80%;
-">3y<sup>5</sup> + 5y<sup>5</sup></g-rak>
-<br><br>
 
-9x<sup>3</sup> +
-<span data-grak data-low>3x<sup>2</sup> + 9x<sup>2</sup></span>
-+ 12x
+<com>asked to solve this <b>system of equations</b></com>
+<div>
+<p>y = -3x + 4</p><br>
+<p/>x + 4y = -6</p>
+</div>
+
+<com>luckily, one of them is already solved for <b>y</b></com>
+<div>
+<p data-glow>y = -3x + 4</p><br>
+<p/>x + 4y = -6</p>
+</div>
+
+<com>replace the <b>y</b> in the second equation
+with the value from the first</com>
+<div>
+<p>y = <r-ed>-3x + 4</r-ed></p><br>
+<p/>x + 4<r-ed>y</r-ed> = -6</p>
+</div>
+
+<com>now the second equation becomes</com>
+<div>
+<p>x + <p-t>4</p-t><r-ed>(-3x + 4)</r-ed> = -6</p>
+</div>
+
+<com>distribute the multiplication</com>
+<div>
+x + <p data-dist-right><p-t>4</p-t>(-3x + 4)</p>
+= -6
+</div>
+
+<com>that turns into</com>
+<div>
+x
++ <d-rak><p-t>4</p-t>-3x</d-rak>
++ <d-rak><p-t>4</p-t>4</d-rak>
+= -6
+</div>
+
+<com>do the actual multiplication</com>
+<div>
+x
++ <r-ed>-12x</r-ed>
++ <r-ed>16</r-ed>
+= -6
+</div>
+
+<com>combine the plus/minus</com>
+<div>
+x <g-low>+ -</g-low>12x + 16 = -6
+</div>
+
+<com>into just minus</com>
+<div>
+x <g-low>-</g-low> 12x + 16 = -6
+</div>
+
+<com>combine the like terms</com>
+<div>
+<d-rak>x - 12x</d-rak> + 16 = -6
+</div>
+
+<com>do the subraction</com>
+<div>
+<r-ed>-11x</r-ed> + 16 = -6
+</div>
+
+<com>subtract sixteen to help isolate the <b>x</b></com>
+<div>
+-11x + 16 <r-ed>-16</r-ed> = -6 <r-ed>-16</r-ed>
+</div>
+
+<com>cancel and do the arithmetic</com>
+<div>
+-11x + <c-ank data-low>16 - 16</c-ank> = <r-ed>-22</r-ed>
+</div>
+
+<com>reduce that to</com>
+<div>
+-11x = -22
+</div>
+
+<com>undo that multiplication by negative eleven</com>
+<div>
+<f-rac>
+    <p>-11x</p>
+    <p data-red>-11</p>
+</f-rac>
+=
+<f-rac>
+    <p>-22</p>
+    <p data-red>-11</p>
+</f-rac>
+</div>
+
+<com>canceling the negative eleven was the point</com>
+<div>
+<f-rac>
+    <p><r-ed data-cank>-11</r-ed>x</p>
+    <p><r-ed data-cank>-11</r-ed></p>
+</f-rac>
+=
+<f-rac>
+    <p>-22</p>
+    <p>-11</p>
+</f-rac>
+</div>
+
+<com>that leaves you with some simple math</com>
+<div>
+x =
+<f-rac>
+    <p>-22</p>
+    <p>-11</p>
+</f-rac>
+</div>
+
+<com>now, finally, we <b>still</b> aren't done;
+we need to find a value for <b>y</b> also</com>
+<div>
+   {x = 2, <r-ed>y = ???</r-ed>}
+</div>
+
+<com>look back at the original system</com>
+<div>
+<p>y = -3x + 4</p><br>
+<p/>x + 4y = -6</p>
+</div>
+
+<com>again, one equation is already solved for <b>y</b></com>
+<div>
+<p data-glow>y = -3x + 4</p><br>
+<p/>x + 4y = -6</p>
+</div>
+
+<com>evaluate that equation, with your value for x</com>
+<div>
+<f-rom>
+    <p></p>
+    <p></p>
+    <p>y = -3x + 4</p>
+</f-rom>
+<r-ed style="font-style:italic;font-size:0.8em">x=2</r-ed>
+</div>
+
+<com>that <b>means</b> to replace the value</com>
+<div>
+<r-ed>&Implies;</r-ed>
+y = <p-t>-3</p-t><r-ed>(2)</r-ed> + 4
+</div>
+
+<com>do the arithmetic</com>
+<div>
+y = <r-ed>-6</r-ed> + 4
+</div>
+
+<com>now you've also solved for <b>y</b></com>
+<div>
+y = <r-ed>-2</r-ed>
+</div>
+
+<com>to solve the <b>system</b>, report <b>both</b>
+values</com>
+<div>
+<s-tar style="letter-spacing:0.04em;">
+{x = 2,&nbsp; y = -2}
+</s-tar>
+</div>
+
+
+
+
+
 
 
 

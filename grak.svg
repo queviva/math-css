@@ -1,0 +1,63 @@
+<svg
+xmlns="http://www.w3.org/2000/svg"
+width="110px"
+height="50px"
+viewbox="0 0 130 130"
+preserveAspectRatio="none"
+xstyle="border: 1px solid #fff;"
+>
+  <defs>
+    <filter id="b1"
+    filterUnits="objectBoundingBox"
+        x="-10%" y="-10%" width="120%" height="150%"
+    >
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+    </filter>
+    <filter id="b2"
+    filterUnits="objectBoundingBox"
+        x="-10%" y="-10%" width="120%" height="150%"
+    >
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+    </filter>
+    <filter id="b3"
+    filterUnits="objectBoundingBox"
+        x="-10%" y="-10%" width="120%" height="150%"
+    >
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" />
+    </filter>
+    <filter id="b4"
+    filterUnits="objectBoundingBox"
+        x="-10%" y="-10%" width="120%" height="150%"
+    >
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
+    </filter>
+    <path id="brak"
+	   d="
+	        M 0 50
+	        A 10 30 0 0 1 10 20
+	        H 40
+	        A 10 30 0 0 0 50 0
+	        A 10 30 0 0 0 60 20
+	        H 90
+	        A 10 30 0 0 1 100 50
+	        A 10 25 0 0 0 90 25
+	        H 60
+	        A 10 20 0 0 1 50 15
+	        A 10 20 0 0 1 40 25
+	        H 10
+	        A 10 25 0 0 0 0 50
+	        Z
+    "/>
+  </defs>
+
+  <g transform="
+    translate(5 5)
+    scale(1 0.5)
+  ">
+  <use href="#brak" fill="#fd0" filter="url(#b1)" />
+  <use href="#brak" fill="#b22" filter="url(#b2)" />
+  <use href="#brak" fill="#fcc" filter="url(#b3)" />
+  <use href="#brak" fill="#fb0" filter="url(#b4)" />
+  <use href="#brak" fill="hsla(40,100%,90%,1)" />
+  </g>
+</svg>
