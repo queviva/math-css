@@ -17,10 +17,6 @@ content="width=device-width, initial-scale=1.0">
 }
 
 * {
-    
-    --back-color: #666;
-    --holder-back: #111;
-    
     box-sizing: border-box;
     word-wrap: break-word;
 }
@@ -72,6 +68,9 @@ body {
         calc(0.1 * var(--nose-s)),
         calc(0.6 * var(--nose-l))
     );
+                
+    --back-color: #666;
+    --holder-back: #111;
 
 	position: relative;
     color: var(--lightness);
@@ -552,7 +551,7 @@ f-rom > p {
 p-t::after {
     content: "\00b7";
     font-size: 0.8em;
-    color: var(--lightness);
+    color: var(--pt-color, var(--midness));
 }
 
 g-t::after {
@@ -1180,73 +1179,6 @@ f-x::after {
 }
 
 </style>
-<style id="n-add">
-
-n-add, n-min, n-ote {
-    
-    --note-rot: -10deg;
-    
-    display: inline-block;
-    font-size: 0.8em;
-    font-family: luckiest;
-    vertical-align: 30%;
-    transform: rotate(var(--note-rot));
-    filter: url("#viva");
-    z-index: -10;
-    
-}
-
-n-ote {
-    font-size: 0.3em;
-    vertical-align: 100%;
-}
-
-n-add::before {
-    content: '+';
-    font-size: 0.5em;
-    vertical-align: 50%;
-}
-
-n-min::before{
-    content: '-';
-    font-size: 0.5em;
-    vertical-align: 50%;
-}
-
-n-add[data-dark],
-n-min[data-dark],
-n-ote[data-dark] {
-    filter: none;
-}
-
-</style>
-<style id="g-ood">
-
-g-ood {
-    position: relative;
-    display: inline-block;
-    height: 80px;
-    vertical-align: -20%;
-    width: 2ch;
-}
-
-g-ood::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    color: var(--lightness);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M30 60L40 80Q63 45 100 15L110 10Q50 60 40 110Q23 95 15 80 Z'/%3E%3C/svg%3E");
-    
-    filter: url("#viva");
-    
-}
-
-</style>
-
 </head>
 
 <body>
@@ -1439,62 +1371,6 @@ g-ood::after {
       <feComposite in="F0" in2="SourceGraphic" operator="in"/>
     </filter>
     
-    <filter id="viva"
-        x="-75%"
-        y="-75%"
-        height="200%"
-        width="200%"
-    >
-        <feGaussianBlur stdDeviation="0.3" result="B0"/>
-        <feFlood flood-color="hsl(
-            var(--nose-h),
-            var(--nose-s),
-            90%
-        )" result="F0"/>
-        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
-        
-        <feGaussianBlur stdDeviation="2" result="B1"/>
-        <feFlood flood-color="hsl(
-            calc(var(--nose-h) + 12),
-            var(--nose-s),
-            50%
-        )" result="F1"/>
-        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
-        
-        <feGaussianBlur stdDeviation="3" result="B2"/>
-        <feFlood flood-color="hsl(
-            calc(var(--nose-h) - 20),
-            calc(var(--nose-s) * 0.69),
-            45%
-        )" result="F2"/>
-        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
-        
-        <feGaussianBlur stdDeviation="4" result="B3"/>
-        <feFlood flood-color="hsl(
-            calc(var(--nose-h) - 40),
-            calc(var(--nose-s) * 1.1),
-            50%
-        )" result="F3"/>
-        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
-        
-        <feGaussianBlur stdDeviation="8" result="B4"/>
-        <feFlood flood-color="hsl(
-            var(--nose-h),
-            calc(var(--nose-s) * 1.1),
-            50%
-        )" result="F4"/>
-        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
-        
-        <feMerge>
-			<feMergeNode in="Z4"/>
-			<feMergeNode in="Z3"/>
-			<feMergeNode in="Z2"/>
-			<feMergeNode in="Z1"/>
-			<feMergeNode in="Z0"/>
-		</feMerge>
-		
-    </filter>
-
     <filter id="lil-viva"
         x="-75%"
         y="-75%"
@@ -1551,14 +1427,186 @@ g-ood::after {
 		
     </filter>
     
+    <filter id="viva"
+        x="-75%"
+        y="-75%"
+        height="200%"
+        width="200%"
+    >
+        <feGaussianBlur stdDeviation="0.3" result="B0"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            90%
+        )" result="F0"/>
+        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
+        
+        <feGaussianBlur stdDeviation="2" result="B1"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 12),
+            var(--nose-s),
+            50%
+        )" result="F1"/>
+        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
+        
+        <feGaussianBlur stdDeviation="3" result="B2"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 20),
+            calc(var(--nose-s) * 0.69),
+            45%
+        )" result="F2"/>
+        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
+        
+        <feGaussianBlur stdDeviation="4" result="B3"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 40),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F3"/>
+        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
+        
+        <feGaussianBlur stdDeviation="8" result="B4"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F4"/>
+        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
+        
+        <feMerge>
+			<feMergeNode in="Z4"/>
+			<feMergeNode in="Z3"/>
+			<feMergeNode in="Z2"/>
+			<feMergeNode in="Z1"/>
+			<feMergeNode in="Z0"/>
+		</feMerge>
+		
+    </filter>
+
 </svg>
 <div class="qr" style="font-size:50px;text-align:center;">
-<div data-nose="#hold0" style="height:50px;width:100%"><i></i></div>
+<div data-nose="#hold0" style="border:1px solid;
+">
+    <i>viva~matics</i>
+</div>
 
-x = 5<g-ood></g-ood>
+<c-omm>you are asked to find <b>solutions</b> to</c-omm>
+<div>
+<f-x></f-x> =
+x<sup>2</sup> + 7x + 12
+</div>
 
-<br><br>
-Baby Joia<n-ote>looks<br>good!</n-ote>
+<c-omm>that means, set it equal to zero and solve</c-omm>
+<div>
+<v-iva>0</v-iva> =
+x<sup>2</sup> + 7x + 12
+</div>
+
+<c-omm>the binomial must be factored</c-omm>
+<div>
+0 = <f-akt>x<sup>2</sup> + 7x + 12</f-akt>
+</div>
+
+<c-omm>are there factors of twelve that
+combine to make seven?</c-omm>
+<div>
+0 = x<sup>2</sup> + 7x + <g-fak>12<p>1 12, 2 6, 3 4</p></g-fak>
+</div>
+
+<c-omm>that 'three-four' looks promising</c-omm>
+<div>
+(x + <v-iva>3</v-iva>) (x + <v-iva>4</v-iva>)
+</div>
+
+<c-omm>try the distribution</c-omm>
+<div>
+<d-ist>(x + 3) <g-t></g-t> (x + 4) </d-ist>
+</div>
+
+<c-omm>that expands to ...</c-omm>
+<div>
+x<g-t></g-t>x + x<g-t></g-t>4 + 3<g-t></g-t>x
++ 3<g-t></g-t>4
+</div>
+
+<c-omm>multiply, then terms need to combine</c-omm>
+<div>
+x<sup>2</sup> +
+<g-rak>4x + 3x</g-rak>
++ 12
+</div>
+
+<c-omm>that <b>is</b> correct</c-omm>
+<div>
+<v-iva>x<sup>2</sup> + 7x + 12</v-iva>
+</div>
+
+<c-omm>so, set the factored version equal to zero</c-omm>
+<div>
+<v-iva>0</v-iva> = (x + 3)(x + 4)
+</div>
+
+<c-omm>that is only possible if
+either factor itself equals zero</c-omm>
+<div>
+<small>
+<v-iva>&Implies;</v-iva>
+(x + 3) = 0
+<v-iva>or</v-iva> (x + 4) = 0 </small>
+</div>
+
+<c-omm>solve the first statement</c-omm>
+<div>
+x + 3 = 0
+</div>
+
+<c-omm>subtract three from both sides</c-omm>
+<div>
+x + 3 <v-iva>-3</v-iva> = 0 <v-iva>-3</v-iva>
+</div>
+
+<c-omm>cancel and do arithmetic</c-omm>
+<div>
+x <g-ank>+ 3</g-ank> <g-ank>- 3</g-ank>
+=
+<g-rak data-low>0 - 3</g-rak>
+</div>
+
+<c-omm>leaving the solution</c-omm>
+<div>
+    x = -3
+</div>
+
+<c-omm>but, you only have the <b>first</b> solution</c-omm>
+<div>
+x = {-3, <v-iva>???</v-iva>}
+</div>
+
+<c-omm>so, set the other factor equal to zero</c-omm>
+<div>
+x + 4 = <v-iva>0</v-iva>
+</div>
+
+<c-omm>subtract four from both sides</c-omm>
+<div>
+x + 4 <v-iva>-4</v-iva> = 0 <v-iva>-4</v-iva>
+</div>
+
+<c-omm>cancel and do the mathrobattics</c-omm>
+<div>
+x <g-ank data-opt1>+4 -4</g-ank>
+= <g-irk>0 - 4</g-irk>
+</div>
+
+<c-omm>now you have the other solution</c-omm>
+<div>
+x = -4
+</div>
+
+<c-omm>use both solutions for the answer</c-omm>
+<div>
+<s-tar>x = {-3, 4}</s-tar>
+</div>
 
 
 
