@@ -2,57 +2,18 @@
 xmlns="http://www.w3.org/2000/svg"
 width="130px"
 height="130px"
-xviewbox="0 0 130 130"
 preserveAspectRatio="none"
-xstyle="border: 1px solid #fff;"
 >
-  <defs>
-    <filter id="b1"
-    filterUnits="objectBoundingBox"
-        x="-50%" y="-50%" width="170%" height="170%"
-    >
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
-    </filter>
-    <filter id="b2"
-    filterUnits="objectBoundingBox"
-        x="-50%" y="-50%" width="170%" height="170%"
-    >
-      <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
-    </filter>
-    <filter id="b3"
-    filterUnits="objectBoundingBox"
-        x="-50%" y="-50%" width="170%" height="170%"
-    >
-      <feGaussianBlur in="SourceGraphic" stdDeviation="6" />
-    </filter>
-    <filter id="b4"
-    filterUnits="objectBoundingBox"
-        x="-50%" y="-50%" width="200%" height="200%"
-    >
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
-    </filter>
-    <path id="cirk"
-	   d="
-    	    M 90 38
-    	    C 88 14 62 -13 30 7
-    	    C 6 21 -6 53 3 77
-    	    C 12 101 38 105 63 95
-    	    C 95 82 108 33 95 13
-    	    C 102 34 88 74 65 85
-    	    C 43 95 21 92 13 72
-    	    C 6 52 17 25 38 12
-    	    C 61 -2 82 22 90 38
-    	    Z
+    <path transform="translate(15,15)" d="
+	M 90 38
+    	C 88 14 62 -13 30 7
+    	C 6 21 -6 53 3 77
+    	C 12 101 38 105 63 95
+    	C 95 82 108 33 95 13
+    	C 102 34 88 74 65 85
+    	C 43 95 21 92 13 72
+    	C 6 52 17 25 38 12
+    	C 61 -2 82 22 90 38
+    	Z
     "/>
-  </defs>
-
-  <g transform="
-    translate(15 15)
-  ">
-  <use href="#cirk" fill="#fd0" filter="url(#b1)" />
-  <use href="#cirk" fill="#b22" filter="url(#b2)" />
-  <use href="#cirk" fill="#fcc" filter="url(#b3)" />
-  <use href="#cirk" fill="#fb0" filter="url(#b4)" />
-  <use href="#cirk" fill="hsla(40,100%,90%,1)" />
-  </g>
 </svg>

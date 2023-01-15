@@ -271,18 +271,6 @@ com::after {
 }
 
 </style>
-<style id="text-shade">
-
-body {
-    
-    --text-shade:
-        0 0 10px #fd0,
-        0 0 20px #b22,
-        0 0 40px #fcc,
-        0 0 80px #f00;
-}
-    
-</style>
 <style id="f-rak">
 
 f-rak {
@@ -699,7 +687,7 @@ c-ank[data-hi] {
 }
 
 [data-gank][data-opt1], g-ank[data-opt1] {
-    --gank-back: url("gank01.svg#XXX");
+    --gank-back: url("gank01.svg");
     --gank-wide: 200%;
 }
 
@@ -717,7 +705,6 @@ c-ank[data-hi] {
     background-image: var(--gank-back);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    filter: url("#viva");
     
 }
 
@@ -808,7 +795,7 @@ r-oot::after {
     clip-path: url(#rootAft);
 }
 
-r-oot > p:nth-of-type(1) {
+r-oot > :nth-child(1) {
     position: absolute;
     font-size: 0.5em;
     top: -40%;
@@ -902,7 +889,12 @@ c-irk::before {
 <style id="g-low">
     
 [data-glow], g-low {
-    text-shadow: var(--text-shade);
+    text-shadow:
+        0 0 10px #fd0,
+        0 0 20px #b22,
+        0 0 40px #fcc,
+        0 0 80px #f00;
+    
 }
 
 [data-neon], n-eon {
@@ -967,7 +959,6 @@ c-irk::before {
     background-image: url("grak.svg");
     background-repeat: no-repeat;
     background-size: 100% 190%;
-    filter: url("#viva");
 
 }
 
@@ -1007,7 +998,6 @@ c-irk::before {
     background-image: var(--girk-back);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    filter: url("#viva");
 
 }
 
@@ -1034,61 +1024,13 @@ g-ank[data-red5]::before {
     transform: rotate(-14deg);
     font-family: luckiest;
     font-size: 0.6em;
-    text-shadow: var(--text-shade);
+    text-shadow:
+        0 0 2px #900,
+        0 0 10px #fd0,
+        0 0 20px #b22,
+        0 0 40px #fcc,
+        0 0 80px #f00;
     
-}
-
-</style>
-<style id="g-rut">
-
-g-rut{
-    
-    --grut-wide: calc(100% + 3ch);
-    --grut-high: 150%;
-    --grut-top: 0%;
-    --grut-rot: -15deg;
-    --grut-back: url("grut00.svg");
-    
-    font-size: 0.8em;
-    margin-left: 1ch;
-    
-    position: relative;
-    
-}
-
-g-rut[data-opt1]::after {
-    --grut-back: url("grut01.svg");
-}
-
-g-rut::after {
-    
-    content: '';
-    position: absolute;
-    width: var(--grut-wide);
-    height: var(--grut-high);
-    left: -2.1ch;
-    top: calc((100% - var(--grut-high))/2 + var(--grut-top));
-    background-image: var(--grut-back);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    filter: url("#viva");
-
-}
-
-g-rut > p:nth-of-type(1) {
-    position: absolute;
-    font-size: 0.5em;
-    font-family: luckiest;
-    top: -12%;
-    right: calc(100% + 0.7em);
-    transform: rotate(var(--grut-rot));
-    text-shadow: var(--text-shade);
-}
-
-g-rut > p {
-    display: inline;
-    margin: 0;
-    padding: 0;
 }
 
 </style>
@@ -1101,9 +1043,9 @@ g-rut > p {
 	    <path d="
 	        M .32 .3
 	        H .5
-	        Q .58 .58 .67 .63
-	        Q .75 .5 .8 .1
-	        H 1 V .2 H .9
+	        Q .58 .58 .67 .66
+	        Q .75 .5 .8 0
+	        H 1 V .1 H .9
 	        Q .75 .5 .7 1
 	        Q .6 .6 .42 .4
 	        H .3
@@ -1114,9 +1056,9 @@ g-rut > p {
 	
 	<clipPath id="rootAft" clipPathUnits="objectBoundingBox">
 	    <path d="
-	        M 0 .1
+	        M 0 0
 	        H 1
-	        L .97 .2
+	        L .9 .1
 	        H 0
 	        Z
 	    " fill="#000"/>
@@ -1266,66 +1208,95 @@ g-rut > p {
 	</clipPath>
 	
 </svg>
-<svg id="filterSVG" height="0" width="0">
-    
-    <filter
-        id="viva"
-        x="-75%"
-        y="-75%"
-        height="200%"
-        width="200%"
-    >
-        <feGaussianBlur stdDeviation="0.3" result="B0"/>
-        <feFlood flood-color="var(--lightness)" result="F0"/>
-        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
-        
-        <feGaussianBlur stdDeviation="2" result="B1"/>
-        <feFlood flood-color="#fd0" result="F1"/>
-        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
-        
-        <feGaussianBlur stdDeviation="3" result="B2"/>
-        <feFlood flood-color="#b52" result="F2"/>
-        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
-        
-        <feGaussianBlur stdDeviation="4" result="B3"/>
-        <feFlood flood-color="#f00" result="F3"/>
-        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
-        
-        <feGaussianBlur stdDeviation="8" result="B4"/>
-        <feFlood flood-color="#fa0" result="F4"/>
-        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
-        
-        <feMerge>
-			<feMergeNode in="Z4"/>
-			<feMergeNode in="Z3"/>
-			<feMergeNode in="Z2"/>
-			<feMergeNode in="Z1"/>
-			<feMergeNode in="Z0"/>
-		</feMerge>
-		
-    </filter>
-
-</svg>
-
 <div class="holder">
 <div class="qr" style="font-size:50px;text-align:center;">
-<br>
-<g-ank>3x</g-ank>
-&middot;
-<g-ank data-opt1>5y</g-ank>
-&middot;
-<g-irk>7x</g-irk>
-<br><br>
-<g-irk data-opt1>7x<sup>3</sup></g-irk>
-&middot;
-<g-rak>(3x + 1)</g-rak>
-&middot;
-<g-rut><p>5</p>3x<sup>2</sup> + 1</g-rut>
+
+<com>asked to solve this equachione for <b>x</b></com>
+<div>
+<f-rak>
+    <p>x<sup>2</sup> &middot; 8y</p>
+    <p>4y</p>
+</f-rak>
+= 10
+</div>
+
+<com>reduce the <b>y</b>'s to two</com>
+<div>
+<f-rak>
+    <p>
+        x<sup>2</sup> &middot;
+        <g-ank data-opt1 data-red2>8y</g-ank>
+    </p>
+    <p><g-ank data-red1>4y</g-ank></p>
+</f-rak>
+= 10
+</div>
+
+<com>you can drop the one in the denominator</com>
+<div>
+    <f-rak>
+        <p>x<sup>2</sup> &middot; 2</p>
+        <p data-glow> 1 </p>
+    </f-rak>
+    = 10
+</div>
+
+<com>you need to get rid of the two</com>
+<div>
+    x<sup>2</sup> &middot; <g-low>2</g-low> = 10
+</div>
+
+<com>divide both sides by two</com>
+<div>
+<f-rak>
+    <p>x<sup>2</sup> &middot; 2</p>
+    <g-low>2</g-low>
+</f-rak>
+=
+<f-rak>
+    <p>10</p>
+    <g-low>2</g-low>
+</f-rak>
+</div>
+
+<com>cancel out those values</com>
+<div>
+<f-rak>
+    <p>x<sup>2</sup> &middot; <g-ank data-opt1 data-hi>2</g-ank></p>
+    <p><g-ank>2</g-ank></p>
+</f-rak>
+=
+<f-rak>
+    <p><g-ank data-red5>10</g-ank></p>
+    <p><g-ank data-opt1 data-red1 data-hi>2</g-ank></p>
+</f-rak>
+</div>
+
+<com>rewrite that ekwachionne</com>
+<div>
+x<sup>2</sup> = 5
+</div>
+
+<com>take the square root of both sides</com>
+<div>
+<r-oot><p>2</p>x<sup>2</sup></r-oot>
+=
+<r-oot><p>2</p>5</r-oot>
+</div>
+
+<com>the root cancels the square</com>
+<div>
+<r-oot><p data-gank data-hi>2</p>x<sup data-gank>2</sup></r-oot>
+=
+<r-oot><p>2</p>5</r-oot>
+</div>
+
+<com>this should solve it</com>
+<div>
+    x = <r-oot>5</r-oot>
+</div>
 
 <br><br>
-
-
-
 </div end_qr>
 </div>
 </body>
