@@ -56,7 +56,12 @@ content="width=device-width, initial-scale=1.0">
     );
     
     --trans-speed: 0.3s;
-    
+        
+    --text-shade:
+        0 0 5px #fd0,
+        0 0 8px #b52,
+        0 0 10px #f00,
+        0 0 12px #fa0;
 }
 
 * {
@@ -243,6 +248,7 @@ hr {
 
 </style>
 <style id="sub_com_red">
+
 sup, sub {
     font-size: 0.5em;
 }
@@ -270,18 +276,6 @@ com::after {
     color: var(--midness);
 }
 
-</style>
-<style id="text-shade">
-
-body {
-    
-    --text-shade:
-        0 0 10px #fd0,
-        0 0 20px #b22,
-        0 0 40px #fcc,
-        0 0 80px #f00;
-}
-    
 </style>
 <style id="f-rak">
 
@@ -955,7 +949,7 @@ c-irk::before {
     
 }
 
-[data-grak]::after, g-rak::after {
+[data-grak]::before, g-rak::before {
     
     content: '';
     position: absolute;
@@ -971,7 +965,7 @@ c-irk::before {
 
 }
 
-[data-grak][data-low]::after, g-rak[data-low]::after {
+[data-grak][data-low]::before, g-rak[data-low]::before {
     top: calc(100% - var(--grak-top));
     transform: rotate(calc(180deg + var(--grak-rot)));
 }
@@ -1015,17 +1009,17 @@ c-irk::before {
 </style>
 <style id="r-ed1">
 
-g-ank[data-red1] { --red1-val: '1'; }
-g-ank[data-red2] { --red1-val: '2'; }
-g-ank[data-red3] { --red1-val: '3'; }
-g-ank[data-red4] { --red1-val: '4'; }
-g-ank[data-red5] { --red1-val: '5'; }
+[data-red1] { --red1-val: '1'; }
+[data-red2] { --red1-val: '2'; }
+[data-red3] { --red1-val: '3'; }
+[data-red4] { --red1-val: '4'; }
+[data-red5] { --red1-val: '5'; }
 
-g-ank[data-red1]::before,
-g-ank[data-red2]::before,
-g-ank[data-red3]::before,
-g-ank[data-red4]::before,
-g-ank[data-red5]::before {
+[data-red1]::after,
+[data-red2]::after,
+[data-red3]::after,
+[data-red4]::after,
+[data-red5]::after {
     
     content: var(--red1-val);
     position: absolute;
@@ -1310,17 +1304,6 @@ g-rut > p {
 <div class="holder">
 <div class="qr" style="font-size:50px;text-align:center;">
 <br>
-<g-ank>3x</g-ank>
-&middot;
-<g-ank data-opt1>5y</g-ank>
-&middot;
-<g-irk>7x</g-irk>
-<br><br>
-<g-irk data-opt1>7x<sup>3</sup></g-irk>
-&middot;
-<g-rak>(3x + 1)</g-rak>
-&middot;
-<g-rut><p>5</p>3x<sup>2</sup> + 1</g-rut>
 
 <br><br>
 
