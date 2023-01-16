@@ -672,7 +672,7 @@ c-ank[data-hi] {
     --gank-wide: 150%;
     --gank-high: 80%;
     --gank-rot: 0deg;
-    --gank-back: url("gank00.svg");
+    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
     --gank-opacity: 1;
     
     position: relative;
@@ -683,8 +683,13 @@ c-ank[data-hi] {
 }
 
 [data-gank][data-opt1], g-ank[data-opt1] {
-    --gank-back: url("gank01.svg#XXX");
-    --gank-wide: 200%;
+    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q55 70 105 0L110 10Q60 70 15 100Z'/%3E%3C/svg%3E");
+    --gank-wide: 160%;
+}
+
+[data-gank][data-opt2], g-ank[data-opt2] {
+    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M15 100Q40 90 70 25L69 45Q90 10 115 0Q90 15 65 70L65 52Q50 90 15 100Z'/%3E%3C/svg%3E");
+    --gank-wide: calc(150% + 20px);
 }
 
 [data-gank]::before, g-ank::before {
@@ -762,54 +767,6 @@ s-tar::before, s-tar::after {
 }
 
 </style>
-<style id="r-oot">
-
-r-oot {
-    
-    --root-color: var(--lightness);
-    
-    position: relative;
-    font-size: 0.8em;
-    word-spacing: -0.2em;
-    margin-left: 1.6ch;
-    margin-right: 0.4ch;
-    
-}
-
-r-oot::before, r-oot::after {
-    content: '';
-    position: absolute;
-    height: 110%;
-    background-color: var(--root-color);
-}
-    
-r-oot::before {
-    width: 1em;
-    left: -1em;
-    clip-path: url(#rootBef);
-}
-
-r-oot::after {
-    
-    width: calc(100% + 2px);
-    left: -2px;
-    clip-path: url(#rootAft);
-}
-
-r-oot > p:nth-of-type(1) {
-    position: absolute;
-    font-size: 0.5em;
-    top: -40%;
-    right: calc(100% + 0.6em);
-}
-
-r-oot > p {
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
-
-</style>
 <style id="l-ogb">
 
 l-ogb {
@@ -847,44 +804,6 @@ l-ogb > p {
     margin: 0;
     padding: 0;
 }
-
-</style>
-<style id="c-irk">
-
-[data-cirk], c-irk {
-    
-    --cirk-color: var(--midness);
-    --cirk-rad: 120%;
-    --cirk-rot: 0deg;
-    --cirk-dir: 1;
-    --cirk-opacity: 1;
-    --cirk-clip: url('#cirk01');
-    position: relative;
-}
-
-[data-cirk][data-opt],
-c-irk[data-opt] {
-    --cirk-clip: url('#cirk02');
-}
-
-[data-cirk]::before,
-c-irk::before {
-    
-    content: '';
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    height: var(--cirk-rad);
-    width: var(--cirk-rad);
-    top: calc((100% - var(--cirk-rad))/2);
-    left: calc((100% - var(--cirk-rad))/2);
-    transform: rotate(var(--cirk-rot)) scale(var(--cirk-dir), 1);
-    background-color: var(--cirk-color);
-    opacity: var(--cirk-opacity);
-    clip-path: var(--cirk-clip);
-    
-}
-
 
 </style>
 <style id="v-iva">
@@ -934,13 +853,28 @@ n-eon {
     
 [data-grak], g-rak{
     
-    --grak-wide: 120%;
-    --grak-high: 1.3ch;
-    --grak-top: 17%;
+    --grak-wide: calc(130% + 12px);
+    --grak-high: 30px;
+    --grak-top: 12px;
     --grak-rot: 0deg;
+    --grak-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52A10 30 0 0 1 25 22H55A10 30 0 0 0 65 2A10 30 0 0 0 75 22H105A10 30 0 0 1 115 52A10 25 0 0 0 105 27H75A10 20 0 0 1 65 17A10 20 0 0 1 55 27H25A10 25 0 0 0 15 52Z'/%3E%3C/svg%3E");
+    --grak-filter: url("#viva");
     
     position: relative;
     
+}
+
+[data-grak][data-low]::before, g-rak[data-low]::before {
+    top: calc(100% - var(--grak-top));
+    transform: rotate(calc(180deg + var(--grak-rot)));
+}
+
+[data-grak][data-dark], g-rak[data-dark] {
+    --grak-filter: url("#lightness");
+}
+
+[data-grak][data-opt1], g-rak[data-opt1] {
+        --grak-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52Q16 30 14 15Q65 25 116 15Q114 30 115 52L112 25H18Z'/%3E%3C/svg%3E");
 }
 
 [data-grak]::before, g-rak::before {
@@ -952,17 +886,13 @@ n-eon {
     left: calc((100% - var(--grak-wide))/2);
     bottom: calc(100% - var(--grak-top));
     transform: rotate(var(--grak-rot));
-    background-image: url("grak.svg");
+    background-image: var(--grak-back);
     background-repeat: no-repeat;
     background-size: 100% 190%;
-    filter: url("#viva");
+    filter: var(--grak-filter);
 
 }
 
-[data-grak][data-low]::before, g-rak[data-low]::before {
-    top: calc(100% - var(--grak-top));
-    transform: rotate(calc(180deg + var(--grak-rot)));
-}
 
 </style>
 <style id="g-irk">
@@ -973,14 +903,29 @@ n-eon {
     --girk-high: 150%;
     --girk-top: 0%;
     --girk-rot: 0deg;
-    --girk-back: url("girk00.svg");
+    --girk-flip: 1;
+    --girk-filter: url("#viva");
+    --girk-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M105 55Q95 15 75 15C45 15 15 45 15 75S35 115 55 115S135 95 105 25Q125 97 55 109C35 112 20 95 20 75C20 35 75 -5 105 55Z'/%3E%3C/svg%3E");
     
     position: relative;
     
 }
 
+[data-girk][data-dark], g-irk[data-dark] {
+    --girk-filter: url("#lightness");
+}
+
+[data-girk][data-flip], g-irk[data-flip] {
+    --girk-flip: -1;
+}
+
+[data-girk][data-big], g-irk[data-big] {
+    --girk-wide: 280%;
+    --girk-high: 250%;
+}
+
 [data-girk][data-opt1]::after, g-irk[data-opt1]::after {
-    --girk-back: url("girk01.svg");
+    --girk-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M105 53C103 29 77 2 45 22C21 36 9 68 18 92C27 116 53 120 78 110C110 97 123 48 110 28C117 49 103 89 80 100C58 110 36 107 28 87C21 67 32 40 53 27C76 13 97 37 105 53Z'/%3E%3C/svg%3E");
 }
 
 [data-girk]::after, g-irk::after {
@@ -991,11 +936,11 @@ n-eon {
     height: var(--girk-high);
     left: calc((100% - var(--girk-wide))/2);
     top: calc((100% - var(--girk-high))/2 + var(--girk-top));
-    transform: rotate(var(--girk-rot));
+    transform: rotate(var(--girk-rot)) scale(var(--girk-flip),1);
     background-image: var(--girk-back);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    filter: url("#viva");
+    filter: var(--girk-filter);
 
 }
 
@@ -1003,11 +948,11 @@ n-eon {
 </style>
 <style id="r-ed1">
 
-[data-red1] { --red1-val: '1'; }
-[data-red2] { --red1-val: '2'; }
-[data-red3] { --red1-val: '3'; }
-[data-red4] { --red1-val: '4'; }
-[data-red5] { --red1-val: '5'; }
+[data-red1] { position: relative; --red1-val: '1'; }
+[data-red2] { position: relative; --red1-val: '2'; }
+[data-red3] { position: relative; --red1-val: '3'; }
+[data-red4] { position: relative; --red1-val: '4'; }
+[data-red5] { position: relative; --red1-val: '5'; }
 
 [data-red1]::after,
 [data-red2]::after,
@@ -1026,61 +971,7 @@ n-eon {
     filter: url("#lil-viva");
     
     padding: 8px;
-    border: 1px solid;
     
-}
-
-</style>
-<style id="g-rut">
-
-g-rut{
-    
-    --grut-wide: calc(100% + 3ch);
-    --grut-high: 150%;
-    --grut-top: 0%;
-    --grut-rot: -15deg;
-    --grut-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none'%3E%3Cpath transform='translate(15, 15)' d=' M-2.5 52L1 30L10 60Q11 30 9 0Q30 5 108 7L103 8L13 10L13 92Q10 75 0 47Z' fill='%23900' /%3E%3C/svg%3E");
-    
-    font-size: 0.8em;
-    margin-left: 1ch;
-    
-    position: relative;
-    
-}
-
-g-rut[data-opt1]::after {
-    --grut-back: url("grut01.svg");
-}
-
-g-rut::after {
-    
-    content: '';
-    position: absolute;
-    width: var(--grut-wide);
-    height: var(--grut-high);
-    left: -2.1ch;
-    top: calc((100% - var(--grut-high))/2 + var(--grut-top));
-    background-image: var(--grut-back);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    filter: url("#viva");
-
-}
-
-g-rut > p:nth-of-type(1) {
-    position: absolute;
-    font-size: 0.5em;
-    font-family: luckiest;
-    top: -12%;
-    right: calc(100% + 0.7em);
-    transform: rotate(var(--grut-rot));
-    filter: url("#lil-viva");
-}
-
-g-rut > p {
-    display: inline;
-    margin: 0;
-    padding: 0;
 }
 
 </style>
@@ -1091,6 +982,7 @@ g-rut > p {
     --gfak-high: 1ch;
     
     position: relative;
+    margin-right: 0.5ch;
     font-weight: bold;
     color: rgba(0,0,0,0);
     text-shadow:
@@ -1243,6 +1135,132 @@ g-ood::after {
     
     filter: url("#viva");
     
+}
+
+</style>
+<style id="r-oot">
+
+r-oot {
+    
+    --root-rot: -15deg;
+    --root-back-for: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='100px' preserveAspectRatio='none'%3E%3Cpath transform='translate(15, 0)' d=' M-2.5 52L1 30L10 60Q11 30 9 0 L13 10L13 92Q10 75 0 47Z'/%3E%3C/svg%3E");
+    
+    --root-filter: url("#viva");
+    --root-lil-filter: url("#viva");
+    
+    position: relative;
+    font-size: 0.8em;
+    word-spacing: -0.2em;
+    margin-left: 30px;
+    margin-right: 0.4ch;
+    
+}
+
+r-oot::before, r-oot::after {
+    content: '';
+    position: absolute;
+    height: 130%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: var(--root-filter);
+}
+    
+r-oot::before {
+    
+    width: 30px;
+    left: -1em;
+    background-image: var(--root-back-for);
+    
+    border: 1px solid;
+    
+}
+
+r-oot::after {
+    
+    width: calc(100% + 2px);
+    left: -2px;
+    clip-path: url(#rootAft);
+    
+}
+
+r-oot > p:nth-of-type(1) {
+    position: absolute;
+    font-size: 0.5em;
+    font-family: luckiest;
+    top: -12%;
+    right: calc(100% + 0.7em);
+    transform: rotate(var(--root-rot));
+    filter: var(--root-lil-filter);
+}
+
+r-oot > p {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+</style>
+<style id="g-rut">
+
+g-rut {
+    
+    --grut-high: 120%;
+    --grut-rot: -15deg;
+    --grut-back-for: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M8 50L12 28L24 52Q22 25 18 0L23 1Q28 45 27 90Q22 63 11 43 Z' /%3E%3C/svg%3E");
+    --grut-back-aft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 0H 100L95 2L 2 7Z' /%3E%3C/svg%3E");
+    --grut-filter: url("#viva");
+    --grut-lil-filter: url("#lil-viva");
+    
+    font-size: 0.8em;
+    word-spacing: -0.2em;
+    margin-left: 20px;
+    margin-right: 0.5ch;
+    
+    position: relative;
+    
+}
+
+g-rut[data-dark] {
+    --grut-filter: url("#lightness");
+    --grut-lil-filter: url("#lightness");
+}
+
+g-rut::before, g-rut::after {
+    content: '';
+    position: absolute;
+    height: var(--grut-high);
+    top: calc((100% - var(--grut-high))/2);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: var(--grut-filter);
+}
+
+g-rut::before {
+    width: 30px;
+    left: -35px;
+    background-image: var(--grut-back-for);
+}
+
+g-rut::after {
+    width: calc(100% + 25px);
+    left: -17px;
+    background-image: var(--grut-back-aft);
+}
+
+g-rut > p:nth-of-type(1) {
+    position: absolute;
+    font-size: 0.5em;
+    font-family: luckiest;
+    top: -12%;
+    right: calc(100% + 0.8em);
+    transform: rotate(var(--grut-rot));
+    filter: var(--grut-lil-filter);
+}
+
+g-rut > p {
+    display: inline;
+    margin: 0;
+    padding: 0;
 }
 
 </style>
@@ -1422,7 +1440,7 @@ g-ood::after {
 	</clipPath>
 	
 </svg>
-<svg id="filterSVG" height="0" width="0">
+<svg id="SVGfilter" height="0" width="0">
 
     <filter id="lightness">
       <feFlood flood-color="var(--lightness)" result="F0"/>
@@ -1440,10 +1458,10 @@ g-ood::after {
     </filter>
     
     <filter id="viva"
-        x="-75%"
-        y="-75%"
-        height="200%"
-        width="200%"
+        x="-100%"
+        y="-100%"
+        height="300%"
+        width="300%"
     >
         <feGaussianBlur stdDeviation="0.3" result="B0"/>
         <feFlood flood-color="hsl(
@@ -1498,8 +1516,8 @@ g-ood::after {
     <filter id="lil-viva"
         x="-75%"
         y="-75%"
-        height="200%"
-        width="200%"
+        height="300%"
+        width="300%"
     >
         <feGaussianBlur stdDeviation="0.3" result="B0"/>
         <feFlood flood-color="hsl(
@@ -1509,7 +1527,7 @@ g-ood::after {
         )" result="F0"/>
         <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
         
-        <feGaussianBlur stdDeviation="0.5" result="B1"/>
+        <feGaussianBlur stdDeviation="0.7" result="B1"/>
         <feFlood flood-color="hsl(
             calc(var(--nose-h) + 12),
             var(--nose-s),
@@ -1517,7 +1535,7 @@ g-ood::after {
         )" result="F1"/>
         <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
         
-        <feGaussianBlur stdDeviation="1" result="B2"/>
+        <feGaussianBlur stdDeviation="0.9" result="B2"/>
         <feFlood flood-color="hsl(
             calc(var(--nose-h) - 20),
             calc(var(--nose-s) * 0.69),
@@ -1553,13 +1571,14 @@ g-ood::after {
     
 </svg>
 <div class="qr" style="font-size:50px;text-align:center;">
-<div data-nose="#hold0" style="height:50px;width:100%"><i></i></div>
+<div data-nose="#hold0" style="height:50px;width:100%"></div>
 
-x = 5<g-ood></g-ood>
+for <g-rut data-dark>
+    25 + x
+<p>xyz</p>
 
-<br><br>
-Baby Joia<n-ote>looks<br>good!</n-ote>
-
+</g-rut> aft
+<br>
 
 
 
