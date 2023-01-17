@@ -257,6 +257,30 @@ hr {
     
     --gank-sigma-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 20L100 0L40 50L80 70L0 100L50 70L20 50L80 10Z'/%3E%3C/svg%3E");
     
+    --gank-slash-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
+    
+    --dist-full-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath transform='translate(15,15)' d='M8 100A15 15 180 0 1 67 100H62A10 11 180 0 0 13 100H8A35 35 180 0 1 92 100H87A20 21 180 0 0 13 100ZM 33 100A15 15 180 0 1 92 100H87A20 22 180 0 0 38 100H33A17 17 180 0 1 67 100H62A10 12 180 0 0 38 100Z'/%3E%3C/svg%3E");
+    
+    --dist-right-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M23 115A35 35 180 0 1 106 115H101A35 33 180 0 0 28 115H23A20 20 180 0 1 68 115H63A15 14 180 0 0 28 115Z'/%3E%3C/svg%3E");
+    
+    --dist-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M106 115A35 35 180 0 0 27 115H32A35 40 180 0 1 101 115H106A21 20 180 0 0 64 115H69A15 14 180 0 1 101 115 Z'/%3E%3C/svg%3E");
+    
+    --grak-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52A10 30 0 0 1 25 22H55A10 30 0 0 0 65 2A10 30 0 0 0 75 22H105A10 30 0 0 1 115 52A10 25 0 0 0 105 27H75A10 20 0 0 1 65 17A10 20 0 0 1 55 27H25A10 25 0 0 0 15 52Z'/%3E%3C/svg%3E");
+        
+    --grak-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52Q16 30 14 15Q65 25 116 15Q114 30 115 52L112 25H18Z'/%3E%3C/svg%3E");
+    
+    
+}
+
+</style>
+<style id="v-iva">
+    
+v-iva {
+    filter: url("#viva");
+}
+
+v-ers {
+    filter: url("#vers");
 }
 
 </style>
@@ -505,7 +529,9 @@ i-teg[data-gank]::after {
 
 e-val {
     
-    --eval-color: var(--midness);
+    --eval-filter: none;
+    --eval-filter-from: none;
+    --eval-filter-to: none;
     
     position: relative;
     margin-left: 0.5em;
@@ -520,7 +546,7 @@ e-val::before {
     font-size: 1em;
     transform:scale(1,2.0);
     font-weight: bold;
-    color: var(--eval-color);
+    filter: var(--eval-filter);
 }
 
 e-val::after {
@@ -531,7 +557,7 @@ e-val::after {
     font-size: 1em;
     transform:scale(1,2.0);
     font-weight: bold;
-    color: var(--eval-color);
+    filter: var(--eval-filter);
 }
 
 e-val > :nth-child(1) {
@@ -539,7 +565,7 @@ e-val > :nth-child(1) {
     font-size: 0.4em;
     top: calc(100% + 1.3em);
     left: 100%;
-    color: var(--eval-color);
+    filter: var(--eval-filter-from);
 }
 
 e-val > :nth-child(2) {
@@ -547,19 +573,32 @@ e-val > :nth-child(2) {
     font-size: 0.4em;
     bottom: calc(100% + 0.5em);
     left: 100%;
-    color: var(--eval-color);
+    filter: var(--eval-filter-to);
 }
 
-e-val > p {
-    display: inline-block;
-    margin: 0%;
-    padding: 0%;
+e-val[data-viva] {
+    --eval-filter: url("#viva");
+    --eval-filter-from: url("#viva");
+    --eval-filter-to: url("#viva");
+}
+
+e-val[data-viva-from] {
+    --eval-filter-from: url("#viva");
+}
+
+e-val[data-viva-to] {
+    --eval-filter-to: url("#viva");
 }
 
 </style>
 <style id="f-rom">
 
 f-rom {
+    
+    --from-filter-bar: none;
+    --from-filter-from: none;
+    --from-filter-to: none;
+    
     position: relative;
     margin-left: 0.5em;
     margin-right: 0.5em;
@@ -574,6 +613,7 @@ f-rom::after {
     font-size: 1em;
     transform:scale(1,2.0);
     font-weight: bold;
+    filter: var(--from-filter-bar);
 }
 
 f-rom > :nth-child(1) {
@@ -581,6 +621,7 @@ f-rom > :nth-child(1) {
     font-size: 0.4em;
     top: calc(100% + 1.3em);
     left: 100%;
+    filter: var(--from-filter-from);
 }
 
 f-rom > :nth-child(2) {
@@ -588,36 +629,50 @@ f-rom > :nth-child(2) {
     font-size: 0.4em;
     bottom: calc(100% + 0.5em);
     left: 100%;
+    filter: var(--from-filter-to);
 }
 
-f-rom > p {
-    display: inline-block;
-    margin: 0%;
-    padding: 0%;
+f-rom[data-viva] {
+    --from-filter-bar: url("#viva");
+    --from-filter-from: url("#viva");
+    --from-filter-to: url("#viva");
+}
+
+f-rom[data-viva-bar] {
+    --from-filter-bar: url("#viva");
+}
+
+f-rom[data-viva-from] {
+    --from-filter-from: url("#viva");
+}
+
+f-rom[data-viva-to] {
+    --from-filter-to: url("#viva");
 }
 
 </style>
 <style id="d-ist">
 
-[data-dist], d-ist,
-[data-dist-right], d-ist-right,
-[data-dist-left], d-ist-left
+d-ist,
+d-ist-right,
+d-ist-left
 {
     --dist-wide: 130%;
     --dist-high: 60px;
+    --dist-left: 0px;
     --dist-filter: url("#viva");
     
     position: relative;
 }
 
-[data-dist]::after, d-ist::after,
-[data-dist-right]::after, d-ist-right::after,
-[data-dist-left]::after, d-ist-left::after
+d-ist::after,
+d-ist-right::after,
+d-ist-left::after
 {
     content: '';
     position: absolute;
     bottom: 80%;
-    left: calc((100% - var(--dist-wide))/2);
+    left: calc((100% - var(--dist-wide))/2 + var(--dist-left));
     width: var(--dist-wide);
     height: var(--dist-high);
     background-repeat: no-repeat;
@@ -625,39 +680,43 @@ f-rom > p {
     filter: var(--dist-filter);
 }
 
-[data-dist][data-mid]::after,
-      d-ist[data-mid]::after,
-[data-dist-right][data-mid]::after,
-      d-ist-right[data-mid]::after,
-[data-dist-left][data-mid]::after,
-      d-ist-left[data-mid]::after {
-    --dist-filter: url("#midness");
+d-ist[data-dark]::after,
+d-ist-right[data-dark]::after,
+d-ist-left[data-dark]::after {
+    --dist-filter: url("#lightness");
 }
 
-[data-dist]::after, d-ist::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath transform='translate(15,15)' d='M8 100A15 15 180 0 1 67 100H62A10 11 180 0 0 13 100H8A35 35 180 0 1 92 100H87A20 21 180 0 0 13 100ZM 33 100A15 15 180 0 1 92 100H87A20 22 180 0 0 38 100H33A17 17 180 0 1 67 100H62A10 12 180 0 0 38 100Z'/%3E%3C/svg%3E");;
+d-ist::after {
+    background-image: var(--dist-full-00);
 }
 
-[data-dist-right]::after, d-ist-right::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M23 115A35 35 180 0 1 106 115H101A35 33 180 0 0 28 115H23A20 20 180 0 1 68 115H63A15 14 180 0 0 28 115Z'/%3E%3C/svg%3E");
+d-ist-right::after {
+    background-image: var(--dist-right-00);
 }
 
-[data-dist-left]::after, d-ist-left::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M106 115A35 35 180 0 0 27 115H32A35 40 180 0 1 101 115H106A21 20 180 0 0 64 115H69A15 14 180 0 1 101 115 Z'/%3E%3C/svg%3E");
+d-ist-left::after {
+    background-image: var(--dist-left-00);
 }
+
 
 </style>
-<style id="p-tym">
+<style id="t-yme">
 
 p-t::after {
     content: "\00b7";
     font-size: 0.8em;
-    color: var(--lightness);
+    filter: url("#lightness");
 }
 
-g-t::after {
+v-t::after {
     content: "\00b7";
     font-size: 0.8em;
+    filter: url("#viva");
+}
+
+i-mp::after {
+    content: "\21d2";
+    font-size: 0.6em;
     filter: url("#viva");
 }
 
@@ -688,122 +747,13 @@ d-dx::after, dy-dx::after {
     content: 'dx';
 }
 
-</style>
-<style id="p-owr">
-
-p-owr {
-    
-    --powr-color: var(--darkness, #900);
-    --powr-wide: 100%;
-    
-    position: relative;
-    
+d-dx[data-viva], dy-dx[data-viva] {
+    filter: url("#viva");
 }
 
-p-owr::before {
+d-dx[data-gank], dy-dx[data-gank] {
     
-    content: '';
-    position: absolute;
-    
-    right: -0.3ch;
-    top: 0;
-    height: 2ch;
-    width: var(--powr-wide);
-    background-color: var(--powr-color);
-    
-    clip-path: url(#powerRule);
-    
-    
-}
-
-p-owr::after {
-    
-    content: '-1';
-    position: absolute;
-    font-size: 0.35em;
-    color: var(--powr-color);
-    left: calc(100% + 0.0em);
-    top: -0.5em;
-    transform: rotate(-15deg);
-    
-}
-
-</style>
-<style id="c-ank">
-
-[data-cank], c-ank {
-    
-    --cank-color: var(--midness, #900);
-    --cank-wide: 120%;
-    --cank-high: 80%;
-    --cank-rot: 0deg;
-    --cank-opacity: 1;
-    
-    position: relative;
-}
-
-[data-cank][data-hi],
-c-ank[data-hi] {
-    --cank-high: 100%;
-}
-
-[data-cank]::after, c-ank::after {
-    
-    content: '';
-    
-    position: absolute;
-    bottom: 0;
-    left: calc((100% - var(--cank-wide))/2);
-    height: var(--cank-high);
-    width: var(--cank-wide);
-    transform: var(--cank-rot);
-    transform: rotate(var(--cank-rot));
-    background-color: var(--cank-color);
-    clip-path: url(#cank);
-    
-}
-
-</style>
-<style id="g-ank">
-
-g-ank {
-    
-    --gank-color: var(--midness, #900);
-    --gank-wide: 150%;
-    --gank-high: 80%;
-    --gank-rot: 0deg;
-    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
-    --gank-opacity: 1;
-    
-    position: relative;
-}
-
-g-ank[data-hi] {
-    --gank-high: 100%;
-}
-
-g-ank[data-opt1] {
-    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q55 70 105 0L110 10Q60 70 15 100Z'/%3E%3C/svg%3E");
-    --gank-wide: 160%;
-}
-
-g-ank[data-opt2] {
-    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M15 100Q40 90 70 25L69 45Q90 10 115 0Q90 15 65 70L65 52Q50 90 15 100Z'/%3E%3C/svg%3E");
-    --gank-wide: calc(150% + 20px);
-}
-
-g-ank::before {
-    
-    content: '';
-    
-    position: absolute;
-    bottom: 0;
-    left: calc((100% - var(--gank-wide))/2);
-    height: var(--gank-high);
-    width: var(--gank-wide);
-    transform: var(--gank-rot);
-    transform: rotate(var(--gank-rot));
-    background-image: var(--gank-back);
+    background-image: var(--gank-slash-00);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     filter: url("#viva");
@@ -815,7 +765,7 @@ g-ank::before {
 
 s-tar {
     
-    --star-color: var(--lightness);
+    --star-filter: url("#viva");
     
     position:relative;
     word-spacing: -0.04em;
@@ -828,91 +778,38 @@ s-tar::before, s-tar::after {
     padding: 3px;
     vertical-align: 60%;
     font-size:0.4em;
-    color: var(--star-color);
-    filter: url("#viva");
-    
-}
-    
-</style>
-<style id="b-rak">
-    
-[data-brak], b-rak {
-    
-    --brak-color: var(--midness, #900);
-    --brak-wide: 110%;
-    --brak-high: 100%;
-    --brak-top: 20%;
-    --brak-rot: 0deg;
-    
-    position: relative;
+    filter: var(--star-filter);
     
 }
 
-[data-brak]::after, b-rak::after {
+s-tar[data-dark] {
+    --star-filter: url("#lightness");
+}
     
-    content: '';
-    position: absolute;
-    width: var(--brak-wide);
-    height: var(--brak-high);
-    left: calc((100% - var(--brak-wide))/2);
-    bottom: calc(100% - var(--brak-top));
-    transform: rotate(var(--brak-rot));
-    background-color: var(--brak-color);
-    clip-path: url(#brak);
-}
-
-[data-brak][data-low]::after, b-rak[data-low]::after {
-    top: calc(100% - var(--brak-top));
-    transform: rotate(calc(180deg + var(--brak-rot)));
-}
-
-</style>
-<style id="v-iva">
-    
-v-iva {
-    filter: url("#viva");
-}
-
-v-ers {
-    filter: url("#vers");
-}
-
 </style>
 <style id="g-rak">
     
-[data-grak], g-rak{
+g-rak{
     
     --grak-wide: calc(130% + 12px);
     --grak-high: 30px;
     --grak-top: 12px;
+    --grak-left: 0px;
     --grak-rot: 0deg;
-    --grak-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52A10 30 0 0 1 25 22H55A10 30 0 0 0 65 2A10 30 0 0 0 75 22H105A10 30 0 0 1 115 52A10 25 0 0 0 105 27H75A10 20 0 0 1 65 17A10 20 0 0 1 55 27H25A10 25 0 0 0 15 52Z'/%3E%3C/svg%3E");
+    --grak-back: var(--grak-00);
     --grak-filter: url("#viva");
     
     position: relative;
     
 }
 
-[data-grak][data-low]::before, g-rak[data-low]::before {
-    top: calc(100% - var(--grak-top));
-    transform: rotate(calc(180deg + var(--grak-rot)));
-}
-
-[data-grak][data-dark], g-rak[data-dark] {
-    --grak-filter: url("#lightness");
-}
-
-[data-grak][data-opt1], g-rak[data-opt1] {
-        --grak-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52Q16 30 14 15Q65 25 116 15Q114 30 115 52L112 25H18Z'/%3E%3C/svg%3E");
-}
-
-[data-grak]::before, g-rak::before {
+g-rak::before {
     
     content: '';
     position: absolute;
     width: var(--grak-wide);
     height: var(--grak-high);
-    left: calc((100% - var(--grak-wide))/2);
+    left: calc((100% - var(--grak-wide))/2 + var(--grak-left));
     bottom: calc(100% - var(--grak-top));
     transform: rotate(var(--grak-rot));
     background-image: var(--grak-back);
@@ -922,55 +819,17 @@ v-ers {
 
 }
 
-
-</style>
-<style id="g-irk">
-
-[data-girk], g-irk{
-    
-    --girk-wide: 180%;
-    --girk-high: 150%;
-    --girk-top: 0%;
-    --girk-rot: 0deg;
-    --girk-flip: 1;
-    --girk-filter: url("#viva");
-    --girk-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M105 55Q95 15 75 15C45 15 15 45 15 75S35 115 55 115S135 95 105 25Q125 97 55 109C35 112 20 95 20 75C20 35 75 -5 105 55Z'/%3E%3C/svg%3E");
-    
-    position: relative;
-    
+g-rak[data-lo]::before {
+    top: calc(100% - var(--grak-top));
+    transform: rotate(calc(180deg + var(--grak-rot)));
 }
 
-[data-girk][data-dark], g-irk[data-dark] {
-    --girk-filter: url("#lightness");
+g-rak[data-dark] {
+    --grak-filter: url("#lightness");
 }
 
-[data-girk][data-flip], g-irk[data-flip] {
-    --girk-flip: -1;
-}
-
-[data-girk][data-big], g-irk[data-big] {
-    --girk-wide: 280%;
-    --girk-high: 250%;
-}
-
-[data-girk][data-opt1]::after, g-irk[data-opt1]::after {
-    --girk-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M105 53C103 29 77 2 45 22C21 36 9 68 18 92C27 116 53 120 78 110C110 97 123 48 110 28C117 49 103 89 80 100C58 110 36 107 28 87C21 67 32 40 53 27C76 13 97 37 105 53Z'/%3E%3C/svg%3E");
-}
-
-[data-girk]::after, g-irk::after {
-    
-    content: '';
-    position: absolute;
-    width: var(--girk-wide);
-    height: var(--girk-high);
-    left: calc((100% - var(--girk-wide))/2);
-    top: calc((100% - var(--girk-high))/2 + var(--girk-top));
-    transform: rotate(var(--girk-rot)) scale(var(--girk-flip),1);
-    background-image: var(--girk-back);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    filter: var(--girk-filter);
-
+g-rak[data-opt1] {
+    --grak-back: var(--grak-01);
 }
 
 
@@ -1004,6 +863,7 @@ v-ers {
 }
 
 </style>
+
 <style id="g-fak">
 
 [data-gfak], g-fak {
@@ -1455,6 +1315,145 @@ r-aze > :nth-child(2)::after {
 }
 
 </style>
+<style id="g-irk">
+
+[data-girk], g-irk{
+    
+    --girk-wide: 180%;
+    --girk-high: 150%;
+    --girk-top: 0%;
+    --girk-rot: 0deg;
+    --girk-flip: 1;
+    --girk-filter: url("#viva");
+    --girk-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M105 55Q95 15 75 15C45 15 15 45 15 75S35 115 55 115S135 95 105 25Q125 97 55 109C35 112 20 95 20 75C20 35 75 -5 105 55Z'/%3E%3C/svg%3E");
+    
+    position: relative;
+    
+}
+
+[data-girk][data-dark], g-irk[data-dark] {
+    --girk-filter: url("#lightness");
+}
+
+[data-girk][data-flip], g-irk[data-flip] {
+    --girk-flip: -1;
+}
+
+[data-girk][data-big], g-irk[data-big] {
+    --girk-wide: 280%;
+    --girk-high: 250%;
+}
+
+[data-girk][data-opt1]::before, g-irk[data-opt1]::before {
+    --girk-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M105 53C103 29 77 2 45 22C21 36 9 68 18 92C27 116 53 120 78 110C110 97 123 48 110 28C117 49 103 89 80 100C58 110 36 107 28 87C21 67 32 40 53 27C76 13 97 37 105 53Z'/%3E%3C/svg%3E");
+}
+
+[data-girk]::before, g-irk::before {
+    
+    content: '';
+    position: absolute;
+    width: var(--girk-wide);
+    height: var(--girk-high);
+    left: calc((100% - var(--girk-wide))/2);
+    top: calc((100% - var(--girk-high))/2 + var(--girk-top));
+    transform: rotate(var(--girk-rot)) scale(var(--girk-flip),1);
+    background-image: var(--girk-back);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: var(--girk-filter);
+
+}
+
+
+</style>
+
+<style id="g-ank">
+
+g-ank {
+    
+    --gank-color: var(--midness, #900);
+    --gank-wide: 150%;
+    --gank-high: 80%;
+    --gank-rot: 0deg;
+    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
+    --gank-opacity: 1;
+    
+    position: relative;
+}
+
+g-ank[data-hi] {
+    --gank-high: 100%;
+}
+
+g-ank[data-opt1] {
+    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q55 70 105 0L110 10Q60 70 15 100Z'/%3E%3C/svg%3E");
+    --gank-wide: 160%;
+}
+
+g-ank[data-opt2] {
+    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M15 100Q40 90 70 25L69 45Q90 10 115 0Q90 15 65 70L65 52Q50 90 15 100Z'/%3E%3C/svg%3E");
+    --gank-wide: calc(150% + 20px);
+}
+
+g-ank::before {
+    
+    content: '';
+    
+    position: absolute;
+    bottom: 0;
+    left: calc((100% - var(--gank-wide))/2);
+    height: var(--gank-high);
+    width: var(--gank-wide);
+    transform: var(--gank-rot);
+    transform: rotate(var(--gank-rot));
+    background-image: var(--gank-back);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: url("#viva");
+    
+}
+
+</style>
+<style id="p-owr">
+
+p-owr {
+    
+    --powr-color: var(--darkness, #900);
+    --powr-wide: 100%;
+    
+    position: relative;
+    
+}
+
+p-owr::before {
+    
+    content: '';
+    position: absolute;
+    
+    right: -0.3ch;
+    top: 0;
+    height: 2ch;
+    width: var(--powr-wide);
+    background-color: var(--powr-color);
+    
+    clip-path: url(#powerRule);
+    
+}
+
+p-owr::after {
+    
+    content: '-1';
+    position: absolute;
+    font-size: 0.35em;
+    color: var(--powr-color);
+    left: calc(100% + 0.0em);
+    top: -0.5em;
+    transform: rotate(-15deg);
+    
+}
+
+</style>
+
 
 </head>
 
@@ -1834,22 +1833,17 @@ r-aze > :nth-child(2)::after {
 <div data-nose="#hold0" style="height:50px;width:100%"></div>
 
 
-<c-omm>try an integration</c-omm>
+<c-omm>try circuitous</c-omm>
 <div>
-<p-t>3 </p-t>
+    
+one <g-irk
+xdata-dark
+xdata-big
+xdata-opt1
+xdata-flip
+data-red1
 
-<i-teg data-gank>
-    <b>&theta;=&pi;</b>
-    <b>&theta;=2&pi;</b>
-    <b>
-        <f-rak>
-            <b>one</b>
-            <b>two</b>
-        </f-rak>
-    </b>
-    <b>d&theta;</b>
-</i-teg>
-
+>x + 1</g-irk> two
 
 </div>
 
