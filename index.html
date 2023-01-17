@@ -409,8 +409,10 @@ s-umm[data-gank]::after {
 
 i-teg {
         
-    --iteg-color: var(--lightness);
-    
+    --iteg-filter-sigma: none;
+    --iteg-filter-from: none;
+    --iteg-filter-to: none;
+    --iteg-filter-diff: none;
     position: relative;
     margin-left: 0.5em;
     
@@ -425,8 +427,8 @@ i-teg::before {
     line-height: 1em;
     left: -0.7em;
     font-size: 1em;
-    color: var(--iteg-color);
     transform:scale(1.3,2);
+    filter: var(--iteg-filter-sigma);
     
 }
 
@@ -435,7 +437,7 @@ i-teg > :nth-child(1) {
     font-size: 0.4em;
     top: calc(100% + 1em);
     left: -1.2em;
-    color: var(--iteg-color);
+    filter: var(--iteg-filter-from);
 }
 
 i-teg > :nth-child(2) {
@@ -443,20 +445,59 @@ i-teg > :nth-child(2) {
     font-size: 0.4em;
     bottom: calc(100% + 0.5em);
     left: -0.5em;
-    color: var(--iteg-color);
+    filter: var(--iteg-filter-to);
 }
 
 i-teg > :nth-child(4) {
     font-size: 0.8em;
     font-style: italic;
     letter-spacing: -0.3ch;
-    color: var(--iteg-d-color, var(--iteg-color));
+    filter: var(--iteg-filter-diff);
 }
 
-i-teg > p {
-    display: inline-block;
-    margin: 0%;
-    padding: 0%;
+i-teg[data-viva] {
+    --iteg-filter-sigma: url("#viva");
+    --iteg-filter-from: url("#viva");
+    --iteg-filter-to: url("#viva");
+    --iteg-filter-diff: url("#viva");
+}
+
+i-teg[data-viva-sigma] {
+    --iteg-filter-sigma: url("#viva");
+}
+
+i-teg[data-viva-from] {
+    --iteg-filter-from: url("#viva");
+}
+
+i-teg[data-viva-to] {
+    --iteg-filter-to: url("#viva");
+}
+
+i-teg[data-viva-diff] {
+    --iteg-filter-diff: url("#viva");
+}
+
+i-teg[data-gank] {
+    --iteg-filter-sigma: url("#ghost");
+    --iteg-filter-from: url("#ghost");
+    --iteg-filter-to: url("#ghost");
+    --iteg-filter-diff: url("#ghost");
+}
+
+i-teg[data-gank]::after {
+    content: '';
+    position: absolute;
+    padding: 10px;
+    height: 100%;
+    width: 1ch;
+    left: -1ch;
+    background-image: var(--gank-sigma-00);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transform:scale(1.3,2);
+    filter: url("#viva");
+    
 }
 
 </style>
@@ -1793,17 +1834,23 @@ r-aze > :nth-child(2)::after {
 <div data-nose="#hold0" style="height:50px;width:100%"></div>
 
 
-<c-omm>try a summation</c-omm>
+<c-omm>try an integration</c-omm>
 <div>
+<p-t>3 </p-t>
 
-4<p-t></p-t><s-umm data-gank>
-    <b>x=3</b>
-    <b>x=15</b>
-    <b><f-rak>
-        <b>x<sup>2</sup> - 1</b>
-        <b>x + 1</b>
-    </f-rak></b>
-</s-umm>
+<i-teg data-gank>
+    <b>&theta;=&pi;</b>
+    <b>&theta;=2&pi;</b>
+    <b>
+        <f-rak>
+            <b>one</b>
+            <b>two</b>
+        </f-rak>
+    </b>
+    <b>d&theta;</b>
+</i-teg>
+
+
 </div>
 
 
