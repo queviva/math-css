@@ -251,11 +251,21 @@ hr {
 }
 
 </style>
+<style id="vivaStyles">
+
+:root {
+    
+    --gank-sigma-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 20L100 0L40 50L80 70L0 100L50 70L20 50L80 10Z'/%3E%3C/svg%3E");
+    
+}
+
+</style>
 <style id="s-upb">
 
 sup, sub {
     font-size: 0.5em;
 }
+
 b {
     font-weight: normal;
 }
@@ -273,7 +283,7 @@ c-omm {
 }
 
 c-omm::before {
-    content: "\00a0\00a0\00a0[";
+    content: "[";
     font-style: normal;
 }
 
@@ -305,12 +315,6 @@ f-rak > :nth-child(1)::after {
     word-spacing: 1ch;
 }
 
-f-rak > p {
-    display: inline;
-    margin: 0px;
-    padding: 0px;
-}
-
 </style>
 <style id="p-ren">
 
@@ -318,25 +322,38 @@ p-ren {
     word-spacing: -0.3ch;
 }
 
-p-ren::before{
+p-ren::before {
     content: '(';
 }
 
-p-ren::after{
+p-ren::after {
     content: ')';
+}
+
+p-ren[data-gank]::before,
+p-ren[data-gank]::after {
+    color: var(--holder-back);
+    text-shadow: var(--text-shade);
 }
 
 </style>
 <style id="s-umm">
 
 s-umm {
+    
+    --summ-filter-sigma: none;
+    --summ-filter-from: none;
+    --summ-filter-to: none;
+    
     position: relative;
+    
 }
 
 s-umm::before {
     content: '\2211';
     font-size: 1.4em;
     font-weight: bold;
+    filter: var(--summ-filter-sigma);
 }
 
 s-umm > :nth-child(1) {
@@ -344,6 +361,7 @@ s-umm > :nth-child(1) {
     font-size: 0.4em;
     top: calc(100% + 0.2em);
     left: 0;
+    filter: var(--summ-filter-from);
 }
 
 s-umm > :nth-child(2) {
@@ -351,12 +369,39 @@ s-umm > :nth-child(2) {
     font-size: 0.4em;
     bottom: calc(100% + 0.2em);
     left: 0;
+    filter: var(--summ-filter-to);
 }
 
-s-umm > p {
-    display: inline-block;
-    margin: 0%;
-    padding: 0%;
+s-umm[data-viva] {
+    --summ-filter-sigma: url("#viva");
+    --summ-filter-from: url("#viva");
+    --summ-filter-to: url("#viva");
+}
+
+s-umm[data-viva-sigma] {
+    --summ-filter-sigma: url("#viva");
+}
+
+s-umm[data-viva-from] {
+    --summ-filter-from: url("#viva");
+}
+
+s-umm[data-viva-to] {
+    --summ-filter-to: url("#viva");
+}
+
+s-umm[data-gank]::after {
+    content: '';
+    position: absolute;
+    height: 1.4em;
+    width: 1em;
+    padding: 20px 8px;
+    left: -8px;
+    top: -30px;
+    background-image: var(--gank-sigma-00);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: url("#viva");
 }
 
 </style>
@@ -1313,6 +1358,62 @@ l-ogb > p {
 }
 
 </style>
+<style id="r-aze">
+
+r-aze {
+    
+    --raze-filter-arrow: url("#lil-viva");
+    position: relative;
+    margin-left: 1ch;
+    
+}
+
+r-aze::after {
+    
+    content: '';
+    position: absolute;
+    display: inline-block;
+    height: 20px;
+    width: 17px;
+    right: 100%;
+    top: 20%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 80Q40 40 50 0L100 80L80 90L50 20Q40 67 20 100Z' /%3E%3C/svg%3E");
+    
+    filter: var(--raze-filter-arrow);
+    
+}
+
+
+r-aze > :nth-child(1) {
+    
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    right: calc(100% - 8px);
+    font-family: luckiest;
+    transform: rotate(-12deg);
+    
+}
+
+r-aze > :nth-child(2) {
+    display: inline;
+    font-size: 0.4em;
+    vertical-align: 110%;
+}
+
+r-aze > :nth-child(2)::before {
+    content: '[';
+    font-weight: bold;
+}
+
+r-aze > :nth-child(2)::after {
+    content: ']';
+    font-weight: bold;
+}
+
+</style>
 
 </head>
 
@@ -1692,120 +1793,18 @@ l-ogb > p {
 <div data-nose="#hold0" style="height:50px;width:100%"></div>
 
 
-<style id="r-aze">
-
-r-aze {
-    
-    --raze-filter-arrow: url("#lil-viva");
-    position: relative;
-    margin-left: 1ch;
-    
-}
-
-r-aze::after {
-    
-    content: '';
-    position: absolute;
-    display: inline-block;
-    height: 20px;
-    width: 17px;
-    right: 100%;
-    top: 20%;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='\
-    M 0 80\
-    Q 40 40 50 0\
-    L 100 80\
-    L 80 90\
-    L 50 20\
-    Q 40 67 20 100\
-    Z\
-    ' /%3E%3C/svg%3E");
-    
-    filter: var(--raze-filter-arrow);
-    
-}
-
-
-r-aze > :nth-child(1) {
-    
-    position: absolute;
-    display: inline-block;
-    top: 50%;
-    right: calc(100% - 8px);
-    font-family: luckiest;
-    transform: rotate(-12deg);
-    
-}
-
-r-aze > :nth-child(2) {
-    display: inline;
-    font-size: 0.4em;
-    vertical-align: 110%;
-}
-
-r-aze > :nth-child(2)::before {
-    content: '[';
-    font-weight: bold;
-}
-
-r-aze > :nth-child(2)::after {
-    content: ']';
-    font-weight: bold;
-}
-
-</style>
-
-<c-omm>asked to solve for equis</c-omm>
+<c-omm>try a summation</c-omm>
 <div>
-<l-ogb><b>13</b>x</l-ogb> = 2
+
+4<p-t></p-t><s-umm data-gank>
+    <b>x=3</b>
+    <b>x=15</b>
+    <b><f-rak>
+        <b>x<sup>2</sup> - 1</b>
+        <b>x + 1</b>
+    </f-rak></b>
+</s-umm>
 </div>
-
-<c-omm>notice the logarithm's base</c-omm>
-<div>
-<l-ogb data-viva-base><b>13</b>x</l-ogb> = 2
-</div>
-
-
-<c-omm>raze the base to the power of each side</c-omm>
-<div>
-&nbsp;&nbsp;&nbsp;
-<r-aze>
-    <b><v-iva>13</v-iva></b>
-    <b><l-ogb><b>13</b>x</l-ogb></b>
-</r-aze>
-=
-<r-aze>
-    <b><v-iva>13</v-iva></b>
-    <b>2</b>
-</r-aze>
-</div>
-
-<c-omm>now, what was the point of that?</c-omm>
-<div>
-13<sup><l-ogb><b>13</b>x</l-ogb></sup>
-= 13<sup>2</sup>
-</div>
-
-<c-omm>that the base and log cancel out</c-omm>
-<div>
-<g-ank>13</g-ank><sup><l-ogb data-gank><b>13</b>x</l-ogb></sup>
-= 13<sup>2</sup>
-</div>
-
-<c-omm>which leaves a simple square</c-omm>
-<div>
-   x = 13<sup><v-iva>2</v-iva></sup>
-</div>
-
-<c-omm>and the solution for equis</c-omm>
-<div>
-    <s-tar>x = 169</s-tar>
-</div>
-
-
-
 
 
 
