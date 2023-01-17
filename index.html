@@ -36,12 +36,21 @@ body {
 
 .holder {
        
+    --nose-hsla: hsla(16, 100%, 50%, 1);
+    
+    --nose-h: 16;
+    --nose-s: 100%;
+    --nose-l: 50%;
+    --nose-a: 1;
+                
+    /*
     --nose-hsla: hsla(40, 100%, 90%, 1);
     
     --nose-h: 40;
     --nose-s: 100%;
     --nose-l: 90%;
     --nose-a: 1;
+    */
                 
     --lightness: hsl(
         var(--nose-h),
@@ -72,6 +81,17 @@ body {
         calc(0.1 * var(--nose-s)),
         calc(0.6 * var(--nose-l))
     );
+    
+    --inverse: hsl(
+        calc(var(--nose-h) + 120),
+        var(--nose-s),
+        var(--nose-l)
+    );
+
+    --text-shade:
+        0 0 0px var(--holder-back),
+        0 0 8px var(--lightness),
+        0 0 12px #fff;
 
 	position: relative;
     color: var(--lightness);
@@ -125,15 +145,6 @@ hr {
 .qa > div > a:hover, .qa > div  > a:visited,
 .qb > div > a:hover, .qb > div> a:visited
 {
-    color: var(--lightness);
-}
-
-.qr > b {
-    color: var(--darkness);
-}
-
-.qa > div > b,
-.qb > div > b {
     color: var(--lightness);
 }
 
@@ -240,10 +251,13 @@ hr {
 }
 
 </style>
-<style id="sup-b">
+<style id="s-upb">
 
 sup, sub {
     font-size: 0.5em;
+}
+b {
+    font-weight: normal;
 }
 
 </style>
@@ -666,7 +680,7 @@ c-ank[data-hi] {
 </style>
 <style id="g-ank">
 
-[data-gank], g-ank {
+g-ank {
     
     --gank-color: var(--midness, #900);
     --gank-wide: 150%;
@@ -678,21 +692,21 @@ c-ank[data-hi] {
     position: relative;
 }
 
-[data-gank][data-hi], g-ank[data-hi] {
+g-ank[data-hi] {
     --gank-high: 100%;
 }
 
-[data-gank][data-opt1], g-ank[data-opt1] {
+g-ank[data-opt1] {
     --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q55 70 105 0L110 10Q60 70 15 100Z'/%3E%3C/svg%3E");
     --gank-wide: 160%;
 }
 
-[data-gank][data-opt2], g-ank[data-opt2] {
+g-ank[data-opt2] {
     --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M15 100Q40 90 70 25L69 45Q90 10 115 0Q90 15 65 70L65 52Q50 90 15 100Z'/%3E%3C/svg%3E");
     --gank-wide: calc(150% + 20px);
 }
 
-[data-gank]::before, g-ank::before {
+g-ank::before {
     
     content: '';
     
@@ -767,85 +781,14 @@ s-tar::before, s-tar::after {
 }
 
 </style>
-<style id="l-ogb">
-
-l-ogb {
-    
-    position: relative;
-    margin-left: 4ch;
-}
-
-l-ogb::before {
-    content: 'log\00a0(';
-    position: absolute;
-    right: 100%;
-}
-
-l-ogb::after {
-    content: ')';
-    
-}
-
-l-ogb > :nth-child(1) {
-    
-    position: absolute;
-    left: -1.4em;
-    bottom: 0;
-    transform: rotate(-12deg);
-    font-size: 0.5em;
-    font-weight: bold;
-    font-family: luckiest;
-    -webkit-text-stroke: 1px var(--darkness);
-    
-}
-
-l-ogb > p {
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
-
-</style>
 <style id="v-iva">
     
 v-iva {
     filter: url("#viva");
 }
 
-n-eon {
-    text-shadow:
-        0 0 10px #d0d,
-        0 0 20px #00d,
-        0 0 40px #fff,
-        0 0 80px #f0f;
-}
-
-</style>
-<style id="h-lit">
-
-[data-hlit], h-lit {
-    --hlit-color: 130,255,173;
-    color: 111;
-    padding: 0.1em 0.3em;
-    line-height: 1.8em;
-    background:
-        linear-gradient(
-            104deg,
-            rgba(var(--hlit-color), 0.2) 0.9%,
-            rgba(var(--hlit-color), 1.25) 2.4%,
-            rgba(var(--hlit-color), 0.5) 5.8%,
-            rgba(var(--hlit-color), 0.0) 93%,
-            rgba(var(--hlit-color), 0.7) 96%,
-            rgba(var(--hlit-color), 0.2) 98%
-        ),
-        linear-gradient(
-            183deg,
-            rgba(var(--hlit-color), 0) 0%,
-            rgba(var(--hlit-color), 0.3) 7.9%,
-            rgba(var(--hlit-color), 0) 15%
-        );
-    border-radius: 7px 0px;
-    clip-path: url("#hlit");
+v-ers {
+    filter: url("#vers");
 }
 
 </style>
@@ -985,10 +928,7 @@ n-eon {
     margin-right: 0.5ch;
     font-weight: bold;
     color: rgba(0,0,0,0);
-    text-shadow:
-        0 0 0px var(--holder-back),
-        0 0 8px var(--lightness),
-        0 0 12px #fff;
+    text-shadow: var(--text-shade);
     
 }
 
@@ -1026,10 +966,8 @@ g-fak > p {
     position: relative;
     font-weight: bold;
     color: rgba(0,0,0,0);
-    text-shadow:
-        0 0 0px var(--holder-back),
-        0 0 8px var(--lightness),
-        0 0 12px #fff;
+    
+    text-shadow: var(--text-shade);
     
 }
 
@@ -1115,19 +1053,15 @@ n-ote[data-dark] {
 <style id="g-ood">
 
 g-ood {
-    position: relative;
-    display: inline-block;
-    height: 80px;
-    vertical-align: -20%;
-    width: 2ch;
+    margin-left: 2ch;
 }
 
 g-ood::after {
     content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
+    display: inline-block;
+    vertical-align: -20%;
+    height: 80px;
+    width: 2ch;
     color: var(--lightness);
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -1151,6 +1085,7 @@ r-oot {
     position: relative;
     font-size: 0.8em;
     word-spacing: -0.2em;
+    white-space: nowrap;
     margin-left: 30px;
     margin-right: 0.4ch;
     
@@ -1255,9 +1190,123 @@ g-rut > p:nth-of-type(1) {
     right: calc(100% + 0.8em);
     transform: rotate(var(--grut-rot));
     filter: var(--grut-lil-filter);
+    z-index: 2;
 }
 
 g-rut > p {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+g-rut ~ sup {
+    display: inline-block;
+    font-size: 0.6em;
+    font-family: luckiest;
+    vertical-align: 100%;
+    transform: rotate(-12deg);
+}
+
+g-rut ~ sup[data-viva] {
+    filter: url("#lil-viva");
+}
+
+g-rut[data-gank] {
+    --grut-filter: url("#ghost");
+}
+
+g-rut[data-gank] > p:nth-of-type(1) {
+    
+    top: -18%;
+    right: calc(100% + 0.8em - 20px);
+    padding-left: 5px;
+    padding-right: 20px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 30L100 20L100 35L10 50Z'/%3E%3C/svg%3E");
+    
+}
+
+</style>
+<style id="l-ogb">
+
+l-ogb {
+    
+    --logb-filter: none;
+    --logb-filter-base: none;
+    --logb-stroke: 0.7px var(--darkness);
+    
+    position: relative;
+    margin-left: 4ch;
+    white-space: nowrap;
+
+}
+
+l-ogb::before {
+    content: 'log\00a0(';
+    position: absolute;
+    right: 100%;
+    top: 0;
+    filter: var(--logb-filter);
+}
+
+l-ogb::after {
+    content: ')';
+    right: 0;
+    top: 0;
+    filter: var(--logb-filter);
+}
+
+l-ogb > :nth-child(1) {
+    
+    position: absolute;
+    right: calc(100% + 0.4em);
+    bottom: -0.4em;
+    transform: rotate(-12deg);
+    font-size: 0.6em;
+    font-weight: bold;
+    font-family: luckiest;
+    filter: var(--logb-filter-base);
+    -webkit-text-stroke: var(--logb-stroke);
+    
+}
+
+l-ogb[data-viva] {
+    --logb-filter: url("#viva");
+    --logb-filter-base: url("#lil-viva");
+    --logb-stroke: 0px #000;
+}
+
+l-ogb[data-viva-base] {
+    --logb-filter-base: url("#lil-viva");
+    --logb-stroke: 0px #000;
+}
+
+l-ogb[data-gank] {
+    --logb-filter: url("#viva");
+    --logb-filter-base: url("#lil-viva");
+}
+
+l-ogb[data-gank]::before {
+    
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 60L18 2L30 60L43 20L60 85Q77 70 100 55Q70 80 60 100L45 50Q34 70 32 90L17 30Z'/%3E%3C/svg%3E");
+    
+}
+
+l-ogb[data-gank]::after {
+    
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 40L100 0L32 35L100 33L40 60L100 100L15 58L70 40Z'/%3E%3C/svg%3E");
+}
+
+l-ogb[data-gank] > :nth-child(1) {
+    color: rgba(0,0,0,0);
+}
+
+l-ogb > p {
     display: inline;
     margin: 0;
     padding: 0;
@@ -1569,16 +1618,195 @@ g-rut > p {
 		
     </filter>
     
+    <filter id="vers"
+        x="-100%"
+        y="-100%"
+        height="300%"
+        width="300%"
+    >
+        <feGaussianBlur stdDeviation="0.3" result="B0"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 120),
+            var(--nose-s),
+            90%
+        )" result="F0"/>
+        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
+        
+        <feGaussianBlur stdDeviation="2" result="B1"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 12 + 120),
+            var(--nose-s),
+            50%
+        )" result="F1"/>
+        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
+        
+        <feGaussianBlur stdDeviation="3" result="B2"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 20 + 120),
+            calc(var(--nose-s) * 0.69),
+            45%
+        )" result="F2"/>
+        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
+        
+        <feGaussianBlur stdDeviation="4" result="B3"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 40 + 120),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F3"/>
+        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
+        
+        <feGaussianBlur stdDeviation="8" result="B4"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 120),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F4"/>
+        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
+        
+        <feMerge>
+			<feMergeNode in="Z4"/>
+			<feMergeNode in="Z3"/>
+			<feMergeNode in="Z2"/>
+			<feMergeNode in="Z1"/>
+			<feMergeNode in="Z0"/>
+		</feMerge>
+		
+    </filter>
+
+    <filter id="ghost">
+        <feMorphology operator="dilate" radius="0.5" result="X0" />
+        <feFlood in="X0" flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            calc(0.7 * var(--nose-l))
+        )" result="F0"/>
+        <feComposite in="F0" in2="X0" operator="in" result="Z0" />
+        <feComposite in="Z0" in2="SourceGraphic" operator="out" result="Z1" />
+        <feGaussianBlur stdDeviation="0.5" in="Z1" />
+     
+    </filter>
+    
 </svg>
 <div class="qr" style="font-size:50px;text-align:center;">
 <div data-nose="#hold0" style="height:50px;width:100%"></div>
 
-for <g-rut data-dark>
-    25 + x
-<p>xyz</p>
 
-</g-rut> aft
-<br>
+<style id="r-aze">
+
+r-aze {
+    
+    --raze-filter-arrow: url("#lil-viva");
+    position: relative;
+    margin-left: 1ch;
+    
+}
+
+r-aze::after {
+    
+    content: '';
+    position: absolute;
+    display: inline-block;
+    height: 20px;
+    width: 17px;
+    right: 100%;
+    top: 20%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='\
+    M 0 80\
+    Q 40 40 50 0\
+    L 100 80\
+    L 80 90\
+    L 50 20\
+    Q 40 67 20 100\
+    Z\
+    ' /%3E%3C/svg%3E");
+    
+    filter: var(--raze-filter-arrow);
+    
+}
+
+
+r-aze > :nth-child(1) {
+    
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    right: calc(100% - 8px);
+    font-family: luckiest;
+    transform: rotate(-12deg);
+    
+}
+
+r-aze > :nth-child(2) {
+    display: inline;
+    font-size: 0.4em;
+    vertical-align: 110%;
+}
+
+r-aze > :nth-child(2)::before {
+    content: '[';
+    font-weight: bold;
+}
+
+r-aze > :nth-child(2)::after {
+    content: ']';
+    font-weight: bold;
+}
+
+</style>
+
+<c-omm>asked to solve for equis</c-omm>
+<div>
+<l-ogb><b>13</b>x</l-ogb> = 2
+</div>
+
+<c-omm>notice the logarithm's base</c-omm>
+<div>
+<l-ogb data-viva-base><b>13</b>x</l-ogb> = 2
+</div>
+
+
+<c-omm>raze the base to the power of each side</c-omm>
+<div>
+&nbsp;&nbsp;&nbsp;
+<r-aze>
+    <b><v-iva>13</v-iva></b>
+    <b><l-ogb><b>13</b>x</l-ogb></b>
+</r-aze>
+=
+<r-aze>
+    <b><v-iva>13</v-iva></b>
+    <b>2</b>
+</r-aze>
+</div>
+
+<c-omm>now, what was the point of that?</c-omm>
+<div>
+13<sup><l-ogb><b>13</b>x</l-ogb></sup>
+= 13<sup>2</sup>
+</div>
+
+<c-omm>that the base and log cancel out</c-omm>
+<div>
+<g-ank>13</g-ank><sup><l-ogb data-gank><b>13</b>x</l-ogb></sup>
+= 13<sup>2</sup>
+</div>
+
+<c-omm>which leaves a simple square</c-omm>
+<div>
+   x = 13<sup><v-iva>2</v-iva></sup>
+</div>
+
+<c-omm>and the solution for equis</c-omm>
+<div>
+    <s-tar>x = 169</s-tar>
+</div>
+
+
+
+
 
 
 

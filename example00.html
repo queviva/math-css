@@ -1,9 +1,9 @@
 <!doctype html><html lang="en">
-    
 <head>
 <title>viva-matics</title>
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
+<script defer src="nanopicker.js"></script>
 <style id="demoStyles">
 
 @font-face {
@@ -12,13 +12,45 @@ content="width=device-width, initial-scale=1.0">
 }
 
 :root {
+ 
+   
+}
+
+* {
     
-    --nose-hsla: hsla(0, 40%, 100%, 1);
+    --back-color: #666;
+    --holder-back: #111;
+    
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--back-color);
+    font-size: 22px;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.holder {
+       
+    --nose-hsla: hsla(16, 100%, 50%, 1);
+    
+    --nose-h: 16;
+    --nose-s: 100%;
+    --nose-l: 50%;
+    --nose-a: 1;
+                
+    /*
+    --nose-hsla: hsla(40, 100%, 90%, 1);
     
     --nose-h: 40;
     --nose-s: 100%;
     --nose-l: 90%;
     --nose-a: 1;
+    */
                 
     --lightness: hsl(
         var(--nose-h),
@@ -43,40 +75,26 @@ content="width=device-width, initial-scale=1.0">
         var(--nose-s),
         calc(0.20 * var(--nose-l))
     );
-                
-    --main-color: var(--lightness);
-    --greyed-out: var(--darkness);
-    --back-color: #666;
-    --holder-back: #111;
-    --faded-txt: hsla(
+    
+    --greyness: hsl(
         var(--nose-h),
-        var(--nose-s),
-        var(--midness),
-        0.5
+        calc(0.1 * var(--nose-s)),
+        calc(0.6 * var(--nose-l))
     );
     
-    --trans-speed: 0.3s;
-    
-}
+    --inverse: hsl(
+        calc(var(--nose-h) + 120),
+        var(--nose-s),
+        var(--nose-l)
+    );
 
-* {
-    box-sizing: border-box;
-    word-wrap: break-word;
-}
+    --text-shade:
+        0 0 0px var(--holder-back),
+        0 0 8px var(--lightness),
+        0 0 12px #fff;
 
-body {
-    padding: 0;
-    margin: 0;
-    background-color: var(--back-color);
-    font-size: 22px;
-    text-align: justify;
-    hyphens: auto;
-}
-
-.holder {
-    
 	position: relative;
-    color: var(--main-color);
+    color: var(--lightness);
     background-color: var(--holder-back);
     margin: auto;
     margin-top: 50px;
@@ -127,15 +145,6 @@ hr {
 .qa > div > a:hover, .qa > div  > a:visited,
 .qb > div > a:hover, .qb > div> a:visited
 {
-    color: var(--lightness);
-}
-
-.qr > b {
-    color: var(--darkness);
-}
-
-.qa > div > b,
-.qb > div > b {
     color: var(--lightness);
 }
 
@@ -242,38 +251,41 @@ hr {
 }
 
 </style>
-<style id="sub_com_red">
+<style id="s-upb">
+
 sup, sub {
     font-size: 0.5em;
 }
+b {
+    font-weight: normal;
+}
 
-com {
+</style>
+<style id="c-omm">
+
+c-omm {
     display: inline-block;
-    color: #888;
+    color: var(--greyness);
     font-size: 0.5em;
     font-style: italic;
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
-com::before {
+c-omm::before {
     content: "\00a0\00a0\00a0[";
     font-style: normal;
 }
 
-com::after {
+c-omm::after {
     content: "]";
     font-style: normal;
 }
 
-[data-red], r-ed {
-    color: var(--midness);
-}
-
 </style>
-<style id="f-rac">
+<style id="f-rak">
 
-f-rac {
+f-rak {
     display: inline-grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
@@ -283,17 +295,17 @@ f-rac {
     word-spacing: -0.4ch;
 }
 
-f-rac > :nth-child(1) {
+f-rak > :nth-child(1) {
     border-bottom: 1px solid;
 }
 
-f-rac > :nth-child(1)::before,
-f-rac > :nth-child(1)::after {
+f-rak > :nth-child(1)::before,
+f-rak > :nth-child(1)::after {
     content: "\00a0";
     word-spacing: 1ch;
 }
 
-f-rac > p {
+f-rak > p {
     display: inline;
     margin: 0px;
     padding: 0px;
@@ -505,9 +517,10 @@ f-rom > p {
 [data-dist-right], d-ist-right,
 [data-dist-left], d-ist-left
 {
-    --dist-wide: 100%;
-    --dist-high: 50px;
-    --dist-color: var(--midness);
+    --dist-wide: 130%;
+    --dist-high: 60px;
+    --dist-filter: url("#viva");
+    
     position: relative;
 }
 
@@ -517,23 +530,34 @@ f-rom > p {
 {
     content: '';
     position: absolute;
-    bottom: 90%;
+    bottom: 80%;
     left: calc((100% - var(--dist-wide))/2);
     width: var(--dist-wide);
     height: var(--dist-high);
-    background-color: var(--dist-color);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: var(--dist-filter);
+}
+
+[data-dist][data-mid]::after,
+      d-ist[data-mid]::after,
+[data-dist-right][data-mid]::after,
+      d-ist-right[data-mid]::after,
+[data-dist-left][data-mid]::after,
+      d-ist-left[data-mid]::after {
+    --dist-filter: url("#midness");
 }
 
 [data-dist]::after, d-ist::after {
-    clip-path: url(#distNorm);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath transform='translate(15,15)' d='M8 100A15 15 180 0 1 67 100H62A10 11 180 0 0 13 100H8A35 35 180 0 1 92 100H87A20 21 180 0 0 13 100ZM 33 100A15 15 180 0 1 92 100H87A20 22 180 0 0 38 100H33A17 17 180 0 1 67 100H62A10 12 180 0 0 38 100Z'/%3E%3C/svg%3E");;
 }
 
 [data-dist-right]::after, d-ist-right::after {
-    clip-path: url(#distRite);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M23 115A35 35 180 0 1 106 115H101A35 33 180 0 0 28 115H23A20 20 180 0 1 68 115H63A15 14 180 0 0 28 115Z'/%3E%3C/svg%3E");
 }
 
 [data-dist-left]::after, d-ist-left::after {
-    clip-path: url(#distLeft);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M106 115A35 35 180 0 0 27 115H32A35 40 180 0 1 101 115H106A21 20 180 0 0 64 115H69A15 14 180 0 1 101 115 Z'/%3E%3C/svg%3E");
 }
 
 </style>
@@ -541,7 +565,14 @@ f-rom > p {
 
 p-t::after {
     content: "\00b7";
-    color: var(--pt-color, var(--midness));
+    font-size: 0.8em;
+    color: var(--lightness);
+}
+
+g-t::after {
+    content: "\00b7";
+    font-size: 0.8em;
+    filter: url("#viva");
 }
 
 </style>
@@ -612,27 +643,6 @@ p-owr::after {
 }
 
 </style>
-<style id="f-act">
-
-[data-fact], f-act {
-    
-    --fact-color: var(--midness);
-    --fact-var: 'x';
-    position: relative;
-}
-
-[data-fact]::after, f-act::after {
-    content: '(' var(--fact-var) '\00a0\00b1\00a0.?.)(' var(--fact-var) '\00a0\00b1\00a0.?.)';
-    position: absolute;
-    left: 0;
-    bottom: 80%;
-    width: 100%;
-    color: var(--fact-color);
-    font-size: 0.6em;
-    text-align: center;
-}
-
-</style>
 <style id="c-ank">
 
 [data-cank], c-ank {
@@ -668,32 +678,83 @@ c-ank[data-hi] {
 }
 
 </style>
+<style id="g-ank">
+
+g-ank {
+    
+    --gank-color: var(--midness, #900);
+    --gank-wide: 150%;
+    --gank-high: 80%;
+    --gank-rot: 0deg;
+    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
+    --gank-opacity: 1;
+    
+    position: relative;
+}
+
+g-ank[data-hi] {
+    --gank-high: 100%;
+}
+
+g-ank[data-opt1] {
+    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q55 70 105 0L110 10Q60 70 15 100Z'/%3E%3C/svg%3E");
+    --gank-wide: 160%;
+}
+
+g-ank[data-opt2] {
+    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M15 100Q40 90 70 25L69 45Q90 10 115 0Q90 15 65 70L65 52Q50 90 15 100Z'/%3E%3C/svg%3E");
+    --gank-wide: calc(150% + 20px);
+}
+
+g-ank::before {
+    
+    content: '';
+    
+    position: absolute;
+    bottom: 0;
+    left: calc((100% - var(--gank-wide))/2);
+    height: var(--gank-high);
+    width: var(--gank-wide);
+    transform: var(--gank-rot);
+    transform: rotate(var(--gank-rot));
+    background-image: var(--gank-back);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: url("#viva");
+    
+}
+
+</style>
 <style id="s-tar">
 
 s-tar {
     
-    --star-color: var(--darkness);
+    --star-color: var(--lightness);
     
     position:relative;
+    word-spacing: -0.04em;
     
 }
 
 s-tar::before, s-tar::after {
     
     content:'\2606';
+    padding: 3px;
+    vertical-align: 60%;
     font-size:0.4em;
-    vertical-align: top;
-    color: var(--star-color, #900);
+    color: var(--star-color);
+    filter: url("#viva");
+    
 }
     
 </style>
 <style id="b-rak">
     
-[data-brak], b-rak,
-[data-drak], d-rak {
+[data-brak], b-rak {
     
     --brak-color: var(--midness, #900);
     --brak-wide: 110%;
+    --brak-high: 100%;
     --brak-top: 20%;
     --brak-rot: 0deg;
     
@@ -701,27 +762,313 @@ s-tar::before, s-tar::after {
     
 }
 
-[data-brak]::after, b-rak::after,
-[data-drak]::after, d-rak::after {
+[data-brak]::after, b-rak::after {
     
     content: '';
     position: absolute;
-    height: 100%;
     width: var(--brak-wide);
+    height: var(--brak-high);
     left: calc((100% - var(--brak-wide))/2);
+    bottom: calc(100% - var(--brak-top));
     transform: rotate(var(--brak-rot));
     background-color: var(--brak-color);
     clip-path: url(#brak);
+}
+
+[data-brak][data-low]::after, b-rak[data-low]::after {
+    top: calc(100% - var(--brak-top));
+    transform: rotate(calc(180deg + var(--brak-rot)));
+}
+
+</style>
+<style id="v-iva">
+    
+v-iva {
+    filter: url("#viva");
+}
+
+v-ers {
+    filter: url("#vers");
+}
+
+</style>
+<style id="g-rak">
+    
+[data-grak], g-rak{
+    
+    --grak-wide: calc(130% + 12px);
+    --grak-high: 30px;
+    --grak-top: 12px;
+    --grak-rot: 0deg;
+    --grak-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52A10 30 0 0 1 25 22H55A10 30 0 0 0 65 2A10 30 0 0 0 75 22H105A10 30 0 0 1 115 52A10 25 0 0 0 105 27H75A10 20 0 0 1 65 17A10 20 0 0 1 55 27H25A10 25 0 0 0 15 52Z'/%3E%3C/svg%3E");
+    --grak-filter: url("#viva");
+    
+    position: relative;
     
 }
 
-[data-brak]::after, b-rak::after {
-    bottom: calc(100% - var(--brak-top));
+[data-grak][data-low]::before, g-rak[data-low]::before {
+    top: calc(100% - var(--grak-top));
+    transform: rotate(calc(180deg + var(--grak-rot)));
 }
 
-[data-drak]::after, d-rak::after {
-    top: calc(100% - var(--brak-top));
-    transform: rotate(calc(180deg + var(--brak-rot)));
+[data-grak][data-dark], g-rak[data-dark] {
+    --grak-filter: url("#lightness");
+}
+
+[data-grak][data-opt1], g-rak[data-opt1] {
+        --grak-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52Q16 30 14 15Q65 25 116 15Q114 30 115 52L112 25H18Z'/%3E%3C/svg%3E");
+}
+
+[data-grak]::before, g-rak::before {
+    
+    content: '';
+    position: absolute;
+    width: var(--grak-wide);
+    height: var(--grak-high);
+    left: calc((100% - var(--grak-wide))/2);
+    bottom: calc(100% - var(--grak-top));
+    transform: rotate(var(--grak-rot));
+    background-image: var(--grak-back);
+    background-repeat: no-repeat;
+    background-size: 100% 190%;
+    filter: var(--grak-filter);
+
+}
+
+
+</style>
+<style id="g-irk">
+
+[data-girk], g-irk{
+    
+    --girk-wide: 180%;
+    --girk-high: 150%;
+    --girk-top: 0%;
+    --girk-rot: 0deg;
+    --girk-flip: 1;
+    --girk-filter: url("#viva");
+    --girk-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M105 55Q95 15 75 15C45 15 15 45 15 75S35 115 55 115S135 95 105 25Q125 97 55 109C35 112 20 95 20 75C20 35 75 -5 105 55Z'/%3E%3C/svg%3E");
+    
+    position: relative;
+    
+}
+
+[data-girk][data-dark], g-irk[data-dark] {
+    --girk-filter: url("#lightness");
+}
+
+[data-girk][data-flip], g-irk[data-flip] {
+    --girk-flip: -1;
+}
+
+[data-girk][data-big], g-irk[data-big] {
+    --girk-wide: 280%;
+    --girk-high: 250%;
+}
+
+[data-girk][data-opt1]::after, g-irk[data-opt1]::after {
+    --girk-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M105 53C103 29 77 2 45 22C21 36 9 68 18 92C27 116 53 120 78 110C110 97 123 48 110 28C117 49 103 89 80 100C58 110 36 107 28 87C21 67 32 40 53 27C76 13 97 37 105 53Z'/%3E%3C/svg%3E");
+}
+
+[data-girk]::after, g-irk::after {
+    
+    content: '';
+    position: absolute;
+    width: var(--girk-wide);
+    height: var(--girk-high);
+    left: calc((100% - var(--girk-wide))/2);
+    top: calc((100% - var(--girk-high))/2 + var(--girk-top));
+    transform: rotate(var(--girk-rot)) scale(var(--girk-flip),1);
+    background-image: var(--girk-back);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: var(--girk-filter);
+
+}
+
+
+</style>
+<style id="r-ed1">
+
+[data-red1] { position: relative; --red1-val: '1'; }
+[data-red2] { position: relative; --red1-val: '2'; }
+[data-red3] { position: relative; --red1-val: '3'; }
+[data-red4] { position: relative; --red1-val: '4'; }
+[data-red5] { position: relative; --red1-val: '5'; }
+
+[data-red1]::after,
+[data-red2]::after,
+[data-red3]::after,
+[data-red4]::after,
+[data-red5]::after {
+    
+    content: var(--red1-val);
+    position: absolute;
+    left: 80%;
+    bottom: -30%;
+    transform: rotate(-14deg);
+    font-family: luckiest;
+    font-size: 0.6em;
+    line-height: 0.6em;
+    filter: url("#lil-viva");
+    
+    padding: 8px;
+    
+}
+
+</style>
+<style id="g-fak">
+
+[data-gfak], g-fak {
+    
+    --gfak-high: 1ch;
+    
+    position: relative;
+    margin-right: 0.5ch;
+    font-weight: bold;
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-shade);
+    
+}
+
+g-fak > p:nth-of-type(1) {
+    
+    position: absolute;
+    height: var(--gfak-high);
+    top: calc((100% - var(--gfak-high))/2 + 1ch);
+    width: 300%;
+    left: -100%;
+    font-size: 0.3em;
+    font-family: luckiest;
+    text-align: center;
+    word-spacing: 0.5ch;
+    color: var(--lightness);
+    text-shadow: none;
+    filter: url("#lil-viva");
+    
+}
+
+g-fak > p {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+</style>
+<style id="f-akt">
+
+[data-fakt], f-akt {
+    
+    --fakt-var: 'x';
+    --fakt-filter: url("#lil-viva");
+    
+    position: relative;
+    font-weight: bold;
+    color: rgba(0,0,0,0);
+    
+    text-shadow: var(--text-shade);
+    
+}
+
+[data-fakt]::after, f-akt::after {
+    content: '(' var(--fakt-var) '\00a0\00b1\00a0?)\00a0(' var(--fakt-var) '\00a0\00b1\00a0?)';
+    position: absolute;
+    left: -50%;
+    bottom: -15%;
+    width: 200%;
+    font-size: 0.6em;
+    text-align: center;
+    text-shadow: none;
+    color: var(--lightness);
+    filter: var(--fakt-filter);
+    
+}
+
+</style>
+<style id="f-ofx">
+
+f-x {
+    --fx-var: 'x';
+}
+
+f-x[data-viva] {
+    filter: url("#viva");
+}
+
+f-x::before {
+    /*content: '\0192';*/
+    content: 'f';
+    font-size: 1.3em;
+    font-style: italic;
+}
+
+f-x::after {
+    content: '(' var(--fx-var) ')';
+    font-size: 0.7em;
+    vertical-align: 20%;
+}
+
+</style>
+<style id="n-add">
+
+n-add, n-min, n-ote {
+    
+    --note-rot: -10deg;
+    
+    display: inline-block;
+    font-size: 0.8em;
+    font-family: luckiest;
+    vertical-align: 30%;
+    transform: rotate(var(--note-rot));
+    filter: url("#viva");
+    z-index: -10;
+    
+}
+
+n-ote {
+    font-size: 0.3em;
+    vertical-align: 100%;
+}
+
+n-add::before {
+    content: '+';
+    font-size: 0.5em;
+    vertical-align: 50%;
+}
+
+n-min::before{
+    content: '-';
+    font-size: 0.5em;
+    vertical-align: 50%;
+}
+
+n-add[data-dark],
+n-min[data-dark],
+n-ote[data-dark] {
+    filter: none;
+}
+
+</style>
+<style id="g-ood">
+
+g-ood {
+    margin-left: 2ch;
+}
+
+g-ood::after {
+    content: '';
+    display: inline-block;
+    vertical-align: -20%;
+    height: 80px;
+    width: 2ch;
+    color: var(--lightness);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M30 60L40 80Q63 45 100 15L110 10Q50 60 40 110Q23 95 15 80 Z'/%3E%3C/svg%3E");
+    
+    filter: url("#viva");
+    
 }
 
 </style>
@@ -729,12 +1076,17 @@ s-tar::before, s-tar::after {
 
 r-oot {
     
-    --root-color: var(--lightness);
+    --root-rot: -15deg;
+    --root-back-for: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='100px' preserveAspectRatio='none'%3E%3Cpath transform='translate(15, 0)' d=' M-2.5 52L1 30L10 60Q11 30 9 0 L13 10L13 92Q10 75 0 47Z'/%3E%3C/svg%3E");
+    
+    --root-filter: url("#viva");
+    --root-lil-filter: url("#viva");
     
     position: relative;
     font-size: 0.8em;
     word-spacing: -0.2em;
-    margin-left: 1.6ch;
+    white-space: nowrap;
+    margin-left: 30px;
     margin-right: 0.4ch;
     
 }
@@ -742,14 +1094,20 @@ r-oot {
 r-oot::before, r-oot::after {
     content: '';
     position: absolute;
-    height: 110%;
-    background-color: var(--root-color);
+    height: 130%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: var(--root-filter);
 }
     
 r-oot::before {
-    width: 1em;
+    
+    width: 30px;
     left: -1em;
-    clip-path: url(#rootBef);
+    background-image: var(--root-back-for);
+    
+    border: 1px solid;
+    
 }
 
 r-oot::after {
@@ -757,13 +1115,17 @@ r-oot::after {
     width: calc(100% + 2px);
     left: -2px;
     clip-path: url(#rootAft);
+    
 }
 
-r-oot > :nth-child(1) {
+r-oot > p:nth-of-type(1) {
     position: absolute;
     font-size: 0.5em;
-    top: -40%;
-    right: calc(100% + 0.6em);
+    font-family: luckiest;
+    top: -12%;
+    right: calc(100% + 0.7em);
+    transform: rotate(var(--root-rot));
+    filter: var(--root-lil-filter);
 }
 
 r-oot > p {
@@ -773,36 +1135,175 @@ r-oot > p {
 }
 
 </style>
+<style id="g-rut">
+
+g-rut {
+    
+    --grut-high: 120%;
+    --grut-rot: -15deg;
+    --grut-back-for: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M8 50L12 28L24 52Q22 25 18 0L23 1Q28 45 27 90Q22 63 11 43 Z' /%3E%3C/svg%3E");
+    --grut-back-aft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 0H 100L95 2L 2 7Z' /%3E%3C/svg%3E");
+    --grut-filter: url("#viva");
+    --grut-lil-filter: url("#lil-viva");
+    
+    font-size: 0.8em;
+    word-spacing: -0.2em;
+    margin-left: 20px;
+    margin-right: 0.5ch;
+    
+    position: relative;
+    
+}
+
+g-rut[data-dark] {
+    --grut-filter: url("#lightness");
+    --grut-lil-filter: url("#lightness");
+}
+
+g-rut::before, g-rut::after {
+    content: '';
+    position: absolute;
+    height: var(--grut-high);
+    top: calc((100% - var(--grut-high))/2);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: var(--grut-filter);
+}
+
+g-rut::before {
+    width: 30px;
+    left: -35px;
+    background-image: var(--grut-back-for);
+}
+
+g-rut::after {
+    width: calc(100% + 25px);
+    left: -17px;
+    background-image: var(--grut-back-aft);
+}
+
+g-rut > p:nth-of-type(1) {
+    position: absolute;
+    font-size: 0.5em;
+    font-family: luckiest;
+    top: -12%;
+    right: calc(100% + 0.8em);
+    transform: rotate(var(--grut-rot));
+    filter: var(--grut-lil-filter);
+    z-index: 2;
+}
+
+g-rut > p {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+g-rut ~ sup {
+    display: inline-block;
+    font-size: 0.6em;
+    font-family: luckiest;
+    vertical-align: 100%;
+    transform: rotate(-12deg);
+}
+
+g-rut ~ sup[data-viva] {
+    filter: url("#lil-viva");
+}
+
+g-rut[data-gank] {
+    --grut-filter: url("#ghost");
+}
+
+g-rut[data-gank] > p:nth-of-type(1) {
+    
+    top: -18%;
+    right: calc(100% + 0.8em - 20px);
+    padding-left: 5px;
+    padding-right: 20px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 30L100 20L100 35L10 50Z'/%3E%3C/svg%3E");
+    
+}
+
+</style>
 <style id="l-ogb">
 
 l-ogb {
     
+    --logb-filter: none;
+    --logb-filter-base: none;
+    --logb-stroke: 0.7px var(--darkness);
+    
     position: relative;
     margin-left: 4ch;
+    white-space: nowrap;
+
 }
 
 l-ogb::before {
     content: 'log\00a0(';
     position: absolute;
     right: 100%;
+    top: 0;
+    filter: var(--logb-filter);
 }
 
 l-ogb::after {
     content: ')';
-    
+    right: 0;
+    top: 0;
+    filter: var(--logb-filter);
 }
 
 l-ogb > :nth-child(1) {
     
     position: absolute;
-    left: -1.4em;
-    bottom: 0;
+    right: calc(100% + 0.4em);
+    bottom: -0.4em;
     transform: rotate(-12deg);
-    font-size: 0.5em;
+    font-size: 0.6em;
     font-weight: bold;
     font-family: luckiest;
-    -webkit-text-stroke: 1px var(--darkness);
+    filter: var(--logb-filter-base);
+    -webkit-text-stroke: var(--logb-stroke);
     
+}
+
+l-ogb[data-viva] {
+    --logb-filter: url("#viva");
+    --logb-filter-base: url("#lil-viva");
+    --logb-stroke: 0px #000;
+}
+
+l-ogb[data-viva-base] {
+    --logb-filter-base: url("#lil-viva");
+    --logb-stroke: 0px #000;
+}
+
+l-ogb[data-gank] {
+    --logb-filter: url("#viva");
+    --logb-filter-base: url("#lil-viva");
+}
+
+l-ogb[data-gank]::before {
+    
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 60L18 2L30 60L43 20L60 85Q77 70 100 55Q70 80 60 100L45 50Q34 70 32 90L17 30Z'/%3E%3C/svg%3E");
+    
+}
+
+l-ogb[data-gank]::after {
+    
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 40L100 0L32 35L100 33L40 60L100 100L15 58L70 40Z'/%3E%3C/svg%3E");
+}
+
+l-ogb[data-gank] > :nth-child(1) {
+    color: rgba(0,0,0,0);
 }
 
 l-ogb > p {
@@ -812,95 +1313,20 @@ l-ogb > p {
 }
 
 </style>
-<style id="c-irk">
 
-[data-cirk], c-irk {
-    
-    --cirk-color: var(--midness);
-    --cirk-rad: 120%;
-    --cirk-rot: 0deg;
-    --cirk-dir: 1;
-    --cirk-opacity: 1;
-    --cirk-clip: url('#cirk01');
-    position: relative;
-}
-
-[data-cirk][data-opt],
-c-irk[data-opt] {
-    --cirk-clip: url('#cirk02');
-}
-
-[data-cirk]::before,
-c-irk::before {
-    
-    content: '';
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    height: var(--cirk-rad);
-    width: var(--cirk-rad);
-    top: calc((100% - var(--cirk-rad))/2);
-    left: calc((100% - var(--cirk-rad))/2);
-    transform: rotate(var(--cirk-rot)) scale(var(--cirk-dir), 1);
-    background-color: var(--cirk-color);
-    opacity: var(--cirk-opacity);
-    clip-path: var(--cirk-clip);
-    
-}
-
-
-</style>
-<style id="g-low">
-    
-[data-glow], g-low {
-    text-shadow: 0 0 10px #fd0, 0 0 20px #b22, 0 0 40px #fcc, 0 0 80px #f00;
-    
-}
-
-[data-neon], n-eon {
-    text-shadow: 0 0 10px #d0d, 0 0 20px #00d, 0 0 40px #fff, 0 0 80px #f0f;
-}
-
-</style>
-<style id="h-lit">
-
-[data-hlit], h-lit {
-    --hlit-color: 130,255,173;
-    color: 111;
-    padding: 0.1em 0.3em;
-    line-height: 1.8em;
-    background:
-        linear-gradient(
-            104deg,
-            rgba(var(--hlit-color), 0.2) 0.9%,
-            rgba(var(--hlit-color), 1.25) 2.4%,
-            rgba(var(--hlit-color), 0.5) 5.8%,
-            rgba(var(--hlit-color), 0.0) 93%,
-            rgba(var(--hlit-color), 0.7) 96%,
-            rgba(var(--hlit-color), 0.2) 98%
-        ),
-        linear-gradient(
-            183deg,
-            rgba(var(--hlit-color), 0) 0%,
-            rgba(var(--hlit-color), 0.3) 7.9%,
-            rgba(var(--hlit-color), 0) 15%
-        );
-    border-radius: 7px 0px;
-    clip-path: url("#hlit");
-}
-
-</style>
 </head>
+
 <body>
+<div id="hold0" class="holder">
 <svg id="clipPaths" width="0" height="0">
-    
+
 	<clipPath id="rootBef" clipPathUnits="objectBoundingBox">
 	    <path d="
 	        M .32 .3
 	        H .5
-	        Q .58 .58 .67 .66
-	        Q .75 .5 .8 0
-	        H 1 V .1 H .9
+	        Q .58 .58 .67 .63
+	        Q .75 .5 .8 .1
+	        H 1 V .2 H .9
 	        Q .75 .5 .7 1
 	        Q .6 .6 .42 .4
 	        H .3
@@ -911,9 +1337,9 @@ c-irk::before {
 	
 	<clipPath id="rootAft" clipPathUnits="objectBoundingBox">
 	    <path d="
-	        M 0 0
+	        M 0 .1
 	        H 1
-	        L .9 .1
+	        L .97 .2
 	        H 0
 	        Z
 	    " fill="#000"/>
@@ -939,8 +1365,7 @@ c-irk::before {
 		    H .62
 		    A .1 .12 180 0 0 .38 1
 		    Z
-		    
-		"/>
+		" fill="#000"/>
 	</clipPath>
 
 	<clipPath id="distRite" clipPathUnits="objectBoundingBox">
@@ -1064,180 +1489,320 @@ c-irk::before {
 	</clipPath>
 	
 </svg>
-<div class="holder">
+<svg id="SVGfilter" height="0" width="0">
+
+    <filter id="lightness">
+      <feFlood flood-color="var(--lightness)" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="midness">
+      <feFlood flood-color="var(--midness)" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+
+    <filter id="darkness">
+      <feFlood flood-color="var(--darkness)" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="viva"
+        x="-100%"
+        y="-100%"
+        height="300%"
+        width="300%"
+    >
+        <feGaussianBlur stdDeviation="0.3" result="B0"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            90%
+        )" result="F0"/>
+        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
+        
+        <feGaussianBlur stdDeviation="2" result="B1"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 12),
+            var(--nose-s),
+            50%
+        )" result="F1"/>
+        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
+        
+        <feGaussianBlur stdDeviation="3" result="B2"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 20),
+            calc(var(--nose-s) * 0.69),
+            45%
+        )" result="F2"/>
+        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
+        
+        <feGaussianBlur stdDeviation="4" result="B3"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 40),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F3"/>
+        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
+        
+        <feGaussianBlur stdDeviation="8" result="B4"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F4"/>
+        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
+        
+        <feMerge>
+			<feMergeNode in="Z4"/>
+			<feMergeNode in="Z3"/>
+			<feMergeNode in="Z2"/>
+			<feMergeNode in="Z1"/>
+			<feMergeNode in="Z0"/>
+		</feMerge>
+		
+    </filter>
+
+    <filter id="lil-viva"
+        x="-75%"
+        y="-75%"
+        height="300%"
+        width="300%"
+    >
+        <feGaussianBlur stdDeviation="0.3" result="B0"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            90%
+        )" result="F0"/>
+        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
+        
+        <feGaussianBlur stdDeviation="0.7" result="B1"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 12),
+            var(--nose-s),
+            50%
+        )" result="F1"/>
+        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
+        
+        <feGaussianBlur stdDeviation="0.9" result="B2"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 20),
+            calc(var(--nose-s) * 0.69),
+            42%
+        )" result="F2"/>
+        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
+        
+        <feGaussianBlur stdDeviation="2" result="B3"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 40),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F3"/>
+        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
+        
+        <feGaussianBlur stdDeviation="4" result="B4"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F4"/>
+        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
+        
+        <feMerge>
+			<feMergeNode in="Z4"/>
+			<feMergeNode in="Z3"/>
+			<feMergeNode in="Z2"/>
+			<feMergeNode in="Z1"/>
+			<feMergeNode in="Z0"/>
+		</feMerge>
+		
+    </filter>
+    
+    <filter id="vers"
+        x="-100%"
+        y="-100%"
+        height="300%"
+        width="300%"
+    >
+        <feGaussianBlur stdDeviation="0.3" result="B0"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 120),
+            var(--nose-s),
+            90%
+        )" result="F0"/>
+        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
+        
+        <feGaussianBlur stdDeviation="2" result="B1"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 12 + 120),
+            var(--nose-s),
+            50%
+        )" result="F1"/>
+        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
+        
+        <feGaussianBlur stdDeviation="3" result="B2"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 20 + 120),
+            calc(var(--nose-s) * 0.69),
+            45%
+        )" result="F2"/>
+        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
+        
+        <feGaussianBlur stdDeviation="4" result="B3"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 40 + 120),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F3"/>
+        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
+        
+        <feGaussianBlur stdDeviation="8" result="B4"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 120),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F4"/>
+        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
+        
+        <feMerge>
+			<feMergeNode in="Z4"/>
+			<feMergeNode in="Z3"/>
+			<feMergeNode in="Z2"/>
+			<feMergeNode in="Z1"/>
+			<feMergeNode in="Z0"/>
+		</feMerge>
+		
+    </filter>
+
+    <filter id="ghost">
+        <feMorphology operator="dilate" radius="0.5" result="X0" />
+        <feFlood in="X0" flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            calc(0.7 * var(--nose-l))
+        )" result="F0"/>
+        <feComposite in="F0" in2="X0" operator="in" result="Z0" />
+        <feComposite in="Z0" in2="SourceGraphic" operator="out" result="Z1" />
+        <feGaussianBlur stdDeviation="0.5" in="Z1" />
+     
+    </filter>
+    
+</svg>
 <div class="qr" style="font-size:50px;text-align:center;">
+<div data-nose="#hold0" style="height:50px;width:100%"></div>
 
-<style>p{display:inline;margin:0;padding:0}</style>
+
+<style id="r-aze">
+
+r-aze {
+    
+    --raze-filter-arrow: url("#lil-viva");
+    position: relative;
+    margin-left: 1ch;
+    
+}
+
+r-aze::after {
+    
+    content: '';
+    position: absolute;
+    display: inline-block;
+    height: 20px;
+    width: 17px;
+    right: 100%;
+    top: 20%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='\
+    M 0 80\
+    Q 40 40 50 0\
+    L 100 80\
+    L 80 90\
+    L 50 20\
+    Q 40 67 20 100\
+    Z\
+    ' /%3E%3C/svg%3E");
+    
+    filter: var(--raze-filter-arrow);
+    
+}
 
 
-<com>asked to solve this <b>system of equations</b></com>
+r-aze > :nth-child(1) {
+    
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    right: calc(100% - 8px);
+    font-family: luckiest;
+    transform: rotate(-12deg);
+    
+}
+
+r-aze > :nth-child(2) {
+    display: inline;
+    font-size: 0.4em;
+    vertical-align: 110%;
+}
+
+r-aze > :nth-child(2)::before {
+    content: '[';
+    font-weight: bold;
+}
+
+r-aze > :nth-child(2)::after {
+    content: ']';
+    font-weight: bold;
+}
+
+</style>
+
+<c-omm>asked to solve for equis</c-omm>
 <div>
-<p>y = -3x + 4</p><br>
-<p/>x + 4y = -6</p>
+<l-ogb><b>13</b>x</l-ogb> = 2
 </div>
 
-<com>luckily, one of them is already solved for <b>y</b></com>
+<c-omm>notice the logarithm's base</c-omm>
 <div>
-<p data-glow>y = -3x + 4</p><br>
-<p/>x + 4y = -6</p>
+<l-ogb data-viva-base><b>13</b>x</l-ogb> = 2
 </div>
 
-<com>replace the <b>y</b> in the second equation
-with the value from the first</com>
-<div>
-<p>y = <r-ed>-3x + 4</r-ed></p><br>
-<p/>x + 4<r-ed>y</r-ed> = -6</p>
-</div>
 
-<com>now the second equation becomes</com>
+<c-omm>raze the base to the power of each side</c-omm>
 <div>
-<p>x + <p-t>4</p-t><r-ed>(-3x + 4)</r-ed> = -6</p>
-</div>
-
-<com>distribute the multiplication</com>
-<div>
-x + <p data-dist-right><p-t>4</p-t>(-3x + 4)</p>
-= -6
-</div>
-
-<com>that turns into</com>
-<div>
-x
-+ <d-rak><p-t>4</p-t>-3x</d-rak>
-+ <d-rak><p-t>4</p-t>4</d-rak>
-= -6
-</div>
-
-<com>do the actual multiplication</com>
-<div>
-x
-+ <r-ed>-12x</r-ed>
-+ <r-ed>16</r-ed>
-= -6
-</div>
-
-<com>combine the plus/minus</com>
-<div>
-x <g-low>+ -</g-low>12x + 16 = -6
-</div>
-
-<com>into just minus</com>
-<div>
-x <g-low>-</g-low> 12x + 16 = -6
-</div>
-
-<com>combine the like terms</com>
-<div>
-<d-rak>x - 12x</d-rak> + 16 = -6
-</div>
-
-<com>do the subraction</com>
-<div>
-<r-ed>-11x</r-ed> + 16 = -6
-</div>
-
-<com>subtract sixteen to help isolate the <b>x</b></com>
-<div>
--11x + 16 <r-ed>-16</r-ed> = -6 <r-ed>-16</r-ed>
-</div>
-
-<com>cancel and do the arithmetic</com>
-<div>
--11x + <c-ank data-low>16 - 16</c-ank> = <r-ed>-22</r-ed>
-</div>
-
-<com>reduce that to</com>
-<div>
--11x = -22
-</div>
-
-<com>undo that multiplication by negative eleven</com>
-<div>
-<f-rac>
-    <p>-11x</p>
-    <p data-red>-11</p>
-</f-rac>
+&nbsp;&nbsp;&nbsp;
+<r-aze>
+    <b><v-iva>13</v-iva></b>
+    <b><l-ogb><b>13</b>x</l-ogb></b>
+</r-aze>
 =
-<f-rac>
-    <p>-22</p>
-    <p data-red>-11</p>
-</f-rac>
+<r-aze>
+    <b><v-iva>13</v-iva></b>
+    <b>2</b>
+</r-aze>
 </div>
 
-<com>canceling the negative eleven was the point</com>
+<c-omm>now, what was the point of that?</c-omm>
 <div>
-<f-rac>
-    <p><r-ed data-cank>-11</r-ed>x</p>
-    <p><r-ed data-cank>-11</r-ed></p>
-</f-rac>
-=
-<f-rac>
-    <p>-22</p>
-    <p>-11</p>
-</f-rac>
+13<sup><l-ogb><b>13</b>x</l-ogb></sup>
+= 13<sup>2</sup>
 </div>
 
-<com>that leaves you with some simple math</com>
+<c-omm>that the base and log cancel out</c-omm>
 <div>
-x =
-<f-rac>
-    <p>-22</p>
-    <p>-11</p>
-</f-rac>
+<g-ank>13</g-ank><sup><l-ogb data-gank><b>13</b>x</l-ogb></sup>
+= 13<sup>2</sup>
 </div>
 
-<com>now, finally, we <b>still</b> aren't done;
-we need to find a value for <b>y</b> also</com>
+<c-omm>which leaves a simple square</c-omm>
 <div>
-   {x = 2, <r-ed>y = ???</r-ed>}
+   x = 13<sup><v-iva>2</v-iva></sup>
 </div>
 
-<com>look back at the original system</com>
+<c-omm>and the solution for equis</c-omm>
 <div>
-<p>y = -3x + 4</p><br>
-<p/>x + 4y = -6</p>
+    <s-tar>x = 169</s-tar>
 </div>
-
-<com>again, one equation is already solved for <b>y</b></com>
-<div>
-<p data-glow>y = -3x + 4</p><br>
-<p/>x + 4y = -6</p>
-</div>
-
-<com>evaluate that equation, with your value for x</com>
-<div>
-<f-rom>
-    <p></p>
-    <p></p>
-    <p>y = -3x + 4</p>
-</f-rom>
-<r-ed style="font-style:italic;font-size:0.8em">x=2</r-ed>
-</div>
-
-<com>that <b>means</b> to replace the value</com>
-<div>
-<r-ed>&Implies;</r-ed>
-y = <p-t>-3</p-t><r-ed>(2)</r-ed> + 4
-</div>
-
-<com>do the arithmetic</com>
-<div>
-y = <r-ed>-6</r-ed> + 4
-</div>
-
-<com>now you've also solved for <b>y</b></com>
-<div>
-y = <r-ed>-2</r-ed>
-</div>
-
-<com>to solve the <b>system</b>, report <b>both</b>
-values</com>
-<div>
-<s-tar style="letter-spacing:0.04em;">
-{x = 2,&nbsp; y = -2}
-</s-tar>
-</div>
-
 
 
 
@@ -1251,4 +1816,7 @@ values</com>
 </div>
 </body>
 
+<script>
+    
+</script>
 </html>
