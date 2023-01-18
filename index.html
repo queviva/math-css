@@ -133,7 +133,7 @@ emp {
 }
 
 hr {
-    border-top: 1px solid var(--blackness);
+    border-top: 1px solid var(--darkness);
     border-bottom: none;
     border-left: none;
     border-right: none;
@@ -253,6 +253,11 @@ hr {
 </style>
 <style id="vivaStyles">
 
+* {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
 :root {
     
     --gank-sigma-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 20L100 0L40 50L80 70L0 100L50 70L20 50L80 10Z'/%3E%3C/svg%3E");
@@ -269,6 +274,38 @@ hr {
         
     --grak-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52Q16 30 14 15Q65 25 116 15Q114 30 115 52L112 25H18Z'/%3E%3C/svg%3E");
     
+    --girk-XX: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M105 55Q95 15 75 15C45 15 15 45 15 75S35 115 55 115S135 95 105 25Q125 97 55 109C35 112 20 95 20 75C20 35 75 -5 105 55Z'/%3E%3C/svg%3E");
+    
+    --girk-YY: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M105 53C103 29 77 2 45 22C21 36 9 68 18 92C27 116 53 120 78 110C110 97 123 48 110 28C117 49 103 89 80 100C58 110 36 107 28 87C21 67 32 40 53 27C76 13 97 37 105 53Z'/%3E%3C/svg%3E");
+    
+     --girk-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M90 35A40 35 0 0 0 50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A20 47 0 0 0 80 3A16 47 0 0 1 96 50A41 40 0 0 1 55 90A47 40 0 0 1 8 50A42 42 0 0 1 50 8A40 27 0 0 1 90 35Z'/%3E%3C/svg%3E");
+    
+    --girk-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M5 20Q0 30 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A50 50 0 0 0 50 0C-8 2 10 45 15 45C5 20 20 8 50 8A45 42 0 0 1 95 50A45 40 0 0 1 50 90A48 45 0 0 1 2 45Q2 35 5 20Z'/%3E%3C/svg%3E");
+        
+    --girk-02: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A50 50 0 0 0 50 0ZM 20 20A33 30 330 0 0 82 80A33 30 330 0 0 20 20Z'/%3E%3C/svg%3E");
+    
+    --girk-03: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='\
+    M 15 15\
+    A 10 10 0 0 0 85 85\
+    A 10 10 0 0 0 15 20\
+    A 10 10 0 0 0 40 40\
+    A 10 10 0 0 1 25 20\
+    A 10 10 0 0 1 80 80\
+    A 10 10 0 0 1 20 12\
+    Z'/%3E%3C/svg%3E");
+        
+    --powr-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='\
+    M 100 30\
+    A 13 10 0 0 0 10 75\
+    L 15 74\
+    A 13 10 0 0 1 100 30\
+    Z'/%3E%3C/svg%3E");
+            
+    --powr-dot: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='\
+    M 50 0\
+    A 50 50 0 0 0 50 100\
+    A 50 50 0 0 0 50 0\
+    Z'/%3E%3C/svg%3E");
     
 }
 
@@ -354,6 +391,10 @@ p-ren::after {
     content: ')';
 }
 
+p-ren[data-viva]::before,
+p-ren[data-viva]::after {
+    filter: url("#viva");
+}
 p-ren[data-gank]::before,
 p-ren[data-gank]::after {
     color: var(--holder-back);
@@ -1168,23 +1209,52 @@ r-aze[data-dark] {
     --raze-filter-arrow: url("#lightness");
 }
 
-</style>
+r-aze[data-dark-value] {
+    --raze-filter: none;
+}
 
+r-aze[data-dark-arrow] {
+    --raze-filter-arrow: none;
+    --raze-filter-arrow: url("#lightness");
+}
+
+</style>
 <style id="g-irk">
 
 [data-girk], g-irk{
     
-    --girk-wide: 180%;
-    --girk-high: 150%;
-    --girk-top: 0%;
+    --girk-wide: 20px;
+    --girk-high: 0px;
     --girk-rot: 0deg;
     --girk-flip: 1;
+    --girk-turn: 0;
     --girk-filter: url("#viva");
-    --girk-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M105 55Q95 15 75 15C45 15 15 45 15 75S35 115 55 115S135 95 105 25Q125 97 55 109C35 112 20 95 20 75C20 35 75 -5 105 55Z'/%3E%3C/svg%3E");
+    --girk-back: var(--girk-00);
     
     position: relative;
     
 }
+
+[data-girk]::before, g-irk::before {
+    
+    content: '';
+    position: absolute;
+    width: calc(100% + var(--girk-wide));
+    height: calc(100% + var(--girk-high));
+    left: calc(var(--girk-wide)/-2);
+    top: calc(var(--girk-high)/-2);
+    transform:
+        rotate(
+            calc(180deg * var(--girk-turn))
+        )
+        scale(var(--girk-flip), 1);
+    background-image: var(--girk-back);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: var(--girk-filter);
+
+}
+
 
 [data-girk][data-dark], g-irk[data-dark] {
     --girk-filter: url("#lightness");
@@ -1194,33 +1264,29 @@ r-aze[data-dark] {
     --girk-flip: -1;
 }
 
+[data-girk][data-turn], g-irk[data-turn] {
+    --girk-turn: 1;
+}
+
 [data-girk][data-big], g-irk[data-big] {
     --girk-wide: 280%;
     --girk-high: 250%;
 }
 
 [data-girk][data-opt1]::before, g-irk[data-opt1]::before {
-    --girk-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M105 53C103 29 77 2 45 22C21 36 9 68 18 92C27 116 53 120 78 110C110 97 123 48 110 28C117 49 103 89 80 100C58 110 36 107 28 87C21 67 32 40 53 27C76 13 97 37 105 53Z'/%3E%3C/svg%3E");
+    --girk-back: var(--girk-01);
 }
 
-[data-girk]::before, g-irk::before {
-    
-    content: '';
-    position: absolute;
-    width: var(--girk-wide);
-    height: var(--girk-high);
-    left: calc((100% - var(--girk-wide))/2);
-    top: calc((100% - var(--girk-high))/2 + var(--girk-top));
-    transform: rotate(var(--girk-rot)) scale(var(--girk-flip),1);
-    background-image: var(--girk-back);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    filter: var(--girk-filter);
-
+[data-girk][data-opt2]::before, g-irk[data-opt2]::before {
+    --girk-back: var(--girk-02);
 }
 
+[data-girk][data-opt3]::before, g-irk[data-opt3]::before {
+    --girk-back: var(--girk-03);
+}
 
 </style>
+
 <style id="r-oot">
 
 r-oot {
@@ -1842,17 +1908,93 @@ p-owr::after {
 <div class="qr" style="font-size:50px;text-align:center;">
 <div data-nose="#hold0" style="height:50px;width:100%"></div>
 
+<style id="powAttempt">
 
-<c-omm>try to raze both sides</c-omm>
-<div>
+p-ow {
+    --powr-filter: url("#viva");
+    position: relative;
+}
+
+p-ow::before, p-ow::after {
+    content: '';
+    position: absolute;
+    height: calc(100% + 0px);
+    bottom: 0;
+}
+
+p-ow::before {
     
-one
-<r-aze xdata-dark
-><b>11</b><b>23</b></r-aze>
-two
+    width: calc(100% + 15px);
+    left: -15px;
+    background-size: 100% 100%;
+    background-image: var(--powr-arc);
+    filter: var(--powr-filter);
+    
+    border: 1px solid;
+    
+}
+
+p-ow::after {
+    
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    right: calc(100% + 0px);
+    background-size: 100% 100%;
+    background-image: var(--powr-dot);
+    filter: var(--powr-filter);
+
+}
+
+p-ow + sup {
+    position: relative;
+    --powr-filter: url("#viva");
+}
+
+p-ow + sup::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-size: 100% 100%;
+    background-image: var(--girk-02);
+    filter: var(--powr-filter);
+}
+
+p-ow + sup::after {
+    content: '-1';
+    position: absolute;
+    font-size: 0.5em;
+    font-family: luckiest;
+    top: 0;
+    left: calc(100% + 2px);
+    transform: rotate(-15deg);
+    filter: var(--powr-filter);
+    
+}
+
+p-ow[data-dark] {
+    --powr-filter: url("#lightness");
+}
+
+</style>
+
+<c-omm>power principals</c-omm>
+<div>
+
+<p-ow>3x</p-ow><sup>5</sup><br>
+<p-ow>7xy</p-ow><sup>rat</sup><br>
+
+<i-mp></i-mp>
+rat <v-t></v-t> 7xy<sup><p-ren data-viva>rat - 1</p-ren></sup>
+
 
 
 </div>
+
+
 
 
 
