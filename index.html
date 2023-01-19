@@ -353,6 +353,7 @@ b {
 <style id="c-omm">
 
 c-omm {
+    position: relative;
     display: inline-block;
     color: var(--greyness);
     font-size: 0.5em;
@@ -371,44 +372,30 @@ c-omm::after {
     font-style: normal;
 }
 
-c-omm:hover c-omm > b {
-    color: var(--lightness);
-    transition: all linear 1s;
-}
-
-r-ant {
-    position: relative;
+com-x {
+    position: absolute;
     display: inline-block;
-    width: 70%;
-    padding: 10px;
-    font-size: 0.4em;
+    width: calc(100% - 10px);
+    right: 0%;
+    top: 100%;
+    padding: 20px;
+    font-size: 0.5em;
     text-align: justify;
     color: var(--greyness);
-    xborder: 1px solid;
+    background-color: var(--holder-back);
+    border-left: 1px solid var(--greyness);
+    opacity: 0;
+    z-index: 10;
+    transition: opacity ease-in 600ms;
+    pointer-events: none;
 }
 
-r-ant::before, r-ant::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 100%;
+c-omm:hover com-x {
+    opacity: 0.85;
+    transition: opacity ease-out 400ms;
+    pointer-events: auto;
 }
 
-r-ant::before {
-    top: 0;
-    left: -10px;
-    border-top: 1px solid;
-    border-left: 3px solid;
-    border-bottom: 1px solid;
-}
-
-r-ant::after {
-    top: 0;
-    right: -10px;
-    border-top: 1px solid;
-    border-right: 3px solid;
-    border-bottom: 1px solid;
-}
 
 </style>
 <style id="f-rak">
@@ -842,19 +829,21 @@ g-rak[data-opt1] {
 </style>
 <style id="r-ed1">
 
-[data-red1] { position: relative; --red1-val: '1'; }
-[data-red2] { position: relative; --red1-val: '2'; }
-[data-red3] { position: relative; --red1-val: '3'; }
-[data-red4] { position: relative; --red1-val: '4'; }
-[data-red5] { position: relative; --red1-val: '5'; }
+[data-redx] { position: relative; --red-val: '0'; }
+[data-red1] { position: relative; --red-val: '1'; }
+[data-red2] { position: relative; --red-val: '2'; }
+[data-red3] { position: relative; --red-val: '3'; }
+[data-red4] { position: relative; --red-val: '4'; }
+[data-red5] { position: relative; --red-val: '5'; }
 
+[data-redx]::after,
 [data-red1]::after,
 [data-red2]::after,
 [data-red3]::after,
 [data-red4]::after,
 [data-red5]::after {
     
-    content: var(--red1-val);
+    content: var(--red-val);
     position: absolute;
     left: 80%;
     bottom: -30%;
@@ -866,6 +855,18 @@ g-rak[data-opt1] {
     
     padding: 8px;
     
+}
+
+[data-redx]::after {
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    font-size: 0.4em;
+    text-align: left;
+    white-space: nowrap;
+    xborder: 1px solid;
+    transform: rotate(-8deg);
+    z-index: 10;
 }
 
 </style>
@@ -998,8 +999,12 @@ f-x[data-z] { --fx-var: 'z'; }
 n-add, n-min, n-ote {
     
     --note-rot: -10deg;
+    --note-top: 0px;
+    --note-left: 0px;
     
     display: inline-block;
+    margin-left: var(--note-left);
+    margin-top: var(--note-top);
     font-size: 0.8em;
     font-family: luckiest;
     vertical-align: 30%;
@@ -1605,7 +1610,7 @@ uv-table::after {
     font-style: italic;
     font-weight: bold;
     color: var(--greyness);
-    xfilter: url("#lil-viva");
+    filter: url("#lil-viva");
     
     border: 1px solid;
 }
@@ -1613,8 +1618,7 @@ uv-table::after {
 uv-table > b {
     position: relative;
     padding: 0px 20px;
-    text-align: left;
-    font-style: italic;
+    text-align: center;
 }
 
 uv-table > b::before {
@@ -1629,11 +1633,11 @@ uv-table > b::before {
 uv-table > b:nth-child(1) {
     position: relative;
     color: var(--lightness);
-    border-bottom: 1px solid var(--darkness);
+    border-bottom: 1px solid var(--greyness);
 }
 
 uv-table > b:nth-child(2) {
-    border-bottom: 1px solid var(--darkness);
+    border-bottom: 1px solid var(--greyness);
 }
 
 uv-table > b:nth-child(3) {
@@ -1641,6 +1645,7 @@ uv-table > b:nth-child(3) {
 }
 
 uv-table > b:nth-child(4) {
+    margin-left: 30px;
     color: var(--inverse);
 }
 
@@ -1648,16 +1653,61 @@ uv-table > b:nth-child(1)::before {
     content: 'u=';
 }
 
+uv-table > b:nth-child(1)::after {
+    content: '\27ff';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    font-style: normal;
+    text-align: right;
+    filter: var(--uv-filter-u);
+}
+
 uv-table > b:nth-child(2)::before {
     content: 'u\'=';
+}
+
+uv-table > b:nth-child(2)::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - 40px);
+    height: 100%;
+    left: 20px;
+    background-size: 100% 100%;
+    background-image: var(--girk-01);
+    filter: var(--uv-filter-u);
+    transform: rotate(357deg);
 }
 
 uv-table > b:nth-child(3)::before {
     content: 'v=';
 }
 
+uv-table > b:nth-child(3)::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - 40px);
+    height: 100%;
+    left: 20px;
+    background-size: 100% 100%;
+    background-image: var(--girk-00);
+    filter: var(--uv-filter-v);
+    transform: rotate(2deg) scale(-1, 1);
+    
+}
+
 uv-table > b:nth-child(4)::before {
     content: 'v\'=';
+}
+
+uv-table > b:nth-child(4)::after {
+    content: '\21dc';
+    position: absolute;
+    width: 100%;
+    left: -40px;
+    font-style: normal;
+    text-align: left;
+    filter: var(--uv-filter-v);
 }
 
 /*
@@ -2345,10 +2395,21 @@ g-rut[data-gank] > p:nth-of-type(1) {
 <div data-nose="#hold0" style="height:50px;width:100%"></div>
 
 
-<c-omm>asked to solve this integration</c-omm>
+<c-omm>asked to solve this integration
+<com-x>
+    thease are the tymes that try men's soled
+    shoes on for size, and measure themselves
+    against the brannock's device of history.
+    <br><br>
+    the summer soldier and the sunshine patriot
+    will, in this time of crisis, shrink from
+    the service of their country; but, he who
+    bears it now, deserves the love of women!
+</com-x>
+</c-omm>
 <div>
 <i-teg>
-    <b>x&middot;sin(x)</b>
+    <b>x<p-t></p-t>sin(x)</b>
     <b>dx</b>
 </i-teg>
 </div><br>
@@ -2357,23 +2418,24 @@ g-rut[data-gank] > p:nth-of-type(1) {
 <div>
 <i-teg data-ghost>
     <b data-iprt>
-        <u-u>x</u-u> &middot; <v-v>sin(x)</v-v>
+        <u-u>x</u-u> <p-t></p-t> <v-v>sin(x)</v-v>
     </b>
     <b>dx</b>
 </i-teg>
 </div><br>
 
-<c-omm>ultra-violet table</c-omm>
+<c-omm>compute the derivative of you
+and the integral of vee-prime</c-omm>
 <div>
 <uv-table data-dark>
     <b>x</b>
-    <b><v-iva>1dx</v-iva></b>
-    <b><v-ers>cos(x)</v-ers></b>
+    <b>1dx</b>
+    <b>cos(x)</b>
     <b>sin(x)</b>
 </uv-table>
 </div><br>
 
-<c-omm>that becomes <b>hover</b>...</c-omm>
+<c-omm>that becomes ...</c-omm>
 <div>
 <i-mp>
 <by-parts xdata-dark>
@@ -2394,11 +2456,13 @@ x<p-t></p-t>cos(x) -
 </i-teg>
 </div><br>
 
-<c-omm>you have the integral of cos memorized</c-omm>
+<c-omm>you have the integral of cosine memorized</c-omm>
 <div>
 x<p-t></p-t>cos(x) -
 <i-teg data-ghost>
-    <b><g-ank>cos(x)</g-ank><n-ote>= -sin x</n-ote></b>
+    <b data-gank data-opt2 data-redx style="--red-val:'= -sin x'">
+        cos(x)
+    </b>
     <b>dx</b>
 </i-teg>
 </div><br>
