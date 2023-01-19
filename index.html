@@ -36,9 +36,9 @@ body {
 
 .holder {
        
-    --nose-hsla: hsla(16, 100%, 50%, 1);
+    --nose-hsla: hsla(40, 100%, 50%, 1);
     
-    --nose-h: 16;
+    --nose-h: 40;
     --nose-s: 100%;
     --nose-l: 50%;
     --nose-a: 1;
@@ -125,11 +125,8 @@ emp {
     font-family: luckiest;
     font-style: italic;
     font-weight: bold;
-    -webkit-text-stroke: 2px hsl(
-        var(--nose-h),
-        calc(0.2 * var(--nose-s)),
-        calc(0.7 * var(--nose-l))
-    );
+    color: rgba(0,0,0,0);
+    -webkit-text-stroke: 2px var(--greyness);
 }
 
 hr {
@@ -260,6 +257,12 @@ hr {
 
 :root {
     
+    --gank-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
+    
+    --gank-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q55 70 105 0L110 10Q60 70 15 100Z'/%3E%3C/svg%3E");
+    
+    --gank-02: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M15 100Q40 90 70 25L69 45Q90 10 115 0Q90 15 65 70L65 52Q50 90 15 100Z'/%3E%3C/svg%3E");
+    
     --gank-sigma-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 20L100 0L40 50L80 70L0 100L50 70L20 50L80 10Z'/%3E%3C/svg%3E");
     
     --gank-slash-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
@@ -274,37 +277,48 @@ hr {
         
     --grak-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52Q16 30 14 15Q65 25 116 15Q114 30 115 52L112 25H18Z'/%3E%3C/svg%3E");
     
-    --girk-XX: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M105 55Q95 15 75 15C45 15 15 45 15 75S35 115 55 115S135 95 105 25Q125 97 55 109C35 112 20 95 20 75C20 35 75 -5 105 55Z'/%3E%3C/svg%3E");
-    
-    --girk-YY: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M105 53C103 29 77 2 45 22C21 36 9 68 18 92C27 116 53 120 78 110C110 97 123 48 110 28C117 49 103 89 80 100C58 110 36 107 28 87C21 67 32 40 53 27C76 13 97 37 105 53Z'/%3E%3C/svg%3E");
-    
      --girk-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M90 35A40 35 0 0 0 50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A20 47 0 0 0 80 3A16 47 0 0 1 96 50A41 40 0 0 1 55 90A47 40 0 0 1 8 50A42 42 0 0 1 50 8A40 27 0 0 1 90 35Z'/%3E%3C/svg%3E");
     
-    --girk-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M5 20Q0 30 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A50 50 0 0 0 50 0C-8 2 10 45 15 45C5 20 20 8 50 8A45 42 0 0 1 95 50A45 40 0 0 1 50 90A48 45 0 0 1 2 45Q2 35 5 20Z'/%3E%3C/svg%3E");
+    --girk-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
+    M 25 20\
+    A 25 30 0 0 0 0 50\
+    A 50 50 0 0 0 50 100\
+    A 50 50 0 0 0 100 50\
+    A 50 50 0 0 0 50 0\
+    C -8 2 10 45 15 45\
+    C 5 20 20 8 50 8\
+    A 45 42 0 0 1 95 50\
+    A 45 40 0 0 1 50 90\
+    A 48 45 0 0 1 2 48\
+    A 28 28 0 0 1 30 20\
+    Z'/%3E%3C/svg%3E");
         
     --girk-02: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A50 50 0 0 0 50 0ZM 20 20A33 30 330 0 0 82 80A33 30 330 0 0 20 20Z'/%3E%3C/svg%3E");
-    
-    --girk-03: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='\
-    M 15 15\
-    A 10 10 0 0 0 85 85\
-    A 10 10 0 0 0 15 20\
-    A 10 10 0 0 0 40 40\
-    A 10 10 0 0 1 25 20\
-    A 10 10 0 0 1 80 80\
-    A 10 10 0 0 1 20 12\
-    Z'/%3E%3C/svg%3E");
         
-    --powr-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='\
-    M 100 30\
-    A 13 10 0 0 0 10 75\
-    L 15 74\
-    A 13 10 0 0 1 100 30\
-    Z'/%3E%3C/svg%3E");
+    --girk-03: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M5 20Q0 30 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A50 50 0 0 0 50 0C-8 2 10 45 15 45C5 20 20 8 50 8A45 42 0 0 1 95 50A45 40 0 0 1 50 90A48 45 0 0 1 2 45Q2 35 5 20Z'/%3E%3C/svg%3E");
+    
+    --girk-xtra-swoosh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M15 15A10 10 0 0 0 85 85A10 10 0 0 0 15 20A10 10 0 0 0 40 40A10 10 0 0 1 25 20A10 10 0 0 1 80 80A10 10 0 0 1 20 12Z'/%3E%3C/svg%3E");
+        
+    --powr-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M100 30A100 300 340 0 0 0 55L4 55A100 300 340 0 1 100 30Z'/%3E%3C/svg%3E");
             
-    --powr-dot: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='\
-    M 50 0\
-    A 50 50 0 0 0 50 100\
-    A 50 50 0 0 0 50 0\
+    --powr-dot: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M 50 0A 50 50 0 0 0 50 100A 50 50 0 0 0 50 0Z'/%3E%3C/svg%3E");
+            
+    --ipow-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath d='M100 45A100 200 340 0 1 0 85L2 81L10 82A100 200 340 0 0 95 55Z' fill='%23000' /%3E\
+    %3C/svg%3E");
+    
+    --ipow-divline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M0 30Q50 40 95 0L100 70Q50 60 10 100Z'/%3E%3C/svg%3E");
+    --uv-table-rite: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
+    M 30 80\
+    A 10 15 0 0 1 100 60\
+    L 90 60\
+    A 10 16 0 0 0 31 80\
+    Z'/%3E%3C/svg%3E");
+    
+    --uv-table-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
+    M 70 80\
+    A 10 15 0 0 0 0 60\
+    L 10 60\
+    A 10 16 0 0 1 69 80\
     Z'/%3E%3C/svg%3E");
     
 }
@@ -318,6 +332,10 @@ v-iva {
 
 v-ers {
     filter: url("#vers");
+}
+
+i-ver {
+    color: var(--inverse);
 }
 
 </style>
@@ -351,6 +369,45 @@ c-omm::before {
 c-omm::after {
     content: "]";
     font-style: normal;
+}
+
+c-omm:hover c-omm > b {
+    color: var(--lightness);
+    transition: all linear 1s;
+}
+
+r-ant {
+    position: relative;
+    display: inline-block;
+    width: 70%;
+    padding: 10px;
+    font-size: 0.4em;
+    text-align: justify;
+    color: var(--greyness);
+    xborder: 1px solid;
+}
+
+r-ant::before, r-ant::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 100%;
+}
+
+r-ant::before {
+    top: 0;
+    left: -10px;
+    border-top: 1px solid;
+    border-left: 3px solid;
+    border-bottom: 1px solid;
+}
+
+r-ant::after {
+    top: 0;
+    right: -10px;
+    border-top: 1px solid;
+    border-right: 3px solid;
+    border-bottom: 1px solid;
 }
 
 </style>
@@ -470,102 +527,6 @@ s-umm[data-gank]::after {
 }
 
 </style>
-<style id="i-teg">
-
-i-teg {
-        
-    --iteg-filter-sigma: none;
-    --iteg-filter-from: none;
-    --iteg-filter-to: none;
-    --iteg-filter-diff: none;
-    position: relative;
-    margin-left: 0.5em;
-    
-}
-
-i-teg::before {
-    
-    content: '\222b';
-    position: absolute;
-    height: 100%;
-    width: 20%;
-    line-height: 1em;
-    left: -0.7em;
-    font-size: 1em;
-    transform:scale(1.3,2);
-    filter: var(--iteg-filter-sigma);
-    
-}
-
-i-teg > :nth-child(1) {
-    position: absolute;
-    font-size: 0.4em;
-    top: calc(100% + 1em);
-    left: -1.2em;
-    filter: var(--iteg-filter-from);
-}
-
-i-teg > :nth-child(2) {
-    position: absolute;
-    font-size: 0.4em;
-    bottom: calc(100% + 0.5em);
-    left: -0.5em;
-    filter: var(--iteg-filter-to);
-}
-
-i-teg > :nth-child(4) {
-    font-size: 0.8em;
-    font-style: italic;
-    letter-spacing: -0.3ch;
-    filter: var(--iteg-filter-diff);
-}
-
-i-teg[data-viva] {
-    --iteg-filter-sigma: url("#viva");
-    --iteg-filter-from: url("#viva");
-    --iteg-filter-to: url("#viva");
-    --iteg-filter-diff: url("#viva");
-}
-
-i-teg[data-viva-sigma] {
-    --iteg-filter-sigma: url("#viva");
-}
-
-i-teg[data-viva-from] {
-    --iteg-filter-from: url("#viva");
-}
-
-i-teg[data-viva-to] {
-    --iteg-filter-to: url("#viva");
-}
-
-i-teg[data-viva-diff] {
-    --iteg-filter-diff: url("#viva");
-}
-
-i-teg[data-gank] {
-    --iteg-filter-sigma: url("#ghost");
-    --iteg-filter-from: url("#ghost");
-    --iteg-filter-to: url("#ghost");
-    --iteg-filter-diff: url("#ghost");
-}
-
-i-teg[data-gank]::after {
-    content: '';
-    position: absolute;
-    padding: 10px;
-    height: 100%;
-    width: 1ch;
-    left: -1ch;
-    background-image: var(--gank-sigma-00);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    transform:scale(1.3,2);
-    filter: url("#viva");
-    
-}
-
-</style>
 <style id="e-val">
 
 e-val {
@@ -586,7 +547,6 @@ e-val::before {
     top: 0;
     font-size: 1em;
     transform:scale(1,2.0);
-    font-weight: bold;
     filter: var(--eval-filter);
 }
 
@@ -597,7 +557,6 @@ e-val::after {
     top: 0;
     font-size: 1em;
     transform:scale(1,2.0);
-    font-weight: bold;
     filter: var(--eval-filter);
 }
 
@@ -755,10 +714,15 @@ v-t::after {
     filter: url("#viva");
 }
 
-i-mp::after {
+i-mp::before {
     content: "\21d2";
     font-size: 0.6em;
     filter: url("#viva");
+}
+
+i-mp::after {
+    content: '\00a0\00a0';
+    font-size: 0.6em;
 }
 
 </style>
@@ -849,7 +813,8 @@ g-rak::before {
     content: '';
     position: absolute;
     width: var(--grak-wide);
-    height: var(--grak-high);
+    aspect-ratio: 8 / 1;
+    xheight: var(--grak-high);
     left: calc((100% - var(--grak-wide))/2 + var(--grak-left));
     bottom: calc(100% - var(--grak-top));
     transform: rotate(var(--grak-rot));
@@ -1047,6 +1012,7 @@ n-add, n-min, n-ote {
 n-ote {
     font-size: 0.3em;
     vertical-align: 100%;
+    word-spacing: -0.1em;
 }
 
 n-add::before {
@@ -1286,6 +1252,498 @@ r-aze[data-dark-arrow] {
 }
 
 </style>
+<style id="p-owr">
+
+p-owr {
+    --powr-filter: url("#viva");
+    position: relative;
+}
+
+p-owr::before, p-owr::after {
+    content: '';
+    position: absolute;
+    height: calc(100% + 0px);
+    bottom: 0;
+}
+
+p-owr::before {
+    
+    width: calc(100% + 7px);
+    left: -7px;
+    background-size: 100% 100%;
+    background-image: var(--powr-arc);
+    filter: var(--powr-filter);
+    
+}
+
+p-owr::after {
+    
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    right: calc(100% + 0px);
+    background-size: 100% 100%;
+    background-image: var(--powr-dot);
+    filter: var(--powr-filter);
+
+}
+
+p-owr + sup {
+    position: relative;
+    --powr-filter: url("#viva");
+}
+
+p-owr + sup::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-size: 100% 100%;
+    background-image: var(--girk-02);
+    filter: var(--powr-filter);
+}
+
+p-owr + sup::after {
+    content: '-1';
+    position: absolute;
+    font-size: 0.5em;
+    font-family: luckiest;
+    top: 0;
+    left: calc(100% + 2px);
+    transform: rotate(-15deg);
+    filter: var(--powr-filter);
+    
+}
+
+p-owr[data-dark] {
+    --powr-filter: url("#lightness");
+}
+
+</style>
+<style id="i-pow">
+
+i-pow {
+    
+    --ipow-filter: url("#viva");
+    
+    position: relative;
+    
+}
+
+i-pow::before, i-pow::after {
+    content: '';
+    position: absolute;
+    height: calc(100% + 0px);
+}
+
+i-pow::before {
+    
+    width: calc(50% + 8px);
+    height: calc(100% + 20px);
+    left: 50%;
+    background-size: 100% 100%;
+    background-image: var(--ipow-arc);
+    filter: var(--ipow-filter);
+    
+    xborder: 1px solid;
+    
+}
+
+i-pow::after {
+    
+    width: calc(100% + 8px);
+    height: 5px;
+    bottom: 0px;
+    right: calc(50% - 10px);
+    right: 8px;
+    background-size: 100% 100%;
+    background-image: var(--ipow-divline);
+    filter: var(--ipow-filter);
+    
+    xborder: 1px solid;
+
+}
+
+i-pow + sup {
+    position: relative;
+    --ipow-filter: url("#viva");
+}
+
+i-pow + sup::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-size: 100% 100%;
+    background-image: var(--girk-02);
+    filter: var(--ipow-filter);
+}
+
+i-pow + sup::after {
+    content: '+1';
+    position: absolute;
+    font-size: 0.5em;
+    font-family: luckiest;
+    top: 0;
+    left: calc(100% + 2px);
+    transform: rotate(-15deg);
+    filter: var(--ipow-filter);
+    
+}
+
+i-pow[data-dark], i-pow+sup[data-dark] {
+    --ipow-filter: url("#lightness");
+}
+
+</style>
+<style id="i-teg">
+
+i-teg {
+        
+    --iteg-filter-sigma: none;
+    --iteg-filter-from: none;
+    --iteg-filter-to: none;
+    --iteg-filter-diff: none;
+    
+    position: relative;
+    margin-left: 0.5em;
+    
+}
+
+i-teg::before {
+    
+    content: '\222b';
+    position: absolute;
+    height: 100%;
+    width: 20%;
+    line-height: 1em;
+    left: -0.7em;
+    font-size: 1em;
+    transform:scale(1.3,2);
+    filter: var(--iteg-filter-sigma);
+    
+}
+
+i-teg > :nth-child(2) {
+    position: relative;
+    font-size: 0.8em;
+    font-style: italic;
+    letter-spacing: -0.3ch;
+    filter: var(--iteg-filter-diff);
+}
+
+i-teg > :nth-child(3) {
+    position: absolute;
+    font-size: 0.4em;
+    top: calc(100% + 1em);
+    left: -1.2em;
+    filter: var(--iteg-filter-from);
+}
+
+i-teg > :nth-child(4) {
+    position: absolute;
+    font-size: 0.4em;
+    bottom: calc(100% + 0.5em);
+    left: -0.5em;
+    filter: var(--iteg-filter-to);
+}
+
+i-teg[data-viva] {
+    --iteg-filter-sigma: url("#viva");
+    --iteg-filter-from: url("#viva");
+    --iteg-filter-to: url("#viva");
+    --iteg-filter-diff: url("#viva");
+}
+
+i-teg[data-viva-sigma] {
+    --iteg-filter-sigma: url("#viva");
+}
+
+i-teg[data-viva-from] {
+    --iteg-filter-from: url("#viva");
+}
+
+i-teg[data-viva-to] {
+    --iteg-filter-to: url("#viva");
+}
+
+i-teg[data-viva-diff] {
+    --iteg-filter-diff: url("#viva");
+}
+
+i-teg[data-gank], i-teg[data-ghost] {
+    --iteg-filter-sigma: url("#ghost");
+    --iteg-filter-from: url("#ghost");
+    --iteg-filter-to: url("#ghost");
+    --iteg-filter-diff: url("#ghost");
+}
+
+i-teg[data-gank]::after {
+    content: '';
+    position: absolute;
+    padding: 10px;
+    height: 100%;
+    width: 1ch;
+    left: -2ch;
+    background-image: var(--gank-sigma-00);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transform:scale(1.3,2);
+    filter: url("#viva");
+    
+}
+
+
+</style>
+<style id="i-prt">
+
+[data-iprt] {
+    
+    --iprt-filter-u: url("#viva");
+    --iprt-filter-v: url("#vers");
+    
+    position: relative;
+    
+}
+
+[data-iprt] > u-u {
+    position: relative;
+}
+
+[data-iprt] > u-u::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+    background-image: var(--girk-02);
+    filter: var(--iprt-filter-u);
+    
+}
+
+[data-iprt] > u-u::after {
+    content: 'u =';
+    position: absolute;
+    height: 100%;
+    width: 2ch;
+    top: -4px;
+    left: -8px;
+    font-size: 0.4em;
+    font-family: luckiest;
+    word-spacing: -0.2em;
+    text-align: left;
+    transform: rotate(-15deg);
+    filter: var(--iprt-filter-u);
+    
+}
+
+[data-iprt] > v-v {
+    position: relative;
+}
+
+[data-iprt] > v-v::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+    background-image: var(--girk-00);
+    filter: var(--iprt-filter-v);
+    
+}
+
+[data-iprt] > v-v::after {
+    content: 'v\' =';
+    position: absolute;
+    height: 100%;
+    width: 2ch;
+    top: -4px;
+    left: -8px;
+    font-size: 0.4em;
+    font-family: luckiest;
+    word-spacing: -0.2em;
+    color: var(--inverse);
+    text-align: left;
+    transform: rotate(-15deg);
+    filter: var(--iprt-filter-v);
+    
+}
+
+[data-iprt][data-dark] {
+    --iprt-filter-u: url("#lightness");
+    --iprt-filter-v: url("#inverse");
+}
+
+</style>
+<style id="uv-table">
+    
+uv-table {
+    
+    --uv-filter-u: url("#viva");
+    --uv-filter-v: url("#vers");
+    
+    position: relative;
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    font-size: 0.8em;
+    vertical-align: 68%;
+    margin-bottom: 20px;
+    
+}
+
+uv-table::after {
+    content: 'uv\00a0-\00a0\222bvu\'';
+    position: absolute;
+    width: 100%;
+    top: calc(100% + 15px);
+    font-size: 0.4em;
+    font-style: italic;
+    font-weight: bold;
+    color: var(--greyness);
+    xfilter: url("#lil-viva");
+    
+    border: 1px solid;
+}
+
+uv-table > b {
+    position: relative;
+    padding: 0px 20px;
+    text-align: left;
+    font-style: italic;
+}
+
+uv-table > b::before {
+    padding-right: 4px;
+    font-size: 0.6em;
+    font-family: luckiest;
+    text-align: center;
+    font-style: normal;
+    vertical-align: 10%;
+}
+
+uv-table > b:nth-child(1) {
+    position: relative;
+    color: var(--lightness);
+    border-bottom: 1px solid var(--darkness);
+}
+
+uv-table > b:nth-child(2) {
+    border-bottom: 1px solid var(--darkness);
+}
+
+uv-table > b:nth-child(3) {
+    color: var(--inverse);
+}
+
+uv-table > b:nth-child(4) {
+    color: var(--inverse);
+}
+
+uv-table > b:nth-child(1)::before {
+    content: 'u=';
+}
+
+uv-table > b:nth-child(2)::before {
+    content: 'u\'=';
+}
+
+uv-table > b:nth-child(3)::before {
+    content: 'v=';
+}
+
+uv-table > b:nth-child(4)::before {
+    content: 'v\'=';
+}
+
+/*
+uv-table > b:nth-child(1)::after,
+uv-table > b:nth-child(4)::after {
+    
+    content: '';
+    position: absolute;
+    height: 30px;
+    width: 120%;
+    top: -10px;
+    font-size: 0.3em;
+    
+}
+
+uv-table > b:nth-child(1)::after {
+    left: 0;
+    background-size: 100% 100%;
+    background-image: var(--uv-table-rite);
+    filter: var(--uv-filter-u);
+}
+
+uv-table > b:nth-child(4)::after {
+    right: 0;
+    background-size: 100% 100%;
+    background-image: var(--uv-table-left);
+    filter: var(--uv-filter-v);
+}
+
+uv-table > b:nth-child(1)::after {
+    --uv-filter-u: url("#lightness");
+}
+
+uv-table > b:nth-child(4)::after {
+    --uv-filter-v: url("#inverse");
+}
+*/
+
+</style>
+<style id="by-parts">
+
+by-parts {
+    --by-parts-filter: url("#viva");
+    position: relative;
+    font-size: 0.7em;
+}
+
+by-parts > :nth-child(1),
+by-parts > :nth-child(4) {
+    color: var(--lightness);
+}
+
+by-parts > :nth-child(2),
+by-parts > :nth-child(3) {
+    color: var(--inverse);
+}
+
+by-parts > :nth-child(1)::after {
+    content: '\00a0\00b7';
+    filter: var(--by-parts-filter);
+}
+
+by-parts > :nth-child(2)::after {
+    content: '\00a0\-';
+    filter: var(--by-parts-filter);
+}
+
+by-parts > :nth-child(3)::before {
+    content: '\222b';
+    margin-right: 0.5ch;
+    font-size: 1.2em;
+    filter: var(--by-parts-filter);
+    
+}
+
+by-parts > :nth-child(4)::before {
+    content: '\00b7\00a0';
+    filter: var(--by-parts-filter);
+}
+
+by-parts[data-dark] {
+    --by-parts-filter: url("#greyness");
+}
+
+</style>
+
 
 <style id="r-oot">
 
@@ -1445,33 +1903,33 @@ g-rut[data-gank] > p:nth-of-type(1) {
 </style>
 <style id="g-ank">
 
-g-ank {
+[data-gank], g-ank {
     
     --gank-color: var(--midness, #900);
     --gank-wide: 150%;
     --gank-high: 80%;
     --gank-rot: 0deg;
-    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
+    --gank-back: var(--gank-00);
     --gank-opacity: 1;
     
     position: relative;
 }
 
-g-ank[data-hi] {
+[data-gank][data-hi], g-ank[data-hi] {
     --gank-high: 100%;
 }
 
-g-ank[data-opt1] {
-    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q55 70 105 0L110 10Q60 70 15 100Z'/%3E%3C/svg%3E");
+[data-gank][data-opt1], g-ank[data-opt1] {
+    --gank-back: var(--gank-01);
     --gank-wide: 160%;
 }
 
-g-ank[data-opt2] {
-    --gank-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M15 100Q40 90 70 25L69 45Q90 10 115 0Q90 15 65 70L65 52Q50 90 15 100Z'/%3E%3C/svg%3E");
+[data-gank][data-opt2], g-ank[data-opt2] {
+    --gank-back: var(--gank-02);
     --gank-wide: calc(150% + 20px);
 }
 
-g-ank::before {
+[data-gank]::before, g-ank::before {
     
     content: '';
     
@@ -1490,46 +1948,6 @@ g-ank::before {
 }
 
 </style>
-<style id="p-owr">
-
-p-owr {
-    
-    --powr-color: var(--darkness, #900);
-    --powr-wide: 100%;
-    
-    position: relative;
-    
-}
-
-p-owr::before {
-    
-    content: '';
-    position: absolute;
-    
-    right: -0.3ch;
-    top: 0;
-    height: 2ch;
-    width: var(--powr-wide);
-    background-color: var(--powr-color);
-    
-    clip-path: url(#powerRule);
-    
-}
-
-p-owr::after {
-    
-    content: '-1';
-    position: absolute;
-    font-size: 0.35em;
-    color: var(--powr-color);
-    left: calc(100% + 0.0em);
-    top: -0.5em;
-    transform: rotate(-15deg);
-    
-}
-
-</style>
-
 
 </head>
 
@@ -1723,11 +2141,29 @@ p-owr::after {
       <feComposite in="F0" in2="SourceGraphic" operator="in"/>
     </filter>
     
+    <filter id="inverse">
+      <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 120),
+            var(--nose-s),
+            var(--nose-l)
+      )" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="greyness">
+      <feFlood flood-color="hsl(
+        var(--nose-h),
+        calc(0.1 * var(--nose-s)),
+        calc(0.6 * var(--nose-l))
+      )" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
     <filter id="viva"
-        x="-100%"
-        y="-100%"
-        height="300%"
-        width="300%"
+        x="-200%"
+        y="-200%"
+        height="900%"
+        width="900%"
     >
         <feGaussianBlur stdDeviation="0.3" result="B0"/>
         <feFlood flood-color="hsl(
@@ -1908,90 +2344,87 @@ p-owr::after {
 <div class="qr" style="font-size:50px;text-align:center;">
 <div data-nose="#hold0" style="height:50px;width:100%"></div>
 
-<style id="powAttempt">
 
-p-ow {
-    --powr-filter: url("#viva");
-    position: relative;
-}
-
-p-ow::before, p-ow::after {
-    content: '';
-    position: absolute;
-    height: calc(100% + 0px);
-    bottom: 0;
-}
-
-p-ow::before {
-    
-    width: calc(100% + 15px);
-    left: -15px;
-    background-size: 100% 100%;
-    background-image: var(--powr-arc);
-    filter: var(--powr-filter);
-    
-    border: 1px solid;
-    
-}
-
-p-ow::after {
-    
-    width: 10px;
-    height: 10px;
-    top: 50%;
-    right: calc(100% + 0px);
-    background-size: 100% 100%;
-    background-image: var(--powr-dot);
-    filter: var(--powr-filter);
-
-}
-
-p-ow + sup {
-    position: relative;
-    --powr-filter: url("#viva");
-}
-
-p-ow + sup::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    background-size: 100% 100%;
-    background-image: var(--girk-02);
-    filter: var(--powr-filter);
-}
-
-p-ow + sup::after {
-    content: '-1';
-    position: absolute;
-    font-size: 0.5em;
-    font-family: luckiest;
-    top: 0;
-    left: calc(100% + 2px);
-    transform: rotate(-15deg);
-    filter: var(--powr-filter);
-    
-}
-
-p-ow[data-dark] {
-    --powr-filter: url("#lightness");
-}
-
-</style>
-
-<c-omm>power principals</c-omm>
+<c-omm>asked to solve this integration</c-omm>
 <div>
+<i-teg>
+    <b>x&middot;sin(x)</b>
+    <b>dx</b>
+</i-teg>
+</div><br>
 
-<p-ow>3x</p-ow><sup>5</sup><br>
-<p-ow>7xy</p-ow><sup>rat</sup><br>
+<c-omm>it's a <emp>by-part-ee</emp> in here!</c-omm>
+<div>
+<i-teg data-ghost>
+    <b data-iprt>
+        <u-u>x</u-u> &middot; <v-v>sin(x)</v-v>
+    </b>
+    <b>dx</b>
+</i-teg>
+</div><br>
 
-<i-mp></i-mp>
-rat <v-t></v-t> 7xy<sup><p-ren data-viva>rat - 1</p-ren></sup>
+<c-omm>ultra-violet table</c-omm>
+<div>
+<uv-table data-dark>
+    <b>x</b>
+    <b><v-iva>1dx</v-iva></b>
+    <b><v-ers>cos(x)</v-ers></b>
+    <b>sin(x)</b>
+</uv-table>
+</div><br>
 
+<c-omm>that becomes <b>hover</b>...</c-omm>
+<div>
+<i-mp>
+<by-parts xdata-dark>
+    <b>x</b>
+    <b>cos(x)</b>
+    <b>cos(x)</b>
+    <b>1dx</b>
+</by-parts>
+</i-mp>
+</div><br>
 
+<c-omm>which is to say</c-omm>
+<div>
+x<p-t></p-t>cos(x) -
+<i-teg>
+    <b>cos(x)</b>
+    <b>dx</b>
+</i-teg>
+</div><br>
 
+<c-omm>you have the integral of cos memorized</c-omm>
+<div>
+x<p-t></p-t>cos(x) -
+<i-teg data-ghost>
+    <b><g-ank>cos(x)</g-ank><n-ote>= -sin x</n-ote></b>
+    <b>dx</b>
+</i-teg>
+</div><br>
+
+<c-omm>giving you</c-omm>
+<div>
+x<p-t></p-t>cos(x) - <v-iva>- sin(x)</v-iva>
+</div>
+
+<c-omm>try to combine the double negative</c-omm>
+<div>
+x<p-t></p-t>cos(x)
+<g-rak><v-iva>- -</v-iva></g-rak>
+sin(x)
+</div>
+
+<c-omm>that's going to make a plus</c-omm>
+<div>
+<p-t>x</p-t>cos(x) <v-iva>+</v-iva> sin(x)
+</div>
+
+<c-omm>try submitting this</c-omm>
+<div>
+<s-tar>
+x<p-t></p-t>cos(x) + sin(x)
+</s-tar>
 </div>
 
 
