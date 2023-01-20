@@ -3,7 +3,7 @@
 <title>viva-matics</title>
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
-<script defer src="nanopicker.js"></script>
+<!--<script defer src="nanopicker.js"></script>-->
 <style id="demoStyles">
 
 @font-face {
@@ -359,6 +359,7 @@ sup, sub {
 }
 
 b {
+    position: relative;
     font-weight: normal;
 }
 
@@ -371,7 +372,7 @@ c-omm {
     color: var(--greyness);
     font-size: 0.5em;
     font-style: italic;
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 30px;
 }
 
@@ -399,6 +400,8 @@ c-omm > b {
     border-left: 1px solid var(--greyness);
     opacity: 0;
     z-index: 10;
+    max-height: 10em;
+    overflow-y: auto;
     transition: opacity ease-in 600ms;
     pointer-events: none;
 }
@@ -762,6 +765,14 @@ i-mp::after {
     font-size: 0.6em;
 }
 
+d-x::after {
+    content: 'dx';
+    margin-left: 0.15ch;
+    font-size: 0.8em;
+    font-style: italic;
+    letter-spacing: -0.2em;
+}
+
 </style>
 <style id="dy-dx">
 
@@ -917,6 +928,65 @@ g-rak[data-opt1] {
     xborder: 1px solid;
     transform: rotate(-8deg);
     z-index: 10;
+}
+
+</style>
+<style id="r-dux">
+
+r-dux {
+    
+    --rdux-high: 80%;
+    --rdux-wide: 120%;
+    --rdux-top: 50%;
+    --rdux-left: 65%;
+    --rdux-back: var(--rdux-00);
+    --rdux-filter: url("#viva");
+    --rdux-filter-to: url("#lil-viva");
+    
+    position: relative;
+
+}
+
+r-dux::before {
+    
+    content: '';
+    position: absolute;
+    height: var(--rdux-high);
+    width: var(--rdux-wide);
+    bottom: 4px;
+    left: calc((100% - var(--rdux-wide))/2);
+    background-size: 100% 100%;
+    background-image: var(--rdux-back);
+    filter: var(--rdux-filter);
+    
+}
+
+r-dux > b {
+    
+    position: absolute;
+    top: var(--rdux-top);
+    left: var(--rdux-left);
+    font-family: luckiest;
+    font-size: 0.4em;
+    text-align: left;
+    white-space: nowrap;
+    word-spacing: -0.15em;
+    filter: var(--rdux-filter-to);
+    transform: rotate(-14deg);
+    
+}
+
+f-rak > b > r-dux > b {
+    font-size: 0.5em;
+}
+
+r-dux[data-dark] {
+    --rdux-filter: url("#lightness");
+    --rdux-filter-to: url("#lightness");
+}
+
+r-dux[data-viva-to] {
+    --rdux-filter: url("#lightness");
 }
 
 </style>
@@ -1082,11 +1152,27 @@ n-min::before{
     vertical-align: 50%;
 }
 
+b > n-pad {
+    position: absolute;
+    display: inline;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    font-size: 0.4em;
+    font-family: luckiest;
+    white-space: nowrap;
+    transform: rotate(-12deg);
+    filter: url("#lil-viva");
+}
+
 n-add[data-dark],
 n-min[data-dark],
-n-ote[data-dark] {
+n-ote[data-dark],
+n-pad[data-dark] {
     filter: none;
 }
+
+
 
 </style>
 <style id="l-ogb">
@@ -1244,7 +1330,7 @@ r-aze[data-dark-arrow] {
 
 [data-girk], g-irk{
     
-    --girk-wide: 20px;
+    --girk-wide: 25px;
     --girk-high: 0px;
     --girk-rot: 0deg;
     --girk-flip: 1;
@@ -1290,8 +1376,8 @@ r-aze[data-dark-arrow] {
 }
 
 [data-girk][data-big], g-irk[data-big] {
-    --girk-wide: 280%;
-    --girk-high: 250%;
+    --girk-wide: 100px;
+    --girk-high: 50px;
 }
 
 [data-girk][data-opt1]::before, g-irk[data-opt1]::before {
@@ -1555,7 +1641,10 @@ i-teg[data-gank]::after {
 
 </style>
 <style id="i-prt">
-
+/*
+    inside i-teg, will select a u and v'
+    for integration by parts
+*/
 [data-iprt] {
     
     --iprt-filter-u: url("#viva");
@@ -1635,20 +1724,46 @@ i-teg[data-gank]::after {
 
 </style>
 <style id="uv-table">
-    
+
+/*
+    sets up the uv table for integration by parts
+    use data-empty parameter for empty table
+    <uv-table [data-empty]>
+        <b>u </b>
+        <b>u'</b>
+        <b>v </b>
+        <b>v'</b>
+    </uv-table>
+*/
+
 uv-table {
     
+    --uv-color-u: var(--lightness);
+    --uv-color-v: var(--inverse);
     --uv-filter-u: url("#viva");
     --uv-filter-v: url("#vers");
-    --uv-table-msg: 'find derivative of u & integral of v\'';
+    --uv-table-msg0: 'find derivative of u & integral of v\'';
+    --uv-table-msg1: 'plug values in to the formula';
     
     position: relative;
     display: inline-grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    grid-column-gap: 80px;
     font-size: 0.8em;
     vertical-align: 68%;
     margin-bottom: 20px;
+    
+}
+
+uv-table::before {
+    content: '';
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border-top: 1px solid var(--greyness);
     
 }
 
@@ -1663,48 +1778,46 @@ uv-table::after {
     font-weight: bold;
     color: var(--greyness);
     border: 1px solid;
-    filter: none;
-    transition: all linear 300ms;
+    filter: url("#greyness");
     
 }
 
 uv-table:hover::after {
-    content: var(--uv-table-msg);
+    content: var(--uv-table-msg1);
     padding: 0px 2px;
     filter: url("#lil-viva");
 }
 
+uv-table[data-empty]:hover::after {
+    content: var(--uv-table-msg0);
+}
+
 uv-table > b {
+    
     position: relative;
-    padding: 0px 20px;
     text-align: center;
+    
 }
 
 uv-table > b::before {
-    padding-right: 4px;
+    
+    left: 0;
+    padding-right: 5px;
+    top: 40%;
     font-size: 0.6em;
     font-family: luckiest;
-    text-align: center;
+    text-align: left;
     font-style: normal;
-    vertical-align: 10%;
+    
 }
 
-uv-table > b:nth-child(1) {
-    position: relative;
-    color: var(--lightness);
-    border-bottom: 1px solid var(--greyness);
-}
-
+uv-table > b:nth-child(1),
 uv-table > b:nth-child(2) {
-    border-bottom: 1px solid var(--greyness);
+    color: var(--lightness);
 }
 
-uv-table > b:nth-child(3) {
-    color: var(--inverse);
-}
-
+uv-table > b:nth-child(3),
 uv-table > b:nth-child(4) {
-    margin-left: 30px;
     color: var(--inverse);
 }
 
@@ -1713,101 +1826,124 @@ uv-table > b:nth-child(1)::before {
 }
 
 uv-table > b:nth-child(1)::after {
+    
     content: '\27ff';
     position: absolute;
-    width: 100%;
-    left: 0;
+    width: 80px;
+    right: -80px;
     font-style: normal;
-    text-align: right;
+    text-align: left;
+    
     filter: var(--uv-filter-u);
+    
 }
+
+uv-table[data-empty] > b:nth-child(1)::after {
+    display: none;
+}
+
+/*second child*/
 
 uv-table > b:nth-child(2)::before {
     content: 'u\'=';
+    color: var(--uv-color-u);
 }
 
-uv-table > b:nth-child(2)::after {
+uv-table[data-empty] > b:nth-child(2) {
+    color: rgba(0,0,0,0);
+    letter-spacing: -1ch;
+    border-bottom: 1px solid var(--greyness);
+}
+
+uv-table[data-empty] > b:nth-child(2)::before {
+    content: 'u\'= ???';
+    letter-spacing: normal;
+    filter: var(--uv-filter-u);
+}
+
+uv-table:not([data-empty]) > b:nth-child(2)::after {
+    
     content: '';
     position: absolute;
-    width: calc(100% - 40px);
+    width: 120%;
     height: 100%;
-    left: 20px;
+    left: 0;
     background-size: 100% 100%;
     background-image: var(--girk-01);
     filter: var(--uv-filter-u);
     transform: rotate(357deg);
+    
 }
+
+/*third child*/
 
 uv-table > b:nth-child(3)::before {
     content: 'v=';
+    color: var(--uv-color-v);
 }
 
-uv-table > b:nth-child(3)::after {
-    content: '';
-    position: absolute;
-    width: calc(100% - 40px);
-    height: 100%;
-    left: 20px;
-    background-size: 100% 100%;
-    background-image: var(--girk-00);
-    filter: var(--uv-filter-v);
-    transform: rotate(2deg) scale(-1, 1);
+uv-table[data-empty] > b:nth-child(3)::before {
+    content: 'v= ???';
+    letter-spacing: normal;
     
 }
+
+uv-table[data-empty] > b:nth-child(3) {
+    color: rgba(0,0,0,0);
+    letter-spacing: -1ch;
+}
+
+uv-table[data-empty] > b:nth-child(3)::before {
+    filter: var(--uv-filter-v);
+}
+
+uv-table:not([data-empty]) > b:nth-child(3)::after {
+    
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    left: 0;
+    background-size: 100% 100%;
+    background-image: var(--girk-03);
+    filter: var(--uv-filter-v);
+    transform: rotate(357deg);
+    
+}
+
+/*fourth child*/
 
 uv-table > b:nth-child(4)::before {
     content: 'v\'=';
 }
 
 uv-table > b:nth-child(4)::after {
-    content: '\21dc';
+    
+    content: '\21dc\00a0';
     position: absolute;
-    width: 100%;
-    left: -40px;
+    width: 80px;
+    left: -80px;
     font-style: normal;
-    text-align: left;
+    text-align: right;
     filter: var(--uv-filter-v);
+
 }
 
-/*
-uv-table > b:nth-child(1)::after,
-uv-table > b:nth-child(4)::after {
-    
-    content: '';
-    position: absolute;
-    height: 30px;
-    width: 120%;
-    top: -10px;
-    font-size: 0.3em;
-    
+uv-table[data-empty] > b:nth-child(4)::after {
+    display: none;
 }
-
-uv-table > b:nth-child(1)::after {
-    left: 0;
-    background-size: 100% 100%;
-    background-image: var(--uv-table-rite);
-    filter: var(--uv-filter-u);
-}
-
-uv-table > b:nth-child(4)::after {
-    right: 0;
-    background-size: 100% 100%;
-    background-image: var(--uv-table-left);
-    filter: var(--uv-filter-v);
-}
-
-uv-table > b:nth-child(1)::after {
-    --uv-filter-u: url("#lightness");
-}
-
-uv-table > b:nth-child(4)::after {
-    --uv-filter-v: url("#inverse");
-}
-*/
 
 </style>
 <style id="by-parts">
-
+/*
+    fills in the integration by parts formula
+    <by-parts>
+        <b>u</b>
+        <b>v</b>
+        <b>v</b>
+        <b>u'</b>
+    </by-parts>
+*/
 by-parts {
     --by-parts-filter: url("#viva");
     position: relative;
@@ -2454,86 +2590,17 @@ g-rut[data-gank] > p:nth-of-type(1) {
 <div class="qr" style="font-size:50px;text-align:center;">
 <div data-nose="#hold0" style="height:50px;width:100%"></div>
 
-
-<style id="r-dux">
-
-r-dux {
-    
-    --rdux-high: 80%;
-    --rdux-wide: 120%;
-    --rdux-top: 50%;
-    --rdux-left: 65%;
-    --rdux-back: var(--rdux-00);
-    --rdux-filter: url("#viva");
-    --rdux-filter-to: url("#lil-viva");
-    
-    position: relative;
-
-}
-
-r-dux::before {
-    
-    content: '';
-    position: absolute;
-    height: var(--rdux-high);
-    width: var(--rdux-wide);
-    bottom: 4px;
-    left: calc((100% - var(--rdux-wide))/2);
-    background-size: 100% 100%;
-    background-image: var(--rdux-back);
-    filter: var(--rdux-filter);
-    
-}
-
-r-dux > b {
-    
-    position: absolute;
-    top: var(--rdux-top);
-    left: var(--rdux-left);
-    font-family: luckiest;
-    font-size: 0.35em;
-    text-align: left;
-    white-space: nowrap;
-    word-spacing: -0.15em;
-    filter: var(--rdux-filter-to);
-    transform: rotate(-14deg);
-    
-}
-
-r-dux[data-dark] {
-    --rdux-filter: url("#lightness");
-    --rdux-filter-to: url("#lightness");
-}
-
-r-dux[data-viva-to] {
-    --rdux-filter: url("#lightness");
-}
-
-</style>
-
-for
-<r-dux>cos x<b>= -sin x</b></r-dux>
-aft
-
+<c-omm>compute you-prime and vee</c-omm>
 <div>
-<f-rak>
-    <b><r-dux>21x<b>= 3x</b></r-dux></b>
-    <b><g-ank data-red1>7</g-ank></b>
-</f-rak>
-</div>
+    <uv-table xdata-empty>
+        <b>x<sup>2</sup></b>
+        <b>2x</b>
+        <b>cos(x)</b>
+        <b>sin(x)</b>
+    </uv-table>
+</div><br>
 
-<c-omm>leaving you with</c-omm>
-<div>
-<f-rak>
-    <b><v-iva>3x</v-iva></b>
-    <b><v-iva>1</v-iva></b>
-</f-rak>
-</div>
 
-<c-omm>easily reducing to just three equis</c-omm>
-<div>
-<s-tar>= 3x</s-tar>
-</div>
 
 
 
@@ -2544,7 +2611,7 @@ aft
 
 <br><br>
 </div end_qr>
-</div>
+</div><br><br>
 </body>
 
 <script>
