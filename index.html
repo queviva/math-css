@@ -277,7 +277,7 @@ hr {
         
     --grak-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52Q16 30 14 15Q65 25 116 15Q114 30 115 52L112 25H18Z'/%3E%3C/svg%3E");
     
-     --girk-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M90 35A40 35 0 0 0 50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A20 47 0 0 0 80 3A16 47 0 0 1 96 50A41 40 0 0 1 55 90A47 40 0 0 1 8 50A42 42 0 0 1 50 8A40 27 0 0 1 90 35Z'/%3E%3C/svg%3E");
+     --girk-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M90 35A40 35 0 0 0 50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A20 47 0 0 0 80 3A16 47 0 0 1 96 50A41 40 0 0 1 55 90A50 40 0 0 1 5 50A42 42 0 0 1 50 8A40 27 0 0 1 90 35Z'/%3E%3C/svg%3E");
     
     --girk-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
     M 25 20\
@@ -307,6 +307,7 @@ hr {
     %3C/svg%3E");
     
     --ipow-divline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M0 30Q50 40 95 0L100 70Q50 60 10 100Z'/%3E%3C/svg%3E");
+    
     --uv-table-rite: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
     M 30 80\
     A 10 15 0 0 1 100 60\
@@ -319,6 +320,18 @@ hr {
     A 10 15 0 0 0 0 60\
     L 10 60\
     A 10 16 0 0 1 69 80\
+    Z'/%3E%3C/svg%3E");
+    
+    --rdux-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
+    M 0 100\
+    Q 30 75 55 30\
+    L 55 50\
+    Q 30 80 0 100\
+    Z\
+    M 100 0\
+    Q 70 25 50 70\
+    L 50 50\
+    Q 70 20 100 0\
     Z'/%3E%3C/svg%3E");
     
 }
@@ -372,7 +385,7 @@ c-omm::after {
     font-style: normal;
 }
 
-com-x {
+c-omm > b {
     position: absolute;
     display: inline-block;
     width: calc(100% - 10px);
@@ -390,11 +403,48 @@ com-x {
     pointer-events: none;
 }
 
-c-omm:hover com-x {
+c-omm:hover b {
     opacity: 0.85;
     transition: opacity ease-out 400ms;
     pointer-events: auto;
 }
+
+r-ant {
+    
+    display: inline-block;
+    position: relative;
+    width: 70%;
+    padding: 0px 10px;
+    font-size: 0.4em;
+    text-align: justify;
+    color: var(--greyness);
+    
+}
+
+r-ant::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    right: 100%;
+    top: 0;
+    border-width: 1.5px 0px 1.5px 3px;
+    border-style: solid;
+    border-color: var(--greyness);
+}
+
+r-ant::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    left: 100%;
+    top: 0;
+    border-width: 1.5px 3px 1.5px 0px;
+    border-style: solid;
+    border-color: var(--greyness);
+}
+
 
 
 </style>
@@ -1590,6 +1640,7 @@ uv-table {
     
     --uv-filter-u: url("#viva");
     --uv-filter-v: url("#vers");
+    --uv-table-msg: 'find derivative of u & integral of v\'';
     
     position: relative;
     display: inline-grid;
@@ -1605,14 +1656,22 @@ uv-table::after {
     content: 'uv\00a0-\00a0\222bvu\'';
     position: absolute;
     width: 100%;
+    padding: 0px 2px;
     top: calc(100% + 15px);
     font-size: 0.4em;
     font-style: italic;
     font-weight: bold;
     color: var(--greyness);
-    filter: url("#lil-viva");
-    
     border: 1px solid;
+    filter: none;
+    transition: all linear 300ms;
+    
+}
+
+uv-table:hover::after {
+    content: var(--uv-table-msg);
+    padding: 0px 2px;
+    filter: url("#lil-viva");
 }
 
 uv-table > b {
@@ -1996,6 +2055,7 @@ g-rut[data-gank] > p:nth-of-type(1) {
     filter: url("#viva");
     
 }
+
 
 </style>
 
@@ -2395,101 +2455,86 @@ g-rut[data-gank] > p:nth-of-type(1) {
 <div data-nose="#hold0" style="height:50px;width:100%"></div>
 
 
-<c-omm>asked to solve this integration
-<com-x>
-    thease are the tymes that try men's soled
-    shoes on for size, and measure themselves
-    against the brannock's device of history.
-    <br><br>
-    the summer soldier and the sunshine patriot
-    will, in this time of crisis, shrink from
-    the service of their country; but, he who
-    bears it now, deserves the love of women!
-</com-x>
-</c-omm>
-<div>
-<i-teg>
-    <b>x<p-t></p-t>sin(x)</b>
-    <b>dx</b>
-</i-teg>
-</div><br>
+<style id="r-dux">
 
-<c-omm>it's a <emp>by-part-ee</emp> in here!</c-omm>
-<div>
-<i-teg data-ghost>
-    <b data-iprt>
-        <u-u>x</u-u> <p-t></p-t> <v-v>sin(x)</v-v>
-    </b>
-    <b>dx</b>
-</i-teg>
-</div><br>
+r-dux {
+    
+    --rdux-high: 80%;
+    --rdux-wide: 120%;
+    --rdux-top: 50%;
+    --rdux-left: 65%;
+    --rdux-back: var(--rdux-00);
+    --rdux-filter: url("#viva");
+    --rdux-filter-to: url("#lil-viva");
+    
+    position: relative;
 
-<c-omm>compute the derivative of you
-and the integral of vee-prime</c-omm>
-<div>
-<uv-table data-dark>
-    <b>x</b>
-    <b>1dx</b>
-    <b>cos(x)</b>
-    <b>sin(x)</b>
-</uv-table>
-</div><br>
+}
 
-<c-omm>that becomes ...</c-omm>
-<div>
-<i-mp>
-<by-parts xdata-dark>
-    <b>x</b>
-    <b>cos(x)</b>
-    <b>cos(x)</b>
-    <b>1dx</b>
-</by-parts>
-</i-mp>
-</div><br>
+r-dux::before {
+    
+    content: '';
+    position: absolute;
+    height: var(--rdux-high);
+    width: var(--rdux-wide);
+    bottom: 4px;
+    left: calc((100% - var(--rdux-wide))/2);
+    background-size: 100% 100%;
+    background-image: var(--rdux-back);
+    filter: var(--rdux-filter);
+    
+}
 
-<c-omm>which is to say</c-omm>
-<div>
-x<p-t></p-t>cos(x) -
-<i-teg>
-    <b>cos(x)</b>
-    <b>dx</b>
-</i-teg>
-</div><br>
+r-dux > b {
+    
+    position: absolute;
+    top: var(--rdux-top);
+    left: var(--rdux-left);
+    font-family: luckiest;
+    font-size: 0.35em;
+    text-align: left;
+    white-space: nowrap;
+    word-spacing: -0.15em;
+    filter: var(--rdux-filter-to);
+    transform: rotate(-14deg);
+    
+}
 
-<c-omm>you have the integral of cosine memorized</c-omm>
-<div>
-x<p-t></p-t>cos(x) -
-<i-teg data-ghost>
-    <b data-gank data-opt2 data-redx style="--red-val:'= -sin x'">
-        cos(x)
-    </b>
-    <b>dx</b>
-</i-teg>
-</div><br>
+r-dux[data-dark] {
+    --rdux-filter: url("#lightness");
+    --rdux-filter-to: url("#lightness");
+}
 
-<c-omm>giving you</c-omm>
+r-dux[data-viva-to] {
+    --rdux-filter: url("#lightness");
+}
+
+</style>
+
+for
+<r-dux>cos x<b>= -sin x</b></r-dux>
+aft
+
 <div>
-x<p-t></p-t>cos(x) - <v-iva>- sin(x)</v-iva>
+<f-rak>
+    <b><r-dux>21x<b>= 3x</b></r-dux></b>
+    <b><g-ank data-red1>7</g-ank></b>
+</f-rak>
 </div>
 
-<c-omm>try to combine the double negative</c-omm>
+<c-omm>leaving you with</c-omm>
 <div>
-x<p-t></p-t>cos(x)
-<g-rak><v-iva>- -</v-iva></g-rak>
-sin(x)
+<f-rak>
+    <b><v-iva>3x</v-iva></b>
+    <b><v-iva>1</v-iva></b>
+</f-rak>
 </div>
 
-<c-omm>that's going to make a plus</c-omm>
+<c-omm>easily reducing to just three equis</c-omm>
 <div>
-<p-t>x</p-t>cos(x) <v-iva>+</v-iva> sin(x)
+<s-tar>= 3x</s-tar>
 </div>
 
-<c-omm>try submitting this</c-omm>
-<div>
-<s-tar>
-x<p-t></p-t>cos(x) + sin(x)
-</s-tar>
-</div>
 
 
 
