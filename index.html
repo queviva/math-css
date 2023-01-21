@@ -88,10 +88,16 @@ body {
         var(--nose-l)
     );
 
-    --text-shade:
+    --text-ghost:
         0 0 0px var(--holder-back),
         0 0 8px var(--lightness),
         0 0 12px #fff;
+        
+    --text-vapor:
+        0 0 5px var(--holder-back),
+        0 0 40px var(--lightness),
+        0 0 40px #fff;
+        
 
 	position: relative;
     color: var(--lightness);
@@ -351,6 +357,16 @@ i-ver {
     color: var(--inverse);
 }
 
+g-ost {
+    color: var(--holder-back);
+    text-shadow: var(--text-ghost);
+}
+
+v-por {
+    color: var(--holder-back);
+    text-shadow: var(--text-vapor);
+}
+
 </style>
 <style id="s-upb">
 
@@ -492,10 +508,53 @@ p-ren[data-viva]::before,
 p-ren[data-viva]::after {
     filter: url("#viva");
 }
-p-ren[data-gank]::before,
-p-ren[data-gank]::after {
+
+p-ren[data-viva-all] {
+    filter: url("#viva");
+}
+
+p-ren[data-ghost]::before,
+p-ren[data-ghost]::after {
     color: var(--holder-back);
-    text-shadow: var(--text-shade);
+    text-shadow: var(--text-ghost);
+}
+
+</style>
+<style id="b-rak">
+
+b-rak {
+    
+    --brak-filter: none;
+    
+    position: relative;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    filter: var(--brak-filter);
+}
+
+b-rak::before {
+    content: '\005b';
+    position: absolute;
+    left: -0.5em;
+    top: 0;
+    transform:scale(1,2.0);
+}
+
+b-rak::after {
+    content: '\005d';
+    position: absolute;
+    left: 100%;
+    top: 0;
+    transform:scale(1,2.0);
+}
+
+b-rak[data-viva]::before,
+b-rak[data-viva]::after {
+    filter: url("#viva");
+}
+
+b-rak[data-viva-all] {
+    --brak-filter: url("#viva");
 }
 
 </style>
@@ -995,12 +1054,14 @@ r-dux[data-viva-to] {
 g-fak {
     
     --gfak-high: 1ch;
+    --gfak-filter: url("#lil-viva");
+    --gfak-shade: var(--text-ghost);
     
     position: relative;
     margin-right: 0.5ch;
     font-weight: bold;
     color: rgba(0,0,0,0);
-    text-shadow: var(--text-shade);
+    text-shadow: var(--gfak-shade);
     
 }
 
@@ -1017,8 +1078,17 @@ g-fak > b:nth-of-type(1) {
     word-spacing: 0.5ch;
     color: var(--lightness);
     text-shadow: none;
-    filter: url("#lil-viva");
+    filter: var(--gfak-filter);
     
+}
+
+g-fak[data-dark] {
+    --gfak-filter: var(--lightness);
+}
+
+g-fak[data-vapor] {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-vapor);
 }
 
 </style>
@@ -1033,7 +1103,7 @@ f-akt {
     font-weight: bold;
     color: rgba(0,0,0,0);
     
-    text-shadow: var(--text-shade);
+    text-shadow: var(--text-ghost);
     
 }
 
@@ -1756,6 +1826,9 @@ uv-table {
     
 }
 
+uv-table[data-empty] {
+    grid-column-gap: 10px;
+}
 uv-table::before {
     content: '';
     position: absolute;
@@ -1988,7 +2061,6 @@ by-parts[data-dark] {
 }
 
 </style>
-
 
 <style id="r-oot">
 
@@ -2590,17 +2662,115 @@ g-rut[data-gank] > p:nth-of-type(1) {
 <div class="qr" style="font-size:50px;text-align:center;">
 <div data-nose="#hold0" style="height:50px;width:100%"></div>
 
-<c-omm>compute you-prime and vee</c-omm>
+
+<!--style id="fakt-left">
+
+/*shows factors being draw infront of parens to the left*/
+
+fakt-left {
+    
+    --fakt-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
+    M 0 100\
+    A 10 20 0 0 1 100 100\
+    H 99.5\
+    A 10 20 0 0 0 8 100\
+    H 0\
+    A 10 30 0 0 1 44 100\
+    H 43.5\
+    A 10 31.5 0 0 0 8 100\
+    Z'/%3E%3C/svg%3E");
+    
+    --fakt-filter: url("#viva");
+    position: relative;
+}
+
+fakt-left::before {
+    
+    content: '';
+    position: absolute;
+    width: calc(100% - 1.75ch);
+    height: 25px;
+    xaspect-ratio: 5 / 1;
+    margin-left: 0.5ch;
+    left: 0;
+    bottom: 90%;
+    background-size: 100% 100%;
+    background-image: var(--fakt-left-00);
+    filter: var(--fakt-filter);
+    
+}
+
+</style-->
+
+<style id="fakt-left">
+
+/*shows factors being draw infront of parens to the left*/
+
+fakt-left {
+    
+    --fakt-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
+    M 0 100\
+    A 10 20 0 0 1 100 100\
+    H 99.5\
+    A 10 20 0 0 0 8 100\
+    H 0\
+    A 10 30 0 0 1 44 100\
+    H 43.5\
+    A 10 31.5 0 0 0 8 100\
+    Z'/%3E%3C/svg%3E");
+    
+    --fakt-right: 1.8ch;
+    --fakt-filter: url("#viva");
+    
+    position: relative;
+    margin-left: 0.8ch;
+    
+}
+
+fakt-left::after {
+    
+    content: '';
+    position: absolute;
+    width: calc(0ch + 100%);
+    height: 25px;
+    right: var(--fakt-right);
+    bottom: 90%;
+    font-size: 30px;
+    background-size: 100% 100%;
+    background-image: var(--fakt-left-00);
+    filter: var(--fakt-filter);
+    
+}
+
+fakt-left > b:nth-child(1) {
+    position: absolute;
+    left: calc(-1 * var(--fakt-right));
+    top: 20%;
+    font-size: 0.5em;
+    font-family: luckiest;
+    transform: rotate(-15deg);
+    filter: var(--fakt-filter);
+    z-index: 10;
+}
+
+</style>
+
+
+<c-omm>try some faktoring</c-omm>
 <div>
-    <uv-table xdata-empty>
-        <b>x<sup>2</sup></b>
-        <b>2x</b>
-        <b>cos(x)</b>
-        <b>sin(x)</b>
-    </uv-table>
-</div><br>
-
-
+    
+<fakt-left><b>3</b>(x + 1)</fakt-left>
++
+<fakt-left><b>3x</b>(x + 1)</fakt-left>
+<br><br>
+for
+<fakt-left style="
+    --fakt-right: 3ch;
+"><b>sinx</b>
+(x<sup>2</sup> sinx + cosx<v-t></v-t>sinx)
+</fakt-left>
+aft
+</div>
 
 
 
