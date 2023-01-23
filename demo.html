@@ -43,14 +43,11 @@ body {
     --nose-l: 50%;
     --nose-a: 1;
                 
-    /*
-    --nose-hsla: hsla(40, 100%, 90%, 1);
-    
-    --nose-h: 40;
-    --nose-s: 100%;
-    --nose-l: 90%;
-    --nose-a: 1;
-    */
+    --whiteness: hsl(
+        var(--nose-h),
+        var(--nose-s),
+        calc(1.5 * var(--nose-l))
+    );
                 
     --lightness: hsl(
         var(--nose-h),
@@ -345,6 +342,13 @@ hr {
     Q 70 20 100 0\
     Z'/%3E%3C/svg%3E");
     
+    --scrib-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
+    M 0 100\
+    Q 30 75 55 30\
+    L 55 50\
+    Q 30 80 0 100\
+    Z'/%3E%3C/svg%3E");
+    
 }
 
 </style>
@@ -473,6 +477,21 @@ r-ant::after {
 
 </style>
 <style id="f-rak">
+/*
+    <f-rak
+        data-viva   // illuminates only the bar
+        data-slash1 // custom drawn bar
+    >
+        <b> numerator </b>
+        <b> denominator </b> // the 2nd b-tag is optional
+                             // if no other tags are
+                             // in the denominator
+    </f-rak>
+    
+    this is the fraction 3/5
+    
+    <f-rak><b>3</b>5</f-rak>
+*/
 
 f-rak {
     display: inline-grid;
@@ -494,6 +513,46 @@ f-rak > :nth-child(1)::after {
     word-spacing: 1ch;
 }
 
+f-rak[data-viva] > :nth-child(1),
+f-rak[data-slash1] > :nth-child(1) {
+    border: none;
+}
+
+f-rak[data-viva] > :nth-child(2)::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-top: 1.5px solid;
+    filter: url("#viva");
+}
+
+f-rak[data-slash1] > :nth-child(2)::before {
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 100%;
+    top: -5px;
+    left: 0;
+    border: none;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 30L95 20L100 35L10 50Z'/%3E%3C/svg%3E");
+    filter: url("#lightness");
+    
+}
+
+f-rak[data-slash1][data-viva] > :nth-child(2)::before {
+    
+    filter: url("#viva");
+    
+}
+
+f-rak[data-gank] {
+    --gank-wide: 500%;
+}
 </style>
 <style id="p-ren">
 
@@ -541,14 +600,17 @@ b-rak {
     margin-left: 0.5em;
     margin-right: 0.5em;
     filter: var(--brak-filter);
+    
 }
 
 b-rak::before {
+    
     content: '\005b';
     position: absolute;
     top: 0;
     left: -0.5em;
-    transform:scale(1,2.0);
+    transform: scale(1,2.0);
+    
 }
 
 b-rak::after {
@@ -556,7 +618,7 @@ b-rak::after {
     position: absolute;
     top: 0;
     right: -0.5em;
-    transform:scale(1,2.0);
+    transform: scale(1,2.0);
 }
 
 b-rak[data-viva]::before,
@@ -566,6 +628,18 @@ b-rak[data-viva]::after {
 
 b-rak[data-viva-all] {
     --brak-filter: url("#viva");
+}
+
+b-rak[data-ghost]::before,
+b-rak[data-ghost]::after {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-ghost);
+}
+
+b-rak[data-vapor]::before,
+b-rak[data-vapor]::after {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-vapor);
 }
 
 </style>
@@ -588,7 +662,7 @@ s-umm::before {
     filter: var(--summ-filter-sigma);
 }
 
-s-umm > :nth-child(1) {
+s-umm > :nth-child(2) {
     position: absolute;
     font-size: 0.4em;
     top: calc(100% + 0.2em);
@@ -596,7 +670,7 @@ s-umm > :nth-child(1) {
     filter: var(--summ-filter-from);
 }
 
-s-umm > :nth-child(2) {
+s-umm > :nth-child(3) {
     position: absolute;
     font-size: 0.4em;
     bottom: calc(100% + 0.2em);
@@ -622,7 +696,17 @@ s-umm[data-viva-to] {
     --summ-filter-to: url("#viva");
 }
 
-s-umm[data-gank]::after {
+s-umm[data-ghost] {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-ghost);
+    /*
+    --summ-filter-sigma: url("#outline");
+    --summ-filter-from: url("#outline");
+    --summ-filter-to: url("#outline");
+    */
+}
+
+s-umm[data-scrib]::after {
     content: '';
     position: absolute;
     height: 1.4em;
@@ -826,6 +910,12 @@ v-t::after {
 
 t-t::before {
     content: "\00d7";
+}
+
+p-m::before {
+    content: "\00b1";
+    font-size: 0.6em;
+    vertical-align:20%;
 }
 
 i-mp::before {
@@ -1201,7 +1291,7 @@ f-x[data-z] { --fx-var: 'z'; }
 </style>
 <style id="n-add">
 
-n-add, n-min, n-ote {
+n-add, n-min, n-tim, n-div, n-ote {
     
     --note-rot: -10deg;
     --note-top: 0px;
@@ -1215,7 +1305,7 @@ n-add, n-min, n-ote {
     vertical-align: 30%;
     transform: rotate(var(--note-rot));
     filter: url("#viva");
-    z-index: -10;
+    z-index: 10;
     
 }
 
@@ -1223,6 +1313,7 @@ n-ote {
     font-size: 0.3em;
     vertical-align: 100%;
     word-spacing: -0.1em;
+    filter: url("#lil-viva");
 }
 
 n-add::before {
@@ -1237,7 +1328,19 @@ n-min::before{
     vertical-align: 50%;
 }
 
-b > n-pad {
+n-tim::before {
+    content: '\00d7';
+    font-size: 0.5em;
+    vertical-align: 50%;
+}
+
+n-div::before {
+    content: '\00f7';
+    font-size: 0.5em;
+    vertical-align: 50%;
+}
+
+n-pad {
     position: absolute;
     display: inline;
     height: 100%;
@@ -1252,6 +1355,8 @@ b > n-pad {
 
 n-add[data-dark],
 n-min[data-dark],
+n-tim[data-dark],
+n-div[data-dark],
 n-ote[data-dark],
 n-pad[data-dark] {
     filter: none;
@@ -1424,6 +1529,7 @@ r-aze[data-dark-arrow] {
     --girk-back: var(--girk-00);
     
     position: relative;
+    z-index: 10;
     
 }
 
@@ -2077,165 +2183,359 @@ by-parts[data-dark] {
 
 </style>
 
-<style id="r-oot">
+<style id="fakt-left">
 
-r-oot {
+/*shows factors being draw infront of parens to the left*/
+
+fakt-left {
     
-    --root-rot: -15deg;
-    --root-back-for: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='100px' preserveAspectRatio='none'%3E%3Cpath transform='translate(15, 0)' d=' M-2.5 52L1 30L10 60Q11 30 9 0 L13 10L13 92Q10 75 0 47Z'/%3E%3C/svg%3E");
+    --fakt-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
+    M 0 100\
+    A 10 20 0 0 1 100 100\
+    H 99.5\
+    A 10 20 0 0 0 8 100\
+    H 0\
+    A 10 30 0 0 1 44 100\
+    H 43.5\
+    A 10 31.5 0 0 0 8 100\
+    Z'/%3E%3C/svg%3E");
     
-    --root-filter: url("#viva");
-    --root-lil-filter: url("#viva");
+
+    
+    --fakt-right: 1.8ch;
+    --fakt-filter: url("#viva");
     
     position: relative;
-    font-size: 0.8em;
-    word-spacing: -0.2em;
-    white-space: nowrap;
-    margin-left: 30px;
-    margin-right: 0.4ch;
+    margin-left: 0.8ch;
     
 }
 
-r-oot::before, r-oot::after {
+fakt-left::after {
+    
     content: '';
     position: absolute;
-    height: 130%;
-    background-repeat: no-repeat;
+    width: calc(0ch + 100%);
+    height: 25px;
+    right: 1ch;
+    xright: var(--fakt-right);
+    bottom: 90%;
     background-size: 100% 100%;
-    filter: var(--root-filter);
-}
-    
-r-oot::before {
-    
-    width: 30px;
-    left: -1em;
-    background-image: var(--root-back-for);
-    
-    border: 1px solid;
+    background-image: var(--fakt-left-00);
+    filter: var(--fakt-filter);
     
 }
 
-r-oot::after {
-    
-    width: calc(100% + 2px);
-    left: -2px;
-    clip-path: url(#rootAft);
-    
-}
-
-r-oot > p:nth-of-type(1) {
+fakt-left > b:nth-child(1) {
     position: absolute;
+    width: 3ch;
+    left: calc(-1 * var(--fakt-right) - 1ch);
+    top: 20%;
     font-size: 0.5em;
     font-family: luckiest;
-    top: -12%;
-    right: calc(100% + 0.7em);
-    transform: rotate(var(--root-rot));
-    filter: var(--root-lil-filter);
+    text-align: center;
+    white-space: nowrap;
+    overflow: visible;
+    transform: rotate(-15deg);
+    filter: var(--fakt-filter);
+    z-index: 10;
+    
 }
 
-r-oot > p {
-    display: inline;
-    margin: 0;
-    padding: 0;
+fakt-left > b:nth-child(1)::before {
+    content: "";
+    margin-left: -100%;
+}
+
+fakt-left > b:nth-child(1)::after {
+    content: "";
+    margin-right: -100%;
 }
 
 </style>
-<style id="g-rut">
+<style id="dist-rite">
 
-g-rut {
+dist-rite {
     
-    --grut-high: 120%;
-    --grut-rot: -15deg;
-    --grut-back-for: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M8 50L12 28L24 52Q22 25 18 0L23 1Q28 45 27 90Q22 63 11 43 Z' /%3E%3C/svg%3E");
-    --grut-back-aft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 0H 100L95 2L 2 7Z' /%3E%3C/svg%3E");
-    --grut-filter: url("#viva");
-    --grut-lil-filter: url("#lil-viva");
+    --dist-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
+        
+    --dist-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H82A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
     
-    font-size: 0.8em;
-    word-spacing: -0.2em;
-    margin-left: 20px;
-    margin-right: 0.5ch;
+    --dist-left: 0.5ch;
+    --dist-high: 30px;
+    --dist-ratio: 6 / 1;
+    --arc1-wide: 41.5%;
+    --arc2-wide: calc(100% - 1ch);
+    --dist-filter: url("#viva");
+    
+    position: relative;
+
+}
+
+dist-rite::before {
+    
+    content: '';
+    position: absolute;
+    width: calc(var(--arc2-wide) - var(--dist-left));
+    height: var(--dist-high);
+    xaspect-ratio: var(--dist-ratio);
+    left: var(--dist-left);
+    bottom: 90%;
+    background-size: 100% 100%;
+    background-image: var(--dist-arc1);
+    filter: var(--dist-filter);
+    
+}
+
+dist-rite::after {
+    
+    content: '';
+    position: absolute;
+    width: calc(var(--arc1-wide) - var(--dist-left));
+    height: calc(0.7 * var(--dist-high));
+    xaspect-ratio: var(--dist-ratio);
+    left: var(--dist-left);
+    bottom: 90%;
+    background-size: 100% 100%;
+    background-image: var(--dist-arc2);
+    filter: var(--dist-filter);
+    
+}
+
+dist-rite[data-trig] {
+    --dist-left: 1.5ch;
+    --arc1-wide: 46%;
+    --arc2-wide: calc(100% - 2ch);
+}
+
+dist-rite[data-dark] {
+    --dist-filter: url("#lightness");
+}
+
+dist-rite[data-ghost] {
+    --dist-filter: url("#outline");
+}
+
+dist-rite[data-vapor] {
+    --dist-filter: url("#vapor");
+}
+
+</style>
+<style id="rat-dist">
+
+/*
+    shows over-arching distribution to the right
+    with ghosted coefficient and viva values
+    
+    <rat-dist>
+        <b>3</b>    <!-- coefficient -->
+        <b>x        <!-- first value -->
+          <b>17</b> <!-- coefficient -->
+        </b>
+        +
+        <b>x        <!-- second value -->
+          <b>17</b> <!-- coefficient -->
+        </b>
+    </rat-dist>
+        
+*/
+
+rat-dist {
+    
+    --rat-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
+        
+    --rat-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H85A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
+    
+    --arc1-wide: 51%;
+    --arc2-wide: calc(100% - 1.5ch);
+    --rat-left: 0.5ch;
+    --rat-filter: url("#viva");
+    --rat-filter-lil: url("#lil-viva");
+    --rat-shade: var(--text-ghost);
+    
+    position: relative;
+
+}
+
+rat-dist::before {
+    
+    content: '';
+    position: absolute;
+    width: calc(var(--arc2-wide) - var(--rat-left));
+    height: 25px;
+    xaspect-ratio: 6 / 1;
+    left: var(--rat-left);
+    bottom: 90%;
+    background-size: 100% 100%;
+    background-image: var(--rat-arc1);
+    filter: var(--rat-filter);
+    
+}
+
+rat-dist::after {
+    
+    content: '';
+    position: absolute;
+    width: calc(var(--arc1-wide) - var(--rat-left));
+    height: 20px;
+    xaspect-ratio: 6 / 1;
+    left: var(--rat-left);
+    bottom: 90%;
+    background-size: 100% 100%;
+    background-image: var(--rat-arc2);
+    filter: var(--rat-filter);
+    
+}
+
+rat-dist > b:nth-child(1) {
+    
+    color: rgba(0,0,0,0);
+    text-shadow: var(--rat-shade);
+    
+}
+
+rat-dist > b:nth-child(1)::after {
+    
+    content: '\00a0\00b7';
+    
+}
+
+rat-dist > b > b {
+    
+    display: inline-block;
+    height: 100%;
+    width: 3ch;
+    font-size: 0.5em;
+    font-family: luckiest;
+    text-align: center;
+    white-space: nowrap;
+    transform: rotate(-15deg) translate(-5px, -50%);
+    filter: var(--rat-filter-lil);
+
+}
+
+rat-dist > b:nth-child(2) {
+    
+    margin-right: -0.5ch;
+    
+}
+
+rat-dist > b:nth-child(2)::before {
+    
+    content: '(';
+    
+}
+
+rat-dist > b > b::before {
+    content: "\00d7";
+    margin-left: -100%;
+}
+
+rat-dist > b > b::after {
+    content: "";
+    margin-right: -100%;
+}
+
+rat-dist > b:nth-child(3)::after {
+    
+    content: ')';
+    display: inline-block;
+    transform: translate(-0.5ch,0);
+    
+}
+
+rat-dist[data-dark] {
+    --rat-filter: url("#lightness");
+    --rat-filter-lil: url("#lightness");
+}
+
+rat-dist[data-dark] > b:nth-child(1) {
+    color: var(--lightness);
+    text-shadow: none;
+}
+
+</style>
+<style id="fakt-all">
+
+fakt-all {
+    
+    
+    --fakt-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H99.5A10 20 0 0 0 8 100Z'/%3E%3C/svg%3E");
+    
+    --fakt-high: 1ch;
+    --fakt-filter: url("#lil-viva");
+    --fakt-shade: var(--text-ghost);
+    --arc-wide: 100%;
     
     position: relative;
     
 }
 
-g-rut[data-dark] {
-    --grut-filter: url("#lightness");
-    --grut-lil-filter: url("#lightness");
+fakt-all > b {
+    
+    position: relative;
+    display: inline;
+    font-weight: bold;
+    color: rgba(0,0,0,0);
+    text-shadow: var(--fakt-shade);
+    
 }
 
-g-rut::before, g-rut::after {
+fakt-all > b > b:nth-of-type(1) {
+    
+    position: absolute;
+    height: var(--fakt-high);
+    top: calc((100% - var(--fakt-high))/2 + 1ch);
+    width: 300%;
+    left: -100%;
+    font-size: 0.3em;
+    font-family: luckiest;
+    text-align: center;
+    word-spacing: 0.5ch;
+    color: var(--lightness);
+    text-shadow: none;
+    filter: var(--fakt-filter);
+    
+}
+
+fakt-all > b::before {
     content: '';
     position: absolute;
-    height: var(--grut-high);
-    top: calc((100% - var(--grut-high))/2);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    filter: var(--grut-filter);
-}
-
-g-rut::before {
-    width: 30px;
-    left: -35px;
-    background-image: var(--grut-back-for);
-}
-
-g-rut::after {
-    width: calc(100% + 25px);
-    left: -17px;
-    background-image: var(--grut-back-aft);
-}
-
-g-rut > p:nth-of-type(1) {
-    position: absolute;
-    font-size: 0.5em;
-    font-family: luckiest;
-    top: -12%;
-    right: calc(100% + 0.8em);
-    transform: rotate(var(--grut-rot));
-    filter: var(--grut-lil-filter);
-    z-index: 2;
-}
-
-g-rut > p {
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
-
-g-rut ~ sup {
     display: inline-block;
-    font-size: 0.6em;
-    font-family: luckiest;
-    vertical-align: 100%;
-    transform: rotate(-12deg);
-}
-
-g-rut ~ sup[data-viva] {
-    filter: url("#lil-viva");
-}
-
-g-rut[data-gank] {
-    --grut-filter: url("#outlined");
-}
-
-g-rut[data-gank] > p:nth-of-type(1) {
-    
-    top: -18%;
-    right: calc(100% + 0.8em - 20px);
-    padding-left: 5px;
-    padding-right: 20px;
-    background-repeat: no-repeat;
+    width: var(--arc-wide);
+    xheight: 50%;
+    aspect-ratio: 8 / 1;
+    bottom: 90%;
+    right: 0.5ch;
     background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 30L100 20L100 35L10 50Z'/%3E%3C/svg%3E");
+    background-image: var(--fakt-arc);
+    filter: var(--fakt-filter);
+}
+
+fakt-all[data-dark] {
     
+    --fakt-filter: none;
+    
+}
+
+fakt-all[data-vapor] > b {
+    
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-vapor);
+    
+}
+
+fakt-all[data-vapor] > b > b:nth-of-type(1) {
+    --fakt-filter: url("#lightness");
+}
+
+fakt-all[data-vapor] > b::before {
+    -fakt-filter: url("#viva");
 }
 
 </style>
 <style id="g-ank">
 
-[data-gank], g-ank {
+:not(r-oot)[data-gank], g-ank {
     
     --gank-color: var(--midness, #900);
     --gank-wide: 150%;
@@ -2247,21 +2547,21 @@ g-rut[data-gank] > p:nth-of-type(1) {
     position: relative;
 }
 
-[data-gank][data-hi], g-ank[data-hi] {
+:not(r-oot)[data-gank][data-hi], g-ank[data-hi] {
     --gank-high: 100%;
 }
 
-[data-gank][data-opt1], g-ank[data-opt1] {
+:not(r-oot)[data-gank][data-opt1], g-ank[data-opt1] {
     --gank-back: var(--gank-01);
     --gank-wide: 160%;
 }
 
-[data-gank][data-opt2], g-ank[data-opt2] {
+:not(r-oot)[data-gank][data-opt2], g-ank[data-opt2] {
     --gank-back: var(--gank-02);
     --gank-wide: calc(150% + 20px);
 }
 
-[data-gank]::before, g-ank::before {
+:not(r-oot)[data-gank]::after, g-ank::after {
     
     content: '';
     
@@ -2277,6 +2577,159 @@ g-rut[data-gank] > p:nth-of-type(1) {
     background-size: 100% 100%;
     filter: url("#viva");
     
+}
+
+
+</style>
+
+
+<style id="r-oot">
+/*
+    creates an nth-root with symbol and index
+    <r-oot
+        data-viva  <!-- options to light up -->
+        data-gank  <!-- option to cancel out -->
+    >
+        <b>3</b>   <!-- optional index-th root -->
+        8x         <!-- radicand -->
+    </root>
+    
+    <sup data-viva>  <!-- if followed by exponent, -->
+        exponent     <!-- it will be formatted     -->
+    </sup>
+    
+    simple example for 'square root of three':
+    
+        <r-oot>3</r-oot>
+        
+*/
+
+r-oot {
+    
+    --root-high: 120%;
+    --root-rot: 0deg;
+    --root-filter: url("#lightness");
+    
+    --root-for-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M8 46L14 30L19 52L18 0L23 1L24 90L11 43Z' /%3E%3C/svg%3E");
+    
+    --root-aft-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 0H 100V3L 2 7Z' /%3E%3C/svg%3E");
+    
+    --root-for-viva: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M8 50L12 28L24 52Q22 25 18 0L23 1Q28 45 27 90Q22 63 11 43 Z' /%3E%3C/svg%3E");
+    
+    --root-aft-viva: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 0H 100L95 2L 2 7Z' /%3E%3C/svg%3E");
+    
+    --root-slash: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 30L100 20L100 35L10 50Z'/%3E%3C/svg%3E");
+    
+    --root-for-mig: var(--root-for-dark);
+    --root-aft-mig: var(--root-aft-dark);
+
+    
+    font-size: 0.8em;
+    word-spacing: -0.2em;
+    margin-left: 1.5ch;
+    margin-right: 0.5ch;
+    
+    position: relative;
+    
+}
+
+r-oot::before,
+r-oot::after {
+    
+    content: '';
+    position: absolute;
+    height: var(--root-high);
+    top: calc((100% - var(--root-high))/2);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: var(--root-filter);
+
+}
+
+r-oot::before {
+    width: 30px;
+    left: -35px;
+    background-image: var(--root-for-mig);
+}
+
+r-oot::after {
+    width: calc(100% + 25px);
+    left: -17px;
+    background-image: var(--root-aft-mig);
+}
+
+r-oot[data-viva],
+r-oot[data-gank] {
+    
+    --root-for-mig: var(--root-for-viva);
+    --root-aft-mig: var(--root-aft-viva);
+    
+}
+
+r-oot[data-viva] {
+    
+    --root-filter: url("#viva");
+    --root-lil-filter: url("#lil-viva");
+    
+}
+
+r-oot[data-gank] {
+    
+    --root-filter: url("#outline");
+    --root-lil-filter: url("#lil-viva");
+    
+}
+
+r-oot > b:nth-of-type(1) {
+    
+    position: absolute;
+    font-size: 0.5em;
+    font-weight: bold;
+    top: -25%;
+    right: calc(100% + 1em);
+    z-index: 2;
+    
+}
+
+r-oot[data-viva] > b:nth-of-type(1) {
+    
+    --root-rot: -15deg;
+    top: -12%;
+    right: calc(100% + 0.8em);
+    font-family: luckiest;
+    font-weight: normal;
+    filter: var(--root-lil-filter);
+    transform: rotate(var(--root-rot));
+    
+}
+
+r-oot[data-gank] > b:nth-of-type(1) {
+    
+    --root-rot: -15deg;
+    top: -18%;
+    right: calc(100% + 0.8em - 20px);
+    padding-left: 5px;
+    padding-right: 20px;
+    font-family: luckiest;
+    font-weight: normal;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: var(--root-slash);
+    transform: rotate(var(--root-rot));
+    filter: var(--root-lil-filter);
+    
+}
+
+r-oot ~ sup {
+    display: inline-block;
+    font-size: 0.6em;
+    font-family: luckiest;
+    vertical-align: 100%;
+    transform: rotate(-12deg);
+}
+
+r-oot ~ sup[data-viva] {
+    filter: url("#lil-viva");
 }
 
 
@@ -2530,286 +2983,41 @@ g-rut[data-gank] > p:nth-of-type(1) {
 <div class="qr" style="font-size:50px;text-align:center;">
 <div data-nose="#hold0" style="height:50px;width:100%;"></div>
 
-<style id="fakt-left">
+<s-umm
+    data-ghost
+    data-viva-from
+>
+    <b>3x<sup>2</sup></b>
+    <b>0</b>
+    <b>2&pi;</b>
+</s-umm>
 
-/*shows factors being draw infront of parens to the left*/
 
-fakt-left {
-    
-    --fakt-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
-    M 0 100\
-    A 10 20 0 0 1 100 100\
-    H 99.5\
-    A 10 20 0 0 0 8 100\
-    H 0\
-    A 10 30 0 0 1 44 100\
-    H 43.5\
-    A 10 31.5 0 0 0 8 100\
-    Z'/%3E%3C/svg%3E");
-    
 
-    
-    --fakt-right: 1.8ch;
-    --fakt-filter: url("#viva");
-    
-    position: relative;
-    margin-left: 0.8ch;
-    
-}
 
-fakt-left::after {
-    
-    content: '';
-    position: absolute;
-    width: calc(0ch + 100%);
-    height: 25px;
-    right: 1ch;
-    xright: var(--fakt-right);
-    bottom: 90%;
-    background-size: 100% 100%;
-    background-image: var(--fakt-left-00);
-    filter: var(--fakt-filter);
-    
-}
 
-fakt-left > b:nth-child(1) {
-    position: absolute;
-    width: 3ch;
-    left: calc(-1 * var(--fakt-right) - 1ch);
-    top: 20%;
-    font-size: 0.5em;
-    font-family: luckiest;
-    text-align: center;
-    white-space: nowrap;
-    overflow: visible;
-    transform: rotate(-15deg);
-    filter: var(--fakt-filter);
-    z-index: 10;
-    
-}
 
-fakt-left > b:nth-child(1)::before {
-    content: "";
-    margin-left: -100%;
-}
 
-fakt-left > b:nth-child(1)::after {
-    content: "";
-    margin-right: -100%;
-}
 
-</style>
-<style id="dist-rite">
 
-dist-rite {
-    
-    --dist-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
-        
-    --dist-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H82A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
-    
-    --dist-left: 0.5ch;
-    --dist-high: 30px;
-    --dist-ratio: 6 / 1;
-    --arc1-wide: 41.5%;
-    --arc2-wide: calc(100% - 1ch);
-    --dist-filter: url("#viva");
-    
-    position: relative;
 
-}
 
-dist-rite::before {
-    
-    content: '';
-    position: absolute;
-    width: calc(var(--arc2-wide) - var(--dist-left));
-    height: var(--dist-high);
-    xaspect-ratio: var(--dist-ratio);
-    left: var(--dist-left);
-    bottom: 90%;
-    background-size: 100% 100%;
-    background-image: var(--dist-arc1);
-    filter: var(--dist-filter);
-    
-}
 
-dist-rite::after {
-    
-    content: '';
-    position: absolute;
-    width: calc(var(--arc1-wide) - var(--dist-left));
-    height: calc(0.7 * var(--dist-high));
-    xaspect-ratio: var(--dist-ratio);
-    left: var(--dist-left);
-    bottom: 90%;
-    background-size: 100% 100%;
-    background-image: var(--dist-arc2);
-    filter: var(--dist-filter);
-    
-}
 
-dist-rite[data-trig] {
-    --dist-left: 1.5ch;
-    --arc1-wide: 46%;
-    --arc2-wide: calc(100% - 2ch);
-}
 
-dist-rite[data-dark] {
-    --dist-filter: url("#lightness");
-}
 
-dist-rite[data-ghost] {
-    --dist-filter: url("#outline");
-}
+<br><br>
+<n-ote>3&times;</n-ote>
+<p-ren>
+<fakt-all data-dark xdata-vapor>
+    <b style="--arc-wide:150%;z-index:3">3x<sup>2</sup><b>x, x, <g-irk>&nbsp;</g-irk></b></b>
+    +
+    <b style="--arc-wide:350%;z-index:2;">3x <b>x, <g-irk data-opt1>&nbsp;</g-irk></b></b>
+    +
+    <b style="--arc-wide:510%;z-index:1;">12 <b>2, 2, <g-irk data-turn>&nbsp;</g-irk></b></b>
+</fakt-all>
+</p-ren>
 
-dist-rite[data-vapor] {
-    --dist-filter: url("#vapor");
-}
-
-</style>
-
-<style id="rat-dist">
-
-/*
-    shows over-arching distribution to the right
-    with ghosted coefficient and viva values
-    
-    <rat-dist>
-        <b>3</b>    <!-- coefficient -->
-        <b>x        <!-- first value -->
-          <b>17</b> <!-- coefficient -->
-        </b>
-        +
-        <b>x        <!-- second value -->
-          <b>17</b> <!-- coefficient -->
-        </b>
-    </rat-dist>
-        
-*/
-
-rat-dist {
-    
-    /*--rat-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");*/
-    
-    --rat-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
-        
-    --rat-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H85A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
-    
-    --arc1-wide: 51%;
-    --arc2-wide: calc(100% - 1.5ch);
-    --rat-left: 0.5ch;
-    --rat-filter: url("#viva");
-    --rat-filter-lil: url("#lil-viva");
-    --rat-shade: var(--text-ghost);
-    
-    position: relative;
-
-}
-
-rat-dist::before {
-    
-    content: '';
-    position: absolute;
-    width: calc(var(--arc2-wide) - var(--rat-left));
-    height: 25px;
-    xaspect-ratio: 6 / 1;
-    left: var(--rat-left);
-    bottom: 90%;
-    background-size: 100% 100%;
-    background-image: var(--rat-arc1);
-    filter: var(--rat-filter);
-    
-}
-
-rat-dist::after {
-    
-    content: '';
-    position: absolute;
-    width: calc(var(--arc1-wide) - var(--rat-left));
-    height: 20px;
-    xaspect-ratio: 6 / 1;
-    left: var(--rat-left);
-    bottom: 90%;
-    background-size: 100% 100%;
-    background-image: var(--rat-arc2);
-    filter: var(--rat-filter);
-    
-}
-
-rat-dist > b:nth-child(1) {
-    
-    color: rgba(0,0,0,0);
-    text-shadow: var(--rat-shade);
-    
-}
-
-rat-dist > b:nth-child(1)::after {
-    
-    content: '\00a0\00b7';
-    
-}
-
-rat-dist > b > b {
-    
-    display: inline-block;
-    height: 100%;
-    width: 3ch;
-    font-size: 0.5em;
-    font-family: luckiest;
-    text-align: center;
-    white-space: nowrap;
-    transform: rotate(-15deg) translate(-5px, -50%);
-    filter: var(--rat-filter-lil);
-
-}
-
-rat-dist > b:nth-child(2) {
-    
-    margin-right: -0.5ch;
-    
-}
-
-rat-dist > b:nth-child(2)::before {
-    
-    content: '(';
-    
-}
-
-rat-dist > b > b::before {
-    content: "\00d7";
-    margin-left: -100%;
-}
-
-rat-dist > b > b::after {
-    content: "";
-    margin-right: -100%;
-}
-
-rat-dist > b:nth-child(3)::after {
-    
-    content: ')';
-    display: inline-block;
-    transform: translate(-0.5ch,0);
-    
-}
-
-rat-dist[data-dark] {
-    --rat-filter: url("#lightness");
-    --rat-filter-lil: url("#lightness");
-}
-
-rat-dist[data-dark] > b:nth-child(1) {
-    color: var(--lightness);
-    text-shadow: none;
-}
-
-</style>
-
-<rat-dist>
-    <b>3</b>
-    <b>x<sup>2</sup><b>3</b></b>+
-    <b>79<b>3</b></b>
-</rat-dist>
 
 
 
