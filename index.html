@@ -524,6 +524,12 @@ p-ren[data-ghost]::after {
     text-shadow: var(--text-ghost);
 }
 
+p-ren[data-vapor]::before,
+p-ren[data-vapor]::after {
+    color: var(--holder-back);
+    text-shadow: var(--text-vapor);
+}
+
 </style>
 <style id="b-rak">
 
@@ -1696,10 +1702,10 @@ i-teg[data-viva-diff] {
 }
 
 i-teg[data-gank], i-teg[data-ghost] {
-    --iteg-filter-sigma: url("#ghost");
-    --iteg-filter-from: url("#ghost");
-    --iteg-filter-to: url("#ghost");
-    --iteg-filter-diff: url("#ghost");
+    --iteg-filter-sigma: url("#outline");
+    --iteg-filter-from: url("#outline");
+    --iteg-filter-to: url("#outline");
+    --iteg-filter-diff: url("#outline");
 }
 
 i-teg[data-gank]::after {
@@ -2211,7 +2217,7 @@ g-rut ~ sup[data-viva] {
 }
 
 g-rut[data-gank] {
-    --grut-filter: url("#ghost");
+    --grut-filter: url("#outlined");
 }
 
 g-rut[data-gank] > p:nth-of-type(1) {
@@ -2280,177 +2286,6 @@ g-rut[data-gank] > p:nth-of-type(1) {
 
 <body>
 <div id="hold0" class="holder">
-<svg id="clipPaths" width="0" height="0">
-
-	<clipPath id="rootBef" clipPathUnits="objectBoundingBox">
-	    <path d="
-	        M .32 .3
-	        H .5
-	        Q .58 .58 .67 .63
-	        Q .75 .5 .8 .1
-	        H 1 V .2 H .9
-	        Q .75 .5 .7 1
-	        Q .6 .6 .42 .4
-	        H .3
-	        
-	        Z
-	    " fill="#000"/>
-	</clipPath>
-	
-	<clipPath id="rootAft" clipPathUnits="objectBoundingBox">
-	    <path d="
-	        M 0 .1
-	        H 1
-	        L .97 .2
-	        H 0
-	        Z
-	    " fill="#000"/>
-	</clipPath>
-	    
-	<clipPath id="distNorm" clipPathUnits="objectBoundingBox">
-		<path d="
-		    M .08 1
-		    A .15 .15 180 0 1 .67 1
-		    H .62
-		    A .1 .11 180 0 0 .13 1
-		    H .08
-		    A .35 .35 180 0 1 .92 1
-		    H .87
-		    A .2 .21 180 0 0 .13 1
-		    Z
-		    M .33 1
-		    A .15 .15 180 0 1 .92 1
-		    H .87
-		    A .2 .22 180 0 0 .38 1
-		    H .33
-		    A .17 .17 180 0 1 .67 1
-		    H .62
-		    A .1 .12 180 0 0 .38 1
-		    Z
-		" fill="#000"/>
-	</clipPath>
-
-	<clipPath id="distRite" clipPathUnits="objectBoundingBox">
-		<path d="
-		    M .05 1
-		    A .35 .35 180 0 1 .88 1
-		    H .83
-		    A .35 .33 180 0 0 .1 1
-		    H .05
-		    A .2 .2 180 0 1 .5 1
-		    H .45
-		    A .15 .14 180 0 0 .1 1
-		    Z
-		"/>
-	</clipPath>
-
-	<clipPath id="distLeft" clipPathUnits="objectBoundingBox">
-		<path d="
-		    M .95 1
-		    A .35 .35 180 0 0 .12 1
-		    H .17
-		    A .35 .33 180 0 1 .9 1
-		    H .95
-		    A .21 .2 180 0 0 .49 1
-		    H .54
-		    A .15 .13 180 0 1 .9 1
-		    Z
-		"/>
-	</clipPath>
-	
-	<clipPath id="powerRule" clipPathUnits="objectBoundingBox">
-	    <path d="
-	        M .95 .2
-	        C .95 .8 .75 .8 .7 .5
-	        S .8 -.3 .9 .3
-	        C .85 0 .7 .1 .72 .45
-	        C .77 .8 .92 .65 .95 .2
-	        Z
-	   " fill="#000"/>
-	    <path d="
-	        M .74 .1
-	        Q .5 -.15 .4 .3
-	        L .37 .22
-	        L .35 .47
-	        L .46 .33
-	        L .41 .33
-	        Q .5 -.1 .72 .2
-	        Z
-	    " fill="#000"/>
-	</clipPath>
-
-	<clipPath id="cank" clipPathUnits="objectBoundingBox">
-	    <path d="
-	        M 0 .9
-	        Q .5 .15 .95 0
-	        L 1 .1
-	        Q .5 .2 .05 1
-	        Z
-	    " fill="#000"/>
-	</clipPath>
-
-	<clipPath id="brak" clipPathUnits="objectBoundingBox">
-	    <path d="
-	        M 0 1
-	        A .1 .3 0 0 1 .1 .7
-	        H .4
-	        A .1 .3 0 0 0 .5 .5
-	        A .1 .3 0 0 0 .6 .7
-	        H .9
-	        A .1 .3 0 0 1 1 1
-	        A .1 .2 0 0 0 .9 .8
-	        H .6
-	        A .1 .2 0 0 1 .5 .65
-	        A .1 .2 0 0 1 .4 .8
-	        H .1
-	        A .1 .2 0 0 0 0 1
-	        Z
-	    " fill="#000"/>
-	</clipPath>
-	
-	<clipPath id="cirk01" clipPathUnits="objectBoundingBox">
-	    <path  d="
-	        M .9 .4
-	        Q .8 0 .6 0
-	        C .3 0 0 .3 0 .6
-	        S .2 1 .4 1
-	        S 1.2 .8 .9 .1
-	        Q 1.1 .82 .4 .94
-	        C .2 .97 .05 .8 .05 .6
-	        C .05 .2 .6 -.2 .9 .4
-	        Z
-	    " fill="#000"/>
-	</clipPath>
-	
-	<clipPath id="cirk02" clipPathUnits="objectBoundingBox">
-	    <path d="
-    	    M .9 .38
-    	    C .88 .14 .62 -.13 .3 .07
-    	    C .06 .21 -.06 .53 .03 .77
-    	    C .12 1.01 .38 1.05 .63 .95
-    	    C .95 .82 1.08 .33 .95 .13
-    	    C 1.02 .34 .88 .74 .65 .85
-    	    C .43 .95 .21 .92 .13 .72
-    	    C .06 .52 .17 .25 .38 .12
-    	    C .61 -.02 .82 .22 .9 .38
-    	    Z
-	    " fill="#000"/>
-	</clipPath>
-
-	<clipPath id="hlit" clipPathUnits="objectBoundingBox">
-	    <path d="
-	        M 0 0
-	        H .6
-	        L .61 .1
-	        L .59 .2
-	        L .62 .13
-	        L .63 0
-	        H 1 V 1 H 0
-	        Z
-	    " fill="#000"/>
-	</clipPath>
-	
-</svg>
 <svg id="SVGfilter" height="0" width="0">
 
     <filter id="lightness">
@@ -2654,7 +2489,7 @@ g-rut[data-gank] > p:nth-of-type(1) {
 		
     </filter>
 
-    <filter id="ghost">
+    <filter id="outline">
         <feMorphology operator="dilate" radius="0.5" result="X0" />
         <feFlood in="X0" flood-color="hsl(
             var(--nose-h),
@@ -2664,12 +2499,36 @@ g-rut[data-gank] > p:nth-of-type(1) {
         <feComposite in="F0" in2="X0" operator="in" result="Z0" />
         <feComposite in="Z0" in2="SourceGraphic" operator="out" result="Z1" />
         <feGaussianBlur stdDeviation="0.5" in="Z1" />
-     
     </filter>
+
+    <filter id="vapor"
+        x="-200%"
+        y="-200%"
+        height="900%"
+        width="900%"
+    >
+        <feMorphology operator="dilate" radius="2.5" result="M0" />
+        <feFlood flood-color="hsla(
+            var(--nose-h),
+            var(--nose-s),
+            calc(1.5 * var(--nose-l)),
+            0.5
+        )" result="F0"/>
+        <feComposite in="F0" in2="M0" operator="in" result="C0" />
+        <feGaussianBlur in="C0" stdDeviation="20" result="B0" />
+        
+        <feFlood flood-color="#000" result="F1" />
+        <feComposite in="F1" in2="SourceGraphic" operator="in" result="C1" />
+        <feGaussianBlur in="C1" stdDeviation="1" result="B1" />
+        <feComposite in="B0" in2="B1" operator="out" result="Z1" />
+        
+    </filter>
+  
+
     
 </svg>
 <div class="qr" style="font-size:50px;text-align:center;">
-<div data-nose="#hold0" style="height:50px;width:100%"></div>
+<div data-nose="#hold0" style="height:50px;width:100%;"></div>
 
 <style id="fakt-left">
 
@@ -2740,18 +2599,20 @@ fakt-left > b:nth-child(1)::after {
 }
 
 </style>
-<style id="dist-right">
+<style id="dist-rite">
 
 dist-rite {
     
-    --dist-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
+    --dist-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
         
-    --arc1-wide: 45%;
-    --arc2-wide: calc(100% - 1.5ch);
+    --dist-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H82A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
+    
     --dist-left: 0.5ch;
+    --dist-high: 30px;
+    --dist-ratio: 6 / 1;
+    --arc1-wide: 41.5%;
+    --arc2-wide: calc(100% - 1ch);
     --dist-filter: url("#viva");
-    --dist-filter-lil: url("#lil-viva");
-    --dist-shade: var(--text-ghost);
     
     position: relative;
 
@@ -2762,12 +2623,12 @@ dist-rite::before {
     content: '';
     position: absolute;
     width: calc(var(--arc2-wide) - var(--dist-left));
-    height: 25px;
-    xaspect-ratio: 6 / 1;
+    height: var(--dist-high);
+    xaspect-ratio: var(--dist-ratio);
     left: var(--dist-left);
     bottom: 90%;
     background-size: 100% 100%;
-    background-image: var(--dist-arc);
+    background-image: var(--dist-arc1);
     filter: var(--dist-filter);
     
 }
@@ -2777,14 +2638,32 @@ dist-rite::after {
     content: '';
     position: absolute;
     width: calc(var(--arc1-wide) - var(--dist-left));
-    height: 20px;
-    xaspect-ratio: 6 / 1;
+    height: calc(0.7 * var(--dist-high));
+    xaspect-ratio: var(--dist-ratio);
     left: var(--dist-left);
     bottom: 90%;
     background-size: 100% 100%;
-    background-image: var(--dist-arc);
+    background-image: var(--dist-arc2);
     filter: var(--dist-filter);
     
+}
+
+dist-rite[data-trig] {
+    --dist-left: 1.5ch;
+    --arc1-wide: 46%;
+    --arc2-wide: calc(100% - 2ch);
+}
+
+dist-rite[data-dark] {
+    --dist-filter: url("#lightness");
+}
+
+dist-rite[data-ghost] {
+    --dist-filter: url("#outline");
+}
+
+dist-rite[data-vapor] {
+    --dist-filter: url("#vapor");
 }
 
 </style>
@@ -2916,12 +2795,32 @@ rat-dist[data-dark] > b:nth-child(1) {
 
 </style>
 
-<c-omm>a simple distribution</c-omm>
+<c-omm>a simple right distribution
+<b>
+    this is from the &lt;dist-rite&gt; tag;
+    here is the implimentation:
+    <pre>
+&lt;dist-rite
+    data-dark
+    data-ghost
+    data-vapor
+    data-trig
+&gt;
+    3 (x + 5)
+&lt;/dist-rite&gt;
+    </pre>
+</b>
+</c-omm>
 <div>
-
-<dist-rite>
-    3 &middot; (x + 5)
+<dist-rite>3 (x + 5)</dist-rite>
+<br><br>
+<dist-rite data-trig data-dark>
+    sin&theta; <p-t></p-t>
+    (sin<sup>2</sup>&theta; +
+     tan<sup>2</sup>&theta;)
 </dist-rite>
+<br><br>
+
 
 </div>
 
