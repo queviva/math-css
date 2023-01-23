@@ -3,7 +3,7 @@
 <title>mathrobatics</title>
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
-<!--<script defer src="nanopicker.js"></script>-->
+<script defer src="nanopicker.js"></script>
 <style id="demoStyles">
 
 @font-face {
@@ -82,6 +82,13 @@ body {
         calc(0.6 * var(--nose-l))
     );
     
+    --whiteness : hsl(
+        var(--nose-h),
+        var(--nose-s),
+        calc(1.5 * var(--nose-l))
+    );
+    
+    
     --inverse: hsl(
         calc(var(--nose-h) + 120),
         var(--nose-s),
@@ -108,7 +115,6 @@ body {
     color: var(--lightness);
     background-color: var(--holder-back);
     margin: auto;
-    margin-top: 50px;
     width: 100%;
     max-width: 700px;
     
@@ -173,11 +179,11 @@ hr {
 }
 
 .qa > div:nth-child(1) {
-  width: 65%;
+  width: 50%;
 }
 
 .qa > div:nth-child(2) {
-  width: 35%;
+  width: 50%;
 }
 
 .qb:after {
@@ -259,11 +265,16 @@ hr {
 }
 
 </style>
-<style id="vivaStyles">
+<style id="mathroStyles">
 
 * {
     background-repeat: no-repeat;
     background-size: 100% 100%;
+}
+
+b {
+    position: relative;
+    font-weight: normal;
 }
 
 :root {
@@ -345,43 +356,6 @@ hr {
     Q 70 20 100 0\
     Z'/%3E%3C/svg%3E");
     
-}
-
-</style>
-<style id="v-iva">
-    
-v-iva {
-    filter: url("#viva");
-}
-
-v-ers {
-    filter: url("#vers");
-}
-
-i-ver {
-    color: var(--inverse);
-}
-
-g-ost {
-    color: var(--holder-back);
-    text-shadow: var(--text-ghost);
-}
-
-v-por {
-    color: var(--holder-back);
-    text-shadow: var(--text-vapor);
-}
-
-</style>
-<style id="s-upb">
-
-sup, sub {
-    font-size: 0.5em;
-}
-
-b {
-    position: relative;
-    font-weight: normal;
 }
 
 </style>
@@ -469,945 +443,14 @@ r-ant::after {
     border-color: var(--greyness);
 }
 
-
-
-</style>
-<style id="f-rak">
-
-f-rak {
-    display: inline-grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    font-size: 0.6em;
-    vertical-align: 68%;
-    text-align: center;
-    word-spacing: -0.4ch;
-}
-
-f-rak > :nth-child(1) {
-    border-bottom: 1px solid;
-}
-
-f-rak > :nth-child(1)::before,
-f-rak > :nth-child(1)::after {
-    content: "\00a0";
-    word-spacing: 1ch;
-}
-
-</style>
-<style id="p-ren">
-
-p-ren {
-    word-spacing: -0.3ch;
-}
-
-p-ren::before {
-    content: '(';
-}
-
-p-ren::after {
-    content: ')';
-}
-
-p-ren[data-viva]::before,
-p-ren[data-viva]::after {
-    filter: url("#viva");
-}
-
-p-ren[data-viva-all] {
-    filter: url("#viva");
-}
-
-p-ren[data-ghost]::before,
-p-ren[data-ghost]::after {
-    color: var(--holder-back);
-    text-shadow: var(--text-ghost);
-}
-
-p-ren[data-vapor]::before,
-p-ren[data-vapor]::after {
-    color: var(--holder-back);
-    text-shadow: var(--text-vapor);
-}
-
-</style>
-<style id="b-rak">
-
-b-rak {
-    
-    --brak-filter: none;
-    
-    position: relative;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-    filter: var(--brak-filter);
-}
-
-b-rak::before {
-    content: '\005b';
-    position: absolute;
-    top: 0;
-    left: -0.5em;
-    transform:scale(1,2.0);
-}
-
-b-rak::after {
-    content: '\005d';
-    position: absolute;
-    top: 0;
-    right: -0.5em;
-    transform:scale(1,2.0);
-}
-
-b-rak[data-viva]::before,
-b-rak[data-viva]::after {
-    filter: url("#viva");
-}
-
-b-rak[data-viva-all] {
-    --brak-filter: url("#viva");
-}
-
-</style>
-<style id="s-umm">
-
-s-umm {
-    
-    --summ-filter-sigma: none;
-    --summ-filter-from: none;
-    --summ-filter-to: none;
-    
-    position: relative;
-    
-}
-
-s-umm::before {
-    content: '\2211';
-    font-size: 1.4em;
-    font-weight: bold;
-    filter: var(--summ-filter-sigma);
-}
-
-s-umm > :nth-child(1) {
-    position: absolute;
-    font-size: 0.4em;
-    top: calc(100% + 0.2em);
-    left: 0;
-    filter: var(--summ-filter-from);
-}
-
-s-umm > :nth-child(2) {
-    position: absolute;
-    font-size: 0.4em;
-    bottom: calc(100% + 0.2em);
-    left: 0;
-    filter: var(--summ-filter-to);
-}
-
-s-umm[data-viva] {
-    --summ-filter-sigma: url("#viva");
-    --summ-filter-from: url("#viva");
-    --summ-filter-to: url("#viva");
-}
-
-s-umm[data-viva-sigma] {
-    --summ-filter-sigma: url("#viva");
-}
-
-s-umm[data-viva-from] {
-    --summ-filter-from: url("#viva");
-}
-
-s-umm[data-viva-to] {
-    --summ-filter-to: url("#viva");
-}
-
-s-umm[data-gank]::after {
-    content: '';
-    position: absolute;
-    height: 1.4em;
-    width: 1em;
-    padding: 20px 8px;
-    left: -8px;
-    top: -30px;
-    background-image: var(--gank-sigma-00);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    filter: url("#viva");
-}
-
-</style>
-<style id="e-val">
-
-e-val {
-    
-    --eval-filter: none;
-    --eval-filter-from: none;
-    --eval-filter-to: none;
-    
-    position: relative;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-}
-
-e-val::before {
-    content: '\005b';
-    position: absolute;
-    left: -0.5em;
-    top: 0;
-    font-size: 1em;
-    transform:scale(1,2.0);
-    filter: var(--eval-filter);
-}
-
-e-val::after {
-    content: '\005d';
-    position: absolute;
-    left: 100%;
-    top: 0;
-    font-size: 1em;
-    transform:scale(1,2.0);
-    filter: var(--eval-filter);
-}
-
-e-val > :nth-child(1) {
-    position: absolute;
-    font-size: 0.4em;
-    top: calc(100% + 1.3em);
-    left: 100%;
-    filter: var(--eval-filter-from);
-}
-
-e-val > :nth-child(2) {
-    position: absolute;
-    font-size: 0.4em;
-    bottom: calc(100% + 0.5em);
-    left: 100%;
-    filter: var(--eval-filter-to);
-}
-
-e-val[data-viva] {
-    --eval-filter: url("#viva");
-    --eval-filter-from: url("#viva");
-    --eval-filter-to: url("#viva");
-}
-
-e-val[data-viva-from] {
-    --eval-filter-from: url("#viva");
-}
-
-e-val[data-viva-to] {
-    --eval-filter-to: url("#viva");
-}
-
-</style>
-<style id="f-rom">
-
-f-rom {
-    
-    --from-filter-bar: none;
-    --from-filter-from: none;
-    --from-filter-to: none;
-    
-    position: relative;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-}
-
-f-rom::after {
-    content: '|';
-    position: absolute;
-    height: 100%;
-    left: 100%;
-    top: -9%;
-    font-size: 1em;
-    transform:scale(1,2.0);
-    font-weight: bold;
-    filter: var(--from-filter-bar);
-}
-
-f-rom > :nth-child(1) {
-    position: absolute;
-    font-size: 0.4em;
-    top: calc(100% + 1.3em);
-    left: 100%;
-    filter: var(--from-filter-from);
-}
-
-f-rom > :nth-child(2) {
-    position: absolute;
-    font-size: 0.4em;
-    bottom: calc(100% + 0.5em);
-    left: 100%;
-    filter: var(--from-filter-to);
-}
-
-f-rom[data-viva] {
-    --from-filter-bar: url("#viva");
-    --from-filter-from: url("#viva");
-    --from-filter-to: url("#viva");
-}
-
-f-rom[data-viva-bar] {
-    --from-filter-bar: url("#viva");
-}
-
-f-rom[data-viva-from] {
-    --from-filter-from: url("#viva");
-}
-
-f-rom[data-viva-to] {
-    --from-filter-to: url("#viva");
-}
-
-</style>
-<style id="d-ist">
-
-d-ist,
-d-ist-right,
-d-ist-left
-{
-    --dist-wide: 130%;
-    --dist-high: 60px;
-    --dist-left: 0px;
-    --dist-filter: url("#viva");
-    
-    position: relative;
-}
-
-d-ist::after,
-d-ist-right::after,
-d-ist-left::after
-{
-    content: '';
-    position: absolute;
-    bottom: 80%;
-    left: calc((100% - var(--dist-wide))/2 + var(--dist-left));
-    width: var(--dist-wide);
-    height: var(--dist-high);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    filter: var(--dist-filter);
-}
-
-d-ist[data-dark]::after,
-d-ist-right[data-dark]::after,
-d-ist-left[data-dark]::after {
-    --dist-filter: url("#lightness");
-}
-
-d-ist::after {
-    background-image: var(--dist-full-00);
-}
-
-d-ist-right::after {
-    background-image: var(--dist-right-00);
-}
-
-d-ist-left::after {
-    background-image: var(--dist-left-00);
-}
-
-
-</style>
-<style id="t-yme">
-
-p-t::after {
-    content: "\00b7";
-    font-size: 0.8em;
-    filter: url("#lightness");
-}
-
 v-t::after {
     content: "\00b7";
     font-size: 0.8em;
     filter: url("#viva");
 }
 
-t-t::before {
-    content: "\00d7";
-}
-
-i-mp::before {
-    content: "\21d2";
-    font-size: 0.6em;
-    filter: url("#viva");
-}
-
-i-mp::after {
-    content: '\00a0\00a0';
-    font-size: 0.6em;
-}
-
-d-x::after {
-    content: 'dx';
-    margin-left: 0.15ch;
-    font-size: 0.8em;
-    font-style: italic;
-    letter-spacing: -0.2em;
-}
-
-</style>
-<style id="dy-dx">
-
-d-dx, dy-dx {
-    display: inline-grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    font-size: 0.4em;
-    vertical-align: 90%;
-    text-align: center;
-    font-style: italic;
-}
-
-d-dx::before {
-    content: '\00a0 d\00a0';
-    border-bottom: 1px solid;
-}
-
-dy-dx::before {
-    content: '\00a0 dy\00a0';
-    border-bottom: 1px solid;
-}
-
-d-dx::after, dy-dx::after {
-    content: 'dx';
-}
-
-d-dx[data-viva], dy-dx[data-viva] {
-    filter: url("#viva");
-}
-
-d-dx[data-gank], dy-dx[data-gank] {
-    
-    background-image: var(--gank-slash-00);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    filter: url("#viva");
-    
-}
-
-</style>
-<style id="s-tar">
-
-s-tar {
-    
-    --star-filter: url("#viva");
-    
-    position:relative;
-    word-spacing: -0.04em;
-    
-}
-
-s-tar::before, s-tar::after {
-    
-    content:'\2606';
-    padding: 3px;
-    vertical-align: 60%;
-    font-size:0.4em;
-    filter: var(--star-filter);
-    
-}
-
-s-tar[data-dark] {
-    --star-filter: url("#lightness");
-}
-    
-</style>
-<style id="g-rak">
-    
-g-rak{
-    
-    --grak-wide: calc(130% + 12px);
-    --grak-high: 30px;
-    --grak-top: 12px;
-    --grak-left: 0px;
-    --grak-rot: 0deg;
-    --grak-back: var(--grak-00);
-    --grak-filter: url("#viva");
-    
-    position: relative;
-    
-}
-
-g-rak::before {
-    
-    content: '';
-    position: absolute;
-    width: var(--grak-wide);
-    aspect-ratio: 8 / 1;
-    xheight: var(--grak-high);
-    left: calc((100% - var(--grak-wide))/2 + var(--grak-left));
-    bottom: calc(100% - var(--grak-top));
-    transform: rotate(var(--grak-rot));
-    background-image: var(--grak-back);
-    background-repeat: no-repeat;
-    background-size: 100% 190%;
-    filter: var(--grak-filter);
-
-}
-
-g-rak[data-lo]::before {
-    top: calc(100% - var(--grak-top));
-    transform: rotate(calc(180deg + var(--grak-rot)));
-}
-
-g-rak[data-dark] {
-    --grak-filter: url("#lightness");
-}
-
-g-rak[data-opt1] {
-    --grak-back: var(--grak-01);
-}
-
-
-</style>
-<style id="r-ed1">
-
-[data-redx] { position: relative; --red-val: '0'; }
-[data-red1] { position: relative; --red-val: '1'; }
-[data-red2] { position: relative; --red-val: '2'; }
-[data-red3] { position: relative; --red-val: '3'; }
-[data-red4] { position: relative; --red-val: '4'; }
-[data-red5] { position: relative; --red-val: '5'; }
-
-[data-redx]::after,
-[data-red1]::after,
-[data-red2]::after,
-[data-red3]::after,
-[data-red4]::after,
-[data-red5]::after {
-    
-    content: var(--red-val);
-    position: absolute;
-    left: 80%;
-    bottom: -30%;
-    transform: rotate(-14deg);
-    font-family: luckiest;
-    font-size: 0.6em;
-    line-height: 0.6em;
-    filter: url("#lil-viva");
-    
-    padding: 8px;
-    
-}
-
-[data-redx]::after {
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    font-size: 0.4em;
-    text-align: left;
-    white-space: nowrap;
-    xborder: 1px solid;
-    transform: rotate(-8deg);
-    z-index: 10;
-}
-
-</style>
-<style id="r-dux">
-
-r-dux {
-    
-    --rdux-high: 80%;
-    --rdux-wide: 120%;
-    --rdux-top: 50%;
-    --rdux-left: 65%;
-    --rdux-back: var(--rdux-00);
-    --rdux-filter: url("#viva");
-    --rdux-filter-to: url("#lil-viva");
-    
-    position: relative;
-
-}
-
-r-dux::before {
-    
-    content: '';
-    position: absolute;
-    height: var(--rdux-high);
-    width: var(--rdux-wide);
-    bottom: 4px;
-    left: calc((100% - var(--rdux-wide))/2);
-    background-size: 100% 100%;
-    background-image: var(--rdux-back);
-    filter: var(--rdux-filter);
-    
-}
-
-r-dux > b {
-    
-    position: absolute;
-    top: var(--rdux-top);
-    left: var(--rdux-left);
-    font-family: luckiest;
-    font-size: 0.4em;
-    text-align: left;
-    white-space: nowrap;
-    word-spacing: -0.15em;
-    filter: var(--rdux-filter-to);
-    transform: rotate(-14deg);
-    
-}
-
-f-rak > b > r-dux > b {
+sup, sub {
     font-size: 0.5em;
-}
-
-r-dux[data-dark] {
-    --rdux-filter: url("#lightness");
-    --rdux-filter-to: url("#lightness");
-}
-
-r-dux[data-viva-to] {
-    --rdux-filter: url("#lightness");
-}
-
-</style>
-<style id="g-fak">
-
-g-fak {
-    
-    --gfak-high: 1ch;
-    --gfak-filter: url("#lil-viva");
-    --gfak-shade: var(--text-ghost);
-    
-    position: relative;
-    margin-right: 0.5ch;
-    font-weight: bold;
-    color: rgba(0,0,0,0);
-    text-shadow: var(--gfak-shade);
-    
-}
-
-g-fak > b:nth-of-type(1) {
-    
-    position: absolute;
-    height: var(--gfak-high);
-    top: calc((100% - var(--gfak-high))/2 + 1ch);
-    width: 300%;
-    left: -100%;
-    font-size: 0.3em;
-    font-family: luckiest;
-    text-align: center;
-    word-spacing: 0.5ch;
-    color: var(--lightness);
-    text-shadow: none;
-    filter: var(--gfak-filter);
-    
-}
-
-g-fak[data-dark] {
-    --gfak-filter: var(--lightness);
-}
-
-g-fak[data-vapor] {
-    color: rgba(0,0,0,0);
-    text-shadow: var(--text-vapor);
-}
-
-</style>
-<style id="f-akt">
-
-f-akt {
-    
-    --fakt-var: 'x';
-    --fakt-filter: url("#lil-viva");
-    
-    position: relative;
-    font-weight: bold;
-    color: rgba(0,0,0,0);
-    
-    text-shadow: var(--text-ghost);
-    
-}
-
-f-akt::before {
-    content: '(' var(--fakt-var) '\00a0\00b1\00a0?)\00a0(' var(--fakt-var) '\00a0\00b1\00a0?)';
-    position: absolute;
-    left: -50%;
-    bottom: -15%;
-    width: 200%;
-    font-size: 0.6em;
-    text-align: center;
-    text-shadow: none;
-    color: var(--lightness);
-    filter: var(--fakt-filter);
-    
-}
-
-f-akt[data-dark] { --fakt-filter: url("#lightness"); }
-f-akt[data-n] { --fakt-var: 'n'; }
-f-akt[data-q] { --fakt-var: 'q'; }
-f-akt[data-x] { --fakt-var: 'x'; }
-f-akt[data-y] { --fakt-var: 'y'; }
-f-akt[data-z] { --fakt-var: 'z'; }
-
-</style>
-<style id="g-ood">
-
-g-ood {
-    --good-filter: url("#viva");
-    margin-left: 2ch;
-}
-
-g-ood::after {
-    content: '';
-    display: inline-block;
-    vertical-align: -20%;
-    height: 80px;
-    width: 2ch;
-    color: var(--lightness);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M30 60L40 80Q63 45 100 15L110 10Q50 60 40 110Q23 95 15 80 Z'/%3E%3C/svg%3E");
-    
-    filter: var(--good-filter);
-    
-}
-
-g-ood[data-dark] {
-    --good-filter: url("#lightness");
-}
-
-</style>
-<style id="f-ofx">
-
-f-x {
-    --fx-var: 'x';
-}
-
-f-x::before {
-    /*content: '\0192';*/
-    content: 'f';
-    font-size: 1.3em;
-    font-style: italic;
-}
-
-f-x::after {
-    content: '(' var(--fx-var) ')';
-    font-size: 0.7em;
-    vertical-align: 10%;
-}
-
-f-x[data-viva] { filter: url("#viva"); }
-f-x[data-n] { --fx-var: 'n'; }
-f-x[data-q] { --fx-var: 'q'; }
-f-x[data-x] { --fx-var: 'x'; }
-f-x[data-y] { --fx-var: 'y'; }
-f-x[data-z] { --fx-var: 'z'; }
-
-
-</style>
-<style id="n-add">
-
-n-add, n-min, n-ote {
-    
-    --note-rot: -10deg;
-    --note-top: 0px;
-    --note-left: 0px;
-    
-    display: inline-block;
-    margin-left: var(--note-left);
-    margin-top: var(--note-top);
-    font-size: 0.8em;
-    font-family: luckiest;
-    vertical-align: 30%;
-    transform: rotate(var(--note-rot));
-    filter: url("#viva");
-    z-index: -10;
-    
-}
-
-n-ote {
-    font-size: 0.3em;
-    vertical-align: 100%;
-    word-spacing: -0.1em;
-}
-
-n-add::before {
-    content: '+';
-    font-size: 0.5em;
-    vertical-align: 50%;
-}
-
-n-min::before{
-    content: '-';
-    font-size: 0.5em;
-    vertical-align: 50%;
-}
-
-b > n-pad {
-    position: absolute;
-    display: inline;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    font-size: 0.4em;
-    font-family: luckiest;
-    white-space: nowrap;
-    transform: rotate(-12deg);
-    filter: url("#lil-viva");
-}
-
-n-add[data-dark],
-n-min[data-dark],
-n-ote[data-dark],
-n-pad[data-dark] {
-    filter: none;
-}
-
-
-
-</style>
-<style id="l-ogb">
-
-l-ogb {
-    
-    --logb-filter: none;
-    --logb-filter-base: none;
-    --logb-stroke: 0.7px var(--darkness);
-    
-    position: relative;
-    margin-left: 4ch;
-    white-space: nowrap;
-
-}
-
-l-ogb::before {
-    content: 'log\00a0(';
-    position: absolute;
-    right: 100%;
-    top: 0;
-    filter: var(--logb-filter);
-}
-
-l-ogb::after {
-    content: ')';
-    right: 0;
-    top: 0;
-    filter: var(--logb-filter);
-}
-
-l-ogb > :nth-child(1) {
-    
-    position: absolute;
-    right: calc(100% + 0.4em);
-    bottom: -0.4em;
-    transform: rotate(-12deg);
-    font-size: 0.6em;
-    font-weight: bold;
-    font-family: luckiest;
-    filter: var(--logb-filter-base);
-    -webkit-text-stroke: var(--logb-stroke);
-    
-}
-
-l-ogb[data-viva] {
-    --logb-filter: url("#viva");
-    --logb-filter-base: url("#lil-viva");
-    --logb-stroke: 0px #000;
-}
-
-l-ogb[data-viva-base] {
-    --logb-filter-base: url("#lil-viva");
-    --logb-stroke: 0px #000;
-}
-
-l-ogb[data-gank] {
-    --logb-filter: url("#viva");
-    --logb-filter-base: url("#lil-viva");
-}
-
-l-ogb[data-gank]::before {
-    
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 60L18 2L30 60L43 20L60 85Q77 70 100 55Q70 80 60 100L45 50Q34 70 32 90L17 30Z'/%3E%3C/svg%3E");
-    
-}
-
-l-ogb[data-gank]::after {
-    
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 40L100 0L32 35L100 33L40 60L100 100L15 58L70 40Z'/%3E%3C/svg%3E");
-}
-
-l-ogb[data-gank] > :nth-child(1) {
-    color: rgba(0,0,0,0);
-}
-
-</style>
-<style id="r-aze">
-
-r-aze {
-    
-    --raze-filter: url("#viva");
-    --raze-filter-arrow: url("#lil-viva");
-    
-    position: relative;
-    margin-left: 1ch;
-    
-}
-
-r-aze::after {
-    
-    content: '';
-    position: absolute;
-    display: inline-block;
-    height: 20px;
-    width: 17px;
-    right: 100%;
-    top: 20%;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 80Q40 40 50 0L100 80L80 90L50 20Q40 67 20 100Z' /%3E%3C/svg%3E");
-    
-    filter: var(--raze-filter-arrow);
-    
-}
-
-r-aze > :nth-child(1) {
-    
-    position: absolute;
-    display: inline-block;
-    top: 50%;
-    right: calc(100% - 8px);
-    font-family: luckiest;
-    transform: rotate(-12deg);
-    filter: var(--raze-filter);
-    
-}
-
-r-aze > :nth-child(2) {
-    display: inline;
-    font-size: 0.4em;
-    vertical-align: 110%;
-}
-
-r-aze > :nth-child(2)::before {
-    content: '[';
-    font-weight: bold;
-}
-
-r-aze > :nth-child(2)::after {
-    content: ']';
-    font-weight: bold;
-}
-
-r-aze[data-dark] {
-    --raze-filter: none;
-    --raze-filter-arrow: url("#lightness");
-}
-
-r-aze[data-dark-value] {
-    --raze-filter: none;
-}
-
-r-aze[data-dark-arrow] {
-    --raze-filter-arrow: none;
-    --raze-filter-arrow: url("#lightness");
 }
 
 </style>
@@ -1417,6 +460,7 @@ r-aze[data-dark-arrow] {
     
     --girk-wide: 25px;
     --girk-high: 0px;
+    --girk-top: 0px;
     --girk-rot: 0deg;
     --girk-flip: 1;
     --girk-turn: 0;
@@ -1434,7 +478,8 @@ r-aze[data-dark-arrow] {
     width: calc(100% + var(--girk-wide));
     height: calc(100% + var(--girk-high));
     left: calc(var(--girk-wide)/-2);
-    top: calc(var(--girk-high)/-2);
+    xtop: calc((var(--girk-high)/-2) + var(--girk-top));
+    top: calc(var(--girk-top) + (var(--girk-high)/-2));
     transform:
         rotate(
             calc(180deg * var(--girk-turn) + var(--girk-rot))
@@ -1475,761 +520,6 @@ r-aze[data-dark-arrow] {
 
 [data-girk][data-opt3]::before, g-irk[data-opt3]::before {
     --girk-back: var(--girk-03);
-}
-
-</style>
-<style id="p-owr">
-
-p-owr {
-    --powr-filter: url("#viva");
-    position: relative;
-}
-
-p-owr::before, p-owr::after {
-    content: '';
-    position: absolute;
-    height: calc(100% + 0px);
-    bottom: 0;
-}
-
-p-owr::before {
-    
-    width: calc(100% + 7px);
-    left: -7px;
-    background-size: 100% 100%;
-    background-image: var(--powr-arc);
-    filter: var(--powr-filter);
-    
-}
-
-p-owr::after {
-    
-    width: 10px;
-    height: 10px;
-    top: 50%;
-    right: calc(100% + 0px);
-    background-size: 100% 100%;
-    background-image: var(--powr-dot);
-    filter: var(--powr-filter);
-
-}
-
-p-owr + sup {
-    position: relative;
-    --powr-filter: url("#viva");
-}
-
-p-owr + sup::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    background-size: 100% 100%;
-    background-image: var(--girk-02);
-    filter: var(--powr-filter);
-}
-
-p-owr + sup::after {
-    content: '-1';
-    position: absolute;
-    font-size: 0.5em;
-    font-family: luckiest;
-    top: 0;
-    left: calc(100% + 2px);
-    transform: rotate(-15deg);
-    filter: var(--powr-filter);
-    
-}
-
-p-owr[data-dark] {
-    --powr-filter: url("#lightness");
-}
-
-</style>
-<style id="i-pow">
-
-i-pow {
-    
-    --ipow-filter: url("#viva");
-    
-    position: relative;
-    
-}
-
-i-pow::before, i-pow::after {
-    content: '';
-    position: absolute;
-    height: calc(100% + 0px);
-}
-
-i-pow::before {
-    
-    width: calc(50% + 8px);
-    height: calc(100% + 20px);
-    left: 50%;
-    background-size: 100% 100%;
-    background-image: var(--ipow-arc);
-    filter: var(--ipow-filter);
-    
-    xborder: 1px solid;
-    
-}
-
-i-pow::after {
-    
-    width: calc(100% + 8px);
-    height: 5px;
-    bottom: 0px;
-    right: calc(50% - 10px);
-    right: 8px;
-    background-size: 100% 100%;
-    background-image: var(--ipow-divline);
-    filter: var(--ipow-filter);
-    
-    xborder: 1px solid;
-
-}
-
-i-pow + sup {
-    position: relative;
-    --ipow-filter: url("#viva");
-}
-
-i-pow + sup::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    background-size: 100% 100%;
-    background-image: var(--girk-02);
-    filter: var(--ipow-filter);
-}
-
-i-pow + sup::after {
-    content: '+1';
-    position: absolute;
-    font-size: 0.5em;
-    font-family: luckiest;
-    top: 0;
-    left: calc(100% + 2px);
-    transform: rotate(-15deg);
-    filter: var(--ipow-filter);
-    
-}
-
-i-pow[data-dark], i-pow+sup[data-dark] {
-    --ipow-filter: url("#lightness");
-}
-
-</style>
-<style id="i-teg">
-
-i-teg {
-        
-    --iteg-filter-sigma: none;
-    --iteg-filter-from: none;
-    --iteg-filter-to: none;
-    --iteg-filter-diff: none;
-    
-    position: relative;
-    margin-left: 0.5em;
-    
-}
-
-i-teg::before {
-    
-    content: '\222b';
-    position: absolute;
-    height: 100%;
-    width: 20%;
-    line-height: 1em;
-    left: -0.7em;
-    font-size: 1em;
-    transform:scale(1.3,2);
-    filter: var(--iteg-filter-sigma);
-    
-}
-
-i-teg > :nth-child(2) {
-    position: relative;
-    font-size: 0.8em;
-    font-style: italic;
-    letter-spacing: -0.3ch;
-    filter: var(--iteg-filter-diff);
-}
-
-i-teg > :nth-child(3) {
-    position: absolute;
-    font-size: 0.4em;
-    top: calc(100% + 1em);
-    left: -1.2em;
-    filter: var(--iteg-filter-from);
-}
-
-i-teg > :nth-child(4) {
-    position: absolute;
-    font-size: 0.4em;
-    bottom: calc(100% + 0.5em);
-    left: -0.5em;
-    filter: var(--iteg-filter-to);
-}
-
-i-teg[data-viva] {
-    --iteg-filter-sigma: url("#viva");
-    --iteg-filter-from: url("#viva");
-    --iteg-filter-to: url("#viva");
-    --iteg-filter-diff: url("#viva");
-}
-
-i-teg[data-viva-sigma] {
-    --iteg-filter-sigma: url("#viva");
-}
-
-i-teg[data-viva-from] {
-    --iteg-filter-from: url("#viva");
-}
-
-i-teg[data-viva-to] {
-    --iteg-filter-to: url("#viva");
-}
-
-i-teg[data-viva-diff] {
-    --iteg-filter-diff: url("#viva");
-}
-
-i-teg[data-gank], i-teg[data-ghost] {
-    --iteg-filter-sigma: url("#outline");
-    --iteg-filter-from: url("#outline");
-    --iteg-filter-to: url("#outline");
-    --iteg-filter-diff: url("#outline");
-}
-
-i-teg[data-gank]::after {
-    content: '';
-    position: absolute;
-    padding: 10px;
-    height: 100%;
-    width: 1ch;
-    left: -2ch;
-    background-image: var(--gank-sigma-00);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    transform:scale(1.3,2);
-    filter: url("#viva");
-    
-}
-
-
-</style>
-<style id="i-prt">
-/*
-    inside i-teg, will select a u and v'
-    for integration by parts
-*/
-[data-iprt] {
-    
-    --iprt-filter-u: url("#viva");
-    --iprt-filter-v: url("#vers");
-    
-    position: relative;
-    
-}
-
-[data-iprt] > u-u {
-    position: relative;
-}
-
-[data-iprt] > u-u::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-size: 100% 100%;
-    background-image: var(--girk-02);
-    filter: var(--iprt-filter-u);
-    
-}
-
-[data-iprt] > u-u::after {
-    content: 'u =';
-    position: absolute;
-    height: 100%;
-    width: 2ch;
-    top: -4px;
-    left: -8px;
-    font-size: 0.4em;
-    font-family: luckiest;
-    word-spacing: -0.2em;
-    text-align: left;
-    transform: rotate(-15deg);
-    filter: var(--iprt-filter-u);
-    
-}
-
-[data-iprt] > v-v {
-    position: relative;
-}
-
-[data-iprt] > v-v::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-size: 100% 100%;
-    background-image: var(--girk-00);
-    filter: var(--iprt-filter-v);
-    
-}
-
-[data-iprt] > v-v::after {
-    content: 'v\' =';
-    position: absolute;
-    height: 100%;
-    width: 2ch;
-    top: -4px;
-    left: -8px;
-    font-size: 0.4em;
-    font-family: luckiest;
-    word-spacing: -0.2em;
-    color: var(--inverse);
-    text-align: left;
-    transform: rotate(-15deg);
-    filter: var(--iprt-filter-v);
-    
-}
-
-[data-iprt][data-dark] {
-    --iprt-filter-u: url("#lightness");
-    --iprt-filter-v: url("#inverse");
-}
-
-</style>
-<style id="uv-table">
-
-/*
-    sets up the uv table for integration by parts
-    use data-empty parameter for empty table
-    <uv-table [data-empty]>
-        <b>u </b>
-        <b>u'</b>
-        <b>v </b>
-        <b>v'</b>
-    </uv-table>
-*/
-
-uv-table {
-    
-    --uv-color-u: var(--lightness);
-    --uv-color-v: var(--inverse);
-    --uv-filter-u: url("#viva");
-    --uv-filter-v: url("#vers");
-    --uv-table-msg0: 'find derivative of u & integral of v\'';
-    --uv-table-msg1: 'plug values in to the formula';
-    
-    position: relative;
-    display: inline-grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-column-gap: 80px;
-    font-size: 0.8em;
-    vertical-align: 68%;
-    margin-bottom: 20px;
-    
-}
-
-uv-table[data-empty] {
-    grid-column-gap: 10px;
-}
-uv-table::before {
-    content: '';
-    position: absolute;
-    height: 50%;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    border-top: 1px solid var(--greyness);
-    
-}
-
-uv-table::after {
-    content: 'uv\00a0-\00a0\222bvu\'';
-    position: absolute;
-    width: 100%;
-    padding: 0px 2px;
-    top: calc(100% + 15px);
-    font-size: 0.4em;
-    font-style: italic;
-    font-weight: bold;
-    color: var(--greyness);
-    border: 1px solid;
-    filter: url("#greyness");
-    
-}
-
-uv-table:hover::after {
-    content: var(--uv-table-msg1);
-    padding: 0px 2px;
-    filter: url("#lil-viva");
-}
-
-uv-table[data-empty]:hover::after {
-    content: var(--uv-table-msg0);
-}
-
-uv-table > b {
-    
-    position: relative;
-    text-align: center;
-    
-}
-
-uv-table > b::before {
-    
-    left: 0;
-    padding-right: 5px;
-    top: 40%;
-    font-size: 0.6em;
-    font-family: luckiest;
-    text-align: left;
-    font-style: normal;
-    
-}
-
-uv-table > b:nth-child(1),
-uv-table > b:nth-child(2) {
-    color: var(--lightness);
-}
-
-uv-table > b:nth-child(3),
-uv-table > b:nth-child(4) {
-    color: var(--inverse);
-}
-
-uv-table > b:nth-child(1)::before {
-    content: 'u=';
-}
-
-uv-table > b:nth-child(1)::after {
-    
-    content: '\27ff';
-    position: absolute;
-    width: 80px;
-    right: -80px;
-    font-style: normal;
-    text-align: left;
-    
-    filter: var(--uv-filter-u);
-    
-}
-
-uv-table[data-empty] > b:nth-child(1)::after {
-    display: none;
-}
-
-/*second child*/
-
-uv-table > b:nth-child(2)::before {
-    content: 'u\'=';
-    color: var(--uv-color-u);
-}
-
-uv-table[data-empty] > b:nth-child(2) {
-    color: rgba(0,0,0,0);
-    letter-spacing: -1ch;
-    border-bottom: 1px solid var(--greyness);
-}
-
-uv-table[data-empty] > b:nth-child(2)::before {
-    content: 'u\'= ???';
-    letter-spacing: normal;
-    filter: var(--uv-filter-u);
-}
-
-uv-table:not([data-empty]) > b:nth-child(2)::after {
-    
-    content: '';
-    position: absolute;
-    width: 120%;
-    height: 100%;
-    left: 0;
-    background-size: 100% 100%;
-    background-image: var(--girk-01);
-    filter: var(--uv-filter-u);
-    transform: rotate(357deg);
-    
-}
-
-/*third child*/
-
-uv-table > b:nth-child(3)::before {
-    content: 'v=';
-    color: var(--uv-color-v);
-}
-
-uv-table[data-empty] > b:nth-child(3)::before {
-    content: 'v= ???';
-    letter-spacing: normal;
-    
-}
-
-uv-table[data-empty] > b:nth-child(3) {
-    color: rgba(0,0,0,0);
-    letter-spacing: -1ch;
-}
-
-uv-table[data-empty] > b:nth-child(3)::before {
-    filter: var(--uv-filter-v);
-}
-
-uv-table:not([data-empty]) > b:nth-child(3)::after {
-    
-    content: '';
-    position: absolute;
-    width: 110%;
-    height: 100%;
-    left: 0;
-    background-size: 100% 100%;
-    background-image: var(--girk-03);
-    filter: var(--uv-filter-v);
-    transform: rotate(357deg);
-    
-}
-
-/*fourth child*/
-
-uv-table > b:nth-child(4)::before {
-    content: 'v\'=';
-}
-
-uv-table > b:nth-child(4)::after {
-    
-    content: '\21dc\00a0';
-    position: absolute;
-    width: 80px;
-    left: -80px;
-    font-style: normal;
-    text-align: right;
-    filter: var(--uv-filter-v);
-
-}
-
-uv-table[data-empty] > b:nth-child(4)::after {
-    display: none;
-}
-
-</style>
-<style id="by-parts">
-/*
-    fills in the integration by parts formula
-    <by-parts>
-        <b>u</b>
-        <b>v</b>
-        <b>v</b>
-        <b>u'</b>
-    </by-parts>
-*/
-by-parts {
-    --by-parts-filter: url("#viva");
-    position: relative;
-    font-size: 0.7em;
-}
-
-by-parts > :nth-child(1),
-by-parts > :nth-child(4) {
-    color: var(--lightness);
-}
-
-by-parts > :nth-child(2),
-by-parts > :nth-child(3) {
-    color: var(--inverse);
-}
-
-by-parts > :nth-child(1)::after {
-    content: '\00a0\00b7';
-    filter: var(--by-parts-filter);
-}
-
-by-parts > :nth-child(2)::after {
-    content: '\00a0\-';
-    filter: var(--by-parts-filter);
-}
-
-by-parts > :nth-child(3)::before {
-    content: '\222b';
-    margin-right: 0.5ch;
-    font-size: 1.2em;
-    filter: var(--by-parts-filter);
-    
-}
-
-by-parts > :nth-child(4)::before {
-    content: '\00b7\00a0';
-    filter: var(--by-parts-filter);
-}
-
-by-parts[data-dark] {
-    --by-parts-filter: url("#greyness");
-}
-
-</style>
-
-<style id="r-oot">
-
-r-oot {
-    
-    --root-rot: -15deg;
-    --root-back-for: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='100px' preserveAspectRatio='none'%3E%3Cpath transform='translate(15, 0)' d=' M-2.5 52L1 30L10 60Q11 30 9 0 L13 10L13 92Q10 75 0 47Z'/%3E%3C/svg%3E");
-    
-    --root-filter: url("#viva");
-    --root-lil-filter: url("#viva");
-    
-    position: relative;
-    font-size: 0.8em;
-    word-spacing: -0.2em;
-    white-space: nowrap;
-    margin-left: 30px;
-    margin-right: 0.4ch;
-    
-}
-
-r-oot::before, r-oot::after {
-    content: '';
-    position: absolute;
-    height: 130%;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    filter: var(--root-filter);
-}
-    
-r-oot::before {
-    
-    width: 30px;
-    left: -1em;
-    background-image: var(--root-back-for);
-    
-    border: 1px solid;
-    
-}
-
-r-oot::after {
-    
-    width: calc(100% + 2px);
-    left: -2px;
-    clip-path: url(#rootAft);
-    
-}
-
-r-oot > p:nth-of-type(1) {
-    position: absolute;
-    font-size: 0.5em;
-    font-family: luckiest;
-    top: -12%;
-    right: calc(100% + 0.7em);
-    transform: rotate(var(--root-rot));
-    filter: var(--root-lil-filter);
-}
-
-r-oot > p {
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
-
-</style>
-<style id="g-rut">
-
-g-rut {
-    
-    --grut-high: 120%;
-    --grut-rot: -15deg;
-    --grut-back-for: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M8 50L12 28L24 52Q22 25 18 0L23 1Q28 45 27 90Q22 63 11 43 Z' /%3E%3C/svg%3E");
-    --grut-back-aft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 0H 100L95 2L 2 7Z' /%3E%3C/svg%3E");
-    --grut-filter: url("#viva");
-    --grut-lil-filter: url("#lil-viva");
-    
-    font-size: 0.8em;
-    word-spacing: -0.2em;
-    margin-left: 20px;
-    margin-right: 0.5ch;
-    
-    position: relative;
-    
-}
-
-g-rut[data-dark] {
-    --grut-filter: url("#lightness");
-    --grut-lil-filter: url("#lightness");
-}
-
-g-rut::before, g-rut::after {
-    content: '';
-    position: absolute;
-    height: var(--grut-high);
-    top: calc((100% - var(--grut-high))/2);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    filter: var(--grut-filter);
-}
-
-g-rut::before {
-    width: 30px;
-    left: -35px;
-    background-image: var(--grut-back-for);
-}
-
-g-rut::after {
-    width: calc(100% + 25px);
-    left: -17px;
-    background-image: var(--grut-back-aft);
-}
-
-g-rut > p:nth-of-type(1) {
-    position: absolute;
-    font-size: 0.5em;
-    font-family: luckiest;
-    top: -12%;
-    right: calc(100% + 0.8em);
-    transform: rotate(var(--grut-rot));
-    filter: var(--grut-lil-filter);
-    z-index: 2;
-}
-
-g-rut > p {
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
-
-g-rut ~ sup {
-    display: inline-block;
-    font-size: 0.6em;
-    font-family: luckiest;
-    vertical-align: 100%;
-    transform: rotate(-12deg);
-}
-
-g-rut ~ sup[data-viva] {
-    filter: url("#lil-viva");
-}
-
-g-rut[data-gank] {
-    --grut-filter: url("#outlined");
-}
-
-g-rut[data-gank] > p:nth-of-type(1) {
-    
-    top: -18%;
-    right: calc(100% + 0.8em - 20px);
-    padding-left: 5px;
-    padding-right: 20px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 30L100 20L100 35L10 50Z'/%3E%3C/svg%3E");
-    
 }
 
 </style>
@@ -2281,7 +571,117 @@ g-rut[data-gank] > p:nth-of-type(1) {
 
 
 </style>
+<style id="g-fak">
 
+g-fak {
+    
+    --gfak-high: 1ch;
+    --gfak-filter: url("#lil-viva");
+    --gfak-shade: var(--text-ghost);
+    
+    position: relative;
+    margin-right: 0.5ch;
+    font-weight: bold;
+    color: rgba(0,0,0,0);
+    text-shadow: var(--gfak-shade);
+    
+}
+
+g-fak > b:nth-of-type(1) {
+    
+    position: absolute;
+    height: var(--gfak-high);
+    top: calc((100% - var(--gfak-high))/2 + 1ch);
+    width: 300%;
+    left: -100%;
+    font-size: 0.3em;
+    font-family: luckiest;
+    text-align: center;
+    word-spacing: 0.5ch;
+    color: var(--lightness);
+    text-shadow: none;
+    filter: var(--gfak-filter);
+    
+}
+
+g-fak[data-dark] {
+    --gfak-filter: var(--lightness);
+}
+
+g-fak[data-vapor] {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-vapor);
+}
+
+</style>
+<style id="dist-rite">
+
+dist-rite {
+    
+    --dist-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
+        
+    --dist-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H82A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
+    
+    --dist-left: 0.5ch;
+    --dist-high: 30px;
+    --dist-ratio: 6 / 1;
+    --arc1-wide: 41.5%;
+    --arc2-wide: calc(100% - 1ch);
+    --dist-filter: url("#viva");
+    
+    position: relative;
+
+}
+
+dist-rite::before {
+    
+    content: '';
+    position: absolute;
+    width: calc(var(--arc2-wide) - var(--dist-left));
+    height: var(--dist-high);
+    xaspect-ratio: var(--dist-ratio);
+    left: var(--dist-left);
+    bottom: 90%;
+    background-size: 100% 100%;
+    background-image: var(--dist-arc1);
+    filter: var(--dist-filter);
+    
+}
+
+dist-rite::after {
+    
+    content: '';
+    position: absolute;
+    width: calc(var(--arc1-wide) - var(--dist-left));
+    height: calc(0.7 * var(--dist-high));
+    xaspect-ratio: var(--dist-ratio);
+    left: var(--dist-left);
+    bottom: 90%;
+    background-size: 100% 100%;
+    background-image: var(--dist-arc2);
+    filter: var(--dist-filter);
+    
+}
+
+dist-rite[data-trig] {
+    --dist-left: 1.5ch;
+    --arc1-wide: 46%;
+    --arc2-wide: calc(100% - 2ch);
+}
+
+dist-rite[data-dark] {
+    --dist-filter: url("#lightness");
+}
+
+dist-rite[data-ghost] {
+    --dist-filter: url("#outline");
+}
+
+dist-rite[data-vapor] {
+    --dist-filter: url("#vapor");
+}
+
+</style>
 </head>
 
 <body>
@@ -2527,225 +927,170 @@ g-rut[data-gank] > p:nth-of-type(1) {
 
     
 </svg>
-<div class="qr" style="font-size:50px;text-align:center;">
-<div data-nose="#hold0" style="height:50px;width:100%;"></div>
 
-<style id="fakt-left">
-
-/*shows factors being draw infront of parens to the left*/
-
-fakt-left {
-    
-    --fakt-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
-    M 0 100\
-    A 10 20 0 0 1 100 100\
-    H 99.5\
-    A 10 20 0 0 0 8 100\
-    H 0\
-    A 10 30 0 0 1 44 100\
-    H 43.5\
-    A 10 31.5 0 0 0 8 100\
-    Z'/%3E%3C/svg%3E");
-    
-
-    
-    --fakt-right: 1.8ch;
-    --fakt-filter: url("#viva");
-    
-    position: relative;
-    margin-left: 0.8ch;
-    
-}
-
-fakt-left::after {
-    
-    content: '';
-    position: absolute;
-    width: calc(0ch + 100%);
-    height: 25px;
-    right: 1ch;
-    xright: var(--fakt-right);
-    bottom: 90%;
-    background-size: 100% 100%;
-    background-image: var(--fakt-left-00);
-    filter: var(--fakt-filter);
-    
-}
-
-fakt-left > b:nth-child(1) {
-    position: absolute;
-    width: 3ch;
-    left: calc(-1 * var(--fakt-right) - 1ch);
-    top: 20%;
-    font-size: 0.5em;
+<div id="logo" class="qr" data-nose="#hold0" style="
+    width: 100%;
+    padding-top: 30px;
+    font-size: 50px;
     font-family: luckiest;
+    line-height: 30px;
     text-align: center;
-    white-space: nowrap;
-    overflow: visible;
-    transform: rotate(-15deg);
-    filter: var(--fakt-filter);
+    color: var(--whiteness);
+    -webkit-text-stroke: 2px var(--lightness);
+    
+">
+    
+<b>
+M<g-irk style="
+    --girk-top:-8px;
+">A</g-irk>THR<g-ank data-hi data-opt1>O</g-ank
+></b><b style="
+    xdisplay: inline-block;
+    margin-left: -5px;
+    margin-right: -2px;
+    font-weight: bold;
+    vertical-align: -20%;
     z-index: 10;
+" class="hobr">&middot;</b><br class="mobr"><b>B<dist-rite style="
+    --arc1-wide: 60%;
+    --arc2-wide: 95%;
     
-}
+">ATICS</dist-rite>
+</b>
+</div>
 
-fakt-left > b:nth-child(1)::before {
-    content: "";
-    margin-left: -100%;
-}
+<div class="qr" style="
+    color: var(--whiteness);
+    text-align: center;
+">
+    simple formatting tags for
+    the presentation of <i>instructional</i> math
+</div>
 
-fakt-left > b:nth-child(1)::after {
-    content: "";
-    margin-right: -100%;
-}
+<hr class="hobr">
+<div class="qa" style="text-align:center;">
+    <div style="color:var(--lightness)">
+        <a href="example00.html" style="
+            font-size: 1.5em;
+            color:var(--darkness);
+        ">learn math</a><br>
+        <div style="
+            max-width: 200px;
+            margin: auto;
+            font-size: 0.5em;
+            text-align: justify;
+        ">
+            follow along with extremely well
+            described solutions to many of the
+            internet's most asked questions
+        </div>
+    </div>
+    <div style="color:var(--)">
+        <a href="demo.html" style="
+            font-size: 1.5em;
+            color:var(--whiteness);
+        ">write solutions</a><br>
+        <div style="
+            max-width: 200px;
+            margin: auto;
+            font-size: 0.5em;
+            text-align: justify;
+        ">
+            learn about the different tags
+            and options for presenting intuitive
+            solutions with understandable gestures
+        </div>
+    </div>
+</div>
 
-</style>
-<style id="dist-rite">
+<hr>
 
-dist-rite {
-    
-    --dist-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
-        
-    --dist-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H82A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
-    
-    --dist-left: 0.5ch;
-    --dist-high: 30px;
-    --dist-ratio: 6 / 1;
-    --arc1-wide: 41.5%;
-    --arc2-wide: calc(100% - 1ch);
-    --dist-filter: url("#viva");
-    
-    position: relative;
+<div style="
+    font-size: 50px;
+    text-align: center;
+">
 
-}
-
-dist-rite::before {
-    
-    content: '';
-    position: absolute;
-    width: calc(var(--arc2-wide) - var(--dist-left));
-    height: var(--dist-high);
-    xaspect-ratio: var(--dist-ratio);
-    left: var(--dist-left);
-    bottom: 90%;
-    background-size: 100% 100%;
-    background-image: var(--dist-arc1);
-    filter: var(--dist-filter);
-    
-}
-
-dist-rite::after {
-    
-    content: '';
-    position: absolute;
-    width: calc(var(--arc1-wide) - var(--dist-left));
-    height: calc(0.7 * var(--dist-high));
-    xaspect-ratio: var(--dist-ratio);
-    left: var(--dist-left);
-    bottom: 90%;
-    background-size: 100% 100%;
-    background-image: var(--dist-arc2);
-    filter: var(--dist-filter);
-    
-}
-
-dist-rite[data-trig] {
-    --dist-left: 1.5ch;
-    --arc1-wide: 46%;
-    --arc2-wide: calc(100% - 2ch);
-}
-
-dist-rite[data-dark] {
-    --dist-filter: url("#lightness");
-}
-
-dist-rite[data-ghost] {
-    --dist-filter: url("#outline");
-}
-
-dist-rite[data-vapor] {
-    --dist-filter: url("#vapor");
-}
-
-</style>
-
-<style id="rat-dist">
+<style id="mb-dist">
 
 /*
     shows over-arching distribution to the right
     with ghosted coefficient and viva values
     
-    <rat-dist>
-        <b>3</b>    <!-- coefficient -->
-        <b>x        <!-- first value -->
-          <b>17</b> <!-- coefficient -->
+    <mb-dist>
+        <b>3</b>   <!-- coefficient -->
+        <b>x       <!-- first value -->
+          <b>3</b> <!-- coefficient -->
         </b>
-        +
-        <b>x        <!-- second value -->
-          <b>17</b> <!-- coefficient -->
+        <b>+ 5     <!-- second value -->
+          <b>3</b> <!-- coefficient -->
         </b>
-    </rat-dist>
+    </mb-dist>
         
 */
 
-rat-dist {
+mb-dist {
     
-    --rat-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
+    /*--mb-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectmbio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");*/
+    
+    --mb-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
         
-    --arc1-wide: 45%;
+    --mb-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H85A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
+    
+    --arc1-wide: 51%;
     --arc2-wide: calc(100% - 1.5ch);
-    --rat-left: 0.5ch;
-    --rat-filter: url("#viva");
-    --rat-filter-lil: url("#lil-viva");
-    --rat-shade: var(--text-ghost);
+    --mb-left: 0.5ch;
+    --mb-filter: url("#viva");
+    --mb-filter-lil: url("#lil-viva");
+    --mb-shade: var(--text-ghost);
     
     position: relative;
 
 }
 
-rat-dist::before {
+mb-dist::before {
     
     content: '';
     position: absolute;
-    width: calc(var(--arc2-wide) - var(--rat-left));
+    width: calc(var(--arc2-wide) - var(--mb-left));
     height: 25px;
-    xaspect-ratio: 6 / 1;
-    left: var(--rat-left);
+    xaspect-mbio: 6 / 1;
+    left: var(--mb-left);
     bottom: 90%;
     background-size: 100% 100%;
-    background-image: var(--rat-arc);
-    filter: var(--rat-filter);
+    background-image: var(--mb-arc1);
+    filter: var(--mb-filter);
     
 }
 
-rat-dist::after {
+mb-dist::after {
     
     content: '';
     position: absolute;
-    width: calc(var(--arc1-wide) - var(--rat-left));
+    width: calc(var(--arc1-wide) - var(--mb-left));
     height: 20px;
-    xaspect-ratio: 6 / 1;
-    left: var(--rat-left);
+    xaspect-mbio: 6 / 1;
+    left: var(--mb-left);
     bottom: 90%;
     background-size: 100% 100%;
-    background-image: var(--rat-arc);
-    filter: var(--rat-filter);
+    background-image: var(--mb-arc2);
+    filter: var(--mb-filter);
     
 }
 
-rat-dist > b:nth-child(1) {
+mb-dist > b:nth-child(1) {
     
     color: rgba(0,0,0,0);
-    text-shadow: var(--rat-shade);
+    text-shadow: var(--mb-shade);
     
 }
 
-rat-dist > b:nth-child(1)::after {
+mb-dist > b:nth-child(1)::after {
     
     content: '\00a0\00b7';
     
 }
 
-rat-dist > b > b {
+mb-dist > b > b {
     
     display: inline-block;
     height: 100%;
@@ -2755,27 +1100,31 @@ rat-dist > b > b {
     text-align: center;
     white-space: nowrap;
     transform: rotate(-15deg) translate(-5px, -50%);
-    filter: var(--rat-filter-lil);
+    filter: var(--mb-filter-lil);
 
 }
 
-rat-dist > b:nth-child(2)::before {
+mb-dist > b:nth-child(2)::before {
     
     content: '(';
     
 }
 
-rat-dist > b > b::before {
+mb-dist > b > b::before {
     content: "\00d7";
     margin-left: -100%;
 }
 
-rat-dist > b > b::after {
+mb-dist > b > b::after {
     content: "";
     margin-right: -100%;
 }
 
-rat-dist > b:nth-child(3)::after {
+mb-dist > b:nth-child(3) {
+    margin-left: -1ch;
+}
+
+mb-dist > b:nth-child(3)::after {
     
     content: ')';
     display: inline-block;
@@ -2783,58 +1132,40 @@ rat-dist > b:nth-child(3)::after {
     
 }
 
-rat-dist[data-dark] {
-    --rat-filter: url("#lightness");
-    --rat-filter-lil: url("#lightness");
+mb-dist[data-dark] {
+    --mb-filter: url("#lightness");
+    --mb-filter-lil: url("#lightness");
 }
 
-rat-dist[data-dark] > b:nth-child(1) {
+mb-dist[data-dark] > b:nth-child(1) {
     color: var(--lightness);
     text-shadow: none;
 }
 
 </style>
 
-<c-omm>a simple right distribution
-<b>
-    this is from the &lt;dist-rite&gt; tag;
-    here is the implimentation:
-    <pre>
-&lt;dist-rite
-    data-dark
-    data-ghost
-    data-vapor
-    data-trig
-&gt;
-    3 (x + 5)
-&lt;/dist-rite&gt;
-    </pre>
-</b>
-</c-omm>
-<div>
-<dist-rite>3 (x + 5)</dist-rite>
-<br><br>
-<dist-rite data-trig data-dark>
-    sin&theta; <p-t></p-t>
-    (sin<sup>2</sup>&theta; +
-     tan<sup>2</sup>&theta;)
-</dist-rite>
-<br><br>
+<mb-dist>
+    <b>3</b>
+    <b>x<sup>2</sup><b>3</b></b>
+    <b>+ 9<b>3</b></b>
+</mb-dist>
 
 
 </div>
+<br>
 
-
-
-
-
-
-
-
+<div class="qr" style="color:var(--whiteness);">
+    <i>mathro<v-t></v-t>batics</i> provides instructional
+    answers, tutoring, and help for students in
+    algebra, trigonometry, &amp; calculus, aswell
+    as support for anyone wanting to use the
+    markup language to create online solutions with
+    both correctly formatted mathematic symbols
+    and built-in graphical gestures
+</div>
 
 <br><br>
-</div end_qr>
-</div><br><br>
+</div>
 </body>
 
 <script>
