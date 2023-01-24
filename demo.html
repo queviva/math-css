@@ -342,13 +342,6 @@ hr {
     Q 70 20 100 0\
     Z'/%3E%3C/svg%3E");
     
-    --scrib-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
-    M 0 100\
-    Q 30 75 55 30\
-    L 55 50\
-    Q 30 80 0 100\
-    Z'/%3E%3C/svg%3E");
-    
 }
 
 </style>
@@ -376,16 +369,32 @@ v-por {
     text-shadow: var(--text-vapor);
 }
 
+l-uck {
+    font-size: 0.8em;
+    font-family: luckiest;
+}
+
 </style>
 <style id="s-upb">
 
 sup, sub {
+    
     font-size: 0.5em;
+    
+}
+
+:not(r-oot) + sup[data-viva],
+:not(r-oot) + sub[data-viva] {
+    
+    filter: url("#viva");
+    
 }
 
 b {
+    
     position: relative;
     font-weight: normal;
+    
 }
 
 </style>
@@ -514,6 +523,7 @@ f-rak > :nth-child(1)::after {
 }
 
 f-rak[data-viva] > :nth-child(1),
+f-rak[data-ghost] > :nth-child(1),
 f-rak[data-slash1] > :nth-child(1) {
     border: none;
 }
@@ -527,6 +537,17 @@ f-rak[data-viva] > :nth-child(2)::before {
     left: 0;
     border-top: 1.5px solid;
     filter: url("#viva");
+}
+
+f-rak[data-ghost] > :nth-child(2)::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-top: 2px solid;
+    filter: url("#vapor");
 }
 
 f-rak[data-slash1] > :nth-child(2)::before {
@@ -550,9 +571,6 @@ f-rak[data-slash1][data-viva] > :nth-child(2)::before {
     
 }
 
-f-rak[data-gank] {
-    --gank-wide: 500%;
-}
 </style>
 <style id="p-ren">
 
@@ -697,13 +715,9 @@ s-umm[data-viva-to] {
 }
 
 s-umm[data-ghost] {
-    color: rgba(0,0,0,0);
-    text-shadow: var(--text-ghost);
-    /*
     --summ-filter-sigma: url("#outline");
     --summ-filter-from: url("#outline");
     --summ-filter-to: url("#outline");
-    */
 }
 
 s-umm[data-scrib]::after {
@@ -1522,6 +1536,8 @@ r-aze[data-dark-arrow] {
     
     --girk-wide: 25px;
     --girk-high: 0px;
+    --girk-top: 0px;
+    --girk-left: 0px;
     --girk-rot: 0deg;
     --girk-flip: 1;
     --girk-turn: 0;
@@ -1539,8 +1555,8 @@ r-aze[data-dark-arrow] {
     position: absolute;
     width: calc(100% + var(--girk-wide));
     height: calc(100% + var(--girk-high));
-    left: calc(var(--girk-wide)/-2);
-    top: calc(var(--girk-high)/-2);
+    left: calc(var(--girk-left) + var(--girk-wide)/-2);
+    top: calc(var(--girk-top) + var(--girk-high)/-2);
     transform:
         rotate(
             calc(180deg * var(--girk-turn) + var(--girk-rot))
@@ -1659,20 +1675,23 @@ p-owr[data-dark] {
 i-pow {
     
     --ipow-filter: url("#viva");
+    --ipow-rot: -5deg;
     
     position: relative;
     
 }
 
 i-pow::before, i-pow::after {
+    
     content: '';
     position: absolute;
     height: calc(100% + 0px);
+    
 }
 
 i-pow::before {
     
-    width: calc(50% + 8px);
+    width: calc(50% + 4px);
     height: calc(100% + 20px);
     left: 50%;
     background-size: 100% 100%;
@@ -1687,35 +1706,39 @@ i-pow::after {
     
     width: calc(100% + 8px);
     height: 5px;
-    bottom: 0px;
-    right: calc(50% - 10px);
+    bottom: 2px;
     right: 8px;
     background-size: 100% 100%;
     background-image: var(--ipow-divline);
     filter: var(--ipow-filter);
+    transform: rotate(var(--ipow-rot));
+
+}
+
+i-pow > sup {
     
-    xborder: 1px solid;
-
-}
-
-i-pow + sup {
-    position: relative;
     --ipow-filter: url("#viva");
+    position: relative;
+    margin-left: 5px;
+    
 }
 
-i-pow + sup::before {
+i-pow > sup::before {
+    
     content: '';
     position: absolute;
     height: 100%;
-    width: 100%;
-    top: 0px;
-    left: 0px;
+    width: 120%;
+    top: 0%;
+    left: -10%;
     background-size: 100% 100%;
     background-image: var(--girk-02);
     filter: var(--ipow-filter);
+    
 }
 
-i-pow + sup::after {
+i-pow > sup::after {
+    
     content: '+1';
     position: absolute;
     font-size: 0.5em;
@@ -1728,7 +1751,9 @@ i-pow + sup::after {
 }
 
 i-pow[data-dark], i-pow+sup[data-dark] {
+    
     --ipow-filter: url("#lightness");
+    
 }
 
 </style>
@@ -1808,10 +1833,21 @@ i-teg[data-viva-diff] {
 }
 
 i-teg[data-gank], i-teg[data-ghost] {
+    
     --iteg-filter-sigma: url("#outline");
     --iteg-filter-from: url("#outline");
     --iteg-filter-to: url("#outline");
     --iteg-filter-diff: url("#outline");
+    
+}
+
+i-teg[data-vapor] {
+
+    --iteg-filter-sigma: url("#vapor");
+    --iteg-filter-from: url("#vapor");
+    --iteg-filter-to: url("#vapor");
+    --iteg-filter-diff: url("#vapor");
+
 }
 
 i-teg[data-gank]::after {
@@ -2983,48 +3019,149 @@ r-oot ~ sup[data-viva] {
 <div class="qr" style="font-size:50px;text-align:center;">
 <div data-nose="#hold0" style="height:50px;width:100%;"></div>
 
-<s-umm
-    data-ghost
-    data-viva-from
->
-    <b>3x<sup>2</sup></b>
-    <b>0</b>
-    <b>2&pi;</b>
-</s-umm>
+<c-omm>
+    let's try a simple integral
+    <b>
+        this solution might be more overt than
+        typical; it shows not only how elaborate
+        the markup can be but also how explicit
+        description can get
+    </b>
+</c-omm>
+<div>
+    <i-teg>
+        <b>9x<sup>2</sup></b>
+        <b>dx</b>
+    </i-teg>
+</div>
 
+<c-omm>we see it's a product, and note the exponent</c-omm>
+<div>
+    <i-teg>
+        <b>9<v-t></v-t>x<sup data-viva>2</sup></b>
+        <b>dx</b>
+    </i-teg>
+</div>
 
+<c-omm>
+    this can be solved using the <emp>power rule</emp>
+    <b>
+        first increase the exponent by one,
+        then also divide everything by that
+        value
+        <br><br>
+        mathro~batics allows this notation
+        with the simple i-pow tag:
+        <br><br>
+        &lt;i-pow&gt;9x&lt;sup&gt;2&lt;/sup&gt;&lt;/i-pow&gt;
+    </b>
+</c-omm>
+<div>
+    <i-teg data-ghost>
+        <b>
+<i-pow>9<p-t></p-t>x<sup>2</sup></i-pow>
+        </b>
+        <b>dx</b>
+    </i-teg>
+    
+</div>
 
+<c-omm>exponent and denominator are both two-plus-one</c-omm>
+<div>
+    <i-teg data-vapor>
+    <b><f-rak data-slash1>
+        <b>9<p-t></p-t>x<sup>
+            <p-ren data-viva>2+1</p-ren>
+        </sup></b>
+        <b><p-ren data-viva><l-uck style="
+            display: inline-block;
+            transform: rotate(-10deg);
+            filter: url(#lil-viva);
+        ">2+1</l-uck></p-ren>
+        </b>
+    </f-rak></b>
+    <b>dx</b>
+    </i-teg>
+</div>
 
+<c-omm>add the exponent</c-omm>
+<div>
+    <f-rak>
+        <b>
+            9<p-t></p-t>x<sup>
+                <p-ren data-ghost><v-iva>3</v-iva></p-ren>
+            </sup>
+        </b>
+        <b>
+            <p-ren>2 + 1</p-ren>
+        </b>
+    </f-rak>
+</div>
 
+<c-omm>add the denominator</c-omm>
+<div>
+    <f-rak>
+        <b>9<p-t></p-t>x<sup>3</sup></b>
+        <b>
+            <p-ren data-ghost><v-iva>3</v-iva></p-ren>
+        </b>
+    </f-rak>
+</div>
 
+<c-omm>maybe this can be faktored?</c-omm>
+<div>
+    <f-rak>
+        <b>9<p-t></p-t>x<sup>3</sup></b>
+        3
+    </f-rak>
+</div>
 
+<c-omm>look at some faktors of nine</c-omm>
+<div>
+    <f-rak>
+        <b>
+            <g-fak>9<b>3, 3</b></g-fak>
+            <p-t></p-t>x<sup>3</sup>
+        </b>
+        3
+    </f-rak>
+</div>
 
+<c-omm>we could remove one of the threes</c-omm>
+<div>
+    <f-rak>
+        <b>
+            <r-dux>9<b>3</b></r-dux>
+            &nbsp;<p-t></p-t>x<sup>3</sup>
+        </b>
+        <b><r-dux>3<b>1</b></r-dux></b>
+    </f-rak>
+</div>
 
+<c-omm>rewrite with reduced values</c-omm>
+<div>
+    <f-rak>
+        <b><v-iva>3</v-iva><p-t></p-t>x<sup>3</sup></b>
+        <b><v-iva>1</v-iva></b>
+    </f-rak>
+</div>
 
+<c-omm>one in denominator can go away</c-omm>
+<div>
+    <f-rak data-ghost>
+        <b>
+            3<p-t></p-t>x<sup>3</sup>
+        </b>
+        <b>
+            <g-ost>1</g-ost>
+        </b>
+    </f-rak>
+</div>
 
-
-
-
-
-<br><br>
-<n-ote>3&times;</n-ote>
-<p-ren>
-<fakt-all data-dark xdata-vapor>
-    <b style="--arc-wide:150%;z-index:3">3x<sup>2</sup><b>x, x, <g-irk>&nbsp;</g-irk></b></b>
-    +
-    <b style="--arc-wide:350%;z-index:2;">3x <b>x, <g-irk data-opt1>&nbsp;</g-irk></b></b>
-    +
-    <b style="--arc-wide:510%;z-index:1;">12 <b>2, 2, <g-irk data-turn>&nbsp;</g-irk></b></b>
-</fakt-all>
-</p-ren>
-
-
-
-
-
-
-
-
+<c-omm>this is a fine solution</c-omm>
+<div>
+<s-tar>3x<sup>3</sup></s-tar>
+</div>
 
 
 <br><br>
