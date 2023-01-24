@@ -374,6 +374,10 @@ l-uck {
     font-family: luckiest;
 }
 
+[data-norm] {
+    font-family: inherit;
+}
+
 </style>
 <style id="s-upb">
 
@@ -597,14 +601,24 @@ p-ren[data-viva-all] {
 
 p-ren[data-ghost]::before,
 p-ren[data-ghost]::after {
-    color: var(--holder-back);
+    color: rgba(0,0,0,0);
     text-shadow: var(--text-ghost);
+}
+
+p-ren[data-ghost-all] {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-ghost);
+    xfilter: url("#ghost");
 }
 
 p-ren[data-vapor]::before,
 p-ren[data-vapor]::after {
-    color: var(--holder-back);
+    color: rgba(0,0,0,0);
     text-shadow: var(--text-vapor);
+}
+
+p-ren[data-vapor-all] {
+    filter: url("#vapor");
 }
 
 </style>
@@ -1354,25 +1368,11 @@ n-div::before {
     vertical-align: 50%;
 }
 
-n-pad {
-    position: absolute;
-    display: inline;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    font-size: 0.4em;
-    font-family: luckiest;
-    white-space: nowrap;
-    transform: rotate(-12deg);
-    filter: url("#lil-viva");
-}
-
 n-add[data-dark],
 n-min[data-dark],
 n-tim[data-dark],
 n-div[data-dark],
-n-ote[data-dark],
-n-pad[data-dark] {
+n-ote[data-dark] {
     filter: none;
 }
 
@@ -2279,12 +2279,12 @@ fakt-left > b:nth-child(1) {
 
 fakt-left > b:nth-child(1)::before {
     content: "";
-    margin-left: -100%;
+    margin-left: -500%;
 }
 
 fakt-left > b:nth-child(1)::after {
     content: "";
-    margin-right: -100%;
+    margin-right: -500%;
 }
 
 </style>
@@ -2463,12 +2463,12 @@ rat-dist > b:nth-child(2)::before {
 
 rat-dist > b > b::before {
     content: "\00d7";
-    margin-left: -100%;
+    margin-left: -500%;
 }
 
 rat-dist > b > b::after {
     content: "";
-    margin-right: -100%;
+    margin-right: -500%;
 }
 
 rat-dist > b:nth-child(3)::after {
@@ -2810,6 +2810,18 @@ r-oot ~ sup[data-viva] {
       <feComposite in="F0" in2="SourceGraphic" operator="in"/>
     </filter>
     
+    <filter id="outline">
+        <feMorphology operator="dilate" radius="0.5" result="X0" />
+        <feFlood in="X0" flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            calc(0.7 * var(--nose-l))
+        )" result="F0"/>
+        <feComposite in="F0" in2="X0" operator="in" result="Z0" />
+        <feComposite in="Z0" in2="SourceGraphic" operator="out" result="Z1" />
+        <feGaussianBlur stdDeviation="0.5" in="Z1" />
+    </filter>
+    
     <filter id="viva"
         x="-200%"
         y="-200%"
@@ -2978,18 +2990,35 @@ r-oot ~ sup[data-viva] {
 		
     </filter>
 
-    <filter id="outline">
-        <feMorphology operator="dilate" radius="0.5" result="X0" />
-        <feFlood in="X0" flood-color="hsl(
+    <filter id="ghost"
+        x="-200%"
+        y="-200%"
+        height="900%"
+        width="900%"
+    >
+
+        <feFlood flood-color="hsla(
             var(--nose-h),
             var(--nose-s),
-            calc(0.7 * var(--nose-l))
+            var(--nose-l),
+            1
         )" result="F0"/>
-        <feComposite in="F0" in2="X0" operator="in" result="Z0" />
-        <feComposite in="Z0" in2="SourceGraphic" operator="out" result="Z1" />
-        <feGaussianBlur stdDeviation="0.5" in="Z1" />
+        <feComposite in="F0" in2="SourceGraphic" operator="in" result="C0" />
+        <feGaussianBlur in="C0" stdDeviation="5" result="B0" />
+        
+        <feFlood flood-color="rgba(255,255,255,0.5)" result="F1" />
+        <feComposite in="F1" in2="SourceGraphic" operator="in" result="C1" />
+        <feGaussianBlur in="C1" stdDeviation="7.5" result="B1" />
+        
+        <feMerge out="Merge">
+            <feMergeNode in="B1" />
+            <feMergeNode in="B0" />
+        </feMerge>
+        
+        <feComposite in="Merge" in2="SourceGraphic" operator="out" />
+        
     </filter>
-
+    
     <filter id="vapor"
         x="-200%"
         y="-200%"
@@ -3013,155 +3042,126 @@ r-oot ~ sup[data-viva] {
         
     </filter>
   
-
-    
 </svg>
 <div class="qr" style="font-size:50px;text-align:center;">
 <div data-nose="#hold0" style="height:50px;width:100%;"></div>
 
-<c-omm>
-    let's try a simple integral
-    <b>
-        this solution might be more overt than
-        typical; it shows not only how elaborate
-        the markup can be but also how explicit
-        description can get
-    </b>
-</c-omm>
-<div>
-    <i-teg>
-        <b>9x<sup>2</sup></b>
-        <b>dx</b>
-    </i-teg>
-</div>
+<style id="e-qua">
 
-<c-omm>we see it's a product, and note the exponent</c-omm>
-<div>
-    <i-teg>
-        <b>9<v-t></v-t>x<sup data-viva>2</sup></b>
-        <b>dx</b>
-    </i-teg>
-</div>
-
-<c-omm>
-    this can be solved using the <emp>power rule</emp>
-    <b>
-        first increase the exponent by one,
-        then also divide everything by that
-        value
-        <br><br>
-        mathro~batics allows this notation
-        with the simple i-pow tag:
-        <br><br>
-        &lt;i-pow&gt;9x&lt;sup&gt;2&lt;/sup&gt;&lt;/i-pow&gt;
-    </b>
-</c-omm>
-<div>
-    <i-teg data-ghost>
-        <b>
-<i-pow>9<p-t></p-t>x<sup>2</sup></i-pow>
-        </b>
-        <b>dx</b>
-    </i-teg>
+e-qua {
     
+    --equa-shade: var(--text-ghost);
+    --equa-rot : -7deg;
+    
+    position: relative;
+    font-size: 0.8em;
+    word-spacing: -0.2em;
+    color: rgba(0,0,0,0);
+    text-shadow: var(--equa-shade);
+    
+}
+
+e-qua > b:nth-of-type(1) {
+    
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: rotate(var(--equa-rot));
+    font-size: 1em;
+    font-family: luckiest;
+    line-height: 2em;
+    text-align: center;
+    text-shadow: none;
+    white-space: nowrap;
+    overflow: visible;
+    color: var(--lightness);
+    filter: url("#lil-viva");
+    z-index: 10;
+    
+}
+
+e-qua > b:nth-of-type(1)::before {
+    content: "";
+    margin-left: -500%;
+}
+
+e-qua > b:nth-of-type(1)::after {
+    content: "";
+    margin-right: -500%;
+}
+
+e-qua[data-dark] {
+    text-shadow: none;
+    color: var(--lightness);
+}
+
+e-qua > b:nth-of-type(1)[data-dark] {
+    filter: none;
+}
+
+e-qua[data-vapor] {
+    
+    font-size: 0.8em;
+    text-shadow: var(--text-vapor);
+    
+}
+
+e-qua[data-vapor] > b:nth-of-type(1) {
+    
+    line-height: 1.5em;
+    
+}
+
+e-qua > b:nth-of-type(1)[data-norm] {
+    
+    --equa-rot: 0deg;
+    font-family: inherit;
+    line-height: 1.8em;
+    
+}
+
+</style>
+
+x<sup>3</sup><n-add xdata-norm>3</n-add>
+
+<c-omm>it's <emp>power rule</emp> to the rescue!</c-omm>
+<div>
+    <i-pow>x<sup>2</sup></i-pow>
+    <br><br>
+    <p-owr>xyzpdq<sup data-girk>2</sup></p-owr>
 </div>
 
-<c-omm>exponent and denominator are both two-plus-one</c-omm>
+<c-omm>you get it</c-omm>
 <div>
-    <i-teg data-vapor>
-    <b><f-rak data-slash1>
-        <b>9<p-t></p-t>x<sup>
-            <p-ren data-viva>2+1</p-ren>
-        </sup></b>
-        <b><p-ren data-viva><l-uck style="
-            display: inline-block;
-            transform: rotate(-10deg);
-            filter: url(#lil-viva);
-        ">2+1</l-uck></p-ren>
-        </b>
-    </f-rak></b>
-    <b>dx</b>
-    </i-teg>
+<f-rak data-slash1>
+<b>
+x<sup>
+<e-qua
+    xdata-dark
+    xdata-vapor
+>
+    (2 + 1)
+    <b
+        xdata-dark
+        data-norm
+    >
+        =3
+    </b>
+</e-qua>
+</sup>
+</b>
+<b>
+    <e-qua>(2 + 1)<b data-norm>=3</b></e-qua>
+</b>
+</frak>
 </div>
 
-<c-omm>add the exponent</c-omm>
-<div>
-    <f-rak>
-        <b>
-            9<p-t></p-t>x<sup>
-                <p-ren data-ghost><v-iva>3</v-iva></p-ren>
-            </sup>
-        </b>
-        <b>
-            <p-ren>2 + 1</p-ren>
-        </b>
-    </f-rak>
-</div>
 
-<c-omm>add the denominator</c-omm>
-<div>
-    <f-rak>
-        <b>9<p-t></p-t>x<sup>3</sup></b>
-        <b>
-            <p-ren data-ghost><v-iva>3</v-iva></p-ren>
-        </b>
-    </f-rak>
-</div>
 
-<c-omm>maybe this can be faktored?</c-omm>
-<div>
-    <f-rak>
-        <b>9<p-t></p-t>x<sup>3</sup></b>
-        3
-    </f-rak>
-</div>
 
-<c-omm>look at some faktors of nine</c-omm>
-<div>
-    <f-rak>
-        <b>
-            <g-fak>9<b>3, 3</b></g-fak>
-            <p-t></p-t>x<sup>3</sup>
-        </b>
-        3
-    </f-rak>
-</div>
 
-<c-omm>we could remove one of the threes</c-omm>
-<div>
-    <f-rak>
-        <b>
-            <r-dux>9<b>3</b></r-dux>
-            &nbsp;<p-t></p-t>x<sup>3</sup>
-        </b>
-        <b><r-dux>3<b>1</b></r-dux></b>
-    </f-rak>
-</div>
-
-<c-omm>rewrite with reduced values</c-omm>
-<div>
-    <f-rak>
-        <b><v-iva>3</v-iva><p-t></p-t>x<sup>3</sup></b>
-        <b><v-iva>1</v-iva></b>
-    </f-rak>
-</div>
-
-<c-omm>one in denominator can go away</c-omm>
-<div>
-    <f-rak data-ghost>
-        <b>
-            3<p-t></p-t>x<sup>3</sup>
-        </b>
-        <b>
-            <g-ost>1</g-ost>
-        </b>
-    </f-rak>
-</div>
-
-<c-omm>this is a fine solution</c-omm>
-<div>
-<s-tar>3x<sup>3</sup></s-tar>
-</div>
 
 
 <br><br>
@@ -3169,7 +3169,5 @@ r-oot ~ sup[data-viva] {
 </div><br><br>
 </body>
 
-<script>
-    
-</script>
+
 </html>
