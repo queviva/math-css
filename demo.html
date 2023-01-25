@@ -628,59 +628,7 @@ p-ren[data-vapor-all] {
 
 
 </style>
-<style id="b-rak">
 
-b-rak {
-    
-    --brak-filter: none;
-    
-    position: relative;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-    filter: var(--brak-filter);
-    
-}
-
-b-rak::before {
-    
-    content: '\005b';
-    position: absolute;
-    top: 0;
-    left: -0.5em;
-    transform: scale(1,2.0);
-    
-}
-
-b-rak::after {
-    content: '\005d';
-    position: absolute;
-    top: 0;
-    right: -0.5em;
-    transform: scale(1,2.0);
-}
-
-b-rak[data-viva]::before,
-b-rak[data-viva]::after {
-    filter: url("#viva");
-}
-
-b-rak[data-viva-all] {
-    --brak-filter: url("#viva");
-}
-
-b-rak[data-ghost]::before,
-b-rak[data-ghost]::after {
-    color: rgba(0,0,0,0);
-    text-shadow: var(--text-ghost);
-}
-
-b-rak[data-vapor]::before,
-b-rak[data-vapor]::after {
-    color: rgba(0,0,0,0);
-    text-shadow: var(--text-vapor);
-}
-
-</style>
 <style id="s-umm">
 
 s-umm {
@@ -1233,7 +1181,7 @@ g-fak {
     --gfak-shade: var(--text-ghost);
     
     position: relative;
-    margin-right: 0.5ch;
+    margin: 0 2px;
     font-weight: bold;
     color: rgba(0,0,0,0);
     text-shadow: var(--gfak-shade);
@@ -1245,8 +1193,8 @@ g-fak > b:nth-of-type(1) {
     position: absolute;
     height: var(--gfak-high);
     top: calc((100% - var(--gfak-high))/2 + 1ch);
-    width: 300%;
-    left: -100%;
+    width: 100%;
+    left: 0;
     font-size: 0.3em;
     font-family: luckiest;
     text-align: center;
@@ -1254,9 +1202,23 @@ g-fak > b:nth-of-type(1) {
     color: var(--lightness);
     text-shadow: none;
     filter: var(--gfak-filter);
+    overflow: visible;
     
 }
 
+g-fak > b:nth-of-type(1)::before {
+    
+    content: '';
+    margin-left: -200%;
+    
+}
+
+g-fak > b:nth-of-type(1)::after {
+    
+    content: '';
+    margin-right: -200%;
+    
+}
 g-fak[data-dark] {
     --gfak-filter: var(--lightness);
 }
@@ -1291,6 +1253,7 @@ f-akt::before {
     font-size: 0.6em;
     text-align: center;
     text-shadow: none;
+    white-space: nowrap;
     color: var(--lightness);
     filter: var(--fakt-filter);
     
@@ -1643,6 +1606,102 @@ r-aze[data-dark-arrow] {
 }
 
 </style>
+<style id="p-owr">
+
+p-owr {
+
+    --powr-filter: url("#lil-viva");
+    position: relative;
+    margin-right: 1ch;
+    margin-left: 1ch;
+    
+}
+
+p-owr::before, p-owr::after {
+    content: '';
+    position: absolute;
+    height: calc(100% + 0px);
+    bottom: 0;
+}
+
+p-owr::before {
+    
+    width: calc(100% + 7px);
+    left: -7px;
+    background-size: 100% 100%;
+    background-image: var(--powr-arc);
+    filter: var(--powr-filter);
+    
+}
+
+p-owr::after {
+    
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    right: calc(100% + 1px);
+    background-size: 100% 100%;
+    background-image: var(--powr-dot);
+    filter: var(--powr-filter);
+
+}
+
+p-owr > sup {
+    
+    --powr-filter: url("#viva");
+    
+    position: absolute;
+    margin-right: 200%;
+    padding: 0px 5px;
+    left: 100%;
+    transform: rotate(-2deg);
+    
+}
+
+p-owr > sup::before {
+    
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background-size: 100% 100%;
+    background-image: var(--girk-02);
+    filter: var(--powr-filter);
+    
+}
+
+p-owr > sup::after {
+    
+    content: '-1';
+    position: absolute;
+    font-size: 0.5em;
+    font-family: luckiest;
+    top: 0;
+    left: calc(100% + 2px);
+    transform: rotate(-15deg);
+    filter: var(--powr-filter);
+    
+}
+
+p-owr[data-dark] {
+    --powr-filter: url("#lightness");
+}
+
+p-owr[data-margin2] { margin-right: 2ch; }
+p-owr[data-margin3] { margin-right: 3ch; }
+p-owr[data-margin4] { margin-right: 4ch; }
+
+p-owr[data-opt1] > sup::before {
+    background-image: var(--girk-00);
+}
+
+p-owr[data-opt2] > sup::before {
+    background-image: var(--girk-01);
+}
+
+</style>
 <style id="i-pow">
 
 i-pow {
@@ -1923,6 +1982,83 @@ i-teg[data-gank]::after {
 }
 
 </style>
+<style id="e-kwa">
+
+e-kwa {
+    
+    --ekwa-shade: var(--text-ghost);
+    --ekwa-rot : -7deg;
+    
+    position: relative;
+    font-size: 0.8em;
+    word-spacing: -0.2em;
+    color: rgba(0,0,0,0);
+    text-shadow: var(--ekwa-shade);
+    
+}
+
+e-kwa > b:nth-of-type(1) {
+    
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: rotate(var(--ekwa-rot));
+    font-size: 1em;
+    font-family: luckiest;
+    line-height: 2em;
+    text-align: center;
+    text-shadow: none;
+    white-space: nowrap;
+    overflow: visible;
+    color: var(--lightness);
+    filter: url("#lil-viva");
+    z-index: 10;
+    
+}
+
+e-kwa > b:nth-of-type(1)::before {
+    content: "";
+    margin-left: -500%;
+}
+
+e-kwa > b:nth-of-type(1)::after {
+    content: "";
+    margin-right: -500%;
+}
+
+e-kwa[data-dark] {
+    text-shadow: none;
+    color: var(--lightness);
+}
+
+e-kwa > b:nth-of-type(1)[data-dark] {
+    filter: none;
+}
+
+e-kwa[data-vapor] {
+    
+    font-size: 0.8em;
+    text-shadow: var(--text-vapor);
+    
+}
+
+e-kwa[data-vapor] > b:nth-of-type(1) {
+    
+    line-height: 1.5em;
+    
+}
+
+e-kwa[data-norm] > b:nth-of-type(1) {
+    
+    --ekwa-rot: 0deg;
+    font-family: inherit;
+    line-height: 1.2em;
+    
+}
+
+</style>
 <style id="uv-table">
 
 /*
@@ -2191,83 +2327,7 @@ by-parts[data-dark] {
 }
 
 </style>
-<style id="e-qua">
 
-e-qua {
-    
-    --equa-shade: var(--text-ghost);
-    --equa-rot : -7deg;
-    
-    position: relative;
-    font-size: 0.8em;
-    word-spacing: -0.2em;
-    color: rgba(0,0,0,0);
-    text-shadow: var(--equa-shade);
-    
-}
-
-e-qua > b:nth-of-type(1) {
-    
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    transform: rotate(var(--equa-rot));
-    font-size: 1em;
-    font-family: luckiest;
-    line-height: 2em;
-    text-align: center;
-    text-shadow: none;
-    white-space: nowrap;
-    overflow: visible;
-    color: var(--lightness);
-    filter: url("#lil-viva");
-    z-index: 10;
-    
-}
-
-e-qua > b:nth-of-type(1)::before {
-    content: "";
-    margin-left: -500%;
-}
-
-e-qua > b:nth-of-type(1)::after {
-    content: "";
-    margin-right: -500%;
-}
-
-e-qua[data-dark] {
-    text-shadow: none;
-    color: var(--lightness);
-}
-
-e-qua > b:nth-of-type(1)[data-dark] {
-    filter: none;
-}
-
-e-qua[data-vapor] {
-    
-    font-size: 0.8em;
-    text-shadow: var(--text-vapor);
-    
-}
-
-e-qua[data-vapor] > b:nth-of-type(1) {
-    
-    line-height: 1.5em;
-    
-}
-
-e-qua[data-norm] > b:nth-of-type(1) {
-    
-    --equa-rot: 0deg;
-    font-family: inherit;
-    line-height: 1.2em;
-    
-}
-
-</style>
 
 <style id="fakt-left">
 
@@ -2286,10 +2346,9 @@ fakt-left {
     A 10 31.5 0 0 0 8 100\
     Z'/%3E%3C/svg%3E");
     
-
-    
-    --fakt-right: 1.8ch;
+    --fakt-right: 1.6ch;
     --fakt-filter: url("#viva");
+    --arc-wide: 1ch;
     
     position: relative;
     margin-left: 0.8ch;
@@ -2300,10 +2359,9 @@ fakt-left::after {
     
     content: '';
     position: absolute;
-    width: calc(0ch + 100%);
+    width: calc(100% - var(--arc-wide));
     height: 25px;
-    right: 1ch;
-    xright: var(--fakt-right);
+    right: var(--fakt-right);
     bottom: 90%;
     background-size: 100% 100%;
     background-image: var(--fakt-left-00);
@@ -3096,206 +3154,97 @@ r-oot ~ sup[data-viva] {
 <div class="qr" style="font-size:50px;text-align:center;">
 <div data-nose="#hold0" style="height:50px;width:100%;"></div>
 
+<style id="b-rak">
 
-<style id="p-owr">
-
-p-owr {
-
-    --powr-filter: url("#lil-viva");
+b-rak {
+    
+    --brak-filter: none;
+    --brak-scale: 2;
+    
     position: relative;
-    margin-right: 1ch;
-    margin-left: 1ch;
+    display: inline-block;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    filter: var(--brak-filter);
     
 }
 
-p-owr::before, p-owr::after {
-    content: '';
+b-rak + sup {
+    
+    --brak-scale: 2;
+    
+    vertical-align: calc(100% * var(--brak-scale));
+
+}
+
+b-rak::before {
+    
+    content: '\005b';
     position: absolute;
-    height: calc(100% + 0px);
-    bottom: 0;
-}
-
-p-owr::before {
-    
-    width: calc(100% + 7px);
-    left: -7px;
-    background-size: 100% 100%;
-    background-image: var(--powr-arc);
-    filter: var(--powr-filter);
-    
-}
-
-p-owr::after {
-    
-    width: 10px;
-    height: 10px;
-    top: 50%;
-    right: calc(100% + 1px);
-    background-size: 100% 100%;
-    background-image: var(--powr-dot);
-    filter: var(--powr-filter);
-
-}
-
-p-owr > sup {
-    
-    --powr-filter: url("#viva");
-    
-    position: absolute;
-    margin-right: 200%;
-    padding: 0px 5px;
-    left: 100%;
-    transform: rotate(-2deg);
-    
-}
-
-p-owr > sup::before {
-    
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    background-size: 100% 100%;
-    background-image: var(--girk-02);
-    filter: var(--powr-filter);
-    
-}
-
-p-owr > sup::after {
-    
-    content: '-1';
-    position: absolute;
-    font-size: 0.5em;
-    font-family: luckiest;
     top: 0;
-    left: calc(100% + 2px);
-    transform: rotate(-15deg);
-    filter: var(--powr-filter);
+    left: -0.5em;
+    transform: scale(1, var(--brak-scale));
     
 }
 
-p-owr[data-dark] {
-    --powr-filter: url("#lightness");
+b-rak::after {
+    
+    content: '\005d';
+    position: absolute;
+    top: 0;
+    right: -0.5em;
+    transform: scale(1, var(--brak-scale));
+    
 }
 
-p-owr[data-margin2] { margin-right: 2ch; }
-p-owr[data-margin3] { margin-right: 3ch; }
-p-owr[data-margin4] { margin-right: 4ch; }
-
-p-owr[data-opt1] > sup::before {
-    background-image: var(--girk-00);
+b-rak[data-viva]::before,
+b-rak[data-viva]::after {
+    filter: url("#viva");
 }
 
-p-owr[data-opt2] > sup::before {
-    background-image: var(--girk-01);
+b-rak[data-viva-all] {
+    --brak-filter: url("#viva");
 }
+
+b-rak[data-ghost]::before,
+b-rak[data-ghost]::after {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-ghost);
+}
+
+b-rak[data-ghost-all] {
+    --brak-filter: url("#ghost");
+}
+
+b-rak[data-vapor]::before,
+b-rak[data-vapor]::after {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-vapor);
+}
+
+b-rak[data-vapor-all] {
+    --brak-filter: url("#vapor");
+}
+
+b-rak[data-norm] { --brak-scale: 1; }
+b-rak[data-norm] + sup { --brak-scale: 1; }
+b-rak[data-tall] { --brak-scale: 3; }
+b-rak[data-tall] + sup { --brak-scale: 3; }
 
 </style>
 
-<c-omm>
-    let's try a simple derivative ...
-    <b>
-        this uses the mathrobat tag
-        &lt;d-dx&gt;&lt;/d-dx&gt;
-    </b>
-</c-omm>
+
+<c-omm>try a braket</c-omm>
 <div>
-    <d-dx></d-dx>12x<sup>3</sup>
+    for
+    <b-rak data-ghost data-tall>
+        one + two + tre
+    </b-rak>
+    <sup>2</sup>
+    aft
+    <br>next line
 </div>
 
-<c-omm>
-    looks like a job for <emp>power rule!</emp>
-</c-omm>
-<div>
-    <d-dx></d-dx>
-    12<v-t></v-t>x<sup data-viva>3</sup>
-</div>
-
-<c-omm>
-    multiply by the exponent, then reduce by one
-    <b>
-        all of this patently designed gesture
-        drawing is done with only the
-        &lt;p-owr&gt; tag
-        <br><br>
-        the derivative tag &lt;d-dx data-ghost&gt;
-        fades out using a data-parameter
-    </b>
-</c-omm>
-<div>
-<d-dx data-ghost>
-</d-dx><p-owr>12<p-t></p-t>x<sup>3</sup></p-owr>
-</div>
-
-<c-omm>
-    put things in place
-    <b>
-        the &lt;d-dx&gt; tag is now data-vapor ized
-        and a &lt;p-ren&gt; tag surrounds the
-        exponent in parenthesis
-    </b>
-</c-omm>
-<div>
-    <d-dx data-vapor></d-dx>
-    <n-pad>3&times;</n-pad>12<p-t></p-t>x<sup>
-        <p-ren data-viva>
-            <l-uck data-rot>3 - 1</l-uck>
-        </p-ren>
-    </sup>
-</div>
-
-<c-omm>
-    do the arithmetic in the exponent
-    <b>
-        using an &lt;e-qua&gt; tag, equivalent
-        values can appear overtop of one another
-    </b>
-</c-omm>
-<div>
-    3<v-t></v-t>12<p-t></p-t>x<sup>
-        <e-qua>(3 - 1)<b>=2</b></e-qua>
-    </sup>
-</div>
-
-<c-omm>
-    what is three times twelve?
-</c-omm>
-<div>
-    <g-rak>3<p-t></p-t>12</g-rak>
-    <p-t></p-t>x<sup data-viva>2</sup>
-</div>
-
-<c-omm>
-    I used a calculator to get thirty-six
-</c-omm>
-<div>
-    <g-rak data-ghost>
-    <e-qua>3<p-t></p-t>12<b>=36</b></e-qua></g-rak>
-    <p-t></p-t> x<sup>2</sup>
-</div>
-
-<c-omm>
-    this looks like a respectable answer
-</c-omm>
-<div>
-    <e-qua data-vapor data-norm>3x12<b>36</b></e-qua> <p-t></p-t>x<sup>2</sup>
-</div>
-
-<c-omm>
-    trying submitting that
-</c-omm>
-<div>
-    <s-tar>36x<sup>2</sup></s-tar>
-</div>
-
-
-
-
-
-
-<br><br>
 </div end_qr>
 </div><br><br>
 </body>
