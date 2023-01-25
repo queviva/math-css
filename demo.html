@@ -311,8 +311,7 @@ hr {
             
     --powr-dot: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M 50 0A 50 50 0 0 0 50 100A 50 50 0 0 0 50 0Z'/%3E%3C/svg%3E");
             
-    --ipow-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath d='M100 45A100 200 340 0 1 0 85L2 81L10 82A100 200 340 0 0 95 55Z' fill='%23000' /%3E\
-    %3C/svg%3E");
+    --ipow-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath d='M100 45A100 200 340 0 1 0 85L2 81L10 82A100 200 340 0 0 95 55Z' fill='%23000' /%3E %3C/svg%3E");
     
     --ipow-divline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M0 30Q50 40 95 0L100 70Q50 60 10 100Z'/%3E%3C/svg%3E");
     
@@ -628,7 +627,84 @@ p-ren[data-vapor-all] {
 
 
 </style>
+<style id="b-rak">
 
+b-rak {
+    
+    --brak-filter: none;
+    --brak-scale: 2;
+    
+    position: relative;
+    display: inline-block;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    filter: var(--brak-filter);
+    
+}
+
+b-rak + sup {
+    
+    --brak-scale: 2;
+    
+    vertical-align: calc(100% * var(--brak-scale));
+
+}
+
+b-rak::before {
+    
+    content: '\005b';
+    position: absolute;
+    top: 0;
+    left: -0.5em;
+    transform: scale(1, var(--brak-scale));
+    
+}
+
+b-rak::after {
+    
+    content: '\005d';
+    position: absolute;
+    top: 0;
+    right: -0.5em;
+    transform: scale(1, var(--brak-scale));
+    
+}
+
+b-rak[data-viva]::before,
+b-rak[data-viva]::after {
+    filter: url("#viva");
+}
+
+b-rak[data-viva-all] {
+    --brak-filter: url("#viva");
+}
+
+b-rak[data-ghost]::before,
+b-rak[data-ghost]::after {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-ghost);
+}
+
+b-rak[data-ghost-all] {
+    --brak-filter: url("#ghost");
+}
+
+b-rak[data-vapor]::before,
+b-rak[data-vapor]::after {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-vapor);
+}
+
+b-rak[data-vapor-all] {
+    --brak-filter: url("#vapor");
+}
+
+b-rak[data-norm] { --brak-scale: 1; }
+b-rak[data-norm] + sup { --brak-scale: 1; }
+b-rak[data-tall] { --brak-scale: 3; }
+b-rak[data-tall] + sup { --brak-scale: 3; }
+
+</style>
 <style id="s-umm">
 
 s-umm {
@@ -1185,20 +1261,24 @@ g-fak {
     font-weight: bold;
     color: rgba(0,0,0,0);
     text-shadow: var(--gfak-shade);
+    text-align: center;
     
 }
 
 g-fak > b:nth-of-type(1) {
     
     position: absolute;
+    display: flex;
+    justify-content: center;
     height: var(--gfak-high);
     top: calc((100% - var(--gfak-high))/2 + 1ch);
-    width: 100%;
-    left: 0;
+    width: 100px;
+    left: calc(50% - 50px);
     font-size: 0.3em;
     font-family: luckiest;
     text-align: center;
     word-spacing: 0.5ch;
+    white-space: nowrap;
     color: var(--lightness);
     text-shadow: none;
     filter: var(--gfak-filter);
@@ -1206,6 +1286,7 @@ g-fak > b:nth-of-type(1) {
     
 }
 
+/*
 g-fak > b:nth-of-type(1)::before {
     
     content: '';
@@ -1219,6 +1300,8 @@ g-fak > b:nth-of-type(1)::after {
     margin-right: -200%;
     
 }
+*/
+
 g-fak[data-dark] {
     --gfak-filter: var(--lightness);
 }
@@ -1229,12 +1312,12 @@ g-fak[data-vapor] {
 }
 
 </style>
-<style id="f-akt">
+<style id="q-fak">
 
-f-akt {
+q-fak {
     
-    --fakt-var: 'x';
-    --fakt-filter: url("#lil-viva");
+    --qfak-var: 'x';
+    --qfak-filter: url("#lil-viva");
     
     position: relative;
     font-weight: bold;
@@ -1244,8 +1327,8 @@ f-akt {
     
 }
 
-f-akt::before {
-    content: '(' var(--fakt-var) '\00a0\00b1\00a0?)\00a0(' var(--fakt-var) '\00a0\00b1\00a0?)';
+q-fak::before {
+    content: '(' var(--qfak-var) '\00a0\00b1\00a0?)\00a0(' var(--qfak-var) '\00a0\00b1\00a0?)';
     position: absolute;
     left: -50%;
     bottom: -15%;
@@ -1255,16 +1338,16 @@ f-akt::before {
     text-shadow: none;
     white-space: nowrap;
     color: var(--lightness);
-    filter: var(--fakt-filter);
+    filter: var(--qfak-filter);
     
 }
 
-f-akt[data-dark] { --fakt-filter: url("#lightness"); }
-f-akt[data-n] { --fakt-var: 'n'; }
-f-akt[data-q] { --fakt-var: 'q'; }
-f-akt[data-x] { --fakt-var: 'x'; }
-f-akt[data-y] { --fakt-var: 'y'; }
-f-akt[data-z] { --fakt-var: 'z'; }
+q-fak[data-dark] { --qfak-filter: url("#lightness"); }
+q-fak[data-n] { --qfak-var: 'n'; }
+q-fak[data-q] { --qfak-var: 'q'; }
+q-fak[data-x] { --qfak-var: 'x'; }
+q-fak[data-y] { --qfak-var: 'y'; }
+q-fak[data-z] { --qfak-var: 'z'; }
 
 </style>
 <style id="g-ood">
@@ -3154,96 +3237,58 @@ r-oot ~ sup[data-viva] {
 <div class="qr" style="font-size:50px;text-align:center;">
 <div data-nose="#hold0" style="height:50px;width:100%;"></div>
 
-<style id="b-rak">
 
-b-rak {
+<style id="k-wad">
+/*
+    layout to allow manipulation of quadratics
+    <k-wad>
+    </k-wad>
+*/
+k-wad {
     
-    --brak-filter: none;
-    --brak-scale: 2;
+    --kwad-var: 'x';
+    --kwad-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath fill-rule='nonzero' d='\
+    M 0 100\
+    A 30 100 0 0 1 30 0\
+    L 25 3\
+    A 25 97 0 0 0 3 100\
+    Z' fill='%23000' /%3E %3C/svg%3E");
     
     position: relative;
-    display: inline-block;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-    filter: var(--brak-filter);
     
 }
 
-b-rak + sup {
-    
-    --brak-scale: 2;
-    
-    vertical-align: calc(100% * var(--brak-scale));
-
+k-wad > :nth-child(4),
+k-wad > :nth-child(5) {
+    border: 1px solid #909;
 }
-
-b-rak::before {
-    
-    content: '\005b';
-    position: absolute;
-    top: 0;
-    left: -0.5em;
-    transform: scale(1, var(--brak-scale));
-    
-}
-
-b-rak::after {
-    
-    content: '\005d';
-    position: absolute;
-    top: 0;
-    right: -0.5em;
-    transform: scale(1, var(--brak-scale));
-    
-}
-
-b-rak[data-viva]::before,
-b-rak[data-viva]::after {
-    filter: url("#viva");
-}
-
-b-rak[data-viva-all] {
-    --brak-filter: url("#viva");
-}
-
-b-rak[data-ghost]::before,
-b-rak[data-ghost]::after {
-    color: rgba(0,0,0,0);
-    text-shadow: var(--text-ghost);
-}
-
-b-rak[data-ghost-all] {
-    --brak-filter: url("#ghost");
-}
-
-b-rak[data-vapor]::before,
-b-rak[data-vapor]::after {
-    color: rgba(0,0,0,0);
-    text-shadow: var(--text-vapor);
-}
-
-b-rak[data-vapor-all] {
-    --brak-filter: url("#vapor");
-}
-
-b-rak[data-norm] { --brak-scale: 1; }
-b-rak[data-norm] + sup { --brak-scale: 1; }
-b-rak[data-tall] { --brak-scale: 3; }
-b-rak[data-tall] + sup { --brak-scale: 3; }
 
 </style>
 
-
-<c-omm>try a braket</c-omm>
+<c-omm>try a quadratic expression</c-omm>
 <div>
-    for
-    <b-rak data-ghost data-tall>
-        one + two + tre
-    </b-rak>
-    <sup>2</sup>
-    aft
-    <br>next line
+    
+<k-wad data-xxx>
+    
+    <b>3x<sup>2</sup></b>
+    +
+    <b>2x</b>
+    -
+    <b>21</b>
+    
+    <b>3&times;<sup>-</sup>21</b>
+    <g-fak>1<b>9, 7<br>1, 63</b></g-fak>
+    
+</k-wad>
+
+<br><br>
+<g-fak>1<b>9, 7<br>1, 63</b></g-fak>
+<br><br>
+<g-fak>169<b>9, 7lkjslkjsdlkjsfdlkjsdlkjsd<br>1, 63</b></g-fak>
+    
+    
 </div>
+
 
 </div end_qr>
 </div><br><br>
