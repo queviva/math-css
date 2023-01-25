@@ -374,6 +374,11 @@ l-uck {
     font-family: luckiest;
 }
 
+l-uck[data-rot] {
+    display: inline-block;
+    transform: rotate(-10deg);
+}
+
 [data-norm] {
     font-family: inherit;
 }
@@ -620,6 +625,7 @@ p-ren[data-vapor]::after {
 p-ren[data-vapor-all] {
     filter: url("#vapor");
 }
+
 
 </style>
 <style id="b-rak">
@@ -968,7 +974,11 @@ d-x::after {
 </style>
 <style id="dy-dx">
 
-d-dx, dy-dx {
+d-dx, dy-dx, dy-dz {
+    
+    --dd-top: 'd';
+    --dd-bottom: 'dx';
+    
     display: inline-grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
@@ -976,27 +986,41 @@ d-dx, dy-dx {
     vertical-align: 90%;
     text-align: center;
     font-style: italic;
+    
 }
 
-d-dx::before {
-    content: '\00a0 d\00a0';
+dy-dx {
+    --dd-top: 'dy';
+    --dd-bottom: 'dx';
+}
+
+dy-dz {
+    --dd-top: 'dy';
+    --dd-bottom: 'dz';
+}
+
+d-dx::before,
+dy-dx::before,
+dy-dz::before {
+    content: '\00a0 ' var(--dd-top) '\00a0';
     border-bottom: 1px solid;
 }
 
-dy-dx::before {
-    content: '\00a0 dy\00a0';
-    border-bottom: 1px solid;
+d-dx::after,
+dy-dx::after,
+dy-dz::after {
+    content: var(--dd-bottom);
 }
 
-d-dx::after, dy-dx::after {
-    content: 'dx';
-}
-
-d-dx[data-viva], dy-dx[data-viva] {
+d-dx[data-viva],
+dy-dx[data-viva],
+dy-dz[data-viva] {
     filter: url("#viva");
 }
 
-d-dx[data-gank], dy-dx[data-gank] {
+d-dx[data-gank],
+dy-dx[data-gank],
+dy-dz[data-gank] {
     
     background-image: var(--gank-slash-00);
     background-repeat: no-repeat;
@@ -1004,6 +1028,14 @@ d-dx[data-gank], dy-dx[data-gank] {
     filter: url("#viva");
     
 }
+
+d-dx[data-ghost],
+dy-dx[data-ghost],
+dy-dz[data-ghost] { filter: url("#ghost"); }
+
+d-dx[data-vapor],
+dy-dx[data-vapor],
+dy-dz[data-vapor] { filter: url("#vapor"); }
 
 </style>
 <style id="s-tar">
@@ -1066,12 +1098,22 @@ g-rak::before {
 }
 
 g-rak[data-lo]::before {
+    
     top: calc(100% - var(--grak-top));
     transform: rotate(calc(180deg + var(--grak-rot)));
+    
 }
 
 g-rak[data-dark] {
     --grak-filter: url("#lightness");
+}
+
+g-rak[data-ghost] {
+    --grak-filter: url("#ghost");
+}
+
+g-rak[data-vapor] {
+    --grak-filter: url("#vapor");
 }
 
 g-rak[data-opt1] {
@@ -1319,7 +1361,7 @@ f-x[data-z] { --fx-var: 'z'; }
 </style>
 <style id="n-add">
 
-n-add, n-min, n-tim, n-div, n-ote {
+n-add, n-min, n-tim, n-div, n-ote, n-pad {
     
     --note-rot: -10deg;
     --note-top: 0px;
@@ -1372,7 +1414,8 @@ n-add[data-dark],
 n-min[data-dark],
 n-tim[data-dark],
 n-div[data-dark],
-n-ote[data-dark] {
+n-ote[data-dark],
+n-pad[data-dark] {
     filter: none;
 }
 
@@ -1597,76 +1640,6 @@ r-aze[data-dark-arrow] {
 
 [data-girk][data-opt3]::before, g-irk[data-opt3]::before {
     --girk-back: var(--girk-03);
-}
-
-</style>
-<style id="p-owr">
-
-p-owr {
-    --powr-filter: url("#viva");
-    position: relative;
-}
-
-p-owr::before, p-owr::after {
-    content: '';
-    position: absolute;
-    height: calc(100% + 0px);
-    bottom: 0;
-}
-
-p-owr::before {
-    
-    width: calc(100% + 7px);
-    left: -7px;
-    background-size: 100% 100%;
-    background-image: var(--powr-arc);
-    filter: var(--powr-filter);
-    
-}
-
-p-owr::after {
-    
-    width: 10px;
-    height: 10px;
-    top: 50%;
-    right: calc(100% + 0px);
-    background-size: 100% 100%;
-    background-image: var(--powr-dot);
-    filter: var(--powr-filter);
-
-}
-
-p-owr + sup {
-    position: relative;
-    --powr-filter: url("#viva");
-}
-
-p-owr + sup::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    background-size: 100% 100%;
-    background-image: var(--girk-02);
-    filter: var(--powr-filter);
-}
-
-p-owr + sup::after {
-    content: '-1';
-    position: absolute;
-    font-size: 0.5em;
-    font-family: luckiest;
-    top: 0;
-    left: calc(100% + 2px);
-    transform: rotate(-15deg);
-    filter: var(--powr-filter);
-    
-}
-
-p-owr[data-dark] {
-    --powr-filter: url("#lightness");
 }
 
 </style>
@@ -2215,6 +2188,83 @@ by-parts > :nth-child(4)::before {
 
 by-parts[data-dark] {
     --by-parts-filter: url("#greyness");
+}
+
+</style>
+<style id="e-qua">
+
+e-qua {
+    
+    --equa-shade: var(--text-ghost);
+    --equa-rot : -7deg;
+    
+    position: relative;
+    font-size: 0.8em;
+    word-spacing: -0.2em;
+    color: rgba(0,0,0,0);
+    text-shadow: var(--equa-shade);
+    
+}
+
+e-qua > b:nth-of-type(1) {
+    
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: rotate(var(--equa-rot));
+    font-size: 1em;
+    font-family: luckiest;
+    line-height: 2em;
+    text-align: center;
+    text-shadow: none;
+    white-space: nowrap;
+    overflow: visible;
+    color: var(--lightness);
+    filter: url("#lil-viva");
+    z-index: 10;
+    
+}
+
+e-qua > b:nth-of-type(1)::before {
+    content: "";
+    margin-left: -500%;
+}
+
+e-qua > b:nth-of-type(1)::after {
+    content: "";
+    margin-right: -500%;
+}
+
+e-qua[data-dark] {
+    text-shadow: none;
+    color: var(--lightness);
+}
+
+e-qua > b:nth-of-type(1)[data-dark] {
+    filter: none;
+}
+
+e-qua[data-vapor] {
+    
+    font-size: 0.8em;
+    text-shadow: var(--text-vapor);
+    
+}
+
+e-qua[data-vapor] > b:nth-of-type(1) {
+    
+    line-height: 1.5em;
+    
+}
+
+e-qua[data-norm] > b:nth-of-type(1) {
+    
+    --equa-rot: 0deg;
+    font-family: inherit;
+    line-height: 1.2em;
+    
 }
 
 </style>
@@ -3046,118 +3096,199 @@ r-oot ~ sup[data-viva] {
 <div class="qr" style="font-size:50px;text-align:center;">
 <div data-nose="#hold0" style="height:50px;width:100%;"></div>
 
-<style id="e-qua">
 
-e-qua {
-    
-    --equa-shade: var(--text-ghost);
-    --equa-rot : -7deg;
-    
+<style id="p-owr">
+
+p-owr {
+
+    --powr-filter: url("#lil-viva");
     position: relative;
-    font-size: 0.8em;
-    word-spacing: -0.2em;
-    color: rgba(0,0,0,0);
-    text-shadow: var(--equa-shade);
+    margin-right: 1ch;
+    margin-left: 1ch;
     
 }
 
-e-qua > b:nth-of-type(1) {
+p-owr::before, p-owr::after {
+    content: '';
+    position: absolute;
+    height: calc(100% + 0px);
+    bottom: 0;
+}
+
+p-owr::before {
     
+    width: calc(100% + 7px);
+    left: -7px;
+    background-size: 100% 100%;
+    background-image: var(--powr-arc);
+    filter: var(--powr-filter);
+    
+}
+
+p-owr::after {
+    
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    right: calc(100% + 1px);
+    background-size: 100% 100%;
+    background-image: var(--powr-dot);
+    filter: var(--powr-filter);
+
+}
+
+p-owr > sup {
+    
+    --powr-filter: url("#viva");
+    
+    position: absolute;
+    margin-right: 200%;
+    padding: 0px 5px;
+    left: 100%;
+    transform: rotate(-2deg);
+    
+}
+
+p-owr > sup::before {
+    
+    content: '';
     position: absolute;
     height: 100%;
     width: 100%;
-    top: 0;
-    left: 0;
-    transform: rotate(var(--equa-rot));
-    font-size: 1em;
+    top: 0px;
+    left: 0px;
+    background-size: 100% 100%;
+    background-image: var(--girk-02);
+    filter: var(--powr-filter);
+    
+}
+
+p-owr > sup::after {
+    
+    content: '-1';
+    position: absolute;
+    font-size: 0.5em;
     font-family: luckiest;
-    line-height: 2em;
-    text-align: center;
-    text-shadow: none;
-    white-space: nowrap;
-    overflow: visible;
-    color: var(--lightness);
-    filter: url("#lil-viva");
-    z-index: 10;
+    top: 0;
+    left: calc(100% + 2px);
+    transform: rotate(-15deg);
+    filter: var(--powr-filter);
     
 }
 
-e-qua > b:nth-of-type(1)::before {
-    content: "";
-    margin-left: -500%;
+p-owr[data-dark] {
+    --powr-filter: url("#lightness");
 }
 
-e-qua > b:nth-of-type(1)::after {
-    content: "";
-    margin-right: -500%;
+p-owr[data-margin2] { margin-right: 2ch; }
+p-owr[data-margin3] { margin-right: 3ch; }
+p-owr[data-margin4] { margin-right: 4ch; }
+
+p-owr[data-opt1] > sup::before {
+    background-image: var(--girk-00);
 }
 
-e-qua[data-dark] {
-    text-shadow: none;
-    color: var(--lightness);
-}
-
-e-qua > b:nth-of-type(1)[data-dark] {
-    filter: none;
-}
-
-e-qua[data-vapor] {
-    
-    font-size: 0.8em;
-    text-shadow: var(--text-vapor);
-    
-}
-
-e-qua[data-vapor] > b:nth-of-type(1) {
-    
-    line-height: 1.5em;
-    
-}
-
-e-qua > b:nth-of-type(1)[data-norm] {
-    
-    --equa-rot: 0deg;
-    font-family: inherit;
-    line-height: 1.8em;
-    
+p-owr[data-opt2] > sup::before {
+    background-image: var(--girk-01);
 }
 
 </style>
 
-x<sup>3</sup><n-add xdata-norm>3</n-add>
-
-<c-omm>it's <emp>power rule</emp> to the rescue!</c-omm>
-<div>
-    <i-pow>x<sup>2</sup></i-pow>
-    <br><br>
-    <p-owr>xyzpdq<sup data-girk>2</sup></p-owr>
-</div>
-
-<c-omm>you get it</c-omm>
-<div>
-<f-rak data-slash1>
-<b>
-x<sup>
-<e-qua
-    xdata-dark
-    xdata-vapor
->
-    (2 + 1)
-    <b
-        xdata-dark
-        data-norm
-    >
-        =3
+<c-omm>
+    let's try a simple derivative ...
+    <b>
+        this uses the mathrobat tag
+        &lt;d-dx&gt;&lt;/d-dx&gt;
     </b>
-</e-qua>
-</sup>
-</b>
-<b>
-    <e-qua>(2 + 1)<b data-norm>=3</b></e-qua>
-</b>
-</frak>
+</c-omm>
+<div>
+    <d-dx></d-dx>12x<sup>3</sup>
 </div>
 
+<c-omm>
+    looks like a job for <emp>power rule!</emp>
+</c-omm>
+<div>
+    <d-dx></d-dx>
+    12<v-t></v-t>x<sup data-viva>3</sup>
+</div>
+
+<c-omm>
+    multiply by the exponent, then reduce by one
+    <b>
+        all of this patently designed gesture
+        drawing is done with only the
+        &lt;p-owr&gt; tag
+        <br><br>
+        the derivative tag &lt;d-dx data-ghost&gt;
+        fades out using a data-parameter
+    </b>
+</c-omm>
+<div>
+<d-dx data-ghost>
+</d-dx><p-owr>12<p-t></p-t>x<sup>3</sup></p-owr>
+</div>
+
+<c-omm>
+    put things in place
+    <b>
+        the &lt;d-dx&gt; tag is now data-vapor ized
+        and a &lt;p-ren&gt; tag surrounds the
+        exponent in parenthesis
+    </b>
+</c-omm>
+<div>
+    <d-dx data-vapor></d-dx>
+    <n-pad>3&times;</n-pad>12<p-t></p-t>x<sup>
+        <p-ren data-viva>
+            <l-uck data-rot>3 - 1</l-uck>
+        </p-ren>
+    </sup>
+</div>
+
+<c-omm>
+    do the arithmetic in the exponent
+    <b>
+        using an &lt;e-qua&gt; tag, equivalent
+        values can appear overtop of one another
+    </b>
+</c-omm>
+<div>
+    3<v-t></v-t>12<p-t></p-t>x<sup>
+        <e-qua>(3 - 1)<b>=2</b></e-qua>
+    </sup>
+</div>
+
+<c-omm>
+    what is three times twelve?
+</c-omm>
+<div>
+    <g-rak>3<p-t></p-t>12</g-rak>
+    <p-t></p-t>x<sup data-viva>2</sup>
+</div>
+
+<c-omm>
+    I used a calculator to get thirty-six
+</c-omm>
+<div>
+    <g-rak data-ghost>
+    <e-qua>3<p-t></p-t>12<b>=36</b></e-qua></g-rak>
+    <p-t></p-t> x<sup>2</sup>
+</div>
+
+<c-omm>
+    this looks like a respectable answer
+</c-omm>
+<div>
+    <e-qua data-vapor data-norm>3x12<b>36</b></e-qua> <p-t></p-t>x<sup>2</sup>
+</div>
+
+<c-omm>
+    trying submitting that
+</c-omm>
+<div>
+    <s-tar>36x<sup>2</sup></s-tar>
+</div>
 
 
 
