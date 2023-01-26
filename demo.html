@@ -1286,22 +1286,6 @@ g-fak > b:nth-of-type(1) {
     
 }
 
-/*
-g-fak > b:nth-of-type(1)::before {
-    
-    content: '';
-    margin-left: -200%;
-    
-}
-
-g-fak > b:nth-of-type(1)::after {
-    
-    content: '';
-    margin-right: -200%;
-    
-}
-*/
-
 g-fak[data-dark] {
     --gfak-filter: var(--lightness);
 }
@@ -3235,32 +3219,277 @@ r-oot ~ sup[data-viva] {
   
 </svg>
 <div class="qr" style="font-size:50px;text-align:center;">
-<div data-nose="#hold0" style="height:50px;width:100%;"></div>
+<!--<div data-nose="#hold0" style="height:50px;width:100%;"></div>-->
 
 
 <style id="k-wad">
+
 /*
     layout to allow manipulation of quadratics
     <k-wad>
+        ...
     </k-wad>
 */
+
 k-wad {
     
     --kwad-var: 'x';
-    --kwad-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath fill-rule='nonzero' d='\
-    M 0 100\
-    A 30 100 0 0 1 30 0\
-    L 25 3\
-    A 25 97 0 0 0 3 100\
-    Z' fill='%23000' /%3E %3C/svg%3E");
+    --kwad-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath fill-rule='nonzero' d='M0 100A40 100 0 0 1 40 0L35 3A35 97 0 0 0 3 100ZM 100 100A40 100 0 0 0 60 0L65 3A35 97 0 0 1 97 100Z' fill='%23000' /%3E %3C/svg%3E");
     
     position: relative;
     
 }
+k-wad::after {
+    
+    content: '';
+    position: absolute;
+    visibility: hidden;
+    width: calc(100% - 1ch);
+    height: 60%;
+    left: 0.5ch;
+    bottom: 90%;
+    background-size: 100% 100%;
+    background-image: var(--kwad-arc);
+    filter: url("#viva");
+    
+}
+k-wad > b:nth-of-type(4) {
+    
+    position: absolute;
+    display: none;
+    visibility: hidden;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    bottom: 70%;
+    font-size: 0.6em;
+    font-family: luckiest;
+    transform: rotate(-5deg);
+    filter: url("#viva");
+}
+k-wad > g-fak {
+    
+    position: absolute;
+    display: none;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 100%;
+    
+}
 
-k-wad > :nth-child(4),
-k-wad > :nth-child(5) {
-    border: 1px solid #909;
+k-wad[data-fak1] > b:nth-of-type(1)::before,
+k-wad[data-fak1] > b:nth-of-type(3)::before {
+    
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: calc(100% + 10px);
+    top: 0;
+    left: -5px;
+    background-size: 100% 100%;
+    filter: url("#viva");
+    
+}
+k-wad[data-fak1] > b:nth-of-type(1)::before {
+    background-image: var(--girk-00);
+}
+k-wad[data-fak1] > b:nth-of-type(3)::before {
+    background-image: var(--girk-03);
+}
+
+
+k-wad[data-fak2]::after {
+    
+    visibility: visible;
+    
+}
+k-wad[data-fak2] > b:nth-of-type(4) {
+    
+    display: inline;
+    visibility: visible;
+    
+}
+
+k-wad[data-fak3]::after {
+    
+    visibility: visible;
+    filter: url("#lightness");
+    
+}
+k-wad[data-fak3] > b:nth-of-type(4) {
+    
+    xvisibility: hidden;
+    xdisplay: none;
+    visibility: visible;
+    display: inline;
+    filter: url("#vapor");
+    
+}
+k-wad[data-fak3] > g-fak {
+    
+    display: inline;
+    visibility: visible;
+    color: var(--lightness);
+    text-shadow: none;
+    filter: url("#lil-viva");
+    transform: scale(0.5, 0.5);
+    
+}
+k-wad[data-fak3] > g-fak::before {
+    content: '=';
+    font-size: 0.7em;
+    margin-right: -0.5ch;
+}
+k-wad[data-fak3] > g-fak > b {
+    visibility: hidden;
+}
+
+k-wad[data-fak4]::after {
+    
+    visibility: visible;
+    filter: url("#vapor");
+    
+}
+k-wad[data-fak4] > g-fak {
+    
+    visibility: visible;
+    display: inline;
+    bottom: 110%;
+    transform: scale(0.8, 0.8);
+    
+}
+
+k-wad[data-fak5] {
+    color: var(--midness);
+}
+k-wad[data-fak5] > b:nth-of-type(2) {
+    color: var(--whiteness);
+}
+k-wad[data-fak5] > b:nth-of-type(2)::before {
+    
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: calc(100% + 10px);
+    left: -5px;
+    top: 0;
+    background-size: 100% 100%;
+    background-image: var(--girk-01);
+    filter: url("#viva");
+    transform: rotate(10deg);
+    
+}
+k-wad[data-fak5] > b:nth-of-type(2)::after {
+    
+    content: '?=';
+    position: absolute;
+    top: 10%;
+    left: -1.2ch;
+    font-size: 0.6em;
+    font-family: luckiest;
+    text-align: center;
+    white-space: nowrap;
+    color: var(--inverse);
+    filter: url("#vers");
+    transform: rotate(-10deg);
+        
+}
+k-wad[data-fak5] > g-fak {
+    
+    visibility: visible;
+    display: inline;
+    bottom: 120%;
+    transform: scale(0.8, 0.8);
+    text-shadow: var(--text-vapor);
+    
+}
+k-wad[data-fak5] > g-fak > b {
+    
+    top: 40%;
+    filter: url("#lightness");
+    transform: scale(1.5, 1.5);
+    
+}
+
+
+k-wad[data-fak6] {
+    color: var(--darkness);
+}
+k-wad[data-fak6] > b:nth-of-type(2) {
+    color: var(--inverse);
+}
+k-wad[data-fak6] > b:nth-of-type(2)::after {
+    
+    content: '?=';
+    position: absolute;
+    top: 10%;
+    left: -1.2ch;
+    font-size: 0.6em;
+    font-family: luckiest;
+    text-align: center;
+    white-space: nowrap;
+    color: var(--inverse);
+    filter: url("#vers");
+    transform: rotate(-10deg);
+        
+}
+
+k-wad[data-fak6] > g-fak {
+    
+    visibility: visible;
+    display: inline;
+    bottom: 120%;
+    transform: scale(0.8, 0.8);
+    text-shadow: none;
+    color: rgba(0,0,0,0);
+    border: 1px solid;
+    
+}
+k-wad[data-fak6] > g-fak > b {
+    
+    top: 40%;
+    xfilter: url("#lightness");
+    filter: none;
+    transform: scale(1.5, 1.5);
+    
+}
+k-wad[data-fak6] > g-fak > b::after {
+    
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 5px);
+    top: 0;
+    left: 2.5px;
+    background-size: 100% 100%;
+    background-image: var(--girk-03);
+    filter: url("#viva");
+    transform: scale(-1, 1);
+    
+}
+
+
+k-wad[data-guess] {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-ghost);
+}
+
+k-wad[data-guess]::after {
+    
+    content: '(' var(--kwad-var) '\00a0\00b1\00a0?)\00a0(' var(--kwad-var) '\00a0\00b1\00a0?)';
+    position: absolute;
+    left: -50%;
+    bottom: -15%;
+    width: 200%;
+    font-size: 0.6em;
+    text-align: center;
+    text-shadow: none;
+    white-space: nowrap;
+    color: var(--lightness);
+    filter: url("#viva");
+    
 }
 
 </style>
@@ -3268,29 +3497,30 @@ k-wad > :nth-child(5) {
 <c-omm>try a quadratic expression</c-omm>
 <div>
     
-<k-wad data-xxx>
+<k-wad data-fak6>
     
-    <b>3x<sup>2</sup></b>
+    <b>3</b>x<sup>2</sup>
     +
-    <b>2x</b>
+    <b>2</b>x
     -
     <b>21</b>
     
     <b>3&times;<sup>-</sup>21</b>
-    <g-fak>1<b>9, 7<br>1, 63</b></g-fak>
+    
+    <g-fak>
+        <sup>-</sup>63&nbsp;
+        <b>
+            9, -7<br>1, -63
+        </b>
+    </g-fak>
     
 </k-wad>
 
-<br><br>
-<g-fak>1<b>9, 7<br>1, 63</b></g-fak>
-<br><br>
-<g-fak>169<b>9, 7lkjslkjsdlkjsfdlkjsdlkjsd<br>1, 63</b></g-fak>
-    
-    
 </div>
 
 
-</div end_qr>
+
+<br></div end_qr>
 </div><br><br>
 </body>
 
