@@ -3042,7 +3042,6 @@ M<g-irk style="
     --girk-top: -7px;
 ">A</g-irk>THR<g-ank data-hi data-opt1>O</g-ank
 ></b><b style="
-    xdisplay: inline-block;
     margin-left: -5px;
     margin-right: -2px;
     font-weight: bold;
@@ -3051,6 +3050,7 @@ M<g-irk style="
 " class="hobr">&middot;</b><br class="mobr"><b>B<dist-rite style="
     --arc1-wide: 60%;
     --arc2-wide: 95%;
+    z-index: 10;
     
 ">ATICS</dist-rite>
 </b>
@@ -3060,14 +3060,14 @@ M<g-irk style="
     color: var(--whiteness);
     text-align: center;
 ">
-    simple formatting tags<br class="mobr">
+    simple illuminating tags<br class="mobr">
     for the presentation of<br>
     <i>instructional</i> mathematics
 </div>
 
 <div id="links" class="qa" style="text-align:center;">
     <div style="color:var(--lightness)">
-        <a href="example00.html" style="
+        <a href="solutions/" style="
             font-size: 1.5em;
             color:var(--darkness);
         ">learn math</a><br>
@@ -3083,7 +3083,7 @@ M<g-irk style="
         </div>
     </div>
     <div style="color:var(--)">
-        <a href="demo.html" style="
+        <a href="markup/" style="
             font-size: 1.5em;
             color:var(--whiteness);
         ">write solutions</a><br>
@@ -3254,7 +3254,7 @@ mb-dist[data-dark] > b:nth-child(1) {
     answers, tutoring, and help for students in
     algebra, trigonometry, &amp; calculus, aswell
     as support for anyone wanting to use the
-    markup language to create illuminated
+    markup language to create <v-iva>illuminated</v-iva>
     solution with both correctly formatted
     mathematic symbols and built-in graphical gestures
 </div>
@@ -3263,14 +3263,14 @@ mb-dist[data-dark] > b:nth-child(1) {
 <div id="demo00" class="qr" style="font-size:50px;text-align:center">
     
 <c-omm>
-    let's try a simple integral
+    let's try a simple integral; mouse over this description
     <b>
         this solution might be more overt than
         typical; it shows not only how elaborate
         the markup can be but also how explicit
         a description can get
         <br><br>
-        it uses the i-teg tag for integrals:<br>
+        it uses the i-teg tag for integrals:<br><br>
 <pre>
 &lt;i-teg&gt;
   &lt;b&gt;9x&lt;sup&gt;2&lt;/sup&gt;&lt;/b&gt;
@@ -3288,7 +3288,14 @@ mb-dist[data-dark] > b:nth-child(1) {
     </i-teg>
 </div>
 
-<c-omm>we see it's a product, then note the exponent</c-omm>
+<c-omm>
+    we see it's a product, then note the exponent
+    <b>
+        any extra, or at-length, commentary will
+        appear when touching, or mousing-over
+        a &lt;c-omm&gt; tag like this one
+    </b>
+</c-omm>
 <div>
     <i-teg>
         <b>9<v-t></v-t>x<sup data-viva>2</sup></b>
@@ -3326,12 +3333,13 @@ mb-dist[data-dark] > b:nth-child(1) {
 <pre>
 &lt;f-rak&gt;
     &lt;b&gt; numerator   &lt;/b&gt;
-    &lt;b&gt; denominator &lt;/b&gt;
+    &lt;b&gt; denominator &lt;/b&gt; &lt;!-- b optional --&gt;
 &lt;/f-rak&gt;
 </pre>
 <br>
         the second b tag is option if the denominator
-        contains no other tags; this is 3/5:<br><br>
+        contains no other tags;
+        for instance, this is 3/5:<br><br>
         &lt;f-rak&gt;&lt;b&gt;3&lt;/b&gt;5&lt;/f-rak&gt;
     </b>
 </c-omm>
@@ -3407,7 +3415,7 @@ mb-dist[data-dark] > b:nth-child(1) {
 &lt;g-fak&gt;
     value
     &lt;b&gt;
-        faktor, list
+        faktor list
     &lt;/b&gt;
 &lt;/g-fak&gt;
 </pre>
