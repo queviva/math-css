@@ -357,7 +357,101 @@ hr {
 
 
 </style>
+<style id="c-omm">
 
+b {
+    
+    position: relative;
+    font-weight: normal;
+    
+}
+
+c-omm {
+    
+    position: relative;
+    display: inline-block;
+    color: var(--greyness);
+    width: 95%;
+    
+}
+
+c-omm > b {
+    position: absolute;
+    display: inline-block;
+    width: calc(100% - 10px);
+    right: 0%;
+    top: 100%;
+    padding: 20px;
+    font-size: 0.9em;
+    text-align: justify;
+    color: var(--greyness);
+    background-color: var(--holder-back);
+    border-left: 1px solid var(--greyness);
+    opacity: 0;
+    z-index: 10;
+    max-height: 10em;
+    overflow-y: auto;
+    transition: opacity ease-in 600ms;
+    pointer-events: none;
+}
+
+c-omm:hover > i {
+    
+    filter: url("#viva");
+}
+
+c-omm > i {
+    
+    margin-right: 2ch;
+    font-size: 1.4em;
+    
+}
+
+c-omm > i:hover ~ b, b:hover {
+    opacity: 1;
+    transition: opacity ease-out 400ms;
+    pointer-events: auto;
+}
+
+r-ant {
+    
+    display: inline-block;
+    position: relative;
+    width: 70%;
+    padding: 0px 10px;
+    font-size: 0.4em;
+    text-align: justify;
+    color: var(--greyness);
+    
+}
+
+r-ant::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    right: 100%;
+    top: 0;
+    border-width: 1.5px 0px 1.5px 3px;
+    border-style: solid;
+    border-color: var(--greyness);
+}
+
+r-ant::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    left: 100%;
+    top: 0;
+    border-width: 1.5px 3px 1.5px 0px;
+    border-style: solid;
+    border-color: var(--greyness);
+}
+
+
+
+</style>
 
 </head>
 
@@ -644,66 +738,83 @@ hr {
 <hr>
 <div id="list" class="qr">
 <style>
-a {
-    color: var(--lightness);
-}
-a:hover {
-    filter: url("#viva");
-}
-a:visited {
-    color: var(--greyness);
-}
-li {
-    color: var(--whiteness);
-}
-li > a > i {
-    font-size: 1.2em;
-}
+
+
+
 </style>
     
 <ul>
-<li>
-    <a href="#">
-        <i>c-omm</i> expandable comment tag
-    </a>
-</li>
-<li><a href="#">
+<li><c-omm>
+    <i>c-omm</i> an expandable comment
+    <b>
+        allows for short comments to expand into
+        larger, scrollable descriptions on touch
+        or mouseover
+        <br><br>
+<pre>
+&lt;c-omm&gt;
+    short comment
+    &lt;b&gt;
+        anything inside b tag will expand
+    &lt;/b&gt;
+&lt;/c-omm&gt;
+</pre>
+    </b>
+</c-omm></li>
+
+<li><c-omm>
+    <i>r-ant</i> longer comment
+    <b>
+        just a longer comment that gets fully
+        displayed without expanding
+        <br><br>
+<pre>
+&lt;r-ant&gt;
+    long elaboration that always displays
+&lt;/r-ant&gt;
+</pre>
+    </b>
+</c-omm></li>
+
+<li><c-omm>
     <i>f-rak</i> a simple fraktion tag
-</a></li>
-<li><a href="#">
-    <i>s-umm</i> sigma notation and gestures
-</a></li>
-<li><a href="#">
-    <i>i-teg</i> integration symbol and graphics
-</a></li>
-<li><a href="#">
-    <i>p-owr</i> illustrated derivative power rule
-</a></li>
-<li><a href="#">
-    <i>i-pow</i> graphics for power rule of integrals
-</a></li>
-<li><a href="#">
-    <i>d-dx</i> displays a formatted d/dx
-    <br>
-    <i>dy-dx</i> displays dy/dx correctly
-</a></li>
-<li><a href="#">
-    <i>v-via</i> illumnates enclosed text
-</a></li>
-<li><a href="#">
-    <i>k-wad</i> six-step quadratic solver
-</a></li>
-<li><a href="#">
-    <i>by-parts</i> illuminates integration by parts
-</a></li>
-<li><a href="#">
-    <i>uv-table</i> three-step integration table
-</a></li>
+    <b>
+        allows for extremely simple fraktions, or
+        more complicated if needed
+        <br><br>
+<pre>
+&lt;f-rak
+    data-viva   // illuminates only the bar
+    data-slash1 // optional slash-type bar
+&gt;
+    &lt;b&gt; numerator &lt;/b&gt;
+    &lt;b&gt; denominator &lt;/b&gt; &lt;!-- b optional --&gt;
+&lt;/f-rak&gt;
+</pre><br>
+
+        if the denominator has no other tags, its
+        b tag is optional - for instance, this would
+        display 3/5:<br>
+        &lt;f-rak&gt;&lt;b&gt;3&lt;/b&gt;5&lt;/f-rak&gt;
+    </b>
+</c-omm></li>
+
+<li><c-omm>
+    
+</c-omm></li>
+
+
+
+
+
 </ul>
 </div>
 
 
-<br><br>
+<div class="qr" style="height:300px;"></div>
+<div class="qr signature">
+    ~queviva
+</div>
 </div>
 </body>
 
