@@ -2811,7 +2811,6 @@ l-ogb > b:nth-child(2) {
     color: var(--lightness);
     
 }
-
 l-ogb[data-viva] {
     --logb-filter: url("#viva");
     --logb-filter-base: url("#lil-viva");
@@ -2821,7 +2820,6 @@ l-ogb[data-viva-base] {
     --logb-filter-base: url("#lil-viva");
     --logb-stroke: 0px #000;
 }
-
 l-ogb[data-ghost] {
     color: rgba(0,0,0,0);
     text-shadow: var(--text-ghost);
@@ -2829,13 +2827,15 @@ l-ogb[data-ghost] {
     x--logb-stroke: 3px #000;
 }
 l-ogb[data-ghost] > b:nth-child(1) {
-    text-shadow: none;
+    font-family: inherit;
+    text-shadow: var(--text-ghost);
     color: rgba(0,0,0,0);
+    --logb-stroke: 0px #000;
+    filter: none;
 }
 l-ogb[data-ghost] > b:nth-child(2) {
     text-shadow: none;
 }
-
 l-ogb[data-gank] {
     --logb-filter: url("#viva");
     --logb-filter-base: url("#lil-viva");
@@ -2857,7 +2857,6 @@ l-ogb[data-gank]::after {
 l-ogb[data-gank] > b:nth-child(1) {
     color: rgba(0,0,0,0);
 }
-
 l-ogb[data-arc] {
     
     display: inline-block;
@@ -2894,7 +2893,6 @@ l-ogb[data-arc] > b:nth-child(1)::after {
     filter: url("#viva");
     
 }
-
 l-ogb[data-hat] {
     
     display: inline-block;
