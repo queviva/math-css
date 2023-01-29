@@ -1,10 +1,4 @@
-<!doctype html><html lang="en">
-<head>
-<title>mathrobatics</title>
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-<script defer src="nanopicker.js"></script>
-<style id="demoStyles">
+
 
 @font-face {
     font-family : luckiest;
@@ -12,30 +6,82 @@ content="width=device-width, initial-scale=1.0">
 }
 
 :root {
- 
-   
+    
+    --logb-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath d='M100 35A100 320 355 0 1 0 65L12 53L28 60A100 600 0 0 0 100 28Z' fill='%23000' /%3E %3C/svg%3E");
+    
+    --logb-hat: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' fill-rule='evenodd' %3E%3Cpath d='M85 80A45 10 -10 0 0 15 80A45 10 -10 0 0 85 80ZM 75 80A40 8 -12 0 0 25 80A40 8 -12 0 0 75 80 Z' fill='%23000' /%3E %3Cpath d='M16 20Q45 -8 80 5Q75 40 78 70L76 70L76 55Q50 50 24 63L24 78Q50 70 21 78Q25 49 16 20Z' fill='%23000' /%3E %3C/svg%3E");
+    
+    --gank-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
+    
+    --gank-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q55 70 105 0L110 10Q60 70 15 100Z'/%3E%3C/svg%3E");
+    
+    --gank-02: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M15 100Q40 90 70 25L69 45Q90 10 115 0Q90 15 65 70L65 52Q50 90 15 100Z'/%3E%3C/svg%3E");
+    
+    --gank-sigma-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 20L100 0L40 50L80 70L0 100L50 70L20 50L80 10Z'/%3E%3C/svg%3E");
+    
+    --gank-slash-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
+    
+    --dist-full-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath transform='translate(15,15)' d='M8 100A15 15 180 0 1 67 100H62A10 11 180 0 0 13 100H8A35 35 180 0 1 92 100H87A20 21 180 0 0 13 100ZM 33 100A15 15 180 0 1 92 100H87A20 22 180 0 0 38 100H33A17 17 180 0 1 67 100H62A10 12 180 0 0 38 100Z'/%3E%3C/svg%3E");
+
+    --dist-right-XX: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M23 115A35 35 180 0 1 106 115H101A35 33 180 0 0 28 115H23A20 20 180 0 1 68 115H63A15 14 180 0 0 28 115Z'/%3E%3C/svg%3E");
+    
+    --dist-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M106 115A35 35 180 0 0 27 115H32A35 40 180 0 1 101 115H106A21 20 180 0 0 64 115H69A15 14 180 0 1 101 115 Z'/%3E%3C/svg%3E");
+    
+    --grak-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52A10 30 0 0 1 25 22H55A10 30 0 0 0 65 2A10 30 0 0 0 75 22H105A10 30 0 0 1 115 52A10 25 0 0 0 105 27H75A10 20 0 0 1 65 17A10 20 0 0 1 55 27H25A10 25 0 0 0 15 52Z'/%3E%3C/svg%3E");
+        
+    --grak-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52Q16 30 14 15Q65 25 116 15Q114 30 115 52L112 25H18Z'/%3E%3C/svg%3E");
+    
+     --girk-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M90 35A40 35 0 0 0 50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A20 47 0 0 0 80 3A16 47 0 0 1 96 50A41 40 0 0 1 55 90A50 40 0 0 1 5 50A42 42 0 0 1 50 8A40 27 0 0 1 90 35Z'/%3E%3C/svg%3E");
+    
+    --girk-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M25 20A25 30 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A50 50 0 0 0 50 0C-8 2 10 45 15 45C5 20 20 8 50 8A45 42 0 0 1 95 50A45 40 0 0 1 50 90A48 45 0 0 1 2 48A28 28 0 0 1 30 20Z'/%3E%3C/svg%3E");
+        
+    --girk-02: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A50 50 0 0 0 50 0ZM 20 20A33 30 330 0 0 82 80A33 30 330 0 0 20 20Z'/%3E%3C/svg%3E");
+        
+    --girk-03: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M5 20Q0 30 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A50 50 0 0 0 50 0C-8 2 10 45 15 45C5 20 20 8 50 8A45 42 0 0 1 95 50A45 40 0 0 1 50 90A48 45 0 0 1 2 45Q2 35 5 20Z'/%3E%3C/svg%3E");
+    
+    --girk-xtra-swoosh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M15 15A10 10 0 0 0 85 85A10 10 0 0 0 15 20A10 10 0 0 0 40 40A10 10 0 0 1 25 20A10 10 0 0 1 80 80A10 10 0 0 1 20 12Z'/%3E%3C/svg%3E");
+        
+    --powr-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M100 30A100 300 340 0 0 0 55L4 55A100 300 340 0 1 100 30Z'/%3E%3C/svg%3E");
+            
+    --powr-dot: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M 50 0A 50 50 0 0 0 50 100A 50 50 0 0 0 50 0Z'/%3E%3C/svg%3E");
+            
+    --ipow-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath d='M100 45A100 200 340 0 1 0 85L2 81L10 82A100 200 340 0 0 95 55Z' fill='%23000' /%3E %3C/svg%3E");
+    
+    --ipow-divline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M0 30Q50 40 95 0L100 70Q50 60 10 100Z'/%3E%3C/svg%3E");
+    
+    --uv-table-rite: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
+    M 30 80\
+    A 10 15 0 0 1 100 60\
+    L 90 60\
+    A 10 16 0 0 0 31 80\
+    Z'/%3E%3C/svg%3E");
+    
+    --uv-table-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
+    M 70 80\
+    A 10 15 0 0 0 0 60\
+    L 10 60\
+    A 10 16 0 0 1 69 80\
+    Z'/%3E%3C/svg%3E");
+    
+    --rdux-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
+    M 0 100\
+    Q 30 75 55 30\
+    L 55 50\
+    Q 30 80 0 100\
+    Z\
+    M 100 0\
+    Q 70 25 50 70\
+    L 50 50\
+    Q 70 20 100 0\
+    Z'/%3E%3C/svg%3E");
+    
 }
 
-* {
+.mathrobatic {
     
-    --back-color: #666;
+       
     --holder-back: #111;
     
-    box-sizing: border-box;
-    word-wrap: break-word;
-}
-
-body {
-    padding: 0;
-    margin: 0;
-    background-color: var(--back-color);
-    font-size: 22px;
-    text-align: justify;
-    hyphens: auto;
-}
-
-.holder {
-       
     --nose-hsla: hsla(40, 100%, 50%, 1);
     
     --nose-h: 40;
@@ -43,14 +89,11 @@ body {
     --nose-l: 50%;
     --nose-a: 1;
                 
-    /*
-    --nose-hsla: hsla(40, 100%, 90%, 1);
-    
-    --nose-h: 40;
-    --nose-s: 100%;
-    --nose-l: 90%;
-    --nose-a: 1;
-    */
+    --whiteness: hsl(
+        var(--nose-h),
+        var(--nose-s),
+        calc(1.5 * var(--nose-l))
+    );
                 
     --lightness: hsl(
         var(--nose-h),
@@ -82,13 +125,6 @@ body {
         calc(0.6 * var(--nose-l))
     );
     
-    --whiteness : hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(1.5 * var(--nose-l))
-    );
-    
-    
     --inverse: hsl(
         calc(var(--nose-h) + 120),
         var(--nose-s),
@@ -110,171 +146,6 @@ body {
         0 0 40px var(--lightness),
         0 0 40px #fff;
         
-
-	position: relative;
-    color: var(--lightness);
-    background-color: var(--holder-back);
-    margin: auto;
-    width: 100%;
-    max-width: 700px;
-    
-}
-
-a {
-    text-decoration: none;
-    color: var(--darkness);
-}
-
-a:hover, a:visited {
-    transition: color linear var(--trans-speed);
-    color: var(--darkness);
-}
-
-pre {
-    background-color: var(--blackness);
-    margin: 0px;
-    padding: 10px;
-    text-align: left;
-    color: var(--midness);
-    overflow: auto;
-}
-
-emp {
-    font-family: luckiest;
-    font-style: italic;
-    font-weight: bold;
-    color: rgba(0,0,0,0);
-    -webkit-text-stroke: 2px var(--greyness);
-}
-
-hr {
-    border-top: 1px solid var(--darkness);
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
-    margin: 7px 0px 7px 0px;
-}
-
-.qa > div > a, .qa > div  > a,
-.qb > div > a, .qb > div  > a,
-.qa > div > a:hover, .qa > div  > a:visited,
-.qb > div > a:hover, .qb > div> a:visited
-{
-    color: var(--lightness);
-}
-
-.qr {
-    padding: 10px;
-}
-
-.qa:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.qa > div {
-    float: left;
-    padding: 10px;
-    height: auto;
-}
-
-.qa > div:nth-child(1) {
-  width: 50%;
-}
-
-.qa > div:nth-child(2) {
-  width: 50%;
-}
-
-.qb:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.qb > div {
-    float: left;
-    padding: 10px;
-    height: auto;
-}
-
-.qb > div:nth-child(1) {
-  width: 35%;
-}
-
-.qb > div:nth-child(2) {
-  width: 65%;
-}
-
-.qa, .qb {
-    color: var(--lightness);
-}
-
-.mobr {
-    display: none;
-}
-
-.hobr {
-    display: inline-block;
-}
-
-.abhr {
-    display: none;
-}
-
-/*possibly a portrait mobi-fone*/
-@media screen and (max-width:500px) {
-
-	.qa > div:nth-child(1),
-	.qa > div:nth-child(2),
-	.qb > div:nth-child(1),
-	.qb > div:nth-child(2)
-	{
-    	width: 100%;
-    }
-    
-    .mobr {
-        display: inline-block;
-    }
-    .hobr {
-        display: none;
-    }
-    .abhr {
-        display: block;
-    }
-    ul {
-        text-align: left;
-    }
-
-}
-
-/*possibly a mobile landscraper*/
-@media screen and (orientation: landscape) and (max-width: 760px) {
-
-    
-}
-
-.signature {
-    text-align: right;
-    font-family: 'luckiest';
-    font-style: italic;
-    height: 200px;
-    color: var(--blackness);
-    -webkit-text-stroke: 1px var(--darkness);
-    user-select:none;
-}
-
-</style>
-<style id="mathroStyles">
-
-* {
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-:root {
-    
     --gank-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
     
     --gank-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q55 70 105 0L110 10Q60 70 15 100Z'/%3E%3C/svg%3E");
@@ -317,9 +188,7 @@ hr {
     
     --girk-xtra-swoosh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M15 15A10 10 0 0 0 85 85A10 10 0 0 0 15 20A10 10 0 0 0 40 40A10 10 0 0 1 25 20A10 10 0 0 1 80 80A10 10 0 0 1 20 12Z'/%3E%3C/svg%3E");
         
-    --powr-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M100 30A100 300 340 0 0 0 55L4 55A100 300 340 0 1 100 30Z'/%3E%3C/svg%3E");
             
-    --powr-dot: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M 50 0A 50 50 0 0 0 50 100A 50 50 0 0 0 50 0Z'/%3E%3C/svg%3E");
             
     --ipow-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath d='M100 45A100 200 340 0 1 0 85L2 81L10 82A100 200 340 0 0 95 55Z' fill='%23000' /%3E\
     %3C/svg%3E");
@@ -352,48 +221,52 @@ hr {
     Q 70 20 100 0\
     Z'/%3E%3C/svg%3E");
     
+	position: relative;
+    color: var(--lightness);
+    background-color: var(--holder-back);
+    margin: auto;
+    xmargin-top: 50px;
+    width: 100%;
+    max-width: 700px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    
 }
 
-
-</style>
-<style id="v-iva">
-    
 v-iva {
     filter: url("#viva");
 }
-
 v-ers {
     filter: url("#vers");
 }
-
 i-ver {
     color: var(--inverse);
 }
-
 g-ost {
     color: var(--holder-back);
     text-shadow: var(--text-ghost);
 }
-
 v-por {
     color: var(--holder-back);
     text-shadow: var(--text-vapor);
 }
-
 l-uck {
     font-size: 0.8em;
     font-family: luckiest;
 }
-
-</style>
-<style id="s-upb">
+l-uck[data-rot] {
+    display: inline-block;
+    transform: rotate(-10deg);
+}
+[data-norm] {
+    font-family: inherit;
+}
 
 sup, sub {
     
     font-size: 0.5em;
     
 }
-
 :not(r-oot) + sup[data-viva],
 :not(r-oot) + sub[data-viva] {
     
@@ -407,30 +280,33 @@ b {
     font-weight: normal;
     
 }
-
-</style>
-<style id="c-omm">
+emp {
+    
+    font-family: luckiest;
+    font-style: italic;
+    font-weight: bold;
+    color: rgba(0,0,0,0);
+    -webkit-text-stroke: 2px var(--greyness);
+    
+}
 
 c-omm {
     position: relative;
     display: inline-block;
-    color: var(--greyness);
     font-size: 0.5em;
     font-style: italic;
+    color: var(--greyness);
     margin-top: 50px;
     margin-bottom: 30px;
 }
-
 c-omm::before {
     content: "[";
     font-style: normal;
 }
-
 c-omm::after {
     content: "]";
     font-style: normal;
 }
-
 c-omm > b {
     position: absolute;
     display: inline-block;
@@ -450,7 +326,6 @@ c-omm > b {
     transition: opacity ease-in 600ms;
     pointer-events: none;
 }
-
 c-omm:hover b {
     opacity: 0.85;
     transition: opacity ease-out 400ms;
@@ -463,12 +338,11 @@ r-ant {
     position: relative;
     width: 70%;
     padding: 0px 10px;
-    font-size: 0.4em;
+    font-size: 0.5em;
     text-align: justify;
     color: var(--greyness);
     
 }
-
 r-ant::before {
     content: '';
     position: absolute;
@@ -480,7 +354,6 @@ r-ant::before {
     border-style: solid;
     border-color: var(--greyness);
 }
-
 r-ant::after {
     content: '';
     position: absolute;
@@ -493,27 +366,8 @@ r-ant::after {
     border-color: var(--greyness);
 }
 
-
-
-</style>
-<style id="f-rak">
-/*
-    <f-rak
-        data-viva   // illuminates only the bar
-        data-slash1 // custom drawn bar
-    >
-        <b> numerator </b>
-        <b> denominator </b> // the 2nd b-tag is optional
-                             // if no other tags are
-                             // in the denominator
-    </f-rak>
-    
-    this is the fraction 3/5
-    
-    <f-rak><b>3</b>5</f-rak>
-*/
-
 f-rak {
+    
     display: inline-grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
@@ -521,6 +375,7 @@ f-rak {
     vertical-align: 68%;
     text-align: center;
     word-spacing: -0.4ch;
+    
 }
 
 f-rak > :nth-child(1) {
@@ -539,7 +394,9 @@ f-rak[data-slash1] > :nth-child(1) {
     border: none;
 }
 
+
 f-rak[data-viva] > :nth-child(2)::before {
+    
     content: '';
     position: absolute;
     height: 100%;
@@ -548,6 +405,7 @@ f-rak[data-viva] > :nth-child(2)::before {
     left: 0;
     border-top: 1.5px solid;
     filter: url("#viva");
+    
 }
 
 f-rak[data-ghost] > :nth-child(2)::before {
@@ -582,54 +440,61 @@ f-rak[data-slash1][data-viva] > :nth-child(2)::before {
     
 }
 
-</style>
-<style id="p-ren">
-
 p-ren {
     word-spacing: -0.3ch;
 }
-
 p-ren::before {
     content: '(';
 }
-
 p-ren::after {
     content: ')';
 }
-
 p-ren[data-viva]::before,
 p-ren[data-viva]::after {
     filter: url("#viva");
 }
-
 p-ren[data-viva-all] {
     filter: url("#viva");
 }
-
 p-ren[data-ghost]::before,
 p-ren[data-ghost]::after {
-    color: var(--holder-back);
+    color: rgba(0,0,0,0);
     text-shadow: var(--text-ghost);
 }
-
+p-ren[data-ghost-all] {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-ghost);
+    xfilter: url("#ghost");
+}
 p-ren[data-vapor]::before,
 p-ren[data-vapor]::after {
-    color: var(--holder-back);
+    color: rgba(0,0,0,0);
     text-shadow: var(--text-vapor);
 }
+p-ren[data-vapor-all] {
+    filter: url("#vapor");
+}
 
-</style>
-<style id="b-rak">
 
 b-rak {
     
     --brak-filter: none;
+    --brak-scale: 2;
     
     position: relative;
+    display: inline-block;
     margin-left: 0.5em;
     margin-right: 0.5em;
     filter: var(--brak-filter);
     
+}
+
+b-rak + sup {
+    
+    --brak-scale: 2;
+    
+    vertical-align: calc(100% * var(--brak-scale));
+
 }
 
 b-rak::before {
@@ -638,16 +503,18 @@ b-rak::before {
     position: absolute;
     top: 0;
     left: -0.5em;
-    transform: scale(1,2.0);
+    transform: scale(1, var(--brak-scale));
     
 }
 
 b-rak::after {
+    
     content: '\005d';
     position: absolute;
     top: 0;
     right: -0.5em;
-    transform: scale(1,2.0);
+    transform: scale(1, var(--brak-scale));
+    
 }
 
 b-rak[data-viva]::before,
@@ -665,14 +532,27 @@ b-rak[data-ghost]::after {
     text-shadow: var(--text-ghost);
 }
 
+b-rak[data-ghost-all] {
+    --brak-filter: url("#ghost");
+}
+
 b-rak[data-vapor]::before,
 b-rak[data-vapor]::after {
     color: rgba(0,0,0,0);
     text-shadow: var(--text-vapor);
 }
 
-</style>
-<style id="s-umm">
+b-rak[data-vapor-all] {
+    --brak-filter: url("#vapor");
+}
+
+b-rak[data-norm] { --brak-scale: 1; }
+b-rak[data-norm] + sup { --brak-scale: 1; }
+b-rak[data-tall] { --brak-scale: 3; }
+b-rak[data-tall] + sup { --brak-scale: 3; }
+
+
+
 
 s-umm {
     
@@ -745,8 +625,8 @@ s-umm[data-scrib]::after {
     filter: url("#viva");
 }
 
-</style>
-<style id="e-val">
+
+
 
 e-val {
     
@@ -809,8 +689,8 @@ e-val[data-viva-to] {
     --eval-filter-to: url("#viva");
 }
 
-</style>
-<style id="f-rom">
+
+
 
 f-rom {
     
@@ -869,8 +749,8 @@ f-rom[data-viva-to] {
     --from-filter-to: url("#viva");
 }
 
-</style>
-<style id="d-ist">
+
+
 
 d-ist,
 d-ist-right,
@@ -918,8 +798,8 @@ d-ist-left::after {
 }
 
 
-</style>
-<style id="t-yme">
+
+
 
 p-t::after {
     content: "\00b7";
@@ -962,10 +842,14 @@ d-x::after {
     letter-spacing: -0.2em;
 }
 
-</style>
-<style id="dy-dx">
 
-d-dx, dy-dx {
+
+
+d-dx, dy-dx, dy-dz {
+    
+    --dd-top: 'd';
+    --dd-bottom: 'dx';
+    
     display: inline-grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
@@ -973,27 +857,41 @@ d-dx, dy-dx {
     vertical-align: 90%;
     text-align: center;
     font-style: italic;
+    
 }
 
-d-dx::before {
-    content: '\00a0 d\00a0';
+dy-dx {
+    --dd-top: 'dy';
+    --dd-bottom: 'dx';
+}
+
+dy-dz {
+    --dd-top: 'dy';
+    --dd-bottom: 'dz';
+}
+
+d-dx::before,
+dy-dx::before,
+dy-dz::before {
+    content: '\00a0 ' var(--dd-top) '\00a0';
     border-bottom: 1px solid;
 }
 
-dy-dx::before {
-    content: '\00a0 dy\00a0';
-    border-bottom: 1px solid;
+d-dx::after,
+dy-dx::after,
+dy-dz::after {
+    content: var(--dd-bottom);
 }
 
-d-dx::after, dy-dx::after {
-    content: 'dx';
-}
-
-d-dx[data-viva], dy-dx[data-viva] {
+d-dx[data-viva],
+dy-dx[data-viva],
+dy-dz[data-viva] {
     filter: url("#viva");
 }
 
-d-dx[data-gank], dy-dx[data-gank] {
+d-dx[data-gank],
+dy-dx[data-gank],
+dy-dz[data-gank] {
     
     background-image: var(--gank-slash-00);
     background-repeat: no-repeat;
@@ -1002,8 +900,16 @@ d-dx[data-gank], dy-dx[data-gank] {
     
 }
 
-</style>
-<style id="s-tar">
+d-dx[data-ghost],
+dy-dx[data-ghost],
+dy-dz[data-ghost] { filter: url("#ghost"); }
+
+d-dx[data-vapor],
+dy-dx[data-vapor],
+dy-dz[data-vapor] { filter: url("#vapor"); }
+
+
+
 
 s-tar {
     
@@ -1028,8 +934,8 @@ s-tar[data-dark] {
     --star-filter: url("#lightness");
 }
     
-</style>
-<style id="g-rak">
+
+
     
 g-rak{
     
@@ -1063,12 +969,22 @@ g-rak::before {
 }
 
 g-rak[data-lo]::before {
+    
     top: calc(100% - var(--grak-top));
     transform: rotate(calc(180deg + var(--grak-rot)));
+    
 }
 
 g-rak[data-dark] {
     --grak-filter: url("#lightness");
+}
+
+g-rak[data-ghost] {
+    --grak-filter: url("#ghost");
+}
+
+g-rak[data-vapor] {
+    --grak-filter: url("#vapor");
 }
 
 g-rak[data-opt1] {
@@ -1076,8 +992,8 @@ g-rak[data-opt1] {
 }
 
 
-</style>
-<style id="r-ed1">
+
+
 
 [data-redx] { position: relative; --red-val: '0'; }
 [data-red1] { position: relative; --red-val: '1'; }
@@ -1119,8 +1035,8 @@ g-rak[data-opt1] {
     z-index: 10;
 }
 
-</style>
-<style id="r-dux">
+
+
 
 r-dux {
     
@@ -1178,8 +1094,8 @@ r-dux[data-viva-to] {
     --rdux-filter: url("#lightness");
 }
 
-</style>
-<style id="g-fak">
+
+
 
 g-fak {
     
@@ -1188,27 +1104,32 @@ g-fak {
     --gfak-shade: var(--text-ghost);
     
     position: relative;
-    margin-right: 0.5ch;
+    margin: 0 2px;
     font-weight: bold;
     color: rgba(0,0,0,0);
     text-shadow: var(--gfak-shade);
+    text-align: center;
     
 }
 
 g-fak > b:nth-of-type(1) {
     
     position: absolute;
+    display: flex;
+    justify-content: center;
     height: var(--gfak-high);
     top: calc((100% - var(--gfak-high))/2 + 1ch);
-    width: 300%;
-    left: -100%;
+    width: 100px;
+    left: calc(50% - 50px);
     font-size: 0.3em;
     font-family: luckiest;
     text-align: center;
     word-spacing: 0.5ch;
+    white-space: nowrap;
     color: var(--lightness);
     text-shadow: none;
     filter: var(--gfak-filter);
+    overflow: visible;
     
 }
 
@@ -1221,13 +1142,17 @@ g-fak[data-vapor] {
     text-shadow: var(--text-vapor);
 }
 
-</style>
-<style id="f-akt">
 
-f-akt {
+
+
+/*
+    displays (x +/- ?)(x +/- ?) infront of quadratic
+*/
+
+q-fak {
     
-    --fakt-var: 'x';
-    --fakt-filter: url("#lil-viva");
+    --qfak-var: 'x';
+    --qfak-filter: url("#lil-viva");
     
     position: relative;
     font-weight: bold;
@@ -1237,8 +1162,8 @@ f-akt {
     
 }
 
-f-akt::before {
-    content: '(' var(--fakt-var) '\00a0\00b1\00a0?)\00a0(' var(--fakt-var) '\00a0\00b1\00a0?)';
+q-fak::before {
+    content: '(' var(--qfak-var) '\00a0\00b1\00a0?)\00a0(' var(--qfak-var) '\00a0\00b1\00a0?)';
     position: absolute;
     left: -50%;
     bottom: -15%;
@@ -1246,20 +1171,25 @@ f-akt::before {
     font-size: 0.6em;
     text-align: center;
     text-shadow: none;
+    white-space: nowrap;
     color: var(--lightness);
-    filter: var(--fakt-filter);
+    filter: var(--qfak-filter);
     
 }
 
-f-akt[data-dark] { --fakt-filter: url("#lightness"); }
-f-akt[data-n] { --fakt-var: 'n'; }
-f-akt[data-q] { --fakt-var: 'q'; }
-f-akt[data-x] { --fakt-var: 'x'; }
-f-akt[data-y] { --fakt-var: 'y'; }
-f-akt[data-z] { --fakt-var: 'z'; }
+q-fak[data-dark] { --qfak-filter: url("#lightness"); }
+q-fak[data-n] { --qfak-var: 'n'; }
+q-fak[data-q] { --qfak-var: 'q'; }
+q-fak[data-x] { --qfak-var: 'x'; }
+q-fak[data-y] { --qfak-var: 'y'; }
+q-fak[data-z] { --qfak-var: 'z'; }
 
-</style>
-<style id="g-ood">
+
+
+
+/*
+    puts a check mark on the right side
+*/
 
 g-ood {
     --good-filter: url("#viva");
@@ -1285,8 +1215,6 @@ g-ood[data-dark] {
     --good-filter: url("#lightness");
 }
 
-</style>
-<style id="f-ofx">
 
 f-x {
     --fx-var: 'x';
@@ -1313,10 +1241,10 @@ f-x[data-y] { --fx-var: 'y'; }
 f-x[data-z] { --fx-var: 'z'; }
 
 
-</style>
-<style id="n-add">
 
-n-add, n-min, n-tim, n-div, n-ote {
+
+
+n-add, n-min, n-tim, n-div, n-ote, n-pad {
     
     --note-rot: -10deg;
     --note-top: 0px;
@@ -1365,19 +1293,6 @@ n-div::before {
     vertical-align: 50%;
 }
 
-n-pad {
-    position: absolute;
-    display: inline;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    font-size: 0.4em;
-    font-family: luckiest;
-    white-space: nowrap;
-    transform: rotate(-12deg);
-    filter: url("#lil-viva");
-}
-
 n-add[data-dark],
 n-min[data-dark],
 n-tim[data-dark],
@@ -1389,165 +1304,15 @@ n-pad[data-dark] {
 
 
 
-</style>
-<style id="l-ogb">
 
-l-ogb {
-    
-    --logb-filter: none;
-    --logb-filter-base: none;
-    --logb-stroke: 0.7px var(--darkness);
-    
-    position: relative;
-    margin-left: 4ch;
-    white-space: nowrap;
 
-}
-
-l-ogb::before {
-    content: 'log\00a0(';
-    position: absolute;
-    right: 100%;
-    top: 0;
-    filter: var(--logb-filter);
-}
-
-l-ogb::after {
-    content: ')';
-    right: 0;
-    top: 0;
-    filter: var(--logb-filter);
-}
-
-l-ogb > :nth-child(1) {
-    
-    position: absolute;
-    right: calc(100% + 0.4em);
-    bottom: -0.4em;
-    transform: rotate(-12deg);
-    font-size: 0.6em;
-    font-weight: bold;
-    font-family: luckiest;
-    filter: var(--logb-filter-base);
-    -webkit-text-stroke: var(--logb-stroke);
-    
-}
-
-l-ogb[data-viva] {
-    --logb-filter: url("#viva");
-    --logb-filter-base: url("#lil-viva");
-    --logb-stroke: 0px #000;
-}
-
-l-ogb[data-viva-base] {
-    --logb-filter-base: url("#lil-viva");
-    --logb-stroke: 0px #000;
-}
-
-l-ogb[data-gank] {
-    --logb-filter: url("#viva");
-    --logb-filter-base: url("#lil-viva");
-}
-
-l-ogb[data-gank]::before {
-    
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 60L18 2L30 60L43 20L60 85Q77 70 100 55Q70 80 60 100L45 50Q34 70 32 90L17 30Z'/%3E%3C/svg%3E");
-    
-}
-
-l-ogb[data-gank]::after {
-    
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 40L100 0L32 35L100 33L40 60L100 100L15 58L70 40Z'/%3E%3C/svg%3E");
-}
-
-l-ogb[data-gank] > :nth-child(1) {
-    color: rgba(0,0,0,0);
-}
-
-</style>
-<style id="r-aze">
-
-r-aze {
-    
-    --raze-filter: url("#viva");
-    --raze-filter-arrow: url("#lil-viva");
-    
-    position: relative;
-    margin-left: 1ch;
-    
-}
-
-r-aze::after {
-    
-    content: '';
-    position: absolute;
-    display: inline-block;
-    height: 20px;
-    width: 17px;
-    right: 100%;
-    top: 20%;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 80Q40 40 50 0L100 80L80 90L50 20Q40 67 20 100Z' /%3E%3C/svg%3E");
-    
-    filter: var(--raze-filter-arrow);
-    
-}
-
-r-aze > :nth-child(1) {
-    
-    position: absolute;
-    display: inline-block;
-    top: 50%;
-    right: calc(100% - 8px);
-    font-family: luckiest;
-    transform: rotate(-12deg);
-    filter: var(--raze-filter);
-    
-}
-
-r-aze > :nth-child(2) {
-    display: inline;
-    font-size: 0.4em;
-    vertical-align: 110%;
-}
-
-r-aze > :nth-child(2)::before {
-    content: '[';
-    font-weight: bold;
-}
-
-r-aze > :nth-child(2)::after {
-    content: ']';
-    font-weight: bold;
-}
-
-r-aze[data-dark] {
-    --raze-filter: none;
-    --raze-filter-arrow: url("#lightness");
-}
-
-r-aze[data-dark-value] {
-    --raze-filter: none;
-}
-
-r-aze[data-dark-arrow] {
-    --raze-filter-arrow: none;
-    --raze-filter-arrow: url("#lightness");
-}
-
-</style>
-<style id="g-irk">
 
 [data-girk], g-irk{
     
     --girk-wide: 25px;
     --girk-high: 0px;
     --girk-top: 0px;
+    --girk-left: 0px;
     --girk-rot: 0deg;
     --girk-flip: 1;
     --girk-turn: 0;
@@ -1565,7 +1330,7 @@ r-aze[data-dark-arrow] {
     position: absolute;
     width: calc(100% + var(--girk-wide));
     height: calc(100% + var(--girk-high));
-    left: calc(var(--girk-wide)/-2);
+    left: calc(var(--girk-left) + var(--girk-wide)/-2);
     top: calc(var(--girk-top) + var(--girk-high)/-2);
     transform:
         rotate(
@@ -1609,21 +1374,27 @@ r-aze[data-dark-arrow] {
     --girk-back: var(--girk-03);
 }
 
-</style>
-<style id="p-owr">
+
+
+
+/*
+    illuminations for the power rule of derivative
+*/
 
 p-owr {
-    --powr-filter: url("#viva");
-    position: relative;
-}
 
+    --powr-filter: url("#lil-viva");
+    position: relative;
+    margin-right: 1ch;
+    margin-left: 1ch;
+    
+}
 p-owr::before, p-owr::after {
     content: '';
     position: absolute;
     height: calc(100% + 0px);
     bottom: 0;
 }
-
 p-owr::before {
     
     width: calc(100% + 7px);
@@ -1633,25 +1404,30 @@ p-owr::before {
     filter: var(--powr-filter);
     
 }
-
 p-owr::after {
     
     width: 10px;
     height: 10px;
     top: 50%;
-    right: calc(100% + 0px);
+    right: calc(100% + 1px);
     background-size: 100% 100%;
     background-image: var(--powr-dot);
     filter: var(--powr-filter);
 
 }
-
-p-owr + sup {
-    position: relative;
+p-owr > sup {
+    
     --powr-filter: url("#viva");
+    
+    position: absolute;
+    margin-right: 200%;
+    padding: 0px 5px;
+    left: 100%;
+    transform: rotate(-2deg);
+    
 }
-
-p-owr + sup::before {
+p-owr > sup::before {
+    
     content: '';
     position: absolute;
     height: 100%;
@@ -1661,9 +1437,10 @@ p-owr + sup::before {
     background-size: 100% 100%;
     background-image: var(--girk-02);
     filter: var(--powr-filter);
+    
 }
-
-p-owr + sup::after {
+p-owr > sup::after {
+    
     content: '-1';
     position: absolute;
     font-size: 0.5em;
@@ -1674,13 +1451,29 @@ p-owr + sup::after {
     filter: var(--powr-filter);
     
 }
-
 p-owr[data-dark] {
     --powr-filter: url("#lightness");
 }
+p-owr[data-dark] > sup {
+    --powr-filter: url("#lightness");
+}
+p-owr[data-ghost] {
+    --powr-filter: url("#ghost");
+}
+p-owr[data-ghost] > sup {
+    --powr-filter: url("#ghost");
+}
+p-owr[data-margin2] { margin-right: 2ch; }
+p-owr[data-margin3] { margin-right: 3ch; }
+p-owr[data-margin4] { margin-right: 4ch; }
+p-owr[data-opt1] > sup::before {
+    background-image: var(--girk-00);
+}
+p-owr[data-opt2] > sup::before {
+    background-image: var(--girk-01);
+}
 
-</style>
-<style id="i-pow">
+
 
 i-pow {
     
@@ -1688,9 +1481,10 @@ i-pow {
     --ipow-rot: -5deg;
     
     position: relative;
+    display: inline-block;
+    margin-bottom: 1em;
     
 }
-
 i-pow::before, i-pow::after {
     
     content: '';
@@ -1698,7 +1492,6 @@ i-pow::before, i-pow::after {
     height: calc(100% + 0px);
     
 }
-
 i-pow::before {
     
     width: calc(50% + 4px);
@@ -1711,7 +1504,6 @@ i-pow::before {
     xborder: 1px solid;
     
 }
-
 i-pow::after {
     
     width: calc(100% + 8px);
@@ -1724,7 +1516,6 @@ i-pow::after {
     transform: rotate(var(--ipow-rot));
 
 }
-
 i-pow > sup {
     
     --ipow-filter: url("#viva");
@@ -1732,7 +1523,6 @@ i-pow > sup {
     margin-left: 5px;
     
 }
-
 i-pow > sup::before {
     
     content: '';
@@ -1746,7 +1536,6 @@ i-pow > sup::before {
     filter: var(--ipow-filter);
     
 }
-
 i-pow > sup::after {
     
     content: '+1';
@@ -1759,15 +1548,10 @@ i-pow > sup::after {
     filter: var(--ipow-filter);
     
 }
-
-i-pow[data-dark], i-pow+sup[data-dark] {
-    
+i-pow[data-dark],
+i-pow[data-dark] > sup {
     --ipow-filter: url("#lightness");
-    
 }
-
-</style>
-<style id="i-teg">
 
 i-teg {
         
@@ -1842,7 +1626,8 @@ i-teg[data-viva-diff] {
     --iteg-filter-diff: url("#viva");
 }
 
-i-teg[data-gank], i-teg[data-ghost] {
+i-teg[data-gank],
+i-teg[data-ghost] {
     
     --iteg-filter-sigma: url("#outline");
     --iteg-filter-from: url("#outline");
@@ -1850,16 +1635,6 @@ i-teg[data-gank], i-teg[data-ghost] {
     --iteg-filter-diff: url("#outline");
     
 }
-
-i-teg[data-vapor] {
-
-    --iteg-filter-sigma: url("#vapor");
-    --iteg-filter-from: url("#vapor");
-    --iteg-filter-to: url("#vapor");
-    --iteg-filter-diff: url("#vapor");
-
-}
-
 i-teg[data-gank]::after {
     content: '';
     position: absolute;
@@ -1875,13 +1650,24 @@ i-teg[data-gank]::after {
     
 }
 
+i-teg[data-vapor] {
 
-</style>
-<style id="i-prt">
+    --iteg-filter-sigma: url("#vapor");
+    --iteg-filter-from: url("#vapor");
+    --iteg-filter-to: url("#vapor");
+    --iteg-filter-diff: url("#vapor");
+
+}
+
+
+
+
+
 /*
-    inside i-teg, will select a u and v'
-    for integration by parts
+    integration by parts
+    data-iprt inside i-teg, will select a u and v'
 */
+
 [data-iprt] {
     
     --iprt-filter-u: url("#viva");
@@ -1959,19 +1745,76 @@ i-teg[data-gank]::after {
     --iprt-filter-v: url("#inverse");
 }
 
-</style>
-<style id="uv-table">
-
-/*
-    sets up the uv table for integration by parts
-    use data-empty parameter for empty table
-    <uv-table [data-empty]>
-        <b>u </b>
-        <b>u'</b>
-        <b>v </b>
-        <b>v'</b>
-    </uv-table>
-*/
+e-kwa {
+    
+    --ekwa-shade: var(--text-ghost);
+    --ekwa-rot : -7deg;
+    
+    position: relative;
+    font-size: 0.8em;
+    word-spacing: -0.2em;
+    color: rgba(0,0,0,0);
+    text-shadow: var(--ekwa-shade);
+    
+}
+e-kwa > b:nth-of-type(1) {
+    
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: rotate(var(--ekwa-rot));
+    font-size: 1em;
+    font-family: luckiest;
+    line-height: 2em;
+    text-align: center;
+    text-shadow: none;
+    white-space: nowrap;
+    overflow: visible;
+    color: var(--lightness);
+    filter: url("#lil-viva");
+    z-index: 10;
+    
+}
+e-kwa > b:nth-of-type(1)::before {
+    content: "";
+    margin-left: -500%;
+}
+e-kwa > b:nth-of-type(1)::after {
+    content: "";
+    margin-right: -500%;
+}
+e-kwa[data-dark] {
+    text-shadow: none;
+    color: var(--lightness);
+}
+e-kwa > b:nth-of-type(1)[data-dark] {
+    filter: none;
+}
+e-kwa[data-vapor] {
+    
+    font-size: 0.8em;
+    text-shadow: var(--text-vapor);
+    
+}
+e-kwa[data-vapor] > b:nth-of-type(1) {
+    
+    line-height: 1.5em;
+    
+}
+e-kwa[data-norm] > b:nth-of-type(1) {
+    
+    font-family: inherit;
+    
+}
+e-kwa[data-noturn] > b:nth-of-type(1) {
+    
+    --ekwa-rot: 0deg;
+    top: 0;
+    font-size: 1em;
+    line-height: 1em;
+}
 
 uv-table {
     
@@ -1993,9 +1836,6 @@ uv-table {
     
 }
 
-uv-table[data-empty] {
-    grid-column-gap: 10px;
-}
 uv-table::before {
     content: '';
     position: absolute;
@@ -2006,7 +1846,6 @@ uv-table::before {
     border-top: 1px solid var(--greyness);
     
 }
-
 uv-table::after {
     content: 'uv\00a0-\00a0\222bvu\'';
     position: absolute;
@@ -2021,15 +1860,10 @@ uv-table::after {
     filter: url("#greyness");
     
 }
-
 uv-table:hover::after {
     content: var(--uv-table-msg1);
     padding: 0px 2px;
     filter: url("#lil-viva");
-}
-
-uv-table[data-empty]:hover::after {
-    content: var(--uv-table-msg0);
 }
 
 uv-table > b {
@@ -2038,7 +1872,6 @@ uv-table > b {
     text-align: center;
     
 }
-
 uv-table > b::before {
     
     left: 0;
@@ -2050,21 +1883,17 @@ uv-table > b::before {
     font-style: normal;
     
 }
-
 uv-table > b:nth-child(1),
 uv-table > b:nth-child(2) {
     color: var(--lightness);
 }
-
 uv-table > b:nth-child(3),
 uv-table > b:nth-child(4) {
     color: var(--inverse);
 }
-
 uv-table > b:nth-child(1)::before {
     content: 'u=';
 }
-
 uv-table > b:nth-child(1)::after {
     
     content: '\27ff';
@@ -2077,30 +1906,29 @@ uv-table > b:nth-child(1)::after {
     filter: var(--uv-filter-u);
     
 }
-
+uv-table[data-empty] {
+    grid-column-gap: 10px;
+}
 uv-table[data-empty] > b:nth-child(1)::after {
     display: none;
 }
-
-/*second child*/
-
+uv-table[data-empty]:hover::after {
+    content: var(--uv-table-msg0);
+}
 uv-table > b:nth-child(2)::before {
     content: 'u\'=';
     color: var(--uv-color-u);
 }
-
 uv-table[data-empty] > b:nth-child(2) {
     color: rgba(0,0,0,0);
     letter-spacing: -1ch;
     border-bottom: 1px solid var(--greyness);
 }
-
 uv-table[data-empty] > b:nth-child(2)::before {
     content: 'u\'= ???';
     letter-spacing: normal;
     filter: var(--uv-filter-u);
 }
-
 uv-table:not([data-empty]) > b:nth-child(2)::after {
     
     content: '';
@@ -2114,29 +1942,22 @@ uv-table:not([data-empty]) > b:nth-child(2)::after {
     transform: rotate(357deg);
     
 }
-
-/*third child*/
-
 uv-table > b:nth-child(3)::before {
     content: 'v=';
     color: var(--uv-color-v);
 }
-
 uv-table[data-empty] > b:nth-child(3)::before {
     content: 'v= ???';
     letter-spacing: normal;
     
 }
-
 uv-table[data-empty] > b:nth-child(3) {
     color: rgba(0,0,0,0);
     letter-spacing: -1ch;
 }
-
 uv-table[data-empty] > b:nth-child(3)::before {
     filter: var(--uv-filter-v);
 }
-
 uv-table:not([data-empty]) > b:nth-child(3)::after {
     
     content: '';
@@ -2150,13 +1971,9 @@ uv-table:not([data-empty]) > b:nth-child(3)::after {
     transform: rotate(357deg);
     
 }
-
-/*fourth child*/
-
 uv-table > b:nth-child(4)::before {
     content: 'v\'=';
 }
-
 uv-table > b:nth-child(4)::after {
     
     content: '\21dc\00a0';
@@ -2168,48 +1985,32 @@ uv-table > b:nth-child(4)::after {
     filter: var(--uv-filter-v);
 
 }
-
 uv-table[data-empty] > b:nth-child(4)::after {
     display: none;
 }
 
-</style>
-<style id="by-parts">
-/*
-    fills in the integration by parts formula
-    <by-parts>
-        <b>u</b>
-        <b>v</b>
-        <b>v</b>
-        <b>u'</b>
-    </by-parts>
-*/
+
 by-parts {
     --by-parts-filter: url("#viva");
     position: relative;
     font-size: 0.7em;
 }
-
 by-parts > :nth-child(1),
 by-parts > :nth-child(4) {
     color: var(--lightness);
 }
-
 by-parts > :nth-child(2),
 by-parts > :nth-child(3) {
     color: var(--inverse);
 }
-
 by-parts > :nth-child(1)::after {
     content: '\00a0\00b7';
     filter: var(--by-parts-filter);
 }
-
 by-parts > :nth-child(2)::after {
     content: '\00a0\-';
     filter: var(--by-parts-filter);
 }
-
 by-parts > :nth-child(3)::before {
     content: '\222b';
     margin-right: 0.5ch;
@@ -2217,59 +2018,474 @@ by-parts > :nth-child(3)::before {
     filter: var(--by-parts-filter);
     
 }
-
 by-parts > :nth-child(4)::before {
     content: '\00b7\00a0';
     filter: var(--by-parts-filter);
 }
-
 by-parts[data-dark] {
     --by-parts-filter: url("#greyness");
 }
 
-</style>
-<style id="fakt-left">
+k-wad {
+    
+    --kwad-var: 'x';
+    --kwad-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath fill-rule='nonzero' d='M0 100A40 100 0 0 1 40 0L35 3A35 97 0 0 0 3 100ZM 100 100A40 100 0 0 0 60 0L65 3A35 97 0 0 1 97 100Z' fill='%23000' /%3E %3C/svg%3E");
+    
+    position: relative;
+    
+}
+k-wad::after {
+    
+    content: '';
+    position: absolute;
+    visibility: hidden;
+    width: calc(100% - 1ch);
+    height: 60%;
+    left: 0.5ch;
+    bottom: 90%;
+    background-size: 100% 100%;
+    background-image: var(--kwad-arc);
+    filter: url("#viva");
+    
+}
+k-wad > b:nth-of-type(4) {
+    
+    position: absolute;
+    display: none;
+    visibility: hidden;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    bottom: 70%;
+    font-size: 0.6em;
+    font-family: luckiest;
+    transform: rotate(-5deg);
+    filter: url("#viva");
+}
+k-wad > g-fak {
+    
+    position: absolute;
+    display: none;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 100%;
+    
+}
 
-/*shows factors being draw infront of parens to the left*/
+k-wad[data-fak1] > b:nth-of-type(1)::before,
+k-wad[data-fak1] > b:nth-of-type(3)::before {
+    
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: calc(100% + 10px);
+    top: 0;
+    left: -5px;
+    background-size: 100% 100%;
+    filter: url("#viva");
+    
+}
+k-wad[data-fak1] > b:nth-of-type(1)::before {
+    background-image: var(--girk-00);
+}
+k-wad[data-fak1] > b:nth-of-type(3)::before {
+    background-image: var(--girk-03);
+}
+
+k-wad[data-fak2]::after {
+    
+    visibility: visible;
+    
+}
+k-wad[data-fak2] > b:nth-of-type(4) {
+    
+    display: inline;
+    visibility: visible;
+    
+}
+
+k-wad[data-fak3]::after {
+    
+    visibility: visible;
+    filter: url("#lightness");
+    
+}
+k-wad[data-fak3] > b:nth-of-type(4) {
+    
+    xvisibility: hidden;
+    xdisplay: none;
+    visibility: visible;
+    display: inline;
+    filter: url("#vapor");
+    
+}
+k-wad[data-fak3] > g-fak {
+    
+    display: inline;
+    visibility: visible;
+    color: var(--lightness);
+    text-shadow: none;
+    filter: url("#lil-viva");
+    transform: scale(0.5, 0.5);
+    
+}
+k-wad[data-fak3] > g-fak::before {
+    content: '=';
+    font-size: 0.7em;
+    margin-right: -0.5ch;
+}
+k-wad[data-fak3] > g-fak > b {
+    visibility: hidden;
+}
+
+k-wad[data-fak4]::after {
+    
+    visibility: visible;
+    filter: url("#vapor");
+    
+}
+k-wad[data-fak4] > g-fak {
+    
+    visibility: visible;
+    display: inline;
+    bottom: 110%;
+    transform: scale(0.8, 0.8);
+    
+}
+
+k-wad[data-fak5] {
+    color: var(--midness);
+}
+k-wad[data-fak5] > b:nth-of-type(2) {
+    color: var(--whiteness);
+}
+k-wad[data-fak5] > b:nth-of-type(2)::before {
+    
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: calc(100% + 10px);
+    left: -5px;
+    top: 0;
+    background-size: 100% 100%;
+    background-image: var(--girk-01);
+    filter: url("#viva");
+    transform: rotate(10deg);
+    
+}
+k-wad[data-fak5] > b:nth-of-type(2)::after {
+    
+    content: '?=';
+    position: absolute;
+    top: 10%;
+    left: -1.2ch;
+    font-size: 0.6em;
+    font-family: luckiest;
+    text-align: center;
+    white-space: nowrap;
+    color: var(--inverse);
+    filter: url("#vers");
+    transform: rotate(-10deg);
+        
+}
+k-wad[data-fak5] > g-fak {
+    
+    visibility: visible;
+    display: inline;
+    bottom: 120%;
+    transform: scale(0.8, 0.8);
+    text-shadow: var(--text-vapor);
+    
+}
+k-wad[data-fak5] > g-fak > b {
+    
+    top: 40%;
+    filter: url("#lightness");
+    transform: scale(1.5, 1.5);
+    
+}
+
+k-wad[data-fak6] {
+    color: var(--darkness);
+}
+k-wad[data-fak6] > b:nth-of-type(2) {
+    color: var(--inverse);
+}
+k-wad[data-fak6] > b:nth-of-type(2)::after {
+    
+    content: '?=';
+    position: absolute;
+    top: 10%;
+    left: -1.2ch;
+    font-size: 0.6em;
+    font-family: luckiest;
+    text-align: center;
+    white-space: nowrap;
+    color: var(--inverse);
+    filter: url("#vers");
+    transform: rotate(-10deg);
+        
+}
+k-wad[data-fak6] > g-fak {
+    
+    visibility: visible;
+    display: inline;
+    bottom: 120%;
+    transform: scale(0.8, 0.8);
+    text-shadow: none;
+    color: rgba(0,0,0,0);
+    border: 1px solid;
+    
+}
+k-wad[data-fak6] > g-fak > b {
+    
+    top: 40%;
+    xfilter: url("#lightness");
+    filter: none;
+    transform: scale(1.5, 1.5);
+    
+}
+k-wad[data-fak6] > g-fak > b::after {
+    
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 5px);
+    top: 0;
+    left: 2.5px;
+    background-size: 100% 100%;
+    background-image: var(--girk-03);
+    filter: url("#viva");
+    transform: scale(-1, 1);
+    
+}
+k-wad[data-guess] {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-ghost);
+}
+k-wad[data-guess]::after {
+    
+    content: '(' var(--kwad-var) '\00a0\00b1\00a0?)\00a0(' var(--kwad-var) '\00a0\00b1\00a0?)';
+    position: absolute;
+    left: -50%;
+    bottom: -15%;
+    width: 200%;
+    font-size: 0.6em;
+    text-align: center;
+    text-shadow: none;
+    white-space: nowrap;
+    color: var(--lightness);
+    filter: url("#viva");
+    
+}
+
+r-aze {
+    
+    --raze-filter: url("#viva");
+    --raze-filter-arrow: url("#lil-viva");
+    
+    position: relative;
+    margin-left: 1ch;
+    
+}
+r-aze::after {
+    
+    content: '';
+    position: absolute;
+    display: inline-block;
+    height: 20px;
+    width: 17px;
+    right: 95%;
+    top: 30%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 80Q40 40 50 0L100 80L80 90L50 20Q40 67 20 100Z' /%3E%3C/svg%3E");
+    
+    filter: var(--raze-filter-arrow);
+    
+}
+r-aze > :nth-child(1) {
+    
+    position: absolute;
+    display: inline-block;
+    top: 60%;
+    right: calc(100% - 5px);
+    font-family: luckiest;
+    transform: rotate(-12deg);
+    filter: var(--raze-filter);
+    
+}
+r-aze > :nth-child(2) {
+    display: inline;
+    font-size: 0.6em;
+    vertical-align: 80%;
+}
+r-aze > :nth-child(2)::before {
+    content: '[';
+    font-weight: bold;
+}
+r-aze > :nth-child(2)::after {
+    content: ']';
+    font-weight: bold;
+}
+r-aze[data-dark] {
+    --raze-filter: none;
+    --raze-filter-arrow: url("#lightness");
+}
+r-aze[data-dark-value] {
+    --raze-filter: none;
+}
+r-aze[data-dark-arrow] {
+    --raze-filter-arrow: none;
+    --raze-filter-arrow: url("#lightness");
+}
+
+r-oot {
+    
+    --root-high: 120%;
+    --root-rot: 0deg;
+    --root-filter: url("#lightness");
+    
+    --root-for-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M8 46L14 30L19 52L18 0L23 1L24 90L11 43Z' /%3E%3C/svg%3E");
+    
+    --root-aft-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 0H 100V3L 2 7Z' /%3E%3C/svg%3E");
+    
+    --root-for-viva: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M8 50L12 28L24 52Q22 25 18 0L23 1Q28 45 27 90Q22 63 11 43 Z' /%3E%3C/svg%3E");
+    
+    --root-aft-viva: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 0H 100L95 2L 2 7Z' /%3E%3C/svg%3E");
+    
+    --root-slash: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 30L100 20L95 35L10 50Z'/%3E%3C/svg%3E");
+    
+    --root-for-mig: var(--root-for-dark);
+    --root-aft-mig: var(--root-aft-dark);
+
+    
+    font-size: 0.8em;
+    word-spacing: -0.2em;
+    margin-left: 1.5ch;
+    margin-right: 0.5ch;
+    
+    position: relative;
+    
+}
+r-oot::before,
+r-oot::after {
+    
+    content: '';
+    position: absolute;
+    height: var(--root-high);
+    top: calc((100% - var(--root-high))/2);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: var(--root-filter);
+
+}
+r-oot::before {
+    width: 30px;
+    left: -35px;
+    background-image: var(--root-for-mig);
+}
+r-oot::after {
+    width: calc(100% + 25px);
+    left: -17px;
+    background-image: var(--root-aft-mig);
+}
+r-oot > b:nth-of-type(1) {
+    
+    position: absolute;
+    font-size: 0.5em;
+    font-weight: bold;
+    top: -25%;
+    right: calc(100% + 1em);
+    white-space: nowrap;
+    z-index: 2;
+    
+}
+r-oot ~ sup {
+    display: inline-block;
+    font-size: 0.6em;
+    font-family: luckiest;
+    vertical-align: 100%;
+    transform: rotate(-12deg);
+}
+r-oot[data-viva] {
+    
+    --root-for-mig: var(--root-for-viva);
+    --root-aft-mig: var(--root-aft-viva);
+    
+}
+r-oot[data-viva] {
+    
+    --root-filter: url("#viva");
+    --root-lil-filter: url("#lil-viva");
+    
+}
+r-oot[data-viva] > b:nth-of-type(1) {
+    
+    --root-rot: -15deg;
+    top: -12%;
+    right: calc(100% + 0.8em);
+    font-family: luckiest;
+    font-weight: normal;
+    filter: var(--root-lil-filter);
+    transform: rotate(var(--root-rot));
+    
+}
+r-oot ~ sup[data-viva] {
+    filter: url("#lil-viva");
+}
+r-oot[data-gank] {
+    
+    --root-for-mig: var(--root-for-viva);
+    --root-aft-mig: var(--root-aft-viva);
+    --root-filter: url("#outline");
+    --root-lil-filter: url("#lil-viva");
+    
+}
+r-oot[data-gank] > b:nth-of-type(1) {
+    
+    --root-rot: -15deg;
+    top: -18%;
+    right: calc(100% + 0.8em - 20px);
+    padding-left: 5px;
+    padding-right: 20px;
+    font-family: luckiest;
+    font-weight: normal;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: var(--root-slash);
+    transform: rotate(var(--root-rot));
+    filter: var(--root-lil-filter);
+    
+}
 
 fakt-left {
     
-    --fakt-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
-    M 0 100\
-    A 10 20 0 0 1 100 100\
-    H 99.5\
-    A 10 20 0 0 0 8 100\
-    H 0\
-    A 10 30 0 0 1 44 100\
-    H 43.5\
-    A 10 31.5 0 0 0 8 100\
-    Z'/%3E%3C/svg%3E");
+    --fakt-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H99.5A10 20 0 0 0 8 100H0A10 30 0 0 1 44 100H43.5A10 31.5 0 0 0 8 100Z'/%3E%3C/svg%3E");
     
-
-    
-    --fakt-right: 1.8ch;
+    --fakt-right: 1.6ch;
     --fakt-filter: url("#viva");
+    --arc-wide: 1ch;
     
     position: relative;
     margin-left: 0.8ch;
     
 }
-
 fakt-left::after {
     
     content: '';
     position: absolute;
-    width: calc(0ch + 100%);
+    width: calc(100% - var(--arc-wide));
     height: 25px;
-    right: 1ch;
-    xright: var(--fakt-right);
+    right: var(--fakt-right);
     bottom: 90%;
     background-size: 100% 100%;
     background-image: var(--fakt-left-00);
     filter: var(--fakt-filter);
     
 }
-
 fakt-left > b:nth-child(1) {
     position: absolute;
     width: 3ch;
@@ -2285,19 +2501,27 @@ fakt-left > b:nth-child(1) {
     z-index: 10;
     
 }
-
 fakt-left > b:nth-child(1)::before {
     content: "";
-    margin-left: -100%;
+    margin-left: -500%;
 }
-
 fakt-left > b:nth-child(1)::after {
     content: "";
-    margin-right: -100%;
+    margin-right: -500%;
+}
+fakt-left[data-dark] {
+    --fakt-filter: url("#lightness");
+}
+fakt-left[data-ghost] {
+    --fakt-filter: url("#ghost");
+}
+fakt-left[data-vapor] {
+    --fakt-filter: url("#vapor");
+}
+fakt-left[data-norm] > b:nth-child(1) {
+    font-family: inherit;
 }
 
-</style>
-<style id="dist-rite">
 
 dist-rite {
     
@@ -2315,7 +2539,6 @@ dist-rite {
     position: relative;
 
 }
-
 dist-rite::before {
     
     content: '';
@@ -2330,7 +2553,6 @@ dist-rite::before {
     filter: var(--dist-filter);
     
 }
-
 dist-rite::after {
     
     content: '';
@@ -2345,106 +2567,77 @@ dist-rite::after {
     filter: var(--dist-filter);
     
 }
-
 dist-rite[data-trig] {
     --dist-left: 1.5ch;
     --arc1-wide: 46%;
     --arc2-wide: calc(100% - 2ch);
 }
-
 dist-rite[data-dark] {
     --dist-filter: url("#lightness");
 }
-
 dist-rite[data-ghost] {
     --dist-filter: url("#outline");
 }
-
 dist-rite[data-vapor] {
     --dist-filter: url("#vapor");
 }
 
-</style>
-<style id="rat-dist">
-
-/*
-    shows over-arching distribution to the right
-    with ghosted coefficient and viva values
+rite-dist {
     
-    <rat-dist>
-        <b>3</b>    <!-- coefficient -->
-        <b>x        <!-- first value -->
-          <b>17</b> <!-- coefficient -->
-        </b>
-        +
-        <b>x        <!-- second value -->
-          <b>17</b> <!-- coefficient -->
-        </b>
-    </rat-dist>
+    --dist-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
         
-*/
-
-rat-dist {
-    
-    --rat-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
-        
-    --rat-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H85A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
+    --dist-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H85A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
     
     --arc1-wide: 51%;
     --arc2-wide: calc(100% - 1.5ch);
-    --rat-left: 0.5ch;
-    --rat-filter: url("#viva");
-    --rat-filter-lil: url("#lil-viva");
-    --rat-shade: var(--text-ghost);
+    --dist-left: 0.5ch;
+    --dist-filter: url("#viva");
+    --dist-filter-lil: url("#lil-viva");
+    --dist-shade: var(--text-ghost);
     
     position: relative;
 
 }
-
-rat-dist::before {
+rite-dist::before {
     
     content: '';
     position: absolute;
-    width: calc(var(--arc2-wide) - var(--rat-left));
+    width: calc(var(--arc2-wide) - var(--dist-left));
     height: 25px;
     xaspect-ratio: 6 / 1;
-    left: var(--rat-left);
+    left: var(--dist-left);
     bottom: 90%;
     background-size: 100% 100%;
-    background-image: var(--rat-arc1);
-    filter: var(--rat-filter);
+    background-image: var(--dist-arc1);
+    filter: var(--dist-filter);
     
 }
-
-rat-dist::after {
+rite-dist::after {
     
     content: '';
     position: absolute;
-    width: calc(var(--arc1-wide) - var(--rat-left));
+    width: calc(var(--arc1-wide) - var(--dist-left));
     height: 20px;
     xaspect-ratio: 6 / 1;
-    left: var(--rat-left);
+    left: var(--dist-left);
     bottom: 90%;
     background-size: 100% 100%;
-    background-image: var(--rat-arc2);
-    filter: var(--rat-filter);
+    background-image: var(--dist-arc2);
+    filter: var(--dist-filter);
     
 }
-
-rat-dist > b:nth-child(1) {
+rite-dist > b:nth-child(1) {
     
     color: rgba(0,0,0,0);
-    text-shadow: var(--rat-shade);
+    text-shadow: var(--dist-shade);
     
 }
-
-rat-dist > b:nth-child(1)::after {
+rite-dist > b:nth-child(1)::after {
     
     content: '\00a0\00b7';
     
 }
-
-rat-dist > b > b {
+rite-dist > b > b {
     
     display: inline-block;
     height: 100%;
@@ -2454,52 +2647,50 @@ rat-dist > b > b {
     text-align: center;
     white-space: nowrap;
     transform: rotate(-15deg) translate(-5px, -50%);
-    filter: var(--rat-filter-lil);
+    filter: var(--dist-filter-lil);
 
 }
-
-rat-dist > b:nth-child(2) {
+rite-dist > b:nth-child(2) {
     
     margin-right: -0.5ch;
     
 }
-
-rat-dist > b:nth-child(2)::before {
+rite-dist > b:nth-child(2)::before {
     
     content: '(';
     
 }
-
-rat-dist > b > b::before {
+rite-dist > b > b::before {
     content: "\00d7";
-    margin-left: -100%;
+    margin-left: -500%;
 }
-
-rat-dist > b > b::after {
+rite-dist > b > b::after {
     content: "";
-    margin-right: -100%;
+    margin-right: -500%;
 }
-
-rat-dist > b:nth-child(3)::after {
+rite-dist > b:nth-child(3)::after {
     
     content: ')';
     display: inline-block;
     transform: translate(-0.5ch,0);
     
 }
-
-rat-dist[data-dark] {
-    --rat-filter: url("#lightness");
-    --rat-filter-lil: url("#lightness");
+rite-dist[data-dark] {
+    --dist-filter: url("#lightness");
+    --dist-filter-lil: url("#lightness");
 }
-
-rat-dist[data-dark] > b:nth-child(1) {
+rite-dist[data-dark] > b:nth-child(1) {
     color: var(--lightness);
     text-shadow: none;
 }
+rite-dist[data-norm] > b > b {
+    
+    font-family: inherit;
+    
+}
 
-</style>
-<style id="fakt-all">
+
+
 
 fakt-all {
     
@@ -2577,10 +2768,162 @@ fakt-all[data-vapor] > b::before {
     -fakt-filter: url("#viva");
 }
 
-</style>
-<style id="g-ank">
+l-ogb {
+    
+    --logb-filter: none;
+    --logb-filter-base: none;
+    --logb-stroke: 0.7px var(--darkness);
+    
+    position: relative;
+    margin-left: 4ch;
+    white-space: nowrap;
 
-:not(r-oot)[data-gank], g-ank {
+}
+l-ogb::before {
+    content: 'log\00a0(';
+    position: absolute;
+    right: 100%;
+    top: 0;
+    filter: var(--logb-filter);
+}
+l-ogb::after {
+    content: ')';
+    right: 0;
+    top: 0;
+    filter: var(--logb-filter);
+}
+l-ogb > b:nth-child(1) {
+    
+    position: absolute;
+    right: calc(100% + 0.4em);
+    bottom: -0.4em;
+    transform: rotate(-12deg);
+    font-size: 0.6em;
+    font-weight: bold;
+    font-family: luckiest;
+    color: var(--lightness);
+    filter: var(--logb-filter-base);
+    -webkit-text-stroke: var(--logb-stroke);
+    
+}
+l-ogb > b:nth-child(2) {
+    
+    color: var(--lightness);
+    
+}
+
+l-ogb[data-viva] {
+    --logb-filter: url("#viva");
+    --logb-filter-base: url("#lil-viva");
+    --logb-stroke: 0px #000;
+}
+l-ogb[data-viva-base] {
+    --logb-filter-base: url("#lil-viva");
+    --logb-stroke: 0px #000;
+}
+
+l-ogb[data-ghost] {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-ghost);
+    --logb-filter-base: url("#ghost");
+    x--logb-stroke: 3px #000;
+}
+l-ogb[data-ghost] > b:nth-child(1) {
+    text-shadow: none;
+    color: rgba(0,0,0,0);
+}
+l-ogb[data-ghost] > b:nth-child(2) {
+    text-shadow: none;
+}
+
+l-ogb[data-gank] {
+    --logb-filter: url("#viva");
+    --logb-filter-base: url("#lil-viva");
+}
+l-ogb[data-gank]::before {
+    
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 60L18 2L30 60L43 20L60 85Q77 70 100 55Q70 80 60 100L45 50Q34 70 32 90L17 30Z'/%3E%3C/svg%3E");
+    
+
+}
+l-ogb[data-gank]::after {
+    
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 40L100 0L32 35L100 33L40 60L100 100L15 58L70 40Z'/%3E%3C/svg%3E");
+}
+l-ogb[data-gank] > b:nth-child(1) {
+    color: rgba(0,0,0,0);
+}
+
+l-ogb[data-arc] {
+    
+    display: inline-block;
+    margin-bottom: 1em;
+    
+}
+l-ogb[data-arc] > b:nth-child(1)::before {
+    
+    content: '';
+    position: absolute;
+    height: calc(100% + 5px);
+    width: calc(100% + 10px);
+    top: -8px;
+    left: -5px;
+    transform: rotate(12deg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: var(--girk-01);
+    filter: url("#viva");
+    
+}
+l-ogb[data-arc] > b:nth-child(1)::after {
+    
+    content: '';
+    position: absolute;
+    height: 2em;
+    width: 1.7em;
+    top: 0;
+    right: 100%;
+    transform: rotate(12deg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: var(--logb-arc);
+    filter: url("#viva");
+    
+}
+
+l-ogb[data-hat] {
+    
+    display: inline-block;
+    color: var(--midness);
+    
+}
+l-ogb[data-hat] > b:nth-child(1)::before {
+    
+    content: '';
+    position: absolute;
+    height: 2em;
+    width: 1.7em;
+    bottom: 55%;
+    right: -40%;
+    transform: rotate(-15deg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: var(--logb-hat);
+    filter: url("#viva");
+    z-index: -10;
+    
+}
+
+
+
+
+
+/*:not(r-oot)[data-gank],*/
+g-ank {
     
     --gank-color: var(--midness, #900);
     --gank-wide: 150%;
@@ -2590,23 +2933,29 @@ fakt-all[data-vapor] > b::before {
     --gank-opacity: 1;
     
     position: relative;
+    
+    border: 1px solid;
 }
 
-:not(r-oot)[data-gank][data-hi], g-ank[data-hi] {
+/*:not(r-oot)[data-gank][data-hi],*/
+g-ank[data-hi] {
     --gank-high: 100%;
 }
 
-:not(r-oot)[data-gank][data-opt1], g-ank[data-opt1] {
+/*:not(r-oot)[data-gank][data-opt1],*/
+g-ank[data-opt1] {
     --gank-back: var(--gank-01);
     --gank-wide: 160%;
 }
 
-:not(r-oot)[data-gank][data-opt2], g-ank[data-opt2] {
+/*:not(r-oot)[data-gank][data-opt2],*/
+g-ank[data-opt2] {
     --gank-back: var(--gank-02);
     --gank-wide: calc(150% + 20px);
 }
 
-:not(r-oot)[data-gank]::after, g-ank::after {
+/*:not(r-oot)[data-gank]::after,*/
+g-ank::after {
     
     content: '';
     
@@ -2623,900 +2972,3 @@ fakt-all[data-vapor] > b::before {
     filter: url("#viva");
     
 }
-
-
-</style>
-<style id="r-oot">
-/*
-    creates an nth-root with symbol and index
-    <r-oot
-        data-viva  <!-- options to light up -->
-        data-gank  <!-- option to cancel out -->
-    >
-        <b>3</b>   <!-- optional index-th root -->
-        8x         <!-- radicand -->
-    </root>
-    
-    <sup data-viva>  <!-- if followed by exponent, -->
-        exponent     <!-- it will be formatted     -->
-    </sup>
-    
-    simple example for 'square root of three':
-    
-        <r-oot>3</r-oot>
-        
-*/
-
-r-oot {
-    
-    --root-high: 120%;
-    --root-rot: 0deg;
-    --root-filter: url("#lightness");
-    
-    --root-for-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M8 46L14 30L19 52L18 0L23 1L24 90L11 43Z' /%3E%3C/svg%3E");
-    
-    --root-aft-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 0H 100V3L 2 7Z' /%3E%3C/svg%3E");
-    
-    --root-for-viva: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M8 50L12 28L24 52Q22 25 18 0L23 1Q28 45 27 90Q22 63 11 43 Z' /%3E%3C/svg%3E");
-    
-    --root-aft-viva: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 0H 100L95 2L 2 7Z' /%3E%3C/svg%3E");
-    
-    --root-slash: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 30L100 20L100 35L10 50Z'/%3E%3C/svg%3E");
-    
-    --root-for-mig: var(--root-for-dark);
-    --root-aft-mig: var(--root-aft-dark);
-
-    
-    font-size: 0.8em;
-    word-spacing: -0.2em;
-    margin-left: 1.5ch;
-    margin-right: 0.5ch;
-    
-    position: relative;
-    
-}
-
-r-oot::before,
-r-oot::after {
-    
-    content: '';
-    position: absolute;
-    height: var(--root-high);
-    top: calc((100% - var(--root-high))/2);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    filter: var(--root-filter);
-
-}
-
-r-oot::before {
-    width: 30px;
-    left: -35px;
-    background-image: var(--root-for-mig);
-}
-
-r-oot::after {
-    width: calc(100% + 25px);
-    left: -17px;
-    background-image: var(--root-aft-mig);
-}
-
-r-oot[data-viva],
-r-oot[data-gank] {
-    
-    --root-for-mig: var(--root-for-viva);
-    --root-aft-mig: var(--root-aft-viva);
-    
-}
-
-r-oot[data-viva] {
-    
-    --root-filter: url("#viva");
-    --root-lil-filter: url("#lil-viva");
-    
-}
-
-r-oot[data-gank] {
-    
-    --root-filter: url("#outline");
-    --root-lil-filter: url("#lil-viva");
-    
-}
-
-r-oot > b:nth-of-type(1) {
-    
-    position: absolute;
-    font-size: 0.5em;
-    font-weight: bold;
-    top: -25%;
-    right: calc(100% + 1em);
-    z-index: 2;
-    
-}
-
-r-oot[data-viva] > b:nth-of-type(1) {
-    
-    --root-rot: -15deg;
-    top: -12%;
-    right: calc(100% + 0.8em);
-    font-family: luckiest;
-    font-weight: normal;
-    filter: var(--root-lil-filter);
-    transform: rotate(var(--root-rot));
-    
-}
-
-r-oot[data-gank] > b:nth-of-type(1) {
-    
-    --root-rot: -15deg;
-    top: -18%;
-    right: calc(100% + 0.8em - 20px);
-    padding-left: 5px;
-    padding-right: 20px;
-    font-family: luckiest;
-    font-weight: normal;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: var(--root-slash);
-    transform: rotate(var(--root-rot));
-    filter: var(--root-lil-filter);
-    
-}
-
-r-oot ~ sup {
-    display: inline-block;
-    font-size: 0.6em;
-    font-family: luckiest;
-    vertical-align: 100%;
-    transform: rotate(-12deg);
-}
-
-r-oot ~ sup[data-viva] {
-    filter: url("#lil-viva");
-}
-
-
-</style>
-
-
-</head>
-
-<body>
-<div id="hold0" class="holder">
-<svg id="SVGfilter" height="0" width="0">
-
-    <filter id="lightness">
-      <feFlood flood-color="var(--lightness)" result="F0"/>
-      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
-    </filter>
-    
-    <filter id="midness">
-      <feFlood flood-color="var(--midness)" result="F0"/>
-      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
-    </filter>
-
-    <filter id="darkness">
-      <feFlood flood-color="var(--darkness)" result="F0"/>
-      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
-    </filter>
-    
-    <filter id="inverse">
-      <feFlood flood-color="hsl(
-            calc(var(--nose-h) + 120),
-            var(--nose-s),
-            var(--nose-l)
-      )" result="F0"/>
-      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
-    </filter>
-    
-    <filter id="greyness">
-      <feFlood flood-color="hsl(
-        var(--nose-h),
-        calc(0.1 * var(--nose-s)),
-        calc(0.6 * var(--nose-l))
-      )" result="F0"/>
-      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
-    </filter>
-    
-    <filter id="viva"
-        x="-200%"
-        y="-200%"
-        height="900%"
-        width="900%"
-    >
-        <feGaussianBlur stdDeviation="0.3" result="B0"/>
-        <feFlood flood-color="hsl(
-            var(--nose-h),
-            var(--nose-s),
-            90%
-        )" result="F0"/>
-        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
-        
-        <feGaussianBlur stdDeviation="2" result="B1"/>
-        <feFlood flood-color="hsl(
-            calc(var(--nose-h) + 12),
-            var(--nose-s),
-            50%
-        )" result="F1"/>
-        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
-        
-        <feGaussianBlur stdDeviation="3" result="B2"/>
-        <feFlood flood-color="hsl(
-            calc(var(--nose-h) - 20),
-            calc(var(--nose-s) * 0.69),
-            45%
-        )" result="F2"/>
-        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
-        
-        <feGaussianBlur stdDeviation="4" result="B3"/>
-        <feFlood flood-color="hsl(
-            calc(var(--nose-h) - 40),
-            calc(var(--nose-s) * 1.1),
-            50%
-        )" result="F3"/>
-        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
-        
-        <feGaussianBlur stdDeviation="8" result="B4"/>
-        <feFlood flood-color="hsl(
-            var(--nose-h),
-            calc(var(--nose-s) * 1.1),
-            50%
-        )" result="F4"/>
-        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
-        
-        <feMerge>
-			<feMergeNode in="Z4"/>
-			<feMergeNode in="Z3"/>
-			<feMergeNode in="Z2"/>
-			<feMergeNode in="Z1"/>
-			<feMergeNode in="Z0"/>
-		</feMerge>
-		
-    </filter>
-
-    <filter id="lil-viva"
-        x="-75%"
-        y="-75%"
-        height="300%"
-        width="300%"
-    >
-        <feGaussianBlur stdDeviation="0.3" result="B0"/>
-        <feFlood flood-color="hsl(
-            var(--nose-h),
-            var(--nose-s),
-            90%
-        )" result="F0"/>
-        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
-        
-        <feGaussianBlur stdDeviation="0.7" result="B1"/>
-        <feFlood flood-color="hsl(
-            calc(var(--nose-h) + 12),
-            var(--nose-s),
-            50%
-        )" result="F1"/>
-        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
-        
-        <feGaussianBlur stdDeviation="0.9" result="B2"/>
-        <feFlood flood-color="hsl(
-            calc(var(--nose-h) - 20),
-            calc(var(--nose-s) * 0.69),
-            42%
-        )" result="F2"/>
-        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
-        
-        <feGaussianBlur stdDeviation="2" result="B3"/>
-        <feFlood flood-color="hsl(
-            calc(var(--nose-h) - 40),
-            calc(var(--nose-s) * 1.1),
-            50%
-        )" result="F3"/>
-        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
-        
-        <feGaussianBlur stdDeviation="4" result="B4"/>
-        <feFlood flood-color="hsl(
-            var(--nose-h),
-            calc(var(--nose-s) * 1.1),
-            50%
-        )" result="F4"/>
-        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
-        
-        <feMerge>
-			<feMergeNode in="Z4"/>
-			<feMergeNode in="Z3"/>
-			<feMergeNode in="Z2"/>
-			<feMergeNode in="Z1"/>
-			<feMergeNode in="Z0"/>
-		</feMerge>
-		
-    </filter>
-    
-    <filter id="vers"
-        x="-100%"
-        y="-100%"
-        height="300%"
-        width="300%"
-    >
-        <feGaussianBlur stdDeviation="0.3" result="B0"/>
-        <feFlood flood-color="hsl(
-            calc(var(--nose-h) + 120),
-            var(--nose-s),
-            90%
-        )" result="F0"/>
-        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
-        
-        <feGaussianBlur stdDeviation="2" result="B1"/>
-        <feFlood flood-color="hsl(
-            calc(var(--nose-h) + 12 + 120),
-            var(--nose-s),
-            50%
-        )" result="F1"/>
-        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
-        
-        <feGaussianBlur stdDeviation="3" result="B2"/>
-        <feFlood flood-color="hsl(
-            calc(var(--nose-h) - 20 + 120),
-            calc(var(--nose-s) * 0.69),
-            45%
-        )" result="F2"/>
-        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
-        
-        <feGaussianBlur stdDeviation="4" result="B3"/>
-        <feFlood flood-color="hsl(
-            calc(var(--nose-h) - 40 + 120),
-            calc(var(--nose-s) * 1.1),
-            50%
-        )" result="F3"/>
-        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
-        
-        <feGaussianBlur stdDeviation="8" result="B4"/>
-        <feFlood flood-color="hsl(
-            calc(var(--nose-h) + 120),
-            calc(var(--nose-s) * 1.1),
-            50%
-        )" result="F4"/>
-        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
-        
-        <feMerge>
-			<feMergeNode in="Z4"/>
-			<feMergeNode in="Z3"/>
-			<feMergeNode in="Z2"/>
-			<feMergeNode in="Z1"/>
-			<feMergeNode in="Z0"/>
-		</feMerge>
-		
-    </filter>
-
-    <filter id="outline">
-        <feMorphology operator="dilate" radius="0.5" result="X0" />
-        <feFlood in="X0" flood-color="hsl(
-            var(--nose-h),
-            var(--nose-s),
-            calc(0.7 * var(--nose-l))
-        )" result="F0"/>
-        <feComposite in="F0" in2="X0" operator="in" result="Z0" />
-        <feComposite in="Z0" in2="SourceGraphic" operator="out" result="Z1" />
-        <feGaussianBlur stdDeviation="0.5" in="Z1" />
-    </filter>
-
-    <filter id="vapor"
-        x="-200%"
-        y="-200%"
-        height="900%"
-        width="900%"
-    >
-        <feMorphology operator="dilate" radius="2.5" result="M0" />
-        <feFlood flood-color="hsla(
-            var(--nose-h),
-            var(--nose-s),
-            calc(1.5 * var(--nose-l)),
-            0.5
-        )" result="F0"/>
-        <feComposite in="F0" in2="M0" operator="in" result="C0" />
-        <feGaussianBlur in="C0" stdDeviation="20" result="B0" />
-        
-        <feFlood flood-color="#000" result="F1" />
-        <feComposite in="F1" in2="SourceGraphic" operator="in" result="C1" />
-        <feGaussianBlur in="C1" stdDeviation="1" result="B1" />
-        <feComposite in="B0" in2="B1" operator="out" result="Z1" />
-        
-    </filter>
-  
-
-    
-</svg>
-
-<div id="logo" class="qr" data-nose="#hold0" style="
-    width: 100%;
-    padding-top: 30px;
-    font-size: 50px;
-    font-family: luckiest;
-    line-height: 30px;
-    text-align: center;
-    color: var(--whiteness);
-    -webkit-text-stroke: 2px var(--lightness);
-    
-">
-    
-<b>
-M<g-irk style="
-    --girk-top: -7px;
-">A</g-irk>THR<g-ank data-hi data-opt1>O</g-ank
-></b><b style="
-    margin-left: -5px;
-    margin-right: -2px;
-    font-weight: bold;
-    vertical-align: -20%;
-    z-index: 10;
-" class="hobr">&middot;</b><br class="mobr"><b>B<dist-rite style="
-    --arc1-wide: 60%;
-    --arc2-wide: 95%;
-    z-index: 10;
-    
-">ATICS</dist-rite>
-</b>
-</div>
-
-<div id="tag_line" class="qr" style="
-    color: var(--whiteness);
-    text-align: center;
-">
-    simple illuminating tags<br class="mobr">
-    for the presentation of<br>
-    <i>instructional</i> mathematics
-</div>
-
-<div id="links" class="qa" style="text-align:center;">
-    <div style="color:var(--lightness)">
-        <a href="solutions/" style="
-            font-size: 1.5em;
-            color:var(--darkness);
-        ">learn math</a><br>
-        <div style="
-            max-width: 200px;
-            margin: auto;
-            font-size: 0.5em;
-            text-align: justify;
-        ">
-            follow along with extremely well
-            described solutions to many of the
-            internet's most asked questions
-        </div>
-    </div>
-    <div style="color:var(--)">
-        <a href="specs.html" style="
-            font-size: 1.5em;
-            color:var(--whiteness);
-        ">write solutions</a><br>
-        <div style="
-            max-width: 200px;
-            margin: auto;
-            font-size: 0.5em;
-            text-align: justify;
-        ">
-            learn about the different tags
-            and options for presenting intuitive
-            solutions with understandable gestures
-        </div>
-    </div>
-</div>
-
-<br class="mobr">
-
-<div id="flash" style="font-size: 50px;text-align: center;">
-
-<style id="mb-dist">
-
-/*
-    shows over-arching distribution to the right
-    with ghosted coefficient and viva values
-    
-    <mb-dist>
-        <b>3</b>   <!-- coefficient -->
-        <b>x       <!-- first value -->
-          <b>3</b> <!-- coefficient -->
-        </b>
-        <b>+ 5     <!-- second value -->
-          <b>3</b> <!-- coefficient -->
-        </b>
-    </mb-dist>
-        
-*/
-
-mb-dist {
-    
-    /*--mb-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectmbio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");*/
-    
-    --mb-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
-        
-    --mb-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H85A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
-    
-    --arc1-wide: 51%;
-    --arc2-wide: calc(100% - 1.5ch);
-    --mb-left: 0.5ch;
-    --mb-filter: url("#viva");
-    --mb-filter-lil: url("#lil-viva");
-    --mb-shade: var(--text-ghost);
-    
-    position: relative;
-
-}
-
-mb-dist::before {
-    
-    content: '';
-    position: absolute;
-    width: calc(var(--arc2-wide) - var(--mb-left));
-    height: 25px;
-    xaspect-mbio: 6 / 1;
-    left: var(--mb-left);
-    bottom: 90%;
-    background-size: 100% 100%;
-    background-image: var(--mb-arc1);
-    filter: var(--mb-filter);
-    
-}
-
-mb-dist::after {
-    
-    content: '';
-    position: absolute;
-    width: calc(var(--arc1-wide) - var(--mb-left));
-    height: 20px;
-    xaspect-mbio: 6 / 1;
-    left: var(--mb-left);
-    bottom: 90%;
-    background-size: 100% 100%;
-    background-image: var(--mb-arc2);
-    filter: var(--mb-filter);
-    
-}
-
-mb-dist > b:nth-child(1) {
-    
-    color: rgba(0,0,0,0);
-    text-shadow: var(--mb-shade);
-    
-}
-
-mb-dist > b:nth-child(1)::after {
-    
-    content: '\00a0\00b7';
-    
-}
-
-mb-dist > b > b {
-    
-    display: inline-block;
-    height: 100%;
-    width: 3ch;
-    font-size: 0.5em;
-    font-family: luckiest;
-    text-align: center;
-    white-space: nowrap;
-    transform: rotate(-15deg) translate(-5px, -50%);
-    filter: var(--mb-filter-lil);
-
-}
-
-mb-dist > b:nth-child(2)::before {
-    
-    content: '(';
-    
-}
-
-mb-dist > b > b::before {
-    content: "\00d7";
-    margin-left: -100%;
-}
-
-mb-dist > b > b::after {
-    content: "";
-    margin-right: -100%;
-}
-
-mb-dist > b:nth-child(3) {
-    margin-left: -1ch;
-}
-
-mb-dist > b:nth-child(3)::after {
-    
-    content: ')';
-    display: inline-block;
-    transform: translate(-0.5ch,0);
-    
-}
-
-mb-dist[data-dark] {
-    --mb-filter: url("#lightness");
-    --mb-filter-lil: url("#lightness");
-}
-
-mb-dist[data-dark] > b:nth-child(1) {
-    color: var(--lightness);
-    text-shadow: none;
-}
-
-</style>
-
-<mb-dist>
-    <b>3</b>
-    <b>x<sup>2</sup><b>3</b></b>
-    <b>+ 9<b>3</b></b>
-</mb-dist>
-
-
-</div>
-
-
-<div id="contact" class="qr" style="color:var(--whiteness);">
-    <i>mathro<v-t></v-t>batics</i> provides
-    highly instructional
-    answers, tutoring, and help for students in
-    algebra, trigonometry, &amp; calculus, aswell
-    as support for anyone wanting to use the
-    markup language to create <v-iva>illuminated</v-iva>
-    solution with both correctly formatted
-    mathematic symbols and built-in graphical gestures
-</div>
-<hr>
-
-<div id="demo00" class="qr" style="font-size:50px;text-align:center">
-    
-<c-omm>
-    let's try a simple integral; mouse over this description
-    <b>
-        this solution might be more overt than
-        typical; it shows not only how elaborate
-        the markup can be but also how explicit
-        a description can get
-        <br><br>
-        it uses the i-teg tag for integrals:<br><br>
-<pre>
-&lt;i-teg&gt;
-  &lt;b&gt;9x&lt;sup&gt;2&lt;/sup&gt;&lt;/b&gt;
-  &lt;b&gt;dx&lt;/b&gt;
-  &lt;b&gt;&lt;/b&gt;&lt;!--opt from --&gt;
-  &lt;b&gt;&lt;/b&gt;&lt;!--opt to   --&gt;
-&lt;/i-teg&gt;
-</pre>
-    </b>
-</c-omm>
-<div>
-    <i-teg>
-        <b>9x<sup>2</sup></b>
-        <b>dx</b>
-    </i-teg>
-</div>
-
-<c-omm>
-    we see it's a product, then note the exponent
-    <b>
-        any extra, or at-length, commentary will
-        appear when touching, or mousing-over
-        a &lt;c-omm&gt; tag like this one
-    </b>
-</c-omm>
-<div>
-    <i-teg>
-        <b>9<v-t></v-t>x<sup data-viva>2</sup></b>
-        <b>dx</b>
-    </i-teg>
-</div>
-
-<c-omm>
-    this can be solved using the <emp>power rule!</emp>
-    <b>
-        first increase the exponent by one,
-        then also divide everything by that
-        value
-        <br><br>
-        mathro~batics allows this illuminated
-        notation with a simple i-pow tag:
-        <br><br>
-        &lt;i-pow&gt;9x&lt;sup&gt;2&lt;/sup&gt;&lt;/i-pow&gt;
-    </b>
-</c-omm>
-<div>
-    <i-teg data-ghost>
-        <b>
-<i-pow>9<p-t></p-t>x<sup>2</sup></i-pow>
-        </b>
-        <b>dx</b>
-    </i-teg>
-    
-</div>
-
-<c-omm>
-    exponent and denominator are both two-plus-one
-    <b>
-        the fraktion was created with an f-rak tag:
-<pre>
-&lt;f-rak&gt;
-    &lt;b&gt; numerator   &lt;/b&gt;
-    &lt;b&gt; denominator &lt;/b&gt; &lt;!-- b optional --&gt;
-&lt;/f-rak&gt;
-</pre>
-<br>
-        the second b tag is option if the denominator
-        contains no other tags;
-        for instance, this is 3/5:<br><br>
-        &lt;f-rak&gt;&lt;b&gt;3&lt;/b&gt;5&lt;/f-rak&gt;
-    </b>
-</c-omm>
-<div>
-    <i-teg data-vapor>
-    <b><f-rak data-slash1>
-        <b>9<p-t></p-t>x<sup>
-            <p-ren data-viva>2+1</p-ren>
-        </sup></b>
-        <b><p-ren data-viva><l-uck style="
-            display: inline-block;
-            transform: rotate(-10deg);
-            filter: url(#lil-viva);
-        ">2+1</l-uck></p-ren>
-        </b>
-    </f-rak></b>
-    <b>dx</b>
-    </i-teg>
-</div>
-
-<c-omm>add the exponent</c-omm>
-<div>
-    <f-rak>
-        <b>
-            9<p-t></p-t>x<sup>
-                <p-ren data-ghost><v-iva>3</v-iva></p-ren>
-            </sup>
-        </b>
-        <b>
-            <p-ren>2 + 1</p-ren>
-        </b>
-    </f-rak>
-</div>
-
-<c-omm>
-    add the denominator
-    <b>
-        parenthetical groups can be made with a
-        p-ren tag; this one uses the ghost option:
-        <br><br>
-        &lt;p-ren data-ghost&gt;3&lt;/p-ren&gt;
-    </b>
-</c-omm>
-<div>
-    <f-rak>
-        <b>9<p-t></p-t>x<sup>3</sup></b>
-        <b>
-            <p-ren data-ghost><v-iva>3</v-iva></p-ren>
-        </b>
-    </f-rak>
-</div>
-
-<c-omm>
-    maybe this can be faktored?
-    <b>
-        let's use this opportunity to look at some
-        of the algebra tags
-    </b>
-</c-omm>
-<div>
-    <f-rak>
-        <b>9<p-t></p-t>x<sup>3</sup></b>
-        3
-    </f-rak>
-</div>
-
-<c-omm>
-    look at some faktors of nine
-    <b>
-        a g-frak tag allows the display of a
-        value's faktors:
-<pre>
-&lt;g-fak&gt;
-    value
-    &lt;b&gt;
-        faktor list
-    &lt;/b&gt;
-&lt;/g-fak&gt;
-</pre>
-    </b>
-</c-omm>
-<div>
-    <f-rak>
-        <b>
-            <g-fak>9<b>3, 3</b></g-fak>
-            <p-t></p-t>x<sup>3</sup>
-        </b>
-        3
-    </f-rak>
-</div>
-
-<c-omm>
-    we could remove one of the threes
-    <b>
-        mathro~batics has several types of
-        canceling; this was done with the
-        r-dux tag, allowing for cancelling
-        and display of the reduced value:
-        <br><br>
-        &lt;r-edux&gt;
-           value &lt;b&gt; reduced &lt;/b&gt;
-        &lt;/r-edux&gt;
-    </b>
-</c-omm>
-<div>
-    <f-rak>
-        <b>
-            <r-dux>9<b>3</b></r-dux>
-            &nbsp;<p-t></p-t>x<sup>3</sup>
-        </b>
-        <b><r-dux>3<b>1</b></r-dux></b>
-    </f-rak>
-</div>
-
-<c-omm>
-    rewrite with reduced values
-    <b>
-        these use the v-iva tag to light things
-        up; there are several tags that color
-        and light up; some are:<br><br>
-        &lt;v-iva&gt; illuminate &lt;/v-iva&gt;<br>
-        &lt;v-ers&gt; inverse &lt;/v-ers&gt;<br>
-        &lt;g-ost&gt; ghosted &lt;/g-ost&gt;<br>
-        &lt;v-por&gt; vaporized &lt;/v-pot&gt;<br>
-    </b>
-</c-omm>
-<div>
-    <f-rak>
-        <b><v-iva>3</v-iva><p-t></p-t>x<sup>3</sup></b>
-        <b><v-iva>1</v-iva></b>
-    </f-rak>
-</div>
-
-<c-omm>
-    one in the denominator can go away
-    <b>
-        most mathro~batic tags have parameters
-        to illuminate, ghost, or vaporize them;
-        <br><br>
-        this f-rak tag uses the [data-ghost]
-        parameter, while the denominator uses
-        a &lt;g-ost&gt;&lt;/g-ost&gt; tag
-    </b>
-</c-omm>
-<div>
-    <f-rak data-ghost>
-        <b>
-            3<p-t></p-t>x<sup>3</sup>
-        </b>
-        <b>
-            <g-ost>1</g-ost>
-        </b>
-    </f-rak>
-</div>
-
-<c-omm>
-    this is a fine solution
-    <b>
-        one of the custom tags puts stars on both
-        sides; there are also checkmarks and other
-        indicators:<br><br>
-        &lt;s-tar&gt;&lt;/s-tar&gt;<br>
-        &lt;g-ood&gt;&lt;/g-ood&gt;<br>
-    </b>
-</c-omm>
-<div>
-<s-tar>3x<sup>3</sup></s-tar>
-</div>
-
-
-</div>
-
-<br><br>
-</div>
-</body>
-
-<script>
-    
-</script>
-</html>

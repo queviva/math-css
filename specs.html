@@ -1,10 +1,11 @@
 <!doctype html><html lang="en">
 <head>
-<title>solucion matrobatique</title>
+<title>markup specification</title>
 <meta name="description"
 content="illuminated instructional markup language">
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="mathrobatics.css">
 <style id="demoStyles">
 
 @font-face {
@@ -12,18 +13,13 @@ content="width=device-width, initial-scale=1.0">
     src : url(luckiest.ttf);
 }
 
-:root {
- 
-   
-}
-
 * {
     
     --back-color: #666;
-    --holder-back: #111;
     
     box-sizing: border-box;
     word-wrap: break-word;
+    
 }
 
 body {
@@ -33,92 +29,6 @@ body {
     font-size: 22px;
     text-align: justify;
     hyphens: auto;
-}
-
-.holder {
-       
-    --nose-hsla: hsla(40, 100%, 50%, 1);
-    
-    --nose-h: 40;
-    --nose-s: 100%;
-    --nose-l: 50%;
-    --nose-a: 1;
-                
-    /*
-    --nose-hsla: hsla(40, 100%, 90%, 1);
-    
-    --nose-h: 40;
-    --nose-s: 100%;
-    --nose-l: 90%;
-    --nose-a: 1;
-    */
-                
-    --lightness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        var(--nose-l)
-    );
-    
-    --midness: hsl(
-        var(--nose-h),
-        calc(0.7 * var(--nose-s)),
-        calc(0.65 * var(--nose-l))
-    );
-    
-    --darkness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(0.45 * var(--nose-l))
-    );
-    
-    --blackness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(0.20 * var(--nose-l))
-    );
-    
-    --greyness: hsl(
-        var(--nose-h),
-        calc(0.1 * var(--nose-s)),
-        calc(0.6 * var(--nose-l))
-    );
-    
-    --whiteness : hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(1.5 * var(--nose-l))
-    );
-    
-    
-    --inverse: hsl(
-        calc(var(--nose-h) + 120),
-        var(--nose-s),
-        var(--nose-l)
-    );
-
-    --text-ghost:
-        0 0 0px var(--holder-back),
-        0 0 8px var(--lightness),
-        0 0 12px #fff;
-        
-    --text-ghost-inverse:
-        0 0 0px var(--holder-back),
-        0 0 8px var(--inverse),
-        0 0 12px #fff;
-        
-    --text-vapor:
-        0 0 5px var(--holder-back),
-        0 0 40px var(--lightness),
-        0 0 40px #fff;
-        
-
-	position: relative;
-    color: var(--lightness);
-    background-color: var(--holder-back);
-    margin: auto;
-    width: 100%;
-    max-width: 700px;
-    
 }
 
 a {
@@ -261,121 +171,33 @@ hr {
     font-family: 'luckiest';
     font-style: italic;
     height: 200px;
-    color: var(--blackness);
-    -webkit-text-stroke: 1px var(--darkness);
+    color: var(--lightness);
+    -webkit-text-stroke: 1px var(--whiteness);
     user-select:none;
 }
 
 </style>
-<style id="mathroStyles">
+<style id="list-style">
 
-* {
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+ul {
+    list-style-type: circle;
 }
 
-:root {
-    
-    --gank-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
-    
-    --gank-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q55 70 105 0L110 10Q60 70 15 100Z'/%3E%3C/svg%3E");
-    
-    --gank-02: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M15 100Q40 90 70 25L69 45Q90 10 115 0Q90 15 65 70L65 52Q50 90 15 100Z'/%3E%3C/svg%3E");
-    
-    --gank-sigma-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 20L100 0L40 50L80 70L0 100L50 70L20 50L80 10Z'/%3E%3C/svg%3E");
-    
-    --gank-slash-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
-    
-    --dist-full-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath transform='translate(15,15)' d='M8 100A15 15 180 0 1 67 100H62A10 11 180 0 0 13 100H8A35 35 180 0 1 92 100H87A20 21 180 0 0 13 100ZM 33 100A15 15 180 0 1 92 100H87A20 22 180 0 0 38 100H33A17 17 180 0 1 67 100H62A10 12 180 0 0 38 100Z'/%3E%3C/svg%3E");
-
-    --dist-right-XX: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M23 115A35 35 180 0 1 106 115H101A35 33 180 0 0 28 115H23A20 20 180 0 1 68 115H63A15 14 180 0 0 28 115Z'/%3E%3C/svg%3E");
-    
-    --dist-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M106 115A35 35 180 0 0 27 115H32A35 40 180 0 1 101 115H106A21 20 180 0 0 64 115H69A15 14 180 0 1 101 115 Z'/%3E%3C/svg%3E");
-    
-    --grak-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52A10 30 0 0 1 25 22H55A10 30 0 0 0 65 2A10 30 0 0 0 75 22H105A10 30 0 0 1 115 52A10 25 0 0 0 105 27H75A10 20 0 0 1 65 17A10 20 0 0 1 55 27H25A10 25 0 0 0 15 52Z'/%3E%3C/svg%3E");
-        
-    --grak-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52Q16 30 14 15Q65 25 116 15Q114 30 115 52L112 25H18Z'/%3E%3C/svg%3E");
-    
-     --girk-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M90 35A40 35 0 0 0 50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A20 47 0 0 0 80 3A16 47 0 0 1 96 50A41 40 0 0 1 55 90A50 40 0 0 1 5 50A42 42 0 0 1 50 8A40 27 0 0 1 90 35Z'/%3E%3C/svg%3E");
-    
-    --girk-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
-    M 25 20\
-    A 25 30 0 0 0 0 50\
-    A 50 50 0 0 0 50 100\
-    A 50 50 0 0 0 100 50\
-    A 50 50 0 0 0 50 0\
-    C -8 2 10 45 15 45\
-    C 5 20 20 8 50 8\
-    A 45 42 0 0 1 95 50\
-    A 45 40 0 0 1 50 90\
-    A 48 45 0 0 1 2 48\
-    A 28 28 0 0 1 30 20\
-    Z'/%3E%3C/svg%3E");
-        
-    --girk-02: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A50 50 0 0 0 50 0ZM 20 20A33 30 330 0 0 82 80A33 30 330 0 0 20 20Z'/%3E%3C/svg%3E");
-        
-    --girk-03: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M5 20Q0 30 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A50 50 0 0 0 50 0C-8 2 10 45 15 45C5 20 20 8 50 8A45 42 0 0 1 95 50A45 40 0 0 1 50 90A48 45 0 0 1 2 45Q2 35 5 20Z'/%3E%3C/svg%3E");
-    
-    --girk-xtra-swoosh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M15 15A10 10 0 0 0 85 85A10 10 0 0 0 15 20A10 10 0 0 0 40 40A10 10 0 0 1 25 20A10 10 0 0 1 80 80A10 10 0 0 1 20 12Z'/%3E%3C/svg%3E");
-        
-    --powr-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M100 30A100 300 340 0 0 0 55L4 55A100 300 340 0 1 100 30Z'/%3E%3C/svg%3E");
-            
-    --powr-dot: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M 50 0A 50 50 0 0 0 50 100A 50 50 0 0 0 50 0Z'/%3E%3C/svg%3E");
-            
-    --ipow-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath d='M100 45A100 200 340 0 1 0 85L2 81L10 82A100 200 340 0 0 95 55Z' fill='%23000' /%3E\
-    %3C/svg%3E");
-    
-    --ipow-divline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M0 30Q50 40 95 0L100 70Q50 60 10 100Z'/%3E%3C/svg%3E");
-    
-    --uv-table-rite: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
-    M 30 80\
-    A 10 15 0 0 1 100 60\
-    L 90 60\
-    A 10 16 0 0 0 31 80\
-    Z'/%3E%3C/svg%3E");
-    
-    --uv-table-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
-    M 70 80\
-    A 10 15 0 0 0 0 60\
-    L 10 60\
-    A 10 16 0 0 1 69 80\
-    Z'/%3E%3C/svg%3E");
-    
-    --rdux-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
-    M 0 100\
-    Q 30 75 55 30\
-    L 55 50\
-    Q 30 80 0 100\
-    Z\
-    M 100 0\
-    Q 70 25 50 70\
-    L 50 50\
-    Q 70 20 100 0\
-    Z'/%3E%3C/svg%3E");
-    
-}
-
-
-</style>
-<style id="c-omm">
-
-b {
+li {
     
     position: relative;
-    font-weight: normal;
-    
-}
-
-c-omm {
-    
-    position: relative;
-    display: inline-block;
-    color: var(--greyness);
+    display: list-item;
     width: 95%;
+    font-size: 1em;
+    font-style: normal;
+    color: var(--greyness);
+    margin-top: 0px;
+    margin-bottom: 0px;
     
 }
 
-c-omm > b {
+li > b {
+    
     position: absolute;
     display: inline-block;
     width: calc(100% - 10px);
@@ -386,77 +208,52 @@ c-omm > b {
     text-align: justify;
     color: var(--greyness);
     background-color: var(--holder-back);
-    border-left: 1px solid var(--greyness);
+    border: 1px solid var(--greyness);
     opacity: 0;
     z-index: 10;
     max-height: 10em;
     overflow-y: auto;
     transition: opacity ease-in 600ms;
     pointer-events: none;
+    
 }
 
-c-omm:hover > i {
+li > i {
     
-    filter: url("#viva");
-}
-
-c-omm > i {
-    
-    margin-right: 2ch;
+    margin-right: 1ch;
     font-size: 1.4em;
     
 }
 
-c-omm > i:hover ~ b, b:hover {
+li:hover > i {
+    
+    filter: url("#viva");
+}
+
+li > i:hover ~ b, li > b:hover {
     opacity: 1;
     transition: opacity ease-out 400ms;
     pointer-events: auto;
 }
 
-r-ant {
-    
-    display: inline-block;
-    position: relative;
-    width: 70%;
-    padding: 0px 10px;
-    font-size: 0.4em;
-    text-align: justify;
-    color: var(--greyness);
-    
+li > b > dd {
+    margin: 10px 0;
+    font-size: 30px;
+    text-align: center;
+    color: var(--lightness);
 }
 
-r-ant::before {
-    content: '';
-    position: absolute;
-    width: 5px;
-    height: 100%;
-    right: 100%;
-    top: 0;
-    border-width: 1.5px 0px 1.5px 3px;
-    border-style: solid;
-    border-color: var(--greyness);
+pre {
+    margin-top: 1ch;
+    color: var(--holder-back);
+    background-color: var(--greyness);
 }
-
-r-ant::after {
-    content: '';
-    position: absolute;
-    width: 5px;
-    height: 100%;
-    left: 100%;
-    top: 0;
-    border-width: 1.5px 3px 1.5px 0px;
-    border-style: solid;
-    border-color: var(--greyness);
-}
-
-
 
 </style>
-
 </head>
 
 <body>
-<div id="hold0" class="holder">
+<div class="mathrobatic" style="font-size:20px;">
 <svg id="SVGfilter" height="0" width="0">
 
     <filter id="lightness">
@@ -728,23 +525,20 @@ r-ant::after {
 </svg>
 
 
-<div id="contact" class="qr" style="
+<div id="intro" class="qr" style="
     font-size: 30px;
+    text-align: center;
     color:var(--whiteness);
 ">
-    these are descriptions and demonstrations of
-    the various tags for illuminated markup language
+    various tags and options for
+    illuminated markup
 </div>
 <hr>
-<div id="list" class="qr">
-<style>
 
-
-
-</style>
-    
+<div id="list" class="qr" style="font-size:24px;">
 <ul>
-<li><c-omm>
+    
+<li id="c-omm">
     <i>c-omm</i> an expandable comment
     <b>
         allows for short comments to expand into
@@ -760,28 +554,22 @@ r-ant::after {
 &lt;/c-omm&gt;
 </pre>
     </b>
-</c-omm></li>
+</li>
 
-<li><c-omm>
-    <i>r-ant</i> longer comment
-    <b>
-        just a longer comment that gets fully
-        displayed without expanding
-        <br><br>
-<pre>
-&lt;r-ant&gt;
-    long elaboration that always displays
-&lt;/r-ant&gt;
-</pre>
-    </b>
-</c-omm></li>
-
-<li><c-omm>
+<li id="f-rak">
     <i>f-rak</i> a simple fraktion tag
     <b>
+        <dd>
+            x<sup>2</sup><p-t></p-t>
+            <f-rak data-viva>
+                <b><v-iva>3</v-iva></b>
+                <b><v-iva>5</v-iva></b>
+            </f-rak>
+            + 9
+            
+        </dd>
         allows for extremely simple fraktions, or
         more complicated if needed
-        <br><br>
 <pre>
 &lt;f-rak
     data-viva   // illuminates only the bar
@@ -797,28 +585,192 @@ r-ant::after {
         display 3/5:<br>
         &lt;f-rak&gt;&lt;b&gt;3&lt;/b&gt;5&lt;/f-rak&gt;
     </b>
-</c-omm></li>
+</li>
 
-<li><c-omm>
+<li id="s-umm">
     <i>s-umm</i> sigma notation for summation
-</c-omm></li>
+    <b>
+        <dd>
+            3 <p-t></p-t>
+            <s-umm data-viva>
+                <b>5x<sup>2</sup></b>
+                <b>0</b>
+                <b>&infin;</b>
+            </s-umm> + 9
+        </dd><br>
+<pre>
+&lt;s-umm
+    data-viva  // illuminates everything
+    data-sigma // illuminates only sigma
+    data-from  // illuminates only from value
+    data-to    // illumiates only to value
+    data-ghost // displays in outline
+&gt;
+    &lt;b&gt; thing to sum &lt;/b&gt;
+    &lt;b&gt; from &lt;/b&gt; &lt;!-- optional --&gt;
+    &lt;b&gt; to &lt;/b&gt; &lt;!-- optional --&gt;
+&lt;/s-umm&gt;
+</pre>
+    </b>
+</li>
 
+<li id="p-ren">
+    <i>p-ren</i> parenthetical enclosure
+    <b>
+        <dd>
+            3 <p-t></p-t>
+            <p-ren data-viva>x<sup>2</sup> + 1</p-ren>
+        </dd>
+        parenthesis that allows for manipulation
+        of the enclosed items or just the parenthesis
+        themselves
+<pre>
+&lt;p-ren
+    data-viva      // illuminates parenthesis
+    data-viva-all  // illuminates everything
+    data-ghost     // ghosts out the parenthesis
+    data-ghost-all // ghosts out everything
+    data-vapor     // vaporizes parenthesis
+    data-vapor-all // vaproizes everything
+&gt;
+    enclosed terms
+&lt;/p-ren&gt;
+</pre>
+    </b>
+</li>
 
+<li id="fakt-left">
+    <i>fakt-left</i> leftward faktorization gestures
+    <b>
+        <dd>
+            <fakt-left>
+                <b>3</b>
+                (3x + 9)
+            </fakt-left>
+        </dd>
+        
+        pulls a faktor out of two terms and
+        moves it to the left
+    
+<pre>
+&lt;fakt-left
+    data-dark  // no illumination
+    data-ghost // ghosts out the gesture
+    data-vapor // vaporizes the gesture
+&gt;
+    &lt;b&gt; faktor &lt;/b&gt;
+    expression
+&lt;/fakt-left&gt;
+</pre>
+    </b>
+</li>
 
+<li id="dist-rite">
+    <i>dist-rite</i> simple distribution to the right
+    <b>
+        <dd>
+            <dist-rite>
+                3 (x + 5)
+            </dist-rite>
+        </dd>
+<pre>
+&lt;dist-rite&gt; expression &lt;/dist-rite&gt;
+</pre>
+    </b>
+</li>
+
+<li id="rite-dist">
+    <i>rite-dist</i> elaborate distribute-right gesture
+    <b>
+        <dd>
+            <rite-dist>
+                <b>3</b>
+                <b>x<sup>2</sup><b>3</b></b>
+                +
+                <b>5<b>3</b></b>
+            </rite-dist>
+        </dd>
+        indicates that the leading coefficient has
+        moved into the other terms, and display it
+        being multiplied - its markup is more
+        involved, though all data parameters and
+        styling are optional
+<pre>
+&lt;rite-dist
+    data-dark  // no illumination
+    data-norm  // regular font
+    style="
+        --arc1-wide: // first arc width
+        --arc2-wide: // second arc width
+    "
+&gt;
+    &lt;b&gt; leading coefficient &lt;/b&gt;
+    &lt;b&gt; first term
+        &lt;b&gt; ...muliplied by&lt;/b&gt;
+    &lt;/b&gt;
+    &lt;b&gt; second term
+        &lt;b&gt; ...muliplied by&lt;/b&gt;
+    &lt;/b&gt;
+    
+&lt;/rite-dist&gt;
+</pre>
+    </b>
+</li>
+
+<li id="p-owr">
+    <i>p-owr</i> derivative power rule gestures
+    <b>
+        <dd>
+            <p-owr data-opt1 data-margin3>
+                3x<sup>5</sup>
+            </p-owr>
+        </dd>
+        presents illuminated gestures for using the
+        power rule to compute a derivative - it
+        recognizes a &lt;sup&gt; tag
+<pre>
+&lt;p-owr
+    data-dark    // not illuminated
+    data-ghost   // ghosts out the gestures
+    data-opt#    // uses different gestures
+    data-margin# // increases right margin
+&gt;
+    3x&lt;sup&gt;2&lt;/sup&gt; &lt;!-- use sup for power --&gt;
+&lt;/p-owr&gt;
+</pre>
+        
+    </b>
+</li>
+
+<li id="i-pow">
+    <i>i-pow</i> power rule for integration
+    <b>
+        <dd>
+        <i-teg>
+            <b><i-pow>3x<sup>5</sup></i-pow></b>
+            <b>dx</b>
+        </i-teg>
+        </dd>
+    creates gestures for computing the integral using
+    the power rule
+<pre>
+&lt;i-pow
+    data-dark // no illumination
+&gt;
+    3x&lt;sup&gt;5&lt;/sup&gt;
+&lt;/i-pow&gt;
+</pre>
+    </b>
+</li>
 
 
 </ul>
 </div>
 
 
-<div class="qr" style="height:300px;"></div>
 <div class="qr signature">
-    ~queviva
+<br><br><br><br>
 </div>
 </div>
 </body>
-
-<script>
-    
-</script>
 </html>
