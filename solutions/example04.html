@@ -3,265 +3,14 @@
 <title>mathrobatics</title>
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
+<meta name="description"
+content="x^2 + 3x + 2 algebra solution">
 <link rel="stylesheet" href="../mathrobatics.css">
-<style id="demoStyles">
-
-@font-face {
-    font-family : luckiest;
-    src : url(luckiest.ttf);
-}
-
-:root {
- 
-   
-}
-
-* {
-    
-    --back-color: #666;
-    --holder-back: #111;
-    
-    box-sizing: border-box;
-    word-wrap: break-word;
-}
-
-body {
-    padding: 0;
-    margin: 0;
-    background-color: var(--back-color);
-    font-size: 22px;
-    text-align: justify;
-    hyphens: auto;
-}
-
-.holder {
-       
-    --nose-hsla: hsla(40, 100%, 50%, 1);
-    
-    --nose-h: 40;
-    --nose-s: 100%;
-    --nose-l: 50%;
-    --nose-a: 1;
-                
-    --whiteness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(1.5 * var(--nose-l))
-    );
-                
-    --lightness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        var(--nose-l)
-    );
-    
-    --midness: hsl(
-        var(--nose-h),
-        calc(0.7 * var(--nose-s)),
-        calc(0.65 * var(--nose-l))
-    );
-    
-    --darkness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(0.45 * var(--nose-l))
-    );
-    
-    --blackness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(0.20 * var(--nose-l))
-    );
-    
-    --greyness: hsl(
-        var(--nose-h),
-        calc(0.1 * var(--nose-s)),
-        calc(0.6 * var(--nose-l))
-    );
-    
-    --inverse: hsl(
-        calc(var(--nose-h) + 120),
-        var(--nose-s),
-        var(--nose-l)
-    );
-
-    --text-ghost:
-        0 0 0px var(--holder-back),
-        0 0 8px var(--lightness),
-        0 0 12px #fff;
-        
-    --text-ghost-inverse:
-        0 0 0px var(--holder-back),
-        0 0 8px var(--inverse),
-        0 0 12px #fff;
-        
-    --text-vapor:
-        0 0 5px var(--holder-back),
-        0 0 40px var(--lightness),
-        0 0 40px #fff;
-        
-
-	position: relative;
-    color: var(--lightness);
-    background-color: var(--holder-back);
-    margin: auto;
-    margin-top: 50px;
-    width: 100%;
-    max-width: 700px;
-    
-}
-
-a {
-    text-decoration: none;
-    color: var(--darkness);
-}
-
-a:hover, a:visited {
-    transition: color linear var(--trans-speed);
-    color: var(--darkness);
-}
-
-pre {
-    background-color: var(--blackness);
-    margin: 0px;
-    padding: 10px;
-    color: var(--midness);
-    overflow: auto;
-}
-
-emp {
-    font-family: luckiest;
-    font-style: italic;
-    font-weight: bold;
-    color: rgba(0,0,0,0);
-    -webkit-text-stroke: 2px var(--greyness);
-}
-
-hr {
-    border-top: 1px solid var(--darkness);
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
-    margin: 7px 0px 7px 0px;
-}
-
-.qa > div > a, .qa > div  > a,
-.qb > div > a, .qb > div  > a,
-.qa > div > a:hover, .qa > div  > a:visited,
-.qb > div > a:hover, .qb > div> a:visited
-{
-    color: var(--lightness);
-}
-
-.qr {
-    padding: 10px;
-}
-
-.qa:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.qa > div {
-    float: left;
-    padding: 10px;
-    height: auto;
-}
-
-.qa > div:nth-child(1) {
-  width: 65%;
-}
-
-.qa > div:nth-child(2) {
-  width: 35%;
-}
-
-.qb:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.qb > div {
-    float: left;
-    padding: 10px;
-    height: auto;
-}
-
-.qb > div:nth-child(1) {
-  width: 35%;
-}
-
-.qb > div:nth-child(2) {
-  width: 65%;
-}
-
-.qa, .qb {
-    color: var(--lightness);
-}
-
-.mobr {
-    display: none;
-}
-
-.hobr {
-    display: inline-block;
-}
-
-.abhr {
-    display: none;
-}
-
-/*possibly a portrait mobi-fone*/
-@media screen and (max-width:500px) {
-
-	.qa > div:nth-child(1),
-	.qa > div:nth-child(2),
-	.qb > div:nth-child(1),
-	.qb > div:nth-child(2)
-	{
-    	width: 100%;
-    }
-    
-    .mobr {
-        display: inline-block;
-    }
-    .hobr {
-        display: none;
-    }
-    .abhr {
-        display: block;
-    }
-    ul {
-        text-align: left;
-    }
-
-}
-
-/*possibly a mobile landscraper*/
-@media screen and (orientation: landscape) and (max-width: 760px) {
-
-    
-}
-
-.signature {
-    text-align: right;
-    font-family: 'luckiest';
-    font-style: italic;
-    height: 200px;
-    color: var(--blackness);
-    -webkit-text-stroke: 1px var(--darkness);
-    user-select:none;
-}
-
-</style>
-
-
+<link rel="stylesheet" href="../demoStyles.css">
 </head>
 
 <body>
-<div id="hold0" class="holder">
+<div class="holder mathrobatics">
 <svg id="SVGfilter" height="0" width="0">
 
     <filter id="lightness">
@@ -530,437 +279,52 @@ hr {
     </filter>
   
 </svg>
-<div class="qr" style="font-size:50px;text-align:center;">
-<div data-nose="#hold0" style="height:50px;width:100%;"></div>
 
+<div class="qr">
 
-
-<c-omm>looking at this expression</c-omm>
+<c-omm>
+    you are asked to faktor this expression
+    <b>
+        you can do this! use your mathrobatics
+        to conquer all that lies before you
+    </b>
+</c-omm>
 <div>
     x<sup>2</sup> + 3x + 2
 </div>
 
 <c-omm>
-    you are expected to faktor it
+    that means to break it up into two parenthesis
     <b>
-        this quadratic expression can be broken into
-        two different parts, each inside parenthesis
+        this is called a "quadratic expression"
+        and it needs to be broken up into two
+        groups of parenthesis, each that has only
+        two things inside it - something with on
+        two things, or "terms", is call a
+        "binomial"
     </b>
 </c-omm>
 <div>
-    <f-akt>x<sup>2</sup> + 3x + 2</f-akt>
-</div>
-
-<c-omm>
-    what are the first and last coefficients?
-</c-omm>
-<div>
-    <v-iva>1</v-iva>x<sup>2</sup>
-    + 3x
-    + <v-iva>2</v-iva>
-</div>
-
-<c-omm>
-    are there faktors of two that combine to form three?
-</c-omm>
-<div>
-    <g-fak>1<b>1, 1</b></g-fak>x<sup>2</sup>
-    + <v-iva>3</v-iva>x
-    + <g-fak>2<b>1, 2</b></g-fak>
-</div>
-
-<c-omm>there's only one option, but it werks</c-omm>
-<div>
-    <g-fak data-vapor data-dark>1<b>1, 1</b></g-fak>x<sup>2</sup>
-    + <v-iva>3</v-iva>x
-    + <g-fak data-dark>2<b><g-irk>1, 2</g-irk></b></g-fak>
-</div>
-
-<c-omm>convert the middle value, three-equis</c-omm>
-<div>
-    x<sup>2</sup>
-    + <p-ren data-viva>3x</p-ren>
-    + 2
-</div>
-
-<c-omm>into the sum of one equis plus two equis</c-omm>
-<div>
-    x<sup>2</sup>
-    + <p-ren>
-    <e-kwa data-norm><p style="display:inline-block;width:5ch;">3x</p><b>=1x + 2x</b></e-kwa>
-    </p-ren>
-    + 2
-</div>
-
-<c-omm>rewrite it as</c-omm>
-<div>
-    x<sup>2</sup> +
-    <p-ren>
-    <e-kwa data-norm data-vapor data-noturn><i style="
-        display:inline-block;
-        width:3ch;
-        margin-top: -100px;
-        vertical-align: -10%;
-        font-size: 1.6em;
-    ">3x</i><b>1x + 2x</b></e-kwa>
-    </p-ren>
-    + 2
-</div>
-
-<c-omm>
-    you can drop those parenthesis
-    <b>
-        that's the commutative property of addition
-    </b>
-</c-omm>
-<div>
-    x<sup>2</sup>
-    + <p-ren data-vapor>1x + 2x</p-ren>
-    + 2
-</div>
-
-<c-omm>
-    now, regroup these into two terms
-</c-omm>
-<div>
-    x<sup>2</sup> + 1x + 2x + 2
-</div>
-
-<c-omm>
-    like this...
-</c-omm>
-<div>
-    <p-ren data-viva>x<sup>2</sup> + 1x</p-ren>
-    +
-    <p-ren data-viva>2x + 2</p-ren>
-</div>
-
-<c-omm>
-    look at the left part first, for common faktors
-</c-omm>
-<div>
-    <p-ren data-viva>x<sup>2</sup> + 1x</p-ren>
-    +
-    <p-ren>2x + 2</p-ren>
-</div>
-
-<c-omm>
-    looks like they have an equis in common
-</c-omm>
-<div>
-    <p-ren>
-        <g-fak>
-            x<sup>2</sup>
-            <b>x, x</b>
-        </g-fak> +
-        <g-fak>
-            1x
-            <b>1, x</b>
-        </g-fak>
-    </p-ren>
-    +
-    <p-ren>2x + 2</p-ren>
-</div>
-
-<c-omm>
-    only that one equis
-</c-omm>
-<div>
-    <p-ren>
-        <g-fak data-dark>
-            x<sup>2</sup>
-            <b>x, <g-irk>x</g-irk></b>
-        </g-fak> +
-        <g-fak data-dark>
-            1x
-            <b>1, <g-irk>x</g-irk></b>
-        </g-fak>
-    </p-ren>
-    +
-    <p-ren>2x + 2</p-ren>
-    
-</div>
-
-<c-omm>
-    faktor out that equis to the left
-</c-omm>
-<div>
-    <fakt-left style="--arc2-wide:80%;">
-        <b>x</b>
-        <p-ren>
-            <g-fak data-dark data-vapor>
-                x<sup>2</sup>
-                <b>x, &nbsp;</b>
-            </g-fak> +
-            <g-fak data-dark data-vapor>
-                1x
-                <b>1, &nbsp;</b>
-            </g-fak>
-        </p-ren>
-    </fakt-left>
-    +
-    <p-ren>2x + 2</p-ren>
-    
-</div>
-
-<c-omm>
-    put that equis up front; restore inside parenthesis
-</c-omm>
-<div>
-    x <v-t></v-t>
-   (<v-iva>x</v-iva> + <v-iva>1</v-iva>)
-    + (2x + 2)
-</div>
-
-<c-omm>
-    now concentrate on the other parenthesis
-</c-omm>
-<div>
-    x <p-t></p-t> <p-ren>x + 1</p-ren>
-    +
-    <p-ren data-viva>2x + 2</p-ren>
-</div>
-
-<c-omm>can anything be faktored out?</c-omm>
-<div>
-    x <p-t></p-t> <p-ren>x + 1</p-ren>
-    +
-    <p-ren >
-        <g-fak>2x <b>x, 2</b></g-fak> +
-        <g-fak>2 <b>1, 2</b></g-fak>
-    </p-ren>
-</div>
-
-<c-omm>there's a two calling your name</c-omm>
-<div>
-    x <p-t></p-t> <p-ren>x + 1</p-ren>
-    +
-    <p-ren >
-        <g-fak data-dark>2x <b>x, <g-irk>2</g-irk></b></g-fak> +
-        <g-fak data-dark>2 <b>1, <g-irk>2</g-irk></b></g-fak>
-    </p-ren>
-</div>
-
-<c-omm>pull that two out front</c-omm>
-<div>
-    x <p-t></p-t> <p-ren>x + 1</p-ren>
-    +
-    <fakt-left>
+    <k-wad xdata-fak1 data-guess>
+        <b></b>x<sup>2</sup> +
+        <b>3</b>x +
         <b>2</b>
-        <p-ren>
-        <g-fak data-vapor data-dark>2x <b>x, &nbsp;</b></g-fak> +
-        <g-fak data-vapor data-dark>2 <b>1, &nbsp;</b></g-fak>
-        </p-ren>
-    </fakt-left>
-</div>
-
-<c-omm>multiply by two; restore inside parenthesis</c-omm>
-<div>
-    x <p-t></p-t> <p-ren>x + 1</p-ren>
-    +
-    2 <v-t></v-t>
-    <p-ren>
-        <v-iva>x</v-iva> +
-        <v-iva>1</v-iva>
-    </p-ren>
+        <b>2</b>
+        <i-fak>2<b>1, 2</b></i-fak>
+    </k-wad>
 </div>
 
 <c-omm>
-    now, think of this as one big expression
+    well, how are you supposed to do that?
 </c-omm>
 <div>
-    <b-rak data-viva>
-    x<v-t></v-t><p-ren>x + 1</p-ren>
-    +
-    2<v-t></v-t><p-ren>x + 1</p-ren>
-    </b-rak>
-</div>
-
-<c-omm>
-    and think of the parenthetical as a faktor
-</c-omm>
-<div>
-[x<p-t></p-t><p-ren data-viva-all>x+1</p-ren> +
-2<p-t></p-t><p-ren data-viva-all>x+1</p-ren>]
-
-</div>
-
-<c-omm>
-    as though they each have (x+1) as a faktor
-</c-omm>
-<div>
-[
-<g-fak>
-    x(x+1)
-    <b>x, (x+1)</b>
-</g-fak>
-+
-<g-fak>
-    2(x+1)
-    <b>2, (x+1)</b>
-</g-fak>
-]
-</div>
-
-<c-omm>
-    so, (x+1) is a common faktor
-</c-omm>
-<div>
-[
-<g-fak data-dark>
-    x(x+1)
-    <b>x, <g-irk>(x+1)</g-irk></b>
-</g-fak>
-+
-<g-fak data-dark>
-    2(x+1)
-    <b>2, <g-irk data-opt3>(x+1)</g-irk></b>
-</g-fak>
-]
-</div>
-
-<c-omm>
-    try to faktor it out and see what happens
-</c-omm>
-<div>
-<fakt-left style="
-    --fakt-right: 3ch;
-">
-<b>(x+1)</b>
-[<g-fak data-dark data-vapor>x(x+1)<b>x, &nbsp;</b></g-fak>
-+
-<g-fak data-dark data-vapor>2(x+1)<b>2, &nbsp;</b></g-fak>]
-</fakt-left>
-</div>
-
-<c-omm>put the equis-plus-one in front, and restore</c-omm>
-<div>
-    <p-ren>x + 1</p-ren> <v-t></v-t>
-    [<v-iva>x</v-iva> + <v-iva>2</v-iva>]
-</div>
-
-<c-omm>
-    turn the brakettes into parenthesis
-</c-omm>
-<div>
-    <p-ren>x + 1</p-ren> <p-t></p-t>
-    <e-kwa data-norm data-noturn>
-        <b>(</b>
-        <b style="
-            font-weight: bold;
-            transform:scale(1.2,1.5);
-            display:inline-block;
-        ">[</b>
-    </e-kwa>
-    x + 2
-    <e-kwa data-norm data-noturn>
-        <b>)</b>
-        <b style="
-            font-weight: bold;
-            transform:scale(1,1.5);
-            display:inline-block;
-        ">]</b>
-    </e-kwa>
-</div>
-
-<c-omm>
-    looking pretty good
-</c-omm>
-<div>
-    <p-ren>x + 1</p-ren>
-    <g-ost>&middot</g-ost>
-    <p-ren>x + 2</p-ren>
-</div>
-
-<c-omm>
-    multiply the two if you want to check
-</c-omm>
-<div>
-<d-ist>
-    (x + 1) <p-t></p-t> (x + 2)
-</d-ist>
-</div>
-
-<c-omm> that becomes </c-omm>
-<div>
-    x<v-t></v-t>x <v-iva>+</v-iva>
-    x<v-t></v-t>2 <v-iva>+</v-iva>
-    1<v-t></v-t>x <v-iva>+</v-iva>
-    1<v-t></v-t>2
-</div>
-
-<c-omm>do the multiplications</c-omm>
-<div>
-    <e-kwa>
-        x<p-t></p-t>x
-        <b>=x<sup>2</sup></b>
-    </e-kwa>
-    +
-    <e-kwa>
-        x<p-t></p-t>2
-        <b>=2x<sup></sup></b>
-    </e-kwa>
-    +
-    <e-kwa>
-        1<p-t></p-t>x
-        <b>=x<sup></sup></b>
-    </e-kwa>
-    +
-    <e-kwa>
-        1<p-t></p-t>2
-        <b>=2<sup></sup></b>
-    </e-kwa>
-</div>
-
-<c-omm>combine the like terms</c-omm>
-<div>
-    x<sup>2</sup> +
-    <g-rak>2x + x</g-rak>
-    + 2
-</div>
-
-<c-omm>that adds up the three equis</c-omm>
-<div>
-    x<sup>2</sup> +
-    <g-rak data-ghost>
-        <e-kwa>
-            2x + x
-            <b>=3x</b>
-        </e-kwa>
-        
-    </g-rak>
-    + 2
-</div>
-
-<c-omm>so, rewrite it as</c-omm>
-<div>
-    x<sup>2</sup> +
-    <g-rak data-vapor>
-        <e-kwa data-vapor data-norm>
-            2x + x
-            <b>3x</b>
-        </e-kwa>
-        
-    </g-rak>
-    + 2
-</div>
-
-<c-omm>
-    that all <emp>checks out!</emp>
-</c-omm>
-<div>
-<g-ood><small>
-        x<sup>2</sup> + 3x + 2
-        <v-iva>=</v-iva>
-        x<sup>2</sup> + 3x + 2
-</small></g-ood>
-</div>
-
-<c-omm>
-    submit that faktorization
-</c-omm>
-<div>
-    <s-tar>(x+1)(x+2)</s-tar>
+    <k-wad>
+        <b></b>x<sup>2</sup> +
+        <b>3</b>x +
+        <b>2</b>
+        <b>2</b>
+        <i-fak>2<b>1, 2</b></i-fak>
+    </k-wad><n-ote>???<br>!!!</n-ote>
 </div>
 
 
@@ -969,10 +333,8 @@ hr {
 
 
 
-<br><br>
-</div end_qr>
-</div><br><br>
+</div end_of_qr>
+<div class="signature"></div>
+</div>
 </body>
-
-
 </html>

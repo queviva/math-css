@@ -5,364 +5,26 @@
 content="algebra trigonometry and calculus solutions">
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
-<style id="demoStyles">
-
-@font-face {
-    font-family : luckiest;
-    src : url(luckiest.ttf);
-}
-
-:root {
- 
-   
-}
-
-* {
-    
-    --back-color: #666;
-    --holder-back: #111;
-    
-    box-sizing: border-box;
-    word-wrap: break-word;
-}
-
-body {
-    padding: 0;
-    margin: 0;
-    background-color: var(--back-color);
-    font-size: 22px;
-    text-align: justify;
-    hyphens: auto;
-}
-
-.holder {
-       
-    --nose-hsla: hsla(40, 100%, 50%, 1);
-    
-    --nose-h: 40;
-    --nose-s: 100%;
-    --nose-l: 50%;
-    --nose-a: 1;
-                
-    /*
-    --nose-hsla: hsla(40, 100%, 90%, 1);
-    
-    --nose-h: 40;
-    --nose-s: 100%;
-    --nose-l: 90%;
-    --nose-a: 1;
-    */
-                
-    --lightness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        var(--nose-l)
-    );
-    
-    --midness: hsl(
-        var(--nose-h),
-        calc(0.7 * var(--nose-s)),
-        calc(0.65 * var(--nose-l))
-    );
-    
-    --darkness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(0.45 * var(--nose-l))
-    );
-    
-    --blackness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(0.20 * var(--nose-l))
-    );
-    
-    --greyness: hsl(
-        var(--nose-h),
-        calc(0.1 * var(--nose-s)),
-        calc(0.6 * var(--nose-l))
-    );
-    
-    --whiteness : hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(1.5 * var(--nose-l))
-    );
-    
-    
-    --inverse: hsl(
-        calc(var(--nose-h) + 120),
-        var(--nose-s),
-        var(--nose-l)
-    );
-
-    --text-ghost:
-        0 0 0px var(--holder-back),
-        0 0 8px var(--lightness),
-        0 0 12px #fff;
-        
-    --text-ghost-inverse:
-        0 0 0px var(--holder-back),
-        0 0 8px var(--inverse),
-        0 0 12px #fff;
-        
-    --text-vapor:
-        0 0 5px var(--holder-back),
-        0 0 40px var(--lightness),
-        0 0 40px #fff;
-        
-
-	position: relative;
-    color: var(--lightness);
-    background-color: var(--holder-back);
-    margin: auto;
-    width: 100%;
-    max-width: 700px;
-    
-}
-
+<link rel="stylesheet" href="../mathrobatics.css">
+<link rel="stylesheet" href="../demoStyles.css">
+<style>
 a {
-    text-decoration: none;
-    color: var(--darkness);
-}
-
-a:hover, a:visited {
-    transition: color linear var(--trans-speed);
-    color: var(--darkness);
-}
-
-pre {
-    background-color: var(--blackness);
-    margin: 0px;
-    padding: 10px;
-    text-align: left;
-    color: var(--midness);
-    overflow: auto;
-}
-
-emp {
-    font-family: luckiest;
-    font-style: italic;
-    font-weight: bold;
-    color: rgba(0,0,0,0);
-    -webkit-text-stroke: 2px var(--greyness);
-}
-
-hr {
-    border-top: 1px solid var(--darkness);
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
-    margin: 7px 0px 7px 0px;
-}
-
-.qa > div > a, .qa > div  > a,
-.qb > div > a, .qb > div  > a,
-.qa > div > a:hover, .qa > div  > a:visited,
-.qb > div > a:hover, .qb > div> a:visited
-{
     color: var(--lightness);
 }
-
-.qr {
-    padding: 10px;
+a:hover {
+    filter: url("#viva");
 }
-
-.qa:after {
-    content: "";
-    display: table;
-    clear: both;
+a:visited {
+    color: var(--greyness);
 }
-
-.qa > div {
-    float: left;
-    padding: 10px;
-    height: auto;
+li {
+    color: var(--whiteness);
 }
-
-.qa > div:nth-child(1) {
-  width: 50%;
-}
-
-.qa > div:nth-child(2) {
-  width: 50%;
-}
-
-.qb:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.qb > div {
-    float: left;
-    padding: 10px;
-    height: auto;
-}
-
-.qb > div:nth-child(1) {
-  width: 35%;
-}
-
-.qb > div:nth-child(2) {
-  width: 65%;
-}
-
-.qa, .qb {
-    color: var(--lightness);
-}
-
-.mobr {
-    display: none;
-}
-
-.hobr {
-    display: inline-block;
-}
-
-.abhr {
-    display: none;
-}
-
-/*possibly a portrait mobi-fone*/
-@media screen and (max-width:500px) {
-
-	.qa > div:nth-child(1),
-	.qa > div:nth-child(2),
-	.qb > div:nth-child(1),
-	.qb > div:nth-child(2)
-	{
-    	width: 100%;
-    }
-    
-    .mobr {
-        display: inline-block;
-    }
-    .hobr {
-        display: none;
-    }
-    .abhr {
-        display: block;
-    }
-    ul {
-        text-align: left;
-    }
-
-}
-
-/*possibly a mobile landscraper*/
-@media screen and (orientation: landscape) and (max-width: 760px) {
-
-    
-}
-
-.signature {
-    text-align: right;
-    font-family: 'luckiest';
-    font-style: italic;
-    height: 200px;
-    color: var(--blackness);
-    -webkit-text-stroke: 1px var(--darkness);
-    user-select:none;
-}
-
 </style>
-<style id="mathroStyles">
-
-* {
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-:root {
-    
-    --gank-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
-    
-    --gank-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q55 70 105 0L110 10Q60 70 15 100Z'/%3E%3C/svg%3E");
-    
-    --gank-02: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M15 100Q40 90 70 25L69 45Q90 10 115 0Q90 15 65 70L65 52Q50 90 15 100Z'/%3E%3C/svg%3E");
-    
-    --gank-sigma-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 20L100 0L40 50L80 70L0 100L50 70L20 50L80 10Z'/%3E%3C/svg%3E");
-    
-    --gank-slash-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M10 90Q60 15 105 0L110 10Q60 20 15 100Z'/%3E%3C/svg%3E");
-    
-    --dist-full-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath transform='translate(15,15)' d='M8 100A15 15 180 0 1 67 100H62A10 11 180 0 0 13 100H8A35 35 180 0 1 92 100H87A20 21 180 0 0 13 100ZM 33 100A15 15 180 0 1 92 100H87A20 22 180 0 0 38 100H33A17 17 180 0 1 67 100H62A10 12 180 0 0 38 100Z'/%3E%3C/svg%3E");
-
-    --dist-right-XX: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M23 115A35 35 180 0 1 106 115H101A35 33 180 0 0 28 115H23A20 20 180 0 1 68 115H63A15 14 180 0 0 28 115Z'/%3E%3C/svg%3E");
-    
-    --dist-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M106 115A35 35 180 0 0 27 115H32A35 40 180 0 1 101 115H106A21 20 180 0 0 64 115H69A15 14 180 0 1 101 115 Z'/%3E%3C/svg%3E");
-    
-    --grak-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52A10 30 0 0 1 25 22H55A10 30 0 0 0 65 2A10 30 0 0 0 75 22H105A10 30 0 0 1 115 52A10 25 0 0 0 105 27H75A10 20 0 0 1 65 17A10 20 0 0 1 55 27H25A10 25 0 0 0 15 52Z'/%3E%3C/svg%3E");
-        
-    --grak-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52Q16 30 14 15Q65 25 116 15Q114 30 115 52L112 25H18Z'/%3E%3C/svg%3E");
-    
-     --girk-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M90 35A40 35 0 0 0 50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A20 47 0 0 0 80 3A16 47 0 0 1 96 50A41 40 0 0 1 55 90A50 40 0 0 1 5 50A42 42 0 0 1 50 8A40 27 0 0 1 90 35Z'/%3E%3C/svg%3E");
-    
-    --girk-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
-    M 25 20\
-    A 25 30 0 0 0 0 50\
-    A 50 50 0 0 0 50 100\
-    A 50 50 0 0 0 100 50\
-    A 50 50 0 0 0 50 0\
-    C -8 2 10 45 15 45\
-    C 5 20 20 8 50 8\
-    A 45 42 0 0 1 95 50\
-    A 45 40 0 0 1 50 90\
-    A 48 45 0 0 1 2 48\
-    A 28 28 0 0 1 30 20\
-    Z'/%3E%3C/svg%3E");
-        
-    --girk-02: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A50 50 0 0 0 50 0ZM 20 20A33 30 330 0 0 82 80A33 30 330 0 0 20 20Z'/%3E%3C/svg%3E");
-        
-    --girk-03: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M5 20Q0 30 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A50 50 0 0 0 50 0C-8 2 10 45 15 45C5 20 20 8 50 8A45 42 0 0 1 95 50A45 40 0 0 1 50 90A48 45 0 0 1 2 45Q2 35 5 20Z'/%3E%3C/svg%3E");
-    
-    --girk-xtra-swoosh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M15 15A10 10 0 0 0 85 85A10 10 0 0 0 15 20A10 10 0 0 0 40 40A10 10 0 0 1 25 20A10 10 0 0 1 80 80A10 10 0 0 1 20 12Z'/%3E%3C/svg%3E");
-        
-    --powr-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M100 30A100 300 340 0 0 0 55L4 55A100 300 340 0 1 100 30Z'/%3E%3C/svg%3E");
-            
-    --powr-dot: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M 50 0A 50 50 0 0 0 50 100A 50 50 0 0 0 50 0Z'/%3E%3C/svg%3E");
-            
-    --ipow-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath d='M100 45A100 200 340 0 1 0 85L2 81L10 82A100 200 340 0 0 95 55Z' fill='%23000' /%3E\
-    %3C/svg%3E");
-    
-    --ipow-divline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M0 30Q50 40 95 0L100 70Q50 60 10 100Z'/%3E%3C/svg%3E");
-    
-    --uv-table-rite: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
-    M 30 80\
-    A 10 15 0 0 1 100 60\
-    L 90 60\
-    A 10 16 0 0 0 31 80\
-    Z'/%3E%3C/svg%3E");
-    
-    --uv-table-left: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
-    M 70 80\
-    A 10 15 0 0 0 0 60\
-    L 10 60\
-    A 10 16 0 0 1 69 80\
-    Z'/%3E%3C/svg%3E");
-    
-    --rdux-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
-    M 0 100\
-    Q 30 75 55 30\
-    L 55 50\
-    Q 30 80 0 100\
-    Z\
-    M 100 0\
-    Q 70 25 50 70\
-    L 50 50\
-    Q 70 20 100 0\
-    Z'/%3E%3C/svg%3E");
-    
-}
-
-
-</style>
-
-
 </head>
 
 <body>
-<div id="hold0" class="holder">
+<div class="holder" style="font-size:25px;text-align:left;">
 <svg id="SVGfilter" height="0" width="0">
 
     <filter id="lightness">
@@ -634,9 +296,10 @@ hr {
 </svg>
 
 
-<div id="contact" class="qr" style="
+<div id="intro" class="qr" style="
     font-size: 30px;
     color:var(--whiteness);
+    text-align: justify;
 ">
     here's a bunch of answer to
     a few commonly encountered problems,
@@ -644,22 +307,8 @@ hr {
     solutions
 </div>
 <hr>
+
 <div id="list" class="qr">
-<style>
-a {
-    color: var(--lightness);
-}
-a:hover {
-    filter: url("#viva");
-}
-a:visited {
-    color: var(--greyness);
-}
-li {
-    color: var(--whiteness);
-}
-</style>
-    
 <ul>
 <li>
     <a href=example04.html>
