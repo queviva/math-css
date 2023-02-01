@@ -1,8 +1,3 @@
-@font-face {
-    font-family : luckiest;
-    src : url(luckiest.ttf);
-}
-
 * {
     
     --back-color: #666;
@@ -10,6 +5,7 @@
     
     box-sizing: border-box;
     word-wrap: break-word;
+    
 }
 
 body {
@@ -22,83 +18,7 @@ body {
 }
 
 .holder {
-       
-    --nose-hsla: hsla(40, 100%, 50%, 1);
-    
-    --nose-h: 40;
-    --nose-s: 100%;
-    --nose-l: 50%;
-    --nose-a: 1;
-                
-    /*
-    --nose-hsla: hsla(40, 100%, 90%, 1);
-    
-    --nose-h: 40;
-    --nose-s: 100%;
-    --nose-l: 90%;
-    --nose-a: 1;
-    */
-                
-    --lightness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        var(--nose-l)
-    );
-    
-    --midness: hsl(
-        var(--nose-h),
-        calc(0.7 * var(--nose-s)),
-        calc(0.65 * var(--nose-l))
-    );
-    
-    --darkness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(0.45 * var(--nose-l))
-    );
-    
-    --blackness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(0.20 * var(--nose-l))
-    );
-    
-    --greyness: hsl(
-        var(--nose-h),
-        calc(0.1 * var(--nose-s)),
-        calc(0.6 * var(--nose-l))
-    );
-    
-    --whiteness : hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(1.5 * var(--nose-l))
-    );
-    
-    
-    --inverse: hsl(
-        calc(var(--nose-h) + 120),
-        var(--nose-s),
-        var(--nose-l)
-    );
-
-    --text-ghost:
-        0 0 0px var(--holder-back),
-        0 0 8px var(--lightness),
-        0 0 12px #fff;
-        
-    --text-ghost-inverse:
-        0 0 0px var(--holder-back),
-        0 0 8px var(--inverse),
-        0 0 12px #fff;
-        
-    --text-vapor:
-        0 0 5px var(--holder-back),
-        0 0 40px var(--lightness),
-        0 0 40px #fff;
-        
-
-	position: relative;
+    position: relative;
     margin: auto;
     width: 100%;
     max-width: 700px;
@@ -106,7 +26,6 @@ body {
     text-align: center;
     color: var(--lightness);
     background-color: var(--holder-back);
-    
 }
 
 a {
@@ -117,22 +36,6 @@ a {
 a:hover, a:visited {
     transition: color linear var(--trans-speed);
     color: var(--darkness);
-}
-
-pre {
-    background-color: var(--blackness);
-    padding: 10px;
-    text-align: left;
-    color: var(--midness);
-    overflow: auto;
-}
-
-emp {
-    font-family: luckiest;
-    font-style: italic;
-    font-weight: bold;
-    color: rgba(0,0,0,0);
-    -webkit-text-stroke: 2px var(--greyness);
 }
 
 hr {

@@ -1,6 +1,6 @@
 <!doctype html><html lang="en">
 <head>
-<title>mathrobatics</title>
+<title>mathrobatics solutions 04</title>
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 <meta name="description"
@@ -299,13 +299,13 @@ content="x^2 + 3x + 2 algebra solution">
         this is called a "quadratic expression"
         and it needs to be broken up into two
         groups of parenthesis, each that has only
-        two things inside it - something with on
-        two things, or "terms", is call a
+        two things inside it - something with only
+        two things, or two "terms", is call a
         "binomial"
     </b>
 </c-omm>
 <div>
-    <k-wad xdata-fak1 data-guess>
+    <k-wad data-guess>
         <b></b>x<sup>2</sup> +
         <b>3</b>x +
         <b>2</b>
@@ -316,19 +316,211 @@ content="x^2 + 3x + 2 algebra solution">
 
 <c-omm>
     well, how are you supposed to do that?
+    <b>
+        with your brain ... or the internet,
+        whichever is more convenient
+    </b>
 </c-omm>
 <div>
-    <k-wad>
-        <b></b>x<sup>2</sup> +
+    x<sup>2</sup> + 3x + 2 <n-ote>???<br>!!!</n-ote>
+</div>
+
+<c-omm>
+    step one is to look at the first, and last, coefficients
+    <b>
+        in this case, they are one and two; the coefficient
+        of just "x" is one, because there is a, sort of,
+        invisible "times one" infront of the x
+    </b>
+</c-omm>
+<div>
+    <k-wad data-fak1>
+        <b>1</b>x<sup>2</sup> +
         <b>3</b>x +
         <b>2</b>
         <b>2</b>
         <i-fak>2<b>1, 2</b></i-fak>
-    </k-wad><n-ote>???<br>!!!</n-ote>
+    </k-wad>
 </div>
 
+<c-omm>
+    we multiply them together
+</c-omm>
+<div>
+    <k-wad data-fak2>
+        <b>1</b>x<sup>2</sup> +
+        <b>3</b>x +
+        <b>2</b>
+        <b>1&times;2</b>
+        <i-fak>2<b>1, 2</b></i-fak>
+    </k-wad>
+</div>
 
+<c-omm>
+    one times two is not simple, but it equals two
+</c-omm>
+<div>
+    <k-wad data-fak3>
+        <b>1</b>x<sup>2</sup> +
+        <b>3</b>x +
+        <b>2</b>
+        <b>1&times;2</b>
+        <i-fak>2<b>1, 2</b></i-fak>
+    </k-wad>
+</div>
 
+<c-omm>
+    now, think about the faktors of two ...
+</c-omm>
+<div>
+    <k-wad data-fak4>
+        <b>1</b>x<sup>2</sup> +
+        <b>3</b>x +
+        <b>2</b>
+        <b>1&times;2</b>
+        <i-fak>2<b>1, 2</b></i-fak>
+    </k-wad>
+</div>
+
+<c-omm>
+    are there faktors of two we can combine to make three?
+</c-omm>
+<div>
+    <k-wad data-fak5>
+        <b>1</b>x<sup>2</sup> +
+        <b>3</b>x +
+        <b>2</b>
+        <b>1&times;2</b>
+        <i-fak>2<b>1, 2</b></i-fak>
+    </k-wad>
+</div>
+
+<c-omm>
+    we only have one option, but those actually werk!
+</c-omm>
+<div>
+    <k-wad data-fak6>
+        <b>1</b>x<sup>2</sup> +
+        <b>3</b>x +
+        <b>2</b>
+        <b>1&times;2</b>
+        <i-fak>2<b>1, 2</b></i-fak>
+    </k-wad>
+</div>
+
+<c-omm>
+    we're gong to replace that middle term ...
+</c-omm>
+<div>
+    x<sup>2</sup> + <p-ren data-viva>3x</p-ren>
+    + 2<n-ote>remember<br>1 &amp; 2</n-ote>
+</div>
+
+<c-omm>
+    ... with the sum of the faktors: one-plus-two
+</c-omm>
+<div>
+    x<sup>2</sup> +
+    <p-ren><e-kwa><b>3x</b><b>1x+2x</b></e-kwa></p-ren>
+    + 2
+</div>
+
+<c-omm>
+    drop those parenthesis
+</c-omm>
+<div>
+    x<sup>2</sup> +
+    <p-ren data-ghost><e-kwa data-dark data-norm data-noturn>
+        <b>3x</b>
+        <b>1x+2x</b>
+    </e-kwa></p-ren>
+    + 2
+</div>
+
+<c-omm>
+    now, you're thinking "how does THIS help?!!"
+</c-omm>
+<div>
+    x<sup>2</sup> + 1x + 2x + 2
+    <n-ote>why<br>???!!!
+    </n-ote>
+</div>
+
+<c-omm>
+    group them into two different groups
+</c-omm>
+<div>
+    <p-ren data-viva>x<sup>2</sup> + 1x</p-ren>
+    +
+    <p-ren data-viva>2x + 2</p-ren>
+</div>
+
+<c-omm>
+    would it be possible to faktor the left group?
+</c-omm>
+<div>
+    <p-ren>
+        <i-fak>
+            <span>x<sup>2</sup></span>
+            <b>x, x</b>
+        </i-fak>
+        +
+        <i-fak>
+            1x
+            <b>1, x</b>
+        </i-fak>
+    </p-ren>
+    +
+    <p-ren>2x + 2</p-ren>
+</div>
+
+<c-omm>
+    yes, they each have an x in common
+</c-omm>
+<div>
+    <p-ren>
+        <i-fak data-dark>
+            <span>x<sup>2</sup></span>
+            <b>x, <c-irk>x</c-irk></b>
+        </i-fak>
+        +
+        <i-fak data-dark>
+            1x
+            <b>1, <c-irk data-opt1>x</c-irk></b>
+        </i-fak>
+    </p-ren>
+    +
+    <p-ren>2x + 2</p-ren>
+</div>
+
+<c-omm>
+    move that equis out to the left
+</c-omm>
+<div>
+    <fakt-left/>
+    <b>x</b>
+    <p-ren>
+        <i-fak data-dark data-vapor>
+            x<sup>2</sup>
+            <b>x, &nbsp;</b>
+        </i-fak>
+        +
+        <i-fak data-dark data-vapor>
+            1x
+            <b>1, &nbsp;</b>
+        </i-fak>
+    </p-ren>
+    </fakt-left>
+    +
+    <p-ren>2x + 2</p-ren>
+</div>
+
+<c-omm>
+    multiply by x infront, and restore the remaining faktors
+</c-omm>
+<div>
+x <v-t></v-t>
+</div>
 
 
 
