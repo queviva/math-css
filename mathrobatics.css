@@ -71,13 +71,23 @@
         0 0 40px var(--lightness),
         0 0 40px #fff;
         
-    --dist-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
+    --dist-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
+        
+    --dist-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H82A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
+    
+    --fakt-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H99.5A10 20 0 0 0 8 100Z'/%3E%3C/svg%3E");
+    
+    --fakt-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H99A10 20 0 0 0 16 100Z'/%3E%3C/svg%3E");
+    
+    --fakt-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H99.5A10 20 0 0 0 8 100H0A10 30 0 0 1 44 100H43.5A10 31.5 0 0 0 8 100Z'/%3E%3C/svg%3E");
     
     --powr-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M100 30A100 300 340 0 0 0 55L4 55A100 300 340 0 1 100 30Z'/%3E%3C/svg%3E");
             
     --powr-dot: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M 50 0A 50 50 0 0 0 50 100A 50 50 0 0 0 50 0Z'/%3E%3C/svg%3E");
         
-    --logb-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath d='M100 35A100 320 355 0 1 0 65L12 53L28 60A100 600 0 0 0 100 28Z' fill='%23000' /%3E %3C/svg%3E");
+    --logb-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath d='M100 50A10 10 0 0 0 0 50C0 100 52 95 50 70L44 63L35 68C34 85 8 80 8 50A10 10 0 0 1 100 55Z' fill='%23000' /%3E %3C/svg%3E");
+    
+    --logb-arc-old: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath d='M100 35A100 320 355 0 1 0 65L12 53L28 60A100 600 0 0 0 100 28Z' fill='%23000' /%3E %3C/svg%3E");
     
     --logb-hat: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' fill-rule='evenodd' %3E%3Cpath d='M85 80A45 10 -10 0 0 15 80A45 10 -10 0 0 85 80ZM 75 80A40 8 -12 0 0 25 80A40 8 -12 0 0 75 80 Z' fill='%23000' /%3E %3Cpath d='M16 20Q45 -8 80 5Q75 40 78 70L76 70L76 55Q50 50 24 63L24 78Q50 70 21 78Q25 49 16 20Z' fill='%23000' /%3E %3C/svg%3E");
     
@@ -336,10 +346,6 @@ f-rak > :nth-child(1)::after {
     word-spacing: 1ch;
 }
 f-rak[data-viva] > :nth-child(1),
-f-rak[data-ghost] > :nth-child(1),
-f-rak[data-slash1] > :nth-child(1) {
-    border: none;
-}
 f-rak[data-viva] > :nth-child(2)::before {
     
     content: '';
@@ -352,6 +358,7 @@ f-rak[data-viva] > :nth-child(2)::before {
     filter: url("#viva");
     
 }
+f-rak[data-ghost] > :nth-child(1),
 f-rak[data-ghost] > :nth-child(2)::before {
     content: '';
     position: absolute;
@@ -361,6 +368,9 @@ f-rak[data-ghost] > :nth-child(2)::before {
     left: 0;
     border-top: 2px solid;
     filter: url("#vapor");
+}
+f-rak[data-slash1] > :nth-child(1) {
+    border: none;
 }
 f-rak[data-slash1] > :nth-child(2)::before {
     content: '';
@@ -1737,12 +1747,11 @@ e-kwa[data-dark] > b:nth-of-type(2) {
 
 
 i-fak {
-    
     --ifak-top : 63%;
     position: relative;
     display: inline-grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0fr;
+    grid-template-rows: 1fr;
 }
 i-fak > b {
     grid-column: 1;
@@ -1875,20 +1884,20 @@ k-wad[data-fak3] > b:nth-of-type(4) {
     
 }
 k-wad[data-fak3] > i-fak {
-    
-    display: inline;
     visibility: visible;
-    color: var(--lightness);
-    text-shadow: none;
-    filter: url("#lil-viva");
-    transform: scale(0.5, 0.5);
-    
+    display: inline-grid;
 }
-k-wad[data-fak3] > i-fak::before {
+k-wad[data-fak3] > i-fak > b:nth-of-type(1) {
+    font-size: 0.8em;
+    text-shadow: none;
+    color: var(--lightness);
+    filter: url("#lil-viva");
+}
+k-wad[data-fak3] > i-fak > b:nth-of-type(1)::before {
     content: '=';
     font-size: 0.7em;
 }
-k-wad[data-fak3] > i-fak > b {
+k-wad[data-fak3] > i-fak > b:nth-of-type(2) {
     visibility: hidden;
 }
 
@@ -1902,13 +1911,20 @@ k-wad[data-fak4]::after {
     
 }
 k-wad[data-fak4] > i-fak {
-    
     visibility: visible;
-    display: flex;
-    xbottom: 110%;
-    transform: scale(0.8, 0.8);
-    border: 1px solid;
+    display: inline-grid;
+}
+k-wad[data-fak4] > i-fak > b:nth-of-type(1) {
+    opacity: 0.5;
+}
+k-wad[data-fak4] > i-fak > b:nth-of-type(2) {
     
+    font-size: 0.4em;
+    width: 200%;
+    left: -50%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: visible;
 }
 
 k-wad[data-fak5] {
@@ -1948,20 +1964,21 @@ k-wad[data-fak5] > b:nth-of-type(2)::after {
         
 }
 k-wad[data-fak5] > i-fak {
-    
     visibility: visible;
-    display: inline-flex;
-    bottom: 100%;
-    transform: scale(0.8, 0.8);
-    text-shadow: var(--text-vapor);
-    
+    display: inline-grid;
 }
-k-wad[data-fak5] > i-fak > b {
-    
-    top: 40%;
-    filter: url("#lightness");
-    transform: scale(1.5, 1.5);
-    
+k-wad[data-fak5] > i-fak > b:nth-of-type(1) {
+    opacity: 0.3;
+}
+k-wad[data-fak5] > i-fak > b:nth-of-type(2) {
+    font-size: 0.6em;
+    width: 200%;
+    top: 25%;
+    left: -50%;
+    text-align: center;
+    white-space: nowrap;
+    filter: none;
+    overflow: visible;
 }
 
 k-wad[data-fak6] {
@@ -1973,54 +1990,55 @@ k-wad[data-fak6] > b:nth-of-type(2) {
 }
 k-wad[data-fak6] > b:nth-of-type(2)::after {
     
-    content: '?=';
+    content: '=';
     position: absolute;
     top: 10%;
-    left: -1.2ch;
-    font-size: 0.6em;
-    font-family: luckiest;
+    left: -1.4ch;
+    font-size: 0.4em;
+    font-family: inherit;
     text-align: center;
     white-space: nowrap;
     color: var(--inverse);
-    filter: url("#vers");
     transform: rotate(-10deg);
         
 }
 k-wad[data-fak6] > i-fak {
-    
     visibility: visible;
-    display: inline-flex;
-    bottom: 120%;
-    transform: scale(0.8, 0.8);
-    text-shadow: none;
-    color: rgba(0,0,0,0);
-    border: 1px solid;
-    
+    display: inline-grid;
 }
-k-wad[data-fak6] > i-fak > b {
-    
-    top: 40%;
-    xfilter: url("#lightness");
+k-wad[data-fak6] > i-fak > b:nth-of-type(1) {
+    font-size: 0.5;
+    opacity: 0.5;
+}
+k-wad[data-fak6] > i-fak > b:nth-of-type(2) {
+    font-size: 0.6em;
+    width: 200%;
+    left: -50%;
+    top: 25%;
+    text-align: center;
+    white-space: nowrap;
     filter: none;
-    transform: scale(1.5, 1.5);
-    
+    overflow: visible;
 }
-k-wad[data-fak6] > i-fak > b::after {
-    
+k-wad[data-fak6] > i-fak > b:nth-of-type(2) > b {
+    padding: 5px;
+}
+k-wad[data-fak6] > i-fak > b:nth-of-type(2) > b::after {
     content: '';
     position: absolute;
     height: 100%;
-    width: calc(100% + 5px);
+    width: 100%;
     top: 0;
-    left: -2.5px;
+    left: 0;
+    background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-image: var(--cirk-03);
+    background-image: var(--cirk-01);
+    color: var(--lightness);
     filter: url("#viva");
-    transform: scale(-1, 1);
-    
 }
 
 k-wad[data-guess] {
+    font-weight: bold;
     color: rgba(0,0,0,0);
     text-shadow: var(--text-ghost);
 }
@@ -2041,7 +2059,12 @@ k-wad[data-guess]::after {
     visibility: visible;
     
 }
-
+k-wad[data-guess] > b {
+    font-weight: bold;
+}
+k-wad[data-var-y] {
+    --kwad-var: 'y';
+}
 
 
 r-aze {
@@ -2226,33 +2249,42 @@ r-oot[data-c-ank] > b:nth-of-type(1) {
 
 fakt-left {
     
-    --fakt-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H99.5A10 20 0 0 0 8 100H0A10 30 0 0 1 44 100H43.5A10 31.5 0 0 0 8 100Z'/%3E%3C/svg%3E");
-    
-    --fakt-right: 1.6ch;
+    --fakt-pos: -1ch;
+    --fakt-wide: 3ch;
     --fakt-filter: url("#viva");
-    --arc-wide: 1ch;
+    --arc1-wide: 30%;
+    --arc2-wide: calc(100% - 1.7ch);
     
     position: relative;
     margin-left: 0.8ch;
     
 }
-fakt-left::after {
-    
+fakt-left::before {
     content: '';
     position: absolute;
-    width: calc(100% - var(--arc-wide));
+    width: calc(-1 * var(--fakt-pos) + var(--arc2-wide));
     height: 25px;
-    right: var(--fakt-right);
+    left: var(--fakt-pos);
     bottom: 90%;
     background-size: 100% 100%;
-    background-image: var(--fakt-left-00);
+    background-image: var(--fakt-arc1);
     filter: var(--fakt-filter);
-    
+}
+fakt-left::after {
+    content: '';
+    position: absolute;
+    width: calc(-1 * var(--fakt-pos) + var(--arc1-wide));
+    aspect-ratio: 6 / 1;
+    left: var(--fakt-pos);
+    bottom: 90%;
+    background-size: 100% 100%;
+    background-image: var(--fakt-arc2);
+    filter: var(--fakt-filter);
 }
 fakt-left > b:nth-child(1) {
     position: absolute;
-    width: 3ch;
-    left: calc(-1 * var(--fakt-right) - 1ch);
+    width: var(--fakt-wide);
+    left: calc(var(--fakt-wide)/-2 + var(--fakt-pos));
     top: 20%;
     font-size: 0.5em;
     font-family: luckiest;
@@ -2262,7 +2294,6 @@ fakt-left > b:nth-child(1) {
     transform: rotate(-15deg);
     filter: var(--fakt-filter);
     z-index: 10;
-    
 }
 fakt-left > b:nth-child(1)::before {
     content: "";
@@ -2286,10 +2317,7 @@ fakt-left[data-norm] > b:nth-child(1) {
 }
 
 dist-rite {
-    
-        
-    --dist-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H82A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
-    
+
     --dist-left: 0.5ch;
     --dist-high: 30px;
     --dist-ratio: 6 / 1;
@@ -2344,10 +2372,6 @@ dist-rite[data-vapor] {
 }
 
 rite-dist {
-    
-    --dist-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
-        
-    --dist-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectdistio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H85A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
     
     --arc1-wide: 51%;
     --arc2-wide: calc(100% - 1.5ch);
@@ -2614,7 +2638,7 @@ l-ogb[data-arc] {
     margin-bottom: 1em;
     
 }
-l-ogb[data-arc] > b:nth-child(1)::before {
+l-ogb[data-arc] > b:nth-child(1)::after {
     
     content: '';
     position: absolute;
@@ -2625,23 +2649,24 @@ l-ogb[data-arc] > b:nth-child(1)::before {
     transform: rotate(12deg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-image: var(--cirk-01);
+    background-image: var(--cirk-02);
     filter: url("#viva");
     
 }
-l-ogb[data-arc] > b:nth-child(1)::after {
+l-ogb[data-arc] > b:nth-child(1)::before {
     
     content: '';
     position: absolute;
-    height: 2em;
-    width: 1.7em;
-    top: 0;
-    right: 100%;
+    height: 3em;
+    width: 5em;
+    bottom: -20%;
+    right: 0em;
     transform: rotate(12deg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-image: var(--logb-arc);
     filter: url("#viva");
+    z-index: -10;
     
 }
 l-ogb[data-hat] {
