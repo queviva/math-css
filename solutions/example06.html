@@ -279,13 +279,328 @@ content="problem being solved">
     </filter>
   
 </svg>
-
 <div class="qr">
 
-[change description in meta tag]
+<c-omm>
+    &nbsp;&nbsp;&nbsp;show that...
+</c-omm>
+<div>
+<f-rak>
+    <b>1 - tan<sup>2</sup></b>
+    <b>1 + tan<sup>2</sup></b>
+</f-rak>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    (1+tan<sup>2</sup>) is equal to sec<sup>2</sup>,
+    so replace that in the denominator
+    <b>
+        since:
+        <dd>sin<sup>2</sup> + cos<sup>2</sup> = 1</dd>
+        commute that to
+        <dd>cos<sup>2</sup> + sin<sup>2</sup> = 1</dd>
+        and divide by cos<sup>2</sup>
+        <br>
+        <dd>
+        <f-rak>
+            <b>cos<sup>2</sup></b>
+            <b>cos<sup>2</sup></b>
+        </f-rak>
+        +
+        <f-rak>
+            <b>sin<sup>2</sup></b>
+            <b>cos<sup>2</sup></b>
+        </f-rak>
+        =
+        <f-rak>
+            <b>1</b>
+            <b>cos<sup>2</sup></b>
+        </f-rak>
+        </dd>
+        then, by definitions
+        <dd>
+            1 + tan<sup>2</sup> = sec<sup>2</sup>
+        </dd>
+    </b>
+</c-omm>
+<div>
+<f-rak>
+    <b>1 - tan<sup>2</sup></b>
+    <b>
+        <e-kwa>
+            <b>1 + tan<sup>2</sup></b>
+            <b>sec<sup>2</sup></b>
+        </e-kwa>
+    </b>
+</f-rak>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+
+<c-omm>
+    split the fraktion into its difference
+</c-omm>
+<div>
+<f-rak>
+    <b>1 <v-iva>-</v-iva> tan<sup>2</sup></b>
+    <b>sec<sup>2</sup></b>
+</f-rak>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    use sec<sup>2</sup> as the common denominator
+</c-omm>
+<div>
+<f-rak data-slash1 data-viva-all>
+    <b><l-uck data-rot>1</l-uck></b>
+    <b><l-uck data-rot>sec<sup>2</sup></l-uck></b>
+</f-rak>
+-
+<f-rak>
+    <b><g-ost>1 - </g-ost>tan<sup>2</sup></b>
+    <b>sec<sup>2</sup></b>
+</f-rak>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    this fraktion needs to be split into its product
+</c-omm>
+<div>
+<f-rak>
+    <b>1</b>
+    <b>sec<sup>2</sup></b>
+</f-rak>
+-
+<b-rak data-viva>
+<f-rak>
+    <b>tan<sup>2</sup></b>
+    <b>sec<sup>2</sup></b>
+</f-rak>
+</b-rak>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+   let's see how much that helped ...
+</c-omm>
+<div>
+<f-rak>
+    <b>1</b>
+    <b>sec<sup>2</sup></b>
+</f-rak>
+-
+<b-rak>
+<v-iva>tan<sup>2</sup></v-iva> <v-t></v-t>
+<f-rak data-viva-all>
+    <b>1</b>
+    <b>sec<sup>2</sup></b>
+</f-rak>
+</b-rak>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    we're going to replace a few things by their definitions
+</c-omm>
+<div>
+<f-rak>
+    <b>1</b>
+    <b>sec<sup>2</sup></b>
+</f-rak>
+-
+<b-rak data-vapor>
+tan<sup>2</sup> <p-t></p-t>
+<f-rak>
+    <b>1</b>
+    <b>sec<sup>2</sup></b>
+</f-rak>
+</b-rak>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    by definition, <f-rak><b>1</b>sec</f-rak>
+    is cos, so swap that
+    <b>
+        if
+        <dd>cos = <f-rak><b>1</b>sec</f-rak></dd>
+        then
+        <dd>
+        cos <n-t></n-t> cos =
+        <f-rak><b>1</b>sec</f-rak> <n-t></n-t>
+        <f-rak><b>1</b>sec</f-rak>
+        </dd>
+        and
+        <dd>
+            cos<sup>2</sup> =
+            <f-rak><b>1</b><b>sec<sup>2</sup></b></f-rak>
+        </dd>
+    </b>
+</c-omm>
+<div>
+<e-kwa>
+<b><f-rak>
+    <b>1</b>
+    <b>sec<sup>2</sup></b>
+</f-rak></b>
+<b>cos<sup>2</sup></b>
+</e-kwa>
+-
+tan<sup>2</sup> <p-t></p-t>
+<e-kwa>
+<b><f-rak>
+    <b>1</b>
+    <b>sec<sup>2</sup></b>
+</f-rak></b>
+<b>cos<sup>2</sup></b>
+</e-kwa>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    what else can we replace here?
+</c-omm>
+<div>
+cos<sup>2</sup>
+-
+tan<sup>2</sup> <p-t></p-t> cos<sup>2</sup>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    tan is <f-rak><b>sin</b>cos</f-rak>, so
+    swap that out appropriately
+</c-omm>
+<div>
+cos<sup>2</sup>
+-
+<e-kwa>
+    <b>tan<sup>2</sup></b>
+    <b><f-rak data-slash1>
+        <b>sin<sup>2</sup></b>
+        <b>cos<sup>2</sup></b>
+    </f-rak></b>
+</e-kwa>
+
+<p-t></p-t> cos<sup>2</sup>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    something can cancel out; what do you think?
+</c-omm>
+<div>
+cos<sup>2</sup> -
+<f-rak>
+    <b>sin<sup>2</sup></b>
+    <b>cos<sup>2</sup></b>
+</f-rak>
+<p-t></p-t> cos<sup>2</sup>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    the cos<sup>2</sup>'s can
+</c-omm>
+<div>
+cos<sup>2</sup>
+-
+<f-rak>
+    <b>sin<sup>2</sup></b>
+    <b><r-dux data-hi>cos<b>1</b><sup>2</sup></r-dux></b>
+</f-rak>
+<p-t></p-t> <c-ank data-red1>cos<sup>2</sup></c-ank>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    there's a little trick here you have to try to see
+</c-omm>
+<div>
+cos<sup>2</sup> -
+<f-rak data-vapor>
+    <b>sin<sup>2</sup></b>
+    <b data-ghost>1</b>
+</f-rak>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    it's that cos<sup>2</sup> is equal to 1-sin<sup>2</sup>
+    <b>
+        sin<sup>2</sup> + cos<sup>2</sup> = 1<br>
+        sin<sup>2</sup> + cos<sup>2</sup> - sin<sup>2</sup>
+        = 1 - sin<sup>2</sup><br>
+        cos<sup>2</sup> = 1 - sin<sup>2</sup>
+    </b>
+</c-omm>
+<div>
+cos<sup>2</sup> - sin<sup>2</sup>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    so, replace that
+</c-omm>
+<div>
+<e-kwa>
+    <b>cos<sup>2</sup></b>
+    <b>1 - sin<sup>2</sup></b>
+</e-kwa>
+- sin<sup>2</sup>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    from here, there's only a little more algebra<br>
+    try grouping the like terms
+</c-omm>
+<div>
+1
+<c-url data-lo>- sin<sup>2</sup> - sin<sup>2</sup></c-url>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    
+</c-omm>
+<div>
+1
+<e-kwa>
+    <b>- sin<sup>2</sup> - sin<sup>2</sup></b>
+    <b>= -2sin<sup>2</sup></b>
+</e-kwa>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    looks like we're done here
+</c-omm>
+<div>
+1 - <x-hsp><v-iva>2 sin<sup>2</sup></v-iva></x-hsp>
+= 1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</div>
+
+<c-omm>
+    we have shown that the original statement is true
+</c-omm>
+<div>
+<g-ood>
+1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+<v-iva>=</v-iva>
+1 - <x-hsp>2 sin<sup>2</sup></x-hsp>
+</g-ood>
+</div>
+
+
+
 
 
 </div>
+<div class="qr signature"></div>
 </div>
 </body>
 </html>

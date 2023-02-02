@@ -5,262 +5,11 @@
 content="width=device-width, initial-scale=1.0">
 <meta name="description" content="problem solved">
 <link rel="stylesheet" href="../mathrobatics.css">
-<style id="demoStyles">
-
-@font-face {
-    font-family : luckiest;
-    src : url(luckiest.ttf);
-}
-
-:root {
- 
-   
-}
-
-* {
-    
-    --back-color: #666;
-    --holder-back: #111;
-    
-    box-sizing: border-box;
-    word-wrap: break-word;
-}
-
-body {
-    padding: 0;
-    margin: 0;
-    background-color: var(--back-color);
-    font-size: 22px;
-    text-align: justify;
-    hyphens: auto;
-}
-
-.holder {
-       
-    --nose-hsla: hsla(40, 100%, 50%, 1);
-    
-    --nose-h: 40;
-    --nose-s: 100%;
-    --nose-l: 50%;
-    --nose-a: 1;
-                
-    --whiteness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(1.5 * var(--nose-l))
-    );
-                
-    --lightness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        var(--nose-l)
-    );
-    
-    --midness: hsl(
-        var(--nose-h),
-        calc(0.7 * var(--nose-s)),
-        calc(0.65 * var(--nose-l))
-    );
-    
-    --darkness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(0.45 * var(--nose-l))
-    );
-    
-    --blackness: hsl(
-        var(--nose-h),
-        var(--nose-s),
-        calc(0.20 * var(--nose-l))
-    );
-    
-    --greyness: hsl(
-        var(--nose-h),
-        calc(0.1 * var(--nose-s)),
-        calc(0.6 * var(--nose-l))
-    );
-    
-    --inverse: hsl(
-        calc(var(--nose-h) + 120),
-        var(--nose-s),
-        var(--nose-l)
-    );
-
-    --text-ghost:
-        0 0 0px var(--holder-back),
-        0 0 8px var(--lightness),
-        0 0 12px #fff;
-        
-    --text-ghost-inverse:
-        0 0 0px var(--holder-back),
-        0 0 8px var(--inverse),
-        0 0 12px #fff;
-        
-    --text-vapor:
-        0 0 5px var(--holder-back),
-        0 0 40px var(--lightness),
-        0 0 40px #fff;
-        
-
-	position: relative;
-    color: var(--lightness);
-    background-color: var(--holder-back);
-    margin: auto;
-    margin-top: 0px;
-    width: 100%;
-    max-width: 700px;
-    
-}
-
-a {
-    text-decoration: none;
-    color: var(--darkness);
-}
-
-a:hover, a:visited {
-    transition: color linear var(--trans-speed);
-    color: var(--darkness);
-}
-
-pre {
-    background-color: var(--blackness);
-    margin: 0px;
-    padding: 10px;
-    color: var(--midness);
-    overflow: auto;
-}
-
-emp {
-    font-family: luckiest;
-    font-style: italic;
-    font-weight: bold;
-    color: rgba(0,0,0,0);
-    -webkit-text-stroke: 2px var(--greyness);
-}
-
-hr {
-    border-top: 1px solid var(--darkness);
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
-    margin: 7px 0px 7px 0px;
-}
-
-.qa > div > a, .qa > div  > a,
-.qb > div > a, .qb > div  > a,
-.qa > div > a:hover, .qa > div  > a:visited,
-.qb > div > a:hover, .qb > div> a:visited
-{
-    color: var(--lightness);
-}
-
-.qr {
-    padding: 10px;
-}
-
-.qa:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.qa > div {
-    float: left;
-    padding: 10px;
-    height: auto;
-}
-
-.qa > div:nth-child(1) {
-  width: 65%;
-}
-
-.qa > div:nth-child(2) {
-  width: 35%;
-}
-
-.qb:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.qb > div {
-    float: left;
-    padding: 10px;
-    height: auto;
-}
-
-.qb > div:nth-child(1) {
-  width: 35%;
-}
-
-.qb > div:nth-child(2) {
-  width: 65%;
-}
-
-.qa, .qb {
-    color: var(--lightness);
-}
-
-.mobr {
-    display: none;
-}
-
-.hobr {
-    display: inline-block;
-}
-
-.abhr {
-    display: none;
-}
-
-/*possibly a portrait mobi-fone*/
-@media screen and (max-width:500px) {
-
-	.qa > div:nth-child(1),
-	.qa > div:nth-child(2),
-	.qb > div:nth-child(1),
-	.qb > div:nth-child(2)
-	{
-    	width: 100%;
-    }
-    
-    .mobr {
-        display: inline-block;
-    }
-    .hobr {
-        display: none;
-    }
-    .abhr {
-        display: block;
-    }
-    ul {
-        text-align: left;
-    }
-
-}
-
-/*possibly a mobile landscraper*/
-@media screen and (orientation: landscape) and (max-width: 760px) {
-
-    
-}
-
-.signature {
-    text-align: right;
-    font-family: 'luckiest';
-    font-style: italic;
-    height: 200px;
-    color: var(--blackness);
-    -webkit-text-stroke: 1px var(--darkness);
-    user-select:none;
-}
-
-</style>
+<link rel="stylesheet" href="../demoStyles.css">
 </head>
 
 <body>
-<div id="hold0" class="holder">
+<div class="holder mathrobatics">
 <svg id="SVGfilter" height="0" width="0">
 
     <filter id="lightness">
@@ -531,7 +280,15 @@ hr {
 </svg>
 <div class="qr" style="font-size:50px;text-align:center;">
 
-<c-omm>you are asked to solve for equis</c-omm>
+<c-omm>
+    you are asked to solve for equis
+    <b>
+        a logarithm is a "sentence about exponents"
+        <br><br>
+        this sentence says, "the power that you raise
+        three to in order to get x, is two"
+    </b>
+</c-omm>
 <div>
 <l-ogb><b>3</b>x</l-ogb> = 2
 </div>
@@ -551,27 +308,21 @@ hr {
 </div>
 
 <c-omm>
-    we <emp>log hat!</emp>
-    <b>
-        force whoever is holding the variable locked
-        in the log cabin to wear both sides like a hat
-        <br><br>
-        that is, raise the base to the power of each
-        side
-    </b>
+    <emp>log hat!</emp>
 </c-omm>
 <div>
 <l-ogb data-hat><b>3</b>x</l-ogb> = 2
 </div>
 
 <c-omm>
-    make each side the power of the base
+    force whoever has the variable captive to wear
+    the entire log cabin like a hat ...
 </c-omm>
 <div>
 <l-ogb data-arc><b>3</b>x</l-ogb> = 2
 </div>
 
-<c-omm> do that on both sides </c-omm>
+<c-omm> ... and do that on both sides </c-omm>
 <div>
 <r-aze>
     <b>3</b>
@@ -597,7 +348,15 @@ hr {
     use a computron to calculate three squared
 </c-omm>
 <div>
-x = <e-kwa>3<sup>2</sup><b>9</b></e-kwa>
+<e-kwa data-norm data-dark>
+    <b style="opacity:0.6;">3<sup>log<sub>3</sub>(x)</sup></b>
+    <b>x</b>
+</e-kwa>
+=
+<e-kwa>
+    <b/>3<sup>2</sup></b>
+    <b>=9</b>
+</e-kwa>
 </div>
 
 <c-omm>looks like this is the end!</c-omm>
