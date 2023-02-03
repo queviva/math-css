@@ -1,9 +1,8 @@
-@font-face {
-    font-family : luckiest;
-    src : url(luckiest.ttf);
-}
-
-/*@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');*/
+<!doctype html><html lang="en">
+<head>
+<title>mathrobatic solution</title>
+<style id="mathrobat-styles">
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
 * {
     box-sizing: border-box;
@@ -147,6 +146,8 @@
     max-width: 700px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    font-size: 50px;
+    text-align: center;
     
 }
 
@@ -228,7 +229,7 @@ v-por {
 }
 l-uck, [data-luck] {
     font-size: 0.8em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
 }
 l-uck[data-rot] {
     display: inline-block;
@@ -243,7 +244,7 @@ x-hsp { word-spacing: -0.3ch; }
 
 em {
     
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     font-style: italic;
     font-weight: bold;
     color: rgba(0,0,0,0);
@@ -307,7 +308,8 @@ c-omm::after, rant::after {
 c-omm > b {
     position: absolute;
     display: inline-block;
-    width: calc(100% - 10px);
+    xwidth: calc(100% - 10px);
+    width: 100%;
     right: 0%;
     top: 100%;
     padding: 20px;
@@ -835,7 +837,7 @@ r-dux > b:nth-of-type(1) {
     position: absolute;
     top: var(--rdux-top);
     left: var(--rdux-left);
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     font-size: 0.4em;
     text-align: left;
     white-space: nowrap;
@@ -951,7 +953,7 @@ n-add, n-min, n-tim, n-div, n-ote, n-pad {
     
     display: inline-block;
     font-size: 0.8em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     xvertical-align: 30%;
     transform: rotate(var(--note-rot));
     filter: url("#viva");
@@ -1140,7 +1142,7 @@ p-owr > sup::after {
     content: '-1';
     position: absolute;
     font-size: 0.5em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     top: 0;
     left: calc(100% + 2px);
     transform: rotate(-15deg);
@@ -1237,7 +1239,7 @@ i-pow > sup::after {
     content: '+1';
     position: absolute;
     font-size: 0.5em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     top: 0;
     left: calc(100% + 2px);
     transform: rotate(-15deg);
@@ -1373,7 +1375,7 @@ i-teg[data-iprt] > u-u::after {
     top: -4px;
     left: -8px;
     font-size: 0.4em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     word-spacing: -0.2em;
     text-align: left;
     transform: rotate(-15deg);
@@ -1401,7 +1403,7 @@ i-teg[data-iprt] > v-v::after {
     top: -4px;
     left: -8px;
     font-size: 0.4em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     word-spacing: -0.2em;
     color: var(--inverse);
     text-align: left;
@@ -1475,7 +1477,7 @@ uv-table > b::before {
     padding-right: 5px;
     top: 40%;
     font-size: 0.6em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     text-align: left;
     font-style: normal;
     
@@ -1641,7 +1643,7 @@ e-kwa > b:nth-of-type(1) {
 }
 e-kwa > b:nth-of-type(2) {
     font-size: 0.8em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     word-spacing: -0.2em;
     color: var(--lightness);
     filter: url("#viva");
@@ -1680,7 +1682,7 @@ i-fak > b:nth-of-type(1) {
 }
 i-fak > b:nth-of-type(2) {
     font-size: 0.4em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     word-spacing: 0.4em;
     color: var(--lightness);
     filter: url("#viva");
@@ -1732,7 +1734,7 @@ k-wad > b:nth-of-type(4) {
     left: 0;
     bottom: 70%;
     font-size: 0.6em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     transform: rotate(-5deg);
     filter: url("#viva");
 }
@@ -1857,7 +1859,7 @@ k-wad[data-fak5] > b:nth-of-type(2)::after {
     top: 10%;
     left: -1.2ch;
     font-size: 0.6em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     text-align: center;
     white-space: nowrap;
     color: var(--inverse);
@@ -1995,7 +1997,7 @@ r-aze > :nth-child(1) {
     display: inline-block;
     top: 60%;
     right: calc(100% - 5px);
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     transform: rotate(-12deg);
     filter: var(--raze-filter);
     
@@ -2089,7 +2091,7 @@ r-oot > b:nth-of-type(1) {
 r-oot ~ sup {
     display: inline-block;
     font-size: 0.6em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     vertical-align: 100%;
     transform: rotate(-12deg);
 }
@@ -2110,7 +2112,7 @@ r-oot[data-viva] > b:nth-of-type(1) {
     --root-rot: -15deg;
     top: -12%;
     right: calc(100% + 0.8em);
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     font-weight: normal;
     filter: var(--root-lil-filter);
     transform: rotate(var(--root-rot));
@@ -2134,7 +2136,7 @@ r-oot[data-cank] > b:nth-of-type(1) {
     right: calc(100% + 0.8em - 20px);
     padding-left: 5px;
     padding-right: 20px;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     font-weight: normal;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -2184,7 +2186,7 @@ fakt-left > b:nth-child(1) {
     left: calc(var(--fakt-wide)/-2 + var(--fakt-pos));
     top: 20%;
     font-size: 0.5em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     text-align: center;
     white-space: nowrap;
     overflow: visible;
@@ -2269,7 +2271,7 @@ rite-dist > b > b {
     height: 100%;
     width: 3ch;
     font-size: 0.5em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     text-align: center;
     white-space: nowrap;
     transform: rotate(-15deg) translate(-5px, -50%);
@@ -2365,7 +2367,7 @@ left-dist > b > b {
     height: 100%;
     width: 3ch;
     font-size: 0.5em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     text-align: center;
     white-space: nowrap;
     transform: rotate(15deg) translate(-5px, -50%);
@@ -2434,7 +2436,7 @@ left-fakt > b:nth-of-type(1) {
     height: 100%;
     right: 0;
     font-size: 0.7em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     text-align: center;
     white-space: nowrap;
     transform: rotate(-10deg) translate(-0px, -20%);
@@ -2492,7 +2494,7 @@ fakt-all > b > b:nth-of-type(1) {
     width: 300%;
     left: -100%;
     font-size: 0.3em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     text-align: center;
     word-spacing: 0.5ch;
     color: var(--lightness);
@@ -2563,7 +2565,7 @@ l-ogb > b:nth-child(1) {
     transform: rotate(-12deg);
     font-size: 0.6em;
     font-weight: bold;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     color: var(--lightness);
     filter: var(--logb-filter-base);
     -webkit-text-stroke: var(--logb-stroke);
@@ -2679,3 +2681,293 @@ l-ogb[data-hat] > b:nth-child(1)::before {
     z-index: -10;
     
 }
+</style>
+</head>
+<body>
+<div class="mathrobatics">
+<svg id="mathrobat-filters" height="0" width="0">
+
+    <filter id="lightness">
+      <feFlood flood-color="var(--lightness)" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="midness">
+      <feFlood flood-color="var(--midness)" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+
+    <filter id="darkness">
+      <feFlood flood-color="var(--darkness)" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="inverse">
+      <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 120),
+            var(--nose-s),
+            var(--nose-l)
+      )" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="greyness">
+      <feFlood flood-color="hsl(
+        var(--nose-h),
+        calc(0.1 * var(--nose-s)),
+        calc(0.6 * var(--nose-l))
+      )" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="outline">
+        <feMorphology operator="dilate" radius="0.5" result="X0" />
+        <feFlood in="X0" flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            calc(0.7 * var(--nose-l))
+        )" result="F0"/>
+        <feComposite in="F0" in2="X0" operator="in" result="Z0" />
+        <feComposite in="Z0" in2="SourceGraphic" operator="out" result="Z1" />
+        <feGaussianBlur stdDeviation="0.5" in="Z1" />
+    </filter>
+    
+    <filter id="viva"
+        x="-200%"
+        y="-200%"
+        height="900%"
+        width="900%"
+    >
+        <feGaussianBlur stdDeviation="0.3" result="B0"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            90%
+        )" result="F0"/>
+        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
+        
+        <feGaussianBlur stdDeviation="2" result="B1"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 12),
+            var(--nose-s),
+            50%
+        )" result="F1"/>
+        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
+        
+        <feGaussianBlur stdDeviation="3" result="B2"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 20),
+            calc(var(--nose-s) * 0.69),
+            45%
+        )" result="F2"/>
+        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
+        
+        <feGaussianBlur stdDeviation="4" result="B3"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 40),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F3"/>
+        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
+        
+        <feGaussianBlur stdDeviation="8" result="B4"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F4"/>
+        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
+        
+        <feMerge>
+			<feMergeNode in="Z4"/>
+			<feMergeNode in="Z3"/>
+			<feMergeNode in="Z2"/>
+			<feMergeNode in="Z1"/>
+			<feMergeNode in="Z0"/>
+		</feMerge>
+		
+    </filter>
+
+    <filter id="lil-viva"
+        x="-75%"
+        y="-75%"
+        height="300%"
+        width="300%"
+    >
+        <feGaussianBlur stdDeviation="0.3" result="B0"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            90%
+        )" result="F0"/>
+        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
+        
+        <feGaussianBlur stdDeviation="0.7" result="B1"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 12),
+            var(--nose-s),
+            50%
+        )" result="F1"/>
+        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
+        
+        <feGaussianBlur stdDeviation="0.9" result="B2"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 20),
+            calc(var(--nose-s) * 0.69),
+            42%
+        )" result="F2"/>
+        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
+        
+        <feGaussianBlur stdDeviation="2" result="B3"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 40),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F3"/>
+        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
+        
+        <feGaussianBlur stdDeviation="4" result="B4"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F4"/>
+        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
+        
+        <feMerge>
+			<feMergeNode in="Z4"/>
+			<feMergeNode in="Z3"/>
+			<feMergeNode in="Z2"/>
+			<feMergeNode in="Z1"/>
+			<feMergeNode in="Z0"/>
+		</feMerge>
+		
+    </filter>
+    
+    <filter id="vers"
+        x="-200%"
+        y="-200%"
+        height="300%"
+        width="300%"
+    >
+        <feGaussianBlur stdDeviation="0.3" result="B0"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 120),
+            var(--nose-s),
+            90%
+        )" result="F0"/>
+        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
+        
+        <feGaussianBlur stdDeviation="2" result="B1"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 12 + 120),
+            var(--nose-s),
+            50%
+        )" result="F1"/>
+        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
+        
+        <feGaussianBlur stdDeviation="3" result="B2"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 20 + 120),
+            calc(var(--nose-s) * 0.69),
+            45%
+        )" result="F2"/>
+        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
+        
+        <feGaussianBlur stdDeviation="4" result="B3"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 40 + 120),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F3"/>
+        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
+        
+        <feGaussianBlur stdDeviation="8" result="B4"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 120),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F4"/>
+        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
+        
+        <feMerge>
+			<feMergeNode in="Z4"/>
+			<feMergeNode in="Z3"/>
+			<feMergeNode in="Z2"/>
+			<feMergeNode in="Z1"/>
+			<feMergeNode in="Z0"/>
+		</feMerge>
+		
+    </filter>
+
+    <filter id="ghost"
+        x="-200%"
+        y="-200%"
+        height="900%"
+        width="900%"
+    >
+
+        <feFlood flood-color="hsla(
+            var(--nose-h),
+            var(--nose-s),
+            var(--nose-l),
+            1
+        )" result="F0"/>
+        <feComposite in="F0" in2="SourceGraphic" operator="in" result="C0" />
+        <feGaussianBlur in="C0" stdDeviation="5" result="B0" />
+        
+        <feFlood flood-color="rgba(255,255,255,0.5)" result="F1" />
+        <feComposite in="F1" in2="SourceGraphic" operator="in" result="C1" />
+        <feGaussianBlur in="C1" stdDeviation="7.5" result="B1" />
+        
+        <feMerge out="Merge">
+            <feMergeNode in="B1" />
+            <feMergeNode in="B0" />
+        </feMerge>
+        
+        <feComposite in="Merge" in2="SourceGraphic" operator="out" />
+        
+    </filter>
+    
+    <filter id="vapor"
+        x="-200%"
+        y="-200%"
+        height="900%"
+        width="900%"
+    >
+        <feMorphology operator="dilate" radius="2.5" result="M0" />
+        <feFlood flood-color="hsla(
+            var(--nose-h),
+            var(--nose-s),
+            calc(1.5 * var(--nose-l)),
+            0.5
+        )" result="F0"/>
+        <feComposite in="F0" in2="M0" operator="in" result="C0" />
+        <feGaussianBlur in="C0" stdDeviation="20" result="B0" />
+        
+        <feFlood flood-color="#000" result="F1" />
+        <feComposite in="F1" in2="SourceGraphic" operator="in" result="C1" />
+        <feGaussianBlur in="C1" stdDeviation="1" result="B1" />
+        <feComposite in="B0" in2="B1" operator="out" result="Z1" />
+        
+    </filter>
+  
+</svg>
+
+
+<c-omm>
+    illuminated mathrobatic solution
+    <b>
+        start using illuminated markup language today
+    </b>
+</c-omm>
+<div>
+   <v-iva>mathrobatics</v-iva>
+</div>
+
+
+
+<br><br>
+</div>
+</body>
+</html>

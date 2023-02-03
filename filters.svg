@@ -1,0 +1,268 @@
+<svg id="SVGfilter" height="0" width="0">
+
+    <filter id="lightness">
+      <feFlood flood-color="var(--lightness)" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="midness">
+      <feFlood flood-color="var(--midness)" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+
+    <filter id="darkness">
+      <feFlood flood-color="var(--darkness)" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="inverse">
+      <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 120),
+            var(--nose-s),
+            var(--nose-l)
+      )" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="greyness">
+      <feFlood flood-color="hsl(
+        var(--nose-h),
+        calc(0.1 * var(--nose-s)),
+        calc(0.6 * var(--nose-l))
+      )" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="outline">
+        <feMorphology operator="dilate" radius="0.5" result="X0" />
+        <feFlood in="X0" flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            calc(0.7 * var(--nose-l))
+        )" result="F0"/>
+        <feComposite in="F0" in2="X0" operator="in" result="Z0" />
+        <feComposite in="Z0" in2="SourceGraphic" operator="out" result="Z1" />
+        <feGaussianBlur stdDeviation="0.5" in="Z1" />
+    </filter>
+    
+    <filter id="viva"
+        x="-200%"
+        y="-200%"
+        height="900%"
+        width="900%"
+    >
+        <feGaussianBlur stdDeviation="0.3" result="B0"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            90%
+        )" result="F0"/>
+        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
+        
+        <feGaussianBlur stdDeviation="2" result="B1"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 12),
+            var(--nose-s),
+            50%
+        )" result="F1"/>
+        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
+        
+        <feGaussianBlur stdDeviation="3" result="B2"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 20),
+            calc(var(--nose-s) * 0.69),
+            45%
+        )" result="F2"/>
+        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
+        
+        <feGaussianBlur stdDeviation="4" result="B3"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 40),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F3"/>
+        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
+        
+        <feGaussianBlur stdDeviation="8" result="B4"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F4"/>
+        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
+        
+        <feMerge>
+			<feMergeNode in="Z4"/>
+			<feMergeNode in="Z3"/>
+			<feMergeNode in="Z2"/>
+			<feMergeNode in="Z1"/>
+			<feMergeNode in="Z0"/>
+		</feMerge>
+		
+    </filter>
+
+    <filter id="lil-viva"
+        x="-75%"
+        y="-75%"
+        height="300%"
+        width="300%"
+    >
+        <feGaussianBlur stdDeviation="0.3" result="B0"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            90%
+        )" result="F0"/>
+        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
+        
+        <feGaussianBlur stdDeviation="0.7" result="B1"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 12),
+            var(--nose-s),
+            50%
+        )" result="F1"/>
+        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
+        
+        <feGaussianBlur stdDeviation="0.9" result="B2"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 20),
+            calc(var(--nose-s) * 0.69),
+            42%
+        )" result="F2"/>
+        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
+        
+        <feGaussianBlur stdDeviation="2" result="B3"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 40),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F3"/>
+        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
+        
+        <feGaussianBlur stdDeviation="4" result="B4"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F4"/>
+        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
+        
+        <feMerge>
+			<feMergeNode in="Z4"/>
+			<feMergeNode in="Z3"/>
+			<feMergeNode in="Z2"/>
+			<feMergeNode in="Z1"/>
+			<feMergeNode in="Z0"/>
+		</feMerge>
+		
+    </filter>
+    
+    <filter id="vers"
+        x="-200%"
+        y="-200%"
+        height="300%"
+        width="300%"
+    >
+        <feGaussianBlur stdDeviation="0.3" result="B0"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 120),
+            var(--nose-s),
+            90%
+        )" result="F0"/>
+        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
+        
+        <feGaussianBlur stdDeviation="2" result="B1"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 12 + 120),
+            var(--nose-s),
+            50%
+        )" result="F1"/>
+        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
+        
+        <feGaussianBlur stdDeviation="3" result="B2"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 20 + 120),
+            calc(var(--nose-s) * 0.69),
+            45%
+        )" result="F2"/>
+        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
+        
+        <feGaussianBlur stdDeviation="4" result="B3"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 40 + 120),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F3"/>
+        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
+        
+        <feGaussianBlur stdDeviation="8" result="B4"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 120),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F4"/>
+        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
+        
+        <feMerge>
+			<feMergeNode in="Z4"/>
+			<feMergeNode in="Z3"/>
+			<feMergeNode in="Z2"/>
+			<feMergeNode in="Z1"/>
+			<feMergeNode in="Z0"/>
+		</feMerge>
+		
+    </filter>
+
+    <filter id="ghost"
+        x="-200%"
+        y="-200%"
+        height="900%"
+        width="900%"
+    >
+
+        <feFlood flood-color="hsla(
+            var(--nose-h),
+            var(--nose-s),
+            var(--nose-l),
+            1
+        )" result="F0"/>
+        <feComposite in="F0" in2="SourceGraphic" operator="in" result="C0" />
+        <feGaussianBlur in="C0" stdDeviation="5" result="B0" />
+        
+        <feFlood flood-color="rgba(255,255,255,0.5)" result="F1" />
+        <feComposite in="F1" in2="SourceGraphic" operator="in" result="C1" />
+        <feGaussianBlur in="C1" stdDeviation="7.5" result="B1" />
+        
+        <feMerge out="Merge">
+            <feMergeNode in="B1" />
+            <feMergeNode in="B0" />
+        </feMerge>
+        
+        <feComposite in="Merge" in2="SourceGraphic" operator="out" />
+        
+    </filter>
+    
+    <filter id="vapor"
+        x="-200%"
+        y="-200%"
+        height="900%"
+        width="900%"
+    >
+        <feMorphology operator="dilate" radius="2.5" result="M0" />
+        <feFlood flood-color="hsla(
+            var(--nose-h),
+            var(--nose-s),
+            calc(1.5 * var(--nose-l)),
+            0.5
+        )" result="F0"/>
+        <feComposite in="F0" in2="M0" operator="in" result="C0" />
+        <feGaussianBlur in="C0" stdDeviation="20" result="B0" />
+        
+        <feFlood flood-color="#000" result="F1" />
+        <feComposite in="F1" in2="SourceGraphic" operator="in" result="C1" />
+        <feGaussianBlur in="C1" stdDeviation="1" result="B1" />
+        <feComposite in="B0" in2="B1" operator="out" result="Z1" />
+        
+    </filter>
+
+</svg>
