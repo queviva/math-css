@@ -235,7 +235,7 @@ x-hsp { word-spacing: -0.3ch; }
 }
 
 
-emp {
+em {
     
     font-family: luckiest;
     font-style: italic;
@@ -374,10 +374,9 @@ f-rak[data-viva]::before {
 }
 f-rak[data-viva-all] { filter: url("#viva"); }
 f-rak[data-ghost]::before {
-    filter: url("#ghost");
-    border-bottom: 3px solid;
+    filter: url("#outline");
 }
-f-rak[data-ghost-all] { filter: url("#ghost"); }
+f-rak[data-ghost-all] { filter: url("#outline"); }
 f-rak[data-ghost-all]::before { border-bottom: 3px solid; }
 f-rak[data-vapor]::before {
     border-bottom: 3px solid;

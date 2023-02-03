@@ -79,6 +79,14 @@ pre {
     background-color: var(--greyness);
 }
 
+a, a:visited {
+    color: var(--greyness);
+    font-style: italic;
+}
+
+a:hover {
+    filter: url("#viva");
+}
 </style>
 
 </head>
@@ -357,6 +365,12 @@ pre {
   
 </svg>
 
+<div id="links" class="qr">
+    include
+    <a href="mathrobatics.css" download>mathrobatics.css</a>
+    and <a href="filters.svg" download>filters.svg</a>
+    IN the file
+</div>
 <div id="intro" class="qr" style="
     font-size: 30px;
     text-align: center;
@@ -379,6 +393,8 @@ pre {
         allows for short comments to expand into
         larger, scrollable descriptions on touch
         or mouseover
+        <br><br>
+        this very item is a &lt;c-omm&gt; tag
         <br><br>
 <pre>
 &lt;c-omm&gt;
@@ -459,6 +475,11 @@ pre {
                 +
                 <b>5<b>3</b></b>
             </rite-dist>
+            +
+            <rite-dist style="--arc2-wide:90%;" data-dark>
+                <b>x</b>
+                (x + 7)
+            </rite-dist>
         </dd>
         indicates that the leading coefficient has
         moved into the other terms, and displays it
@@ -482,6 +503,13 @@ pre {
         &lt;b&gt; ...muliplied by&lt;/b&gt; &lt;!-- optional --&gt;
     &lt;/b&gt;
     
+&lt;/rite-dist&gt;
+
+&lt;!-- more simple version --&gt;
+
+&lt;rite-dist&gt;
+    &lt;b&gt; leading coefficient &lt;/b&gt;
+    (item)
 &lt;/rite-dist&gt;
 </pre>
     </b>
@@ -536,7 +564,7 @@ pre {
     data-opt#    // uses different gestures
     data-margin# // increases right margin
 &gt;
-    3x&lt;sup&gt;2&lt;/sup&gt; &lt;!-- use sup for power --&gt;
+    3x&lt;sup&gt;2&lt;/sup&gt; &lt;!-- use sup tag --&gt;
 &lt;/p-owr&gt;
 </pre>
         
@@ -558,7 +586,7 @@ pre {
 &lt;i-pow
     data-dark // no illumination
 &gt;
-    3x&lt;sup&gt;5&lt;/sup&gt;
+    3x&lt;sup&gt;5&lt;/sup&gt; &lt;-- use sup tag --&gt;
 &lt;/i-pow&gt;
 </pre>
     </b>
