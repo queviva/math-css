@@ -370,7 +370,6 @@ pre {
 <div id="list" class="qr" style="
     font-size:24px;
     text-align: left;
-    
 ">
 <ul>
     
@@ -450,73 +449,8 @@ pre {
     </b>
 </li>
 
-<li id="p-ren">
-    <i>p-ren</i> parenthetical enclosure
-    <b>
-        <dd>
-            3 <p-t></p-t>
-            <p-ren data-viva>x<sup>2</sup> + 1</p-ren>
-        </dd>
-        parenthesis that allows for manipulation
-        of the enclosed items or just the parenthesis
-        themselves
-<pre>
-&lt;p-ren
-    data-viva      // illuminates parenthesis
-    data-viva-all  // illuminates everything
-    data-ghost     // ghosts out the parenthesis
-    data-ghost-all // ghosts out everything
-    data-vapor     // vaporizes parenthesis
-    data-vapor-all // vaproizes everything
-&gt;
-    enclosed terms
-&lt;/p-ren&gt;
-</pre>
-    </b>
-</li>
-
-<li id="fakt-left">
-    <i>fakt-left</i> leftward faktorization gestures
-    <b>
-        <dd>
-            <fakt-left>
-                <b>3</b>
-                (3x + 9)
-            </fakt-left>
-        </dd>
-        
-        pulls a faktor out of two terms and
-        moves it to the left
-    
-<pre>
-&lt;fakt-left
-    data-dark  // no illumination
-    data-ghost // ghosts out the gesture
-    data-vapor // vaporizes the gesture
-&gt;
-    &lt;b&gt; faktor &lt;/b&gt;
-    expression
-&lt;/fakt-left&gt;
-</pre>
-    </b>
-</li>
-
-<li id="dist-rite">
-    <i>dist-rite</i> simple distribution to the right
-    <b>
-        <dd>
-            <dist-rite>
-                3 (x + 5)
-            </dist-rite>
-        </dd>
-<pre>
-&lt;dist-rite&gt; expression &lt;/dist-rite&gt;
-</pre>
-    </b>
-</li>
-
 <li id="rite-dist">
-    <i>rite-dist</i> elaborate distribute-right gesture
+    <i>rite-dist</i> distribute-right gestures
     <b>
         <dd>
             <rite-dist>
@@ -527,7 +461,7 @@ pre {
             </rite-dist>
         </dd>
         indicates that the leading coefficient has
-        moved into the other terms, and display it
+        moved into the other terms, and displays it
         being multiplied - its markup is more
         involved, though all data parameters and
         styling are optional
@@ -542,13 +476,44 @@ pre {
 &gt;
     &lt;b&gt; leading coefficient &lt;/b&gt;
     &lt;b&gt; first term
-        &lt;b&gt; ...muliplied by&lt;/b&gt;
+        &lt;b&gt; ...muliplied by&lt;/b&gt; &lt;!-- optional --&gt;
     &lt;/b&gt;
     &lt;b&gt; second term
-        &lt;b&gt; ...muliplied by&lt;/b&gt;
+        &lt;b&gt; ...muliplied by&lt;/b&gt; &lt;!-- optional --&gt;
     &lt;/b&gt;
     
 &lt;/rite-dist&gt;
+</pre>
+    </b>
+</li>
+
+<li id="left-fakt">
+    <i>left-fakt</i> leftward faktorization gestures
+    <b>
+        <dd>
+            <left-fakt>
+                <b>3</b>
+                (3x + 9)
+            </left-fakt>
+        </dd>
+        
+        pulls a faktor out of two terms and
+        moves it to the left - arc distances
+        and be adjusted with css vars in the style
+    
+<pre>
+&lt;left-fakt
+    data-dark  // no illumination
+    data-vapor // vaporizes the gesture
+    data-norm  // uses normal font
+    style = "
+        --arc1-wide: 46%  // first arc width
+        --arc2-wide: 100% // second arc width
+    "
+&gt;
+    &lt;b&gt; faktor &lt;/b&gt;
+    expression
+&lt;/fakt-left&gt;
 </pre>
     </b>
 </li>
@@ -833,7 +798,89 @@ pre {
     </b>
 </li>
 
-<li>
+<li id="r-dux">
+    <i>r-dux</i> cancel and reduce|replace
+    <b>
+        <dd>
+            <r-dux>
+                <b>sec<sup>2</sup></b>
+                (1 + tan<sup>2</sup>)
+            </r-dux>
+        </dd>
+        cancels out an item and displays an optional
+        replacement value
+<pre>
+&lt;r-dux
+    data-dark    // non-illuminated
+    data-norm    // default font
+    data-viva-to // illuminates only redux val
+    data-opt#    // alternative shaped slash
+    data-cirk    // circle-shaped slash
+    data-hi      // slashes higher
+    data-top     // redux val on top
+&gt;
+    &lt;b&gt; reduce-to val &lt;/b&gt; &lt;!-- optional --&gt;
+    item to cancel
+&lt;/r-dux&gt;
+</pre>
+    </b>
+</li>
+
+<li id="c-ank">
+    <i>c-ank</i> cancel; short-hand for r-dux
+    <b>
+        <dd>
+            <c-ank>(3x<sup>2</sup> + 5)</c-ank>
+        </dd>
+        simply another version of &lt;r&#8209;dux&gt;
+        that cancels out an item but does not
+        replace it with anything; identical to
+        using &lt;r&#8209;dux&gt; without the optional
+        redux value
+<pre>
+&lt;c-ank
+    data-dark  // non-illuminated slash
+    data-hi    // higher slash
+    data-opt#  // alternative shaped slash
+    data-scrib // scribbled out
+&gt;
+    item to cancel
+&lt;/c-ank&gt;
+</pre>
+    </b>
+</li>
+
+<li id="c-irk">
+    <i>cirk</i> encircles an item
+    <b>
+        <dd>
+    3 <p-t></p-t>
+    <c-irk>
+        (-1 + sec<sup>2</sup>)
+        <n-ote>=tan<sup>2</sup></n-ote>
+    </c-irk>
+            
+        </dd>
+        puts an illuminated encircling gesture around
+        an item; options allow for several types of
+        gestures, or a note
+<pre>
+&lt;c-irk
+    data-dark // no illumination
+    data-vers // inverse illumination
+    data-opt# // alternative shapes
+    data-flip // mirrors the shape
+    data-turn // rotates the shape
+    data-norm // default font on note
+&gt;
+    things to encircle
+    &lt;n-ote&gt; note &lt;/n-ote&gt; &lt;!-- optional --&gt;
+&lt;/c-irk&gt;
+</pre>
+    </b>
+</li>
+
+<li id="e-val">
     <i>e-val</i> evaluate expression in []'s
     <b>
         <dd>
@@ -861,6 +908,44 @@ pre {
     </b>
 </li>
 
+<li id="i-fak">
+    <i>i-fak</i> illuminated faktorization
+    <b>
+        <dd>
+            <i-fak>
+                <b>9x<sup>3</sup></b>
+                <b>3, 3, x, x, x</b>
+            </i-fak>
+            +
+            <i-fak data-dark>
+                <b>12</b>
+                <b>
+                    1 12,<br>
+                    2 6,<br>
+                    3 4
+                </b>
+            </i-fak>
+            -
+            <i-fak data-vapor data-dark data-cirk>
+                <b>3x<sup>2</sup></b>
+                <b>3, x, <c-irk>&nbsp;</c-irk></b>
+            </i-fak>
+        </dd>
+        ghosts out a value and presents illuminated
+        versions of its faktors ontop of it, allowing
+        you to see both the value and its faktors
+        together at once
+<pre>
+&lt;i-fak
+    data-dark  // faktors not illuminated
+    data-vapor // value vaporized
+    data-cirk  // adjusts circled faktors
+&gt;
+&lt;/i-fak&gt;
+</pre>
+    </b>
+</li>
+
 <li><i>from</i></li>
 <li><i>dist</i></li>
 <li><i>p-t|n-t|v-t|t-t|</i></li>
@@ -868,15 +953,10 @@ pre {
 <li><i>i-mp</i></li>
 <li><i>d-dx|dy-dx|dz-dx</i></li>
 <li><i>star</i></li>
-<li><i>rdux</i></li>
-<li><i>ifak</i></li>
 <li><i>qfak</i></li>
 <li><i>good</i></li>
 <li><i>f-x </i></li>
 <li><i>n-add|min|tim|ote|pad</i></li>
-<li><i>cirk</i></li>
-<li><i>powr</i></li>
-<li><i>ipow</i></li>
 <li><i>iteg</i></li>
 <li><i>uv-table</i></li>
 <li><i>by-parts</i></li>
