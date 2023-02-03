@@ -109,9 +109,10 @@
     
     --dist-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='130px' preserveAspectRatio='none' %3E%3Cpath d='M106 115A35 35 180 0 0 27 115H32A35 40 180 0 1 101 115H106A21 20 180 0 0 64 115H69A15 14 180 0 1 101 115 Z'/%3E%3C/svg%3E");
     
-    --curl-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52A10 30 0 0 1 25 22H55A10 30 0 0 0 65 2A10 30 0 0 0 75 22H105A10 30 0 0 1 115 52A10 25 0 0 0 105 27H75A10 20 0 0 1 65 17A10 20 0 0 1 55 27H25A10 25 0 0 0 15 52Z'/%3E%3C/svg%3E");
+    --curl-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100 A10 55 0 0 1 10 45 H40 A10 45 0 0 0 50 0A10 45 0 0 0 60 45H90 A10 55 0 0 1 100 100A10 45 0 0 0 90 60 H60 A10 35 0 0 1 50 30 A10 35 0 0 1 40 60 H10 A10 45 0 0 0 0 100Z'/%3E%3C/svg%3E");
+    
+    --curl-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M3 100 L0 0 Q50 20 100 0L97 100 L98 20 Q50 15 2 20Z'/%3E%3C/svg%3E");
         
-    --curl-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M15 52Q16 30 14 15Q65 25 116 15Q114 30 115 52L112 25H18Z'/%3E%3C/svg%3E");
     
      --cirk-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M90 35A40 35 0 0 0 50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A20 47 0 0 0 80 3A16 47 0 0 1 96 50A41 40 0 0 1 55 90A50 40 0 0 1 5 50A42 42 0 0 1 50 8A40 27 0 0 1 90 35Z'/%3E%3C/svg%3E");
     
@@ -461,10 +462,10 @@ b-rak + sup {
 }
 
     
-c-url{
-    --curl-wide: calc(130% + 12px);
+c-url {
+    --curl-wide: calc(100% + 0.5ch);
     --curl-high: 30px;
-    --curl-top: 12px;
+    --curl-top: 5px;
     --curl-left: 0px;
     --curl-rot: 0deg;
     --curl-shape: var(--curl-00);
@@ -480,9 +481,9 @@ c-url::before {
     left: calc((100% - var(--curl-wide))/2 + var(--curl-left));
     bottom: calc(100% - var(--curl-top));
     transform: rotate(var(--curl-rot));
-    background-image: var(--curl-back);
     background-repeat: no-repeat;
-    background-size: 100% 190%;
+    background-size: 100% 100%;
+    background-image: var(--curl-shape);
     filter: var(--curl-filter);
 }
 c-url[data-lo]::before {
@@ -492,7 +493,11 @@ c-url[data-lo]::before {
 c-url[data-dark] { --curl-filter: url("#lightness"); }
 c-url[data-ghost] { --curl-filter: url("#ghost"); }
 c-url[data-vapor] { --curl-filter: url("#vapor"); }
-c-url[data-opt1] { --curl-shape: var(--curl-01); }
+c-url[data-opt1] {
+    --curl-wide: calc(100% + 1ch);
+    --curl-top: 3px;
+    --curl-shape: var(--curl-01);
+}
 
 
 s-umm {
@@ -2223,16 +2228,15 @@ dist-rite[data-vapor] {
 }
 
 rite-dist {
-    
     --arc1-wide: 51%;
     --arc2-wide: calc(100% - 1.5ch);
     --dist-left: 0.5ch;
     --dist-filter: url("#viva");
     --dist-filter-lil: url("#lil-viva");
     --dist-shade: var(--text-ghost);
-    
     position: relative;
-
+    display: inline-block;
+    margin-top: 1em;
 }
 rite-dist::before {
     
@@ -2324,6 +2328,81 @@ rite-dist[data-norm] > b > b {
     font-family: inherit;
     
 }
+
+left-dist {
+    --arc1-wide: 35%;
+    --arc2-wide: calc(100% - 3.75ch);
+    --dist-rite: 0.5ch;
+    --dist-filter: url("#viva");
+    --dist-filter-lil: url("#lil-viva");
+    --dist-shade: var(--text-ghost);
+    position: relative;
+    display: inline-block;
+    margin-top: 1em;
+}
+left-dist::before {
+    
+    content: '';
+    position: absolute;
+    width: calc(var(--arc2-wide) - var(--dist-rite));
+    height: 25px;
+    xaspect-ratio: 6 / 1;
+    right: var(--dist-rite);
+    bottom: 90%;
+    background-size: 100% 100%;
+    background-image: var(--fakt-arc1);
+    filter: var(--dist-filter);
+    
+}
+left-dist::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--arc1-wide) - var(--dist-rite));
+    height: 20px;
+    xaspect-ratio: 6 / 1;
+    right: var(--dist-rite);
+    bottom: 90%;
+    background-size: 100% 100%;
+    background-image: var(--fakt-arc2);
+    filter: var(--dist-filter);
+}
+left-dist > b:nth-of-type(1) { margin-right: -0.5ch; }
+left-dist > b:nth-of-type(1)::before { content: '('; }
+left-dist > b:nth-of-type(2)::after { content: ')'; }
+left-dist > b:nth-of-type(3) {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--dist-shade);
+}
+left-dist > b:nth-of-type(3)::before { content:'\00b7\00a0'; }
+left-dist > b > b {
+    display: inline-block;
+    height: 100%;
+    width: 3ch;
+    font-size: 0.5em;
+    font-family: luckiest;
+    text-align: center;
+    white-space: nowrap;
+    transform: rotate(15deg) translate(-5px, -50%);
+    filter: var(--dist-filter-lil);
+}
+left-dist > b > b::before {
+    content: "\00d7";
+    margin-left: -500%;
+}
+left-dist > b > b::after {
+    content: "";
+    margin-right: -500%;
+}
+left-dist[data-dark] {
+    --dist-filter: url("#lightness");
+    --dist-filter-lil: url("#lightness");
+}
+left-dist[data-dark] > b:nth-of-type(3) {
+    color: var(--lightness);
+    text-shadow: none;
+}
+left-dist[data-norm] > b > b { font-family: inherit; }
+
 
 fakt-all {
     

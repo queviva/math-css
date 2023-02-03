@@ -30,7 +30,7 @@ li > b {
     
     position: absolute;
     display: inline-block;
-    width: calc(100% - 4ch);
+    width: calc(100% - 2ch);
     right: 0%;
     top: 100%;
     padding: 20px;
@@ -623,16 +623,244 @@ pre {
 </pre>
     </b>
 </li>
-<li><i>viva</i></li>
-<li><i>comm</i></li>
-<li><i>rant</i></li>
-<li><i>up-dn</i></li>
-<li><i>frak</i></li>
-<li><i>pren</i></li>
-<li><i>brak</i></li>
-<li><i>curl</i></li>
-<li><i>summ</i></li>
-<li><i>eval</i></li>
+
+<li id="v-iva">
+    <i>v-iva</i> illuminated text
+    <b>
+        <dd>
+            <v-iva>illuminating</v-iva>
+        </dd>
+        anything wrapped in a viva tag will recieve
+        the illumination filter
+<pre>
+&lt;v-iva&gt; anything &lt;/v-iva&gt;
+</pre>
+    </b>
+</li>
+
+<li id="[data-viva]">
+    <i>[data-viva]</i> parameter for luminance
+    <b>
+        <dd>
+            <b data-viva>vibrance</b>
+        </dd>
+        many tags illuminate through the use of
+        the data-viva parameter, and may have
+        several other illuminating or gesturing
+        options
+<pre>
+&lt;b data-viva&gt;
+    vibrant text
+&lt;/b&gt;
+</pre>
+    </b>
+</li>
+
+<li id="r-ant">
+    <i>r-ant</i> longer comments
+    <b>
+        a longer, indepth comment that does not expand
+        but remains fully displayed
+<pre>
+&lt;r-ant&gt;
+    longer, non-expanding comment
+&lt;/r-ant&gt;
+</pre>
+    </b>
+</li>
+
+<li id="up-dn">
+    <i>up-dn</i> sub- &amp; super- script
+    <b>
+        <dd>
+            <s-umm>
+                3x<up-dn data-viva>
+                    2
+                    <br>
+                    <i>i</i>
+                </up-dn>
+                + 5
+            </s-umm>
+        </dd>
+        allows for powers and subscripts simultaneously
+        on the same item, formatted correctly on the
+        line - it avoids the errors cause by using
+        both &lt;sup&gt; and &lt;sub&gt; on the same item
+<pre>
+&lt;up-dn&gt;
+    exponent
+    &lt;br&gt;
+    subscript
+&lt;/up-dn&gt;
+</pre>
+    </b>
+</li>
+
+<li id="p-ren">
+    <i>p-ren</i> parenthetical enclosure, ()'s
+    <b>
+        <dd>
+            3 <p-t></p-t>
+            <p-ren data-ghost>x<sup>2</sup> + 5</p-ren>
+        </dd>
+        treats the parenthesis around, and the items
+        within an enclosure, as an object that can
+        have gestures and illuminations applied to
+        the various parts
+        <br><br>
+        this functions the same as the
+        &lt;b data-pren&gt; option
+<pre>
+&lt;p-ren
+    data-viva      // illuminates ()'s
+    data-viva-all  // illuminates everthing
+    data-ghost     // ghosts the ()'s
+    data-ghost-all // ghosts entire enclosure
+    data-vapor     // vaporizes the ()'s
+    data-vapor-all // vaporizes everything
+&gt;
+    thing to enclose
+&lt;/p-ren&gt;
+</pre>
+    </b>
+</li>
+
+<li id="b-rak">
+    <i>b-rak</i> brakette enclosure, []'s
+    <b>
+        <dd>
+        3 +
+        <b-rak data-viva>
+            x<p-t></p-t>(x + 5) + 7y
+        </b-rak>
+        </dd>
+        larger, taller, brakette enclosure for
+        encompassing statements which are themselves
+        often taller than simple []'s and accomodates
+        any exponents that may follow it
+<pre>
+&lt;b-rak
+    data-viva      // illuminates []'s
+    data-viva-all  // illuminates everything
+    data-ghost     // ghosts []'s
+    data-ghost-all // ghosts everything
+    data-vapor     // vaporizes []'s
+    data-vapor-all // vaporizes everything
+    data-tall      // makes []'s extra tall
+    data-norm      // makes []'s normal height
+&gt;
+    thing to enclose
+&lt;/b-rak&gt;
+</pre>
+    </b>
+</li>
+
+<li id="c-url">
+    <i>c-url</i> curved group indicator
+    <b>
+        <dd>
+    3 + <c-url>5x + 7x</c-url>
+    = <c-url data-opt1 data-lo>9y + y</c-url>
+        </dd>
+<pre>
+&lt;c-url
+    data-dark  // removes illumination
+    data-ghost // ghost out the curl
+    data-vapor // vaporizes the curl
+    data-lo    // places the curl underneath
+    data-opt1  // alternative squared shape
+    
+&gt;
+    grouped items
+&lt;/c-url&gt;
+</pre>
+        
+    </b>
+</li>
+
+<li id="s-umm">
+    <i>s-umm</i> sigma notation
+    <b>
+        <dd>
+    3 <p-t></p-t> <s-umm data-viva>
+        <b>&theta;<sup>2</sup></b>
+        <b>0</b>
+        <b>2&pi;</b>
+    </s-umm>
+        </dd>
+        sigma notation for summation
+<pre>
+&lt;s-umm
+    data-viva       // illuminates everything
+    data-viva-sigma // illuminates the sigma
+    data-viva-from  // illuminates from val
+    data-viva-to    // illuminates to val
+    data-ghost      // ghosts the notation
+    data-scrib      // scribbles out
+&gt;
+    thing to sum
+    <b>from</b> &lt;!-- optional --&gt;
+    <b>to</b> &lt;!-- optional --&gt;
+&lt;/s-umm&gt;
+</pre>
+    </b>
+</li>
+
+<li id="e-kwa">
+    <i>e-kwa</i> something "equals" another
+    <b>
+        <dd>
+        x<sup>2</sup> +
+        (<e-kwa>
+            <b>1x + 2x</b>
+            <b>3x</b>
+        </e-kwa>)
+        + 2
+        </dd>
+        places some term directly overtop of another,
+        typically indicating that the one expression
+        will replace the other, because of their
+        ekwivalence
+<pre>
+&lt;e-kwa
+    data-dark // removes default illumination
+    data-norm // normal font
+&gt;
+    &lt;b&gt; old val &lt;/b&gt;
+    &lt;b&gt; replacement &lt;/b&gt;
+&lt;/e-kwa&gt;
+</pre>
+    </b>
+</li>
+
+<li>
+    <i>e-val</i> evaluate expression in []'s
+    <b>
+        <dd>
+            3 <p-t></p-t>
+            <e-val data-viva>
+                <f-rak><b>x<sup>2</sup></b>2</f-rak>
+                <b>0</b>
+                <b>3</b>
+            </e-val>
+        </dd>
+        <br>
+        brakette notation for evaluation
+<pre>
+&lt;e-val
+    data-viva      // illuminates everything
+    data-viva-from // illuminates from val
+    data-viva-to   // illuminates to val
+&gt;
+    expression
+    &lt;b&gt;from&lt;/b&gt; &lt;-- optional --&gt;
+    &lt;b&gt;to&lt;/b&gt; &lt;-- optional --&gt;
+    
+&lt;/e-val&gt;
+</pre>
+    </b>
+</li>
+
 <li><i>from</i></li>
 <li><i>dist</i></li>
 <li><i>p-t|n-t|v-t|t-t|</i></li>
@@ -640,7 +868,6 @@ pre {
 <li><i>i-mp</i></li>
 <li><i>d-dx|dy-dx|dz-dx</i></li>
 <li><i>star</i></li>
-<li><i>data-red#</i></li>
 <li><i>rdux</i></li>
 <li><i>ifak</i></li>
 <li><i>qfak</i></li>
@@ -648,11 +875,9 @@ pre {
 <li><i>f-x </i></li>
 <li><i>n-add|min|tim|ote|pad</i></li>
 <li><i>cirk</i></li>
-<li><i>[data-cirk]</i></li>
 <li><i>powr</i></li>
 <li><i>ipow</i></li>
 <li><i>iteg</i></li>
-<li><i>ekwa</i></li>
 <li><i>uv-table</i></li>
 <li><i>by-parts</i></li>
 <li><i>kwad</i></li>
