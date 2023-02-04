@@ -84,6 +84,11 @@
     --dist-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H92A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
         
     --dist-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H82A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
+
+    --dist-arc-double: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H90A10 20 0 0 0 0.5 100Z\
+        M0 100A10 20 0 0 1 55 100H45\
+        A 10 20 0 0 0 0.5 100\
+    Z'/%3E%3C/svg%3E");
     
     --fakt-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H99.5A10 20 0 0 0 8 100Z'/%3E%3C/svg%3E");
     
@@ -662,6 +667,7 @@ f-rom[data-viva-from] { --from-filter-from: url("#viva"); }
 f-rom[data-viva-to] { --from-filter-to: url("#viva"); }
 
 
+/*
 d-ist,
 d-ist-right,
 d-ist-left {
@@ -699,6 +705,7 @@ d-ist-right::after {
 d-ist-left::after {
     background-image: var(--dist-left-00);
 }
+*/
 
 p-t::after {
     content: "\00b7";

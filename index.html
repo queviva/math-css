@@ -264,7 +264,24 @@ content="width=device-width, initial-scale=1.0">
     color: var(--whiteness);
     -webkit-text-stroke: 2px var(--lightness);
 ">
-    
+<style>
+#atics {
+    position: relative;
+}
+#atics::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 50%;
+    top: -50%;
+    left: 0.5ch;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: var(--dist-arc-double);
+    filter: url("#viva");
+    z-index: 10;
+}
+</style>
 <b>
 M<c-irk style="--cirk-top: 0px;">A</c-irk>THR<c-ank data-hi data-opt1>O</c-ank></b><b style="
     margin-left: -5px;
@@ -272,11 +289,7 @@ M<c-irk style="--cirk-top: 0px;">A</c-irk>THR<c-ank data-hi data-opt1>O</c-ank><
     font-weight: bold;
     vertical-align: -20%;
     z-index: 10;
-" class="hobr">&middot;</b><br class="mobr"><b>B<dist-rite style="
-    --arc1-wide: 60%;
-    --arc2-wide: 95%;
-    z-index: 10;
-">ATICS</dist-rite>
+" class="hobr">&middot;</b><br class="mobr"><b>B<b id="atics">ATICS</b>
 </b>
 </div>
 
