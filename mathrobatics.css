@@ -85,10 +85,7 @@
         
     --dist-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H82A10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
 
-    --dist-arc-double: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H90A10 20 0 0 0 0.5 100Z\
-        M0 100A10 20 0 0 1 55 100H45\
-        A 10 20 0 0 0 0.5 100\
-    Z'/%3E%3C/svg%3E");
+    --dist-arc-double: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H90A10 20 0 0 0 0.5 100ZM0 100A10 20 0 0 1 55 100H45A 10 20 0 0 0 0.5 100Z'/%3E%3C/svg%3E");
     
     --fakt-arc1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H99.5A10 20 0 0 0 8 100Z'/%3E%3C/svg%3E");
     
@@ -1041,6 +1038,7 @@ c-irk[data-dark] {
     --cirk-filter: url("#lightness");
     --cirk-filter-lil: url("#lightness");
 }
+c-irk[data-blank] { color: rgba(0,0,0,0);}
 c-irk[data-vers] {
     --cirk-filter: url("#vers");
     --cirk-filter-lil: url("#vers");
@@ -2167,7 +2165,7 @@ fakt-left::before {
     content: '';
     position: absolute;
     width: calc(-1 * var(--fakt-pos) + var(--arc2-wide));
-    height: 25px;
+    height: 0.6em;
     left: var(--fakt-pos);
     bottom: 90%;
     background-size: 100% 100%;
@@ -2178,7 +2176,8 @@ fakt-left::after {
     content: '';
     position: absolute;
     width: calc(-1 * var(--fakt-pos) + var(--arc1-wide));
-    aspect-ratio: 6 / 1;
+    height: 0.3em;
+    xaspect-ratio: 6 / 1;
     left: var(--fakt-pos);
     bottom: 90%;
     background-size: 100% 100%;

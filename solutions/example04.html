@@ -509,16 +509,15 @@ content="x^2 + 3x + 2 algebra solution">
     <left-fakt>
     <b>x</b>
     <p-ren>
-        <i-fak data-dark data-vapor>
+        <i-fak data-dark data-vapor data-cirk>
             <b>x<sup>2</sup></b>
-            <b>x, <b data-cirk data-dark data-blank>x</b></b>
+            <b>x, <c-irk data-dark data-blank>x</c-irk></b>
         </i-fak>
         +
-        <i-fak data-dark data-vapor>
+        <i-fak data-dark data-vapor data-cirk>
             <b>1x</b>
-            <b>1, <b data-cirk data-dark data-blank
-                    data-opt1
-            >x</b></b>
+            <b>1, <c-irk data-dark data-blank data-opt1
+            >x</c-irk></b>
         </i-fak>
     </p-ren>
     </left-fakt>
@@ -561,9 +560,9 @@ x<p-t></p-t><p-ren>x + 1</p-ren> +
 <div>
 x<p-t></p-t><p-ren>x + 1</p-ren> +
 <p-ren>
-    <i-fak data-dark><b>2x</b><b><b data-cirk data-opt1>2</b> x</b></i-fak>
+    <i-fak data-dark data-cirk><b>2x</b><b><c-irk data-opt1>2</c-irk> x</b></i-fak>
     +
-    <i-fak data-dark><b>2</b><b>1 <b data-cirk>2</b></b></i-fak>
+    <i-fak data-dark data-cirk><b>2</b><b>1 <c-irk>2</c-irk></b></i-fak>
 </p-ren>
 </div>
 
@@ -576,12 +575,15 @@ x<p-t></p-t><p-ren>x + 1</p-ren> +
     --arc1-wide:23%;
     --arc2-wide:85%;
 "><b>2</b><p-ren>
-    <i-fak data-dark data-vapor>
-        <b>2x</b><b><b data-dark data-blank data-cirk data-opt1>2</b> x</b>
+    <i-fak data-dark data-vapor data-cirk>
+        <b>2x</b>
+        <b><c-irk data-dark data-blank data-opt1>2</c-irk> x</b>
     </i-fak>
     +
-    <i-fak data-dark data-vapor>
-        <b>2</b><b>1 <b data-dark data-blank data-cirk>2</b></b>
+    <i-fak data-dark data-vapor data-cirk>
+        <b>2</b>
+        <b>1 <c-irk data-dark data-blank data-flip>2</c-irk>
+        </b>
     </i-fak>
 </p-ren></fakt-left>
 </div>
