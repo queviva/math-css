@@ -144,7 +144,7 @@
     background-color: var(--holder-back);
     margin: auto;
     width: 100%;
-    max-width: 700px;
+    text-align: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     
@@ -906,7 +906,7 @@ g-ood::after {
     content: '';
     display: inline-block;
     vertical-align: -20%;
-    height: 80px;
+    height: 2ch;
     width: 2ch;
     color: var(--lightness);
     background-size: 100% 100%;
