@@ -157,6 +157,7 @@ b {
     font-weight: normal;
 }
 b[data-viva] { filter: url("#viva"); }
+b[data-vers] { filter: url("#vers"); }
 b[data-ghost] {
     color: rgba(0,0,0,0);
     text-shadow: var(--text-ghost);
@@ -258,7 +259,7 @@ sup {
 }
 sub { font-size: 0.5em; }
 :not(r-oot) + sup[data-viva],
-:not(r-oot) + sub[data-viva] { filter: url("#viva"); }
+:not(r-oot) + sub[data-viva] { filter: url("#   viva"); }
 up-dn {
    display: inline-block;
    vertical-align: -0.4em;
@@ -2049,14 +2050,11 @@ r-oot {
     --root-for-mig: var(--root-for-dark);
     --root-aft-mig: var(--root-aft-dark);
 
-    
+    position: relative;
     font-size: 0.8em;
     word-spacing: -0.2em;
     margin-left: 1.5ch;
     margin-right: 0.5ch;
-    
-    position: relative;
-    
 }
 r-oot::before,
 r-oot::after {
@@ -2071,13 +2069,13 @@ r-oot::after {
 
 }
 r-oot::before {
-    width: 30px;
-    left: -35px;
+    width: 1.2ch;
+    left: -1.5ch;
     background-image: var(--root-for-mig);
 }
 r-oot::after {
-    width: calc(100% + 25px);
-    left: -17px;
+    width: calc(100% + 1.3ch);
+    left: -0.75ch;
     background-image: var(--root-aft-mig);
 }
 r-oot > b:nth-of-type(1) {
@@ -2096,7 +2094,7 @@ r-oot ~ sup {
     font-size: 0.6em;
     font-family: luckiest;
     vertical-align: 100%;
-    transform: rotate(-12deg);
+    transform: rotate(-12deg) translate(0.3ch, 0);
 }
 r-oot[data-viva] {
     
@@ -2136,9 +2134,9 @@ r-oot[data-cank] > b:nth-of-type(1) {
     
     --root-rot: -15deg;
     top: -18%;
-    right: calc(100% + 0.8em - 20px);
-    padding-left: 5px;
-    padding-right: 20px;
+    right: calc(100% + 0.8em - 2ch);
+    padding-left: 1ch;
+    padding-right: 2ch;
     font-family: luckiest;
     font-weight: normal;
     background-repeat: no-repeat;

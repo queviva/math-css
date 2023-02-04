@@ -881,7 +881,7 @@ a:hover {
 </li>
 
 <li id="c-irk">
-    <i>cirk</i> encircles an item
+    <i>c-irk</i> encircles an item
     <b>
         <dd>
     3 <p-t></p-t>
@@ -976,26 +976,146 @@ a:hover {
     </b>
 </li>
 
-<li><i>from</i></li>
-<li><i>dist</i></li>
+<li id="k-wad">
+    <i>k-wad</i> quadratic expression solver
+    <b>
+        <dd>
+            <k-wad data-fak2>
+                <b>3</b>x<sup>2</sup> +
+                <b>16</b>x +
+                <b>5</b>
+                <b>3&times;5</b>
+                <i-fak>
+                    <b>15</b>
+                    <b>
+                        1 15, <b>3 5</b>
+                    </b>
+                </i-fak>
+            </k-wad>
+            
+        </dd>
+        by entering a quadratic expression in a specific
+        format, mathrobatics allows for a step-by-step
+        illuminated solution - this example displays step
+        number two; the various steps are selected
+        using the [data-fak#] parameter
+<pre>
+&lt;k-wad
+    data-fak#  // step number 1 through 6
+    data-guess // displays (x+/-?)(x+/-?)
+    data-var-y // sets guess var to y
+    style="
+        --kwad-var: 'x'; // variable for guess
+    "
+&gt;
+    &lt;b&gt; a &lt;/b&gt; x<sup>2</sup> +
+    &lt;b&gt; b &lt;/b&gt; x +
+    &lt;b&gt; c &lt;/b&gt;
+    &lt;b&gt; a x c &lt;/b&gt; &lt;-- written out--&gt;
+    &lt;i-fak&gt;
+        &lt;b&gt; axc &lt;/b&gt; &lt;-- actual val of a times c --&gt;
+        &lt;b&gt;
+            faktors of axc
+            &lt;b&gt;
+                the two faktors to use
+            &lt;/b&gt;
+        &lt;/b&gt;
+    &lt;/i-fak&gt;
+&lt;/k-wad&gt;
+</pre>
+    </b>
+</li>
+
+<li><i>f-rom</i></li>
 <li><i>p-t|n-t|v-t|t-t|</i></li>
 <li><i>p-m</i></li>
 <li><i>i-mp</i></li>
 <li><i>d-dx|dy-dx|dz-dx</i></li>
-<li><i>star</i></li>
-<li><i>qfak</i></li>
-<li><i>good</i></li>
+<li><i>s-tar</i></li>
+<li><i>q-fak</i></li>
+<li><i>g-ood</i></li>
 <li><i>f-x </i></li>
 <li><i>n-add|min|tim|ote|pad</i></li>
-<li><i>iteg</i></li>
+<li><i>i-teg</i></li>
 <li><i>uv-table</i></li>
 <li><i>by-parts</i></li>
-<li><i>kwad</i></li>
-<li><i>raze</i></li>
-<li><i>root</i></li>
+<li><i>r-aze</i></li>
+<li>
+    <i>r-oot</i> perfect nth-root formatting
+    <b>
+        <dd>
+            <r-oot data-viva><b>3</b>27</r-oot>
+            +
+            <r-oot>49</r-oot>
+            +
+            <r-oot data-cank>
+                <b>3</b>5x<sup>7</sup>
+            </r-oot><sup><c-ank>3</c-ank></sup>
+        </dd>
+        makes a illuminated gesture, or regular
+        nth&#8209;root symbol with correct over-bar
+        <br><br>
+        any following super-script, or exponent,
+        will be lifted to accomodate the symbol
+<pre>
+&lt;r-oot
+    data-viva // illuminated bar and index
+    data-cank // ghosted bar and cancelled index
+&gt;
+    &lt;b&gt;index &lt;/b&gt; &lt;!-- optional --&gt;
+    radicand
+&lt;/r-oot&gt;
+&lt;!-- immediately follow sup gets formatted --&gt;
+&lt;sup
+    data-viva // correctly illuminates
+&gt;
+    exonent
+&lt;/sup&gt;
+</pre>
+    </b>
+</li>
 <li><i>fakt-all</i></li>
-<li><i>logb</i></li>
-<li><i>cank</i></li>
+
+<li id="b">
+    <i>b&nbsp;&nbsp;&nbsp;</i> b tag; overwrites bold
+    <b>
+        mathrobatics hijacks the html "b" tag
+        to use as its personal span-type element
+        <br><br>
+        any actual bold expressions should be placed
+        in an &lt;em&gt; tag, for emphasis, or in
+        some other tag whose <i>font-weight</i>
+        is set to bold
+        <br><br>
+        this allows mathrobatics to use the smallest
+        possible html tag to create spans and groupings
+        of elements
+        <br><br>
+        as the main tag used by mathrobatics, it has
+        a large number of [data-parameters]
+<pre>
+&lt;b
+    data-viva  // illuminated text
+    data-vers  // inverse illumination
+    data-ghost // ghosted text
+    data-vapor // vaporized text
+    data-blank // transparent text
+    data-pren  // short hand for prens parenthesis
+    data-prens // puts ()'s around it
+    data-prens-viva  // encloses in illuminated ()'s
+    data-prens-ghost // ghosts out enclosing ()'s
+    data-prens vapor // vaporizes enclosing ()'s
+    data-cirk // puts an illuminated circle around it
+    data-cank // draws cancel slash over it
+    data-opt# // alternative shapes
+    data-flip // flips the circle
+    data-turn // rotates the circle
+&gt;
+&lt;/b&gt;
+</pre>
+    </b>
+</li>
+
 </ul>
 </div>
 
