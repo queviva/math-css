@@ -259,7 +259,7 @@ sup {
 }
 sub { font-size: 0.5em; }
 :not(r-oot) + sup[data-viva],
-:not(r-oot) + sub[data-viva] { filter: url("#   viva"); }
+:not(r-oot) + sub[data-viva] { filter: url("#viva"); }
 up-dn {
    display: inline-block;
    vertical-align: -0.4em;
