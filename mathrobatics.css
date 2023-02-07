@@ -1,9 +1,9 @@
 @font-face {
-    font-family : luckiest;
+    font-family : "Luckiest Guy";
     src : url(luckiest.ttf);
 }
 
-/*@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css2?family=Luckiest%20Guy&display=swap');*/
 
 * {
     box-sizing: border-box;
@@ -92,6 +92,8 @@
     --fakt-arc2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H99A10 20 0 0 0 16 100Z'/%3E%3C/svg%3E");
     
     --fakt-left-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H99.5A10 20 0 0 0 8 100H0A10 30 0 0 1 44 100H43.5A10 31.5 0 0 0 8 100Z'/%3E%3C/svg%3E");
+    
+    --kwad-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath fill-rule='nonzero' d='M0 100A40 100 0 0 1 40 0L35 3A35 97 0 0 0 3 100ZM 100 100A40 100 0 0 0 60 0L65 3A35 97 0 0 1 97 100Z' fill='%23000' /%3E %3C/svg%3E");
     
     --powr-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' fill-rule='evenodd' %3E%3Cpath d='M100 30A100 300 340 0 0 0 55L4 55A100 300 340 0 1 100 30Z'/%3E%3C/svg%3E");
             
@@ -231,7 +233,7 @@ v-por {
 }
 l-uck, [data-luck] {
     font-size: 0.8em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
 }
 l-uck[data-rot] {
     display: inline-block;
@@ -246,8 +248,7 @@ x-hsp { word-spacing: -0.3ch; }
 
 em {
     
-    font-family: luckiest;
-    font-style: italic;
+    font-family: "Luckiest Guy";
     font-weight: bold;
     color: rgba(0,0,0,0);
     -webkit-text-stroke: 2px var(--greyness);
@@ -664,47 +665,6 @@ f-rom[data-viva-bar] { --from-filter-bar: url("#viva"); }
 f-rom[data-viva-from] { --from-filter-from: url("#viva"); }
 f-rom[data-viva-to] { --from-filter-to: url("#viva"); }
 
-
-/*
-d-ist,
-d-ist-right,
-d-ist-left {
-    --dist-wide: 130%;
-    --dist-high: 60px;
-    --dist-left: 0px;
-    --dist-filter: url("#viva");
-    
-    position: relative;
-}
-d-ist::after,
-d-ist-right::after,
-d-ist-left::after {
-    content: '';
-    position: absolute;
-    bottom: 80%;
-    left: calc((100% - var(--dist-wide))/2 + var(--dist-left));
-    width: var(--dist-wide);
-    height: var(--dist-high);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    filter: var(--dist-filter);
-}
-d-ist[data-dark]::after,
-d-ist-right[data-dark]::after,
-d-ist-left[data-dark]::after {
-    --dist-filter: url("#lightness");
-}
-d-ist::after {
-    background-image: var(--dist-full-00);
-}
-d-ist-right::after {
-    background-image: var(--dist-right-00);
-}
-d-ist-left::after {
-    background-image: var(--dist-left-00);
-}
-*/
-
 p-t::after {
     content: "\00b7";
     font-size: 0.8em;
@@ -713,6 +673,13 @@ p-t::after {
 n-t::after {
     content: "\00b7";
     font-size: 0.8em;
+}
+g-t::after {
+    content: "\00b7";
+    font-size: 0.8em;
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-ghost);
+    xfilter: url("#viva");
 }
 v-t::after {
     content: "\00b7";
@@ -840,7 +807,7 @@ r-dux > b:nth-of-type(1) {
     position: absolute;
     top: var(--rdux-top);
     left: var(--rdux-left);
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     font-size: 0.4em;
     text-align: left;
     white-space: nowrap;
@@ -956,7 +923,7 @@ n-add, n-min, n-tim, n-div, n-ote, n-pad {
     
     display: inline-block;
     font-size: 0.8em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     xvertical-align: 30%;
     transform: rotate(var(--note-rot));
     filter: url("#viva");
@@ -1001,10 +968,10 @@ n-pad[data-dark] {
 
 
 c-irk{
-    --cirk-wide: 20%;
-    --cirk-high: 3%;
-    --cirk-top: 0px;
-    --cirk-left: 0px;
+    --cirk-wide: calc(100% + 1ch);
+    --cirk-high: 100%;
+    --cirk-top: 0%;
+    --cirk-left: 0;
     --cirk-rot: 0deg;
     --cirk-flip: 1;
     --cirk-turn: 0;
@@ -1012,7 +979,6 @@ c-irk{
     --cirk-filter-lil: url("#lil-viva");
     --cirk-shape: var(--cirk-00);
     position: relative;
-    
     z-index: 10;
 }
 c-irk::before {
@@ -1020,10 +986,10 @@ c-irk::before {
     content: '';
     position: absolute;
     display: inline-block;
-    width: calc(100% + var(--cirk-wide));
-    height: calc(100% + var(--cirk-high));
-    left: calc(var(--cirk-left) + var(--cirk-wide)/-2);
-    top: calc(var(--cirk-top) + var(--cirk-high)/-2);
+    width: var(--cirk-wide);
+    height: var(--cirk-high);
+    left: calc((100% - var(--cirk-wide))/2);
+    top: calc(var(--cirk-top) + (100% - var(--cirk-high))/2);
     transform:
         rotate(
             calc(180deg * var(--cirk-turn) + var(--cirk-rot))
@@ -1051,8 +1017,8 @@ c-irk[data-turn] {
     --cirk-turn: 1;
 }
 c-irk[data-big] {
-    --cirk-wide: 100px;
-    --cirk-high: 50px;
+    --cirk-wide: calc(200% + 1ch);
+    --cirk-high: 200%;
 }
 c-irk[data-opt1]::before {
     --cirk-shape: var(--cirk-01);
@@ -1146,7 +1112,7 @@ p-owr > sup::after {
     content: '-1';
     position: absolute;
     font-size: 0.5em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     top: 0;
     left: calc(100% + 2px);
     transform: rotate(-15deg);
@@ -1243,7 +1209,7 @@ i-pow > sup::after {
     content: '+1';
     position: absolute;
     font-size: 0.5em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     top: 0;
     left: calc(100% + 2px);
     transform: rotate(-15deg);
@@ -1379,7 +1345,7 @@ i-teg[data-iprt] > u-u::after {
     top: -4px;
     left: -8px;
     font-size: 0.4em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     word-spacing: -0.2em;
     text-align: left;
     transform: rotate(-15deg);
@@ -1407,7 +1373,7 @@ i-teg[data-iprt] > v-v::after {
     top: -4px;
     left: -8px;
     font-size: 0.4em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     word-spacing: -0.2em;
     color: var(--inverse);
     text-align: left;
@@ -1481,7 +1447,7 @@ uv-table > b::before {
     padding-right: 5px;
     top: 40%;
     font-size: 0.6em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     text-align: left;
     font-style: normal;
     
@@ -1647,7 +1613,7 @@ e-kwa > b:nth-of-type(1) {
 }
 e-kwa > b:nth-of-type(2) {
     font-size: 0.8em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     word-spacing: -0.2em;
     color: var(--lightness);
     filter: url("#viva");
@@ -1686,7 +1652,7 @@ i-fak > b:nth-of-type(1) {
 }
 i-fak > b:nth-of-type(2) {
     font-size: 0.4em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     word-spacing: 0.4em;
     color: var(--lightness);
     filter: url("#viva");
@@ -1701,18 +1667,51 @@ i-fak[data-vapor] > b:nth-of-type(1) {
     filter: none;
 }
 i-fak[data-cirk] > b:nth-of-type(2) > c-irk {
-    --cirk-wide: 150%;
+    --cirk-top: -5%;
+}
+
+i-arc {
+    --iarc-filter: url("#viva");
+    position: relative;
+    display: inline-block;
+}
+i-arc::before { content: '('; }
+i-arc::after { content: ')'; }
+i-arc > svg {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    bottom: 90%;
+    filter: var(--iarc-filter);
+}
+i-arc[data-dark] { --iarc-filter: url("#lightness"); }
+i-arc[data-dark] + .iarc-fakt { filter: url("#lightness"); }
+i-arc[data-dark] c-irk { --cirk-filter: url("#lightness"); }
+.iarc-fakt {
+    display: inline-block;
+    margin: 0ch 0.5ch;
+    font-family: "Luckiest Guy";
+    font-size: 0.6em;
+    transform: translate(0, -30%) rotate(-10deg);
+    filter: url("#viva");
+}
+.iarc-dist {
+    color: rgba(0,0,0,0);
+    text-shadow: var(--text-ghost);
+}
+.iarc-dist-lil {
+    display: inline-block;
+    font-family: "Luckiest Guy";
+    font-size: 0.4em;
+    transform: translate(0, -100%) rotate(-10deg);
+    filter: var(--iarc-filter);
 }
 
 
 k-wad {
-    
     --kwad-var: 'x';
-    --kwad-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' %3E%3Cpath fill-rule='nonzero' d='M0 100A40 100 0 0 1 40 0L35 3A35 97 0 0 0 3 100ZM 100 100A40 100 0 0 0 60 0L65 3A35 97 0 0 1 97 100Z' fill='%23000' /%3E %3C/svg%3E");
-    
     position: relative;
     display: inline-block;
-    
 }
 k-wad::after {
     
@@ -1738,7 +1737,7 @@ k-wad > b:nth-of-type(4) {
     left: 0;
     bottom: 70%;
     font-size: 0.6em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     transform: rotate(-5deg);
     filter: url("#viva");
 }
@@ -1754,8 +1753,8 @@ k-wad > i-fak {
     
 }
 
-k-wad[data-fak1] > b:nth-of-type(1)::before,
-k-wad[data-fak1] > b:nth-of-type(3)::before {
+k-wad[data-step1] > b:nth-of-type(1)::before,
+k-wad[data-step1] > b:nth-of-type(3)::before {
     
     content: '';
     position: absolute;
@@ -1767,69 +1766,69 @@ k-wad[data-fak1] > b:nth-of-type(3)::before {
     filter: url("#viva");
     
 }
-k-wad[data-fak1] > b:nth-of-type(1)::before {
+k-wad[data-step1] > b:nth-of-type(1)::before {
     background-image: var(--cirk-00);
 }
-k-wad[data-fak1] > b:nth-of-type(3)::before {
+k-wad[data-step1] > b:nth-of-type(3)::before {
     background-image: var(--cirk-03);
 }
 
-k-wad[data-fak2] {
+k-wad[data-step2] {
     margin-top: 0.5em;
 }
-k-wad[data-fak2]::after {
+k-wad[data-step2]::after {
     visibility: visible;
 }
-k-wad[data-fak2] > b:nth-of-type(4) {
+k-wad[data-step2] > b:nth-of-type(4) {
     display: inline;
     visibility: visible;
 }
 
-k-wad[data-fak3] {
+k-wad[data-step3] {
     margin-top: 0.5em;
 }
-k-wad[data-fak3]::after {
+k-wad[data-step3]::after {
     visibility: visible;
     filter: url("#lightness");
 }
-k-wad[data-fak3] > b:nth-of-type(4) {
+k-wad[data-step3] > b:nth-of-type(4) {
     visibility: visible;
     display: inline;
     filter: url("#vapor");
 }
-k-wad[data-fak3] > i-fak {
+k-wad[data-step3] > i-fak {
     visibility: visible;
     display: inline-grid;
 }
-k-wad[data-fak3] > i-fak > b:nth-of-type(1) {
+k-wad[data-step3] > i-fak > b:nth-of-type(1) {
     font-size: 0.8em;
     text-shadow: none;
     color: var(--lightness);
     filter: url("#lil-viva");
 }
-k-wad[data-fak3] > i-fak > b:nth-of-type(1)::before {
+k-wad[data-step3] > i-fak > b:nth-of-type(1)::before {
     content: '=';
     font-size: 0.7em;
 }
-k-wad[data-fak3] > i-fak > b:nth-of-type(2) {
+k-wad[data-step3] > i-fak > b:nth-of-type(2) {
     visibility: hidden;
 }
 
-k-wad[data-fak4] {
+k-wad[data-step4] {
     margin-top: 0.7em;
 }
-k-wad[data-fak4]::after {
+k-wad[data-step4]::after {
     visibility: visible;
     filter: url("#vapor");
 }
-k-wad[data-fak4] > i-fak {
+k-wad[data-step4] > i-fak {
     visibility: visible;
     display: inline-grid;
 }
-k-wad[data-fak4] > i-fak > b:nth-of-type(1) {
+k-wad[data-step4] > i-fak > b:nth-of-type(1) {
     opacity: 0.5;
 }
-k-wad[data-fak4] > i-fak > b:nth-of-type(2) {
+k-wad[data-step4] > i-fak > b:nth-of-type(2) {
     font-size: 0.4em;
     width: 200%;
     left: -50%;
@@ -1838,14 +1837,14 @@ k-wad[data-fak4] > i-fak > b:nth-of-type(2) {
     overflow: visible;
 }
 
-k-wad[data-fak5] {
+k-wad[data-step5] {
     margin-top: 0.7em;
     color: var(--midness);
 }
-k-wad[data-fak5] > b:nth-of-type(2) {
+k-wad[data-step5] > b:nth-of-type(2) {
     color: var(--whiteness);
 }
-k-wad[data-fak5] > b:nth-of-type(2)::before {
+k-wad[data-step5] > b:nth-of-type(2)::before {
     content: '';
     position: absolute;
     height: 100%;
@@ -1857,27 +1856,27 @@ k-wad[data-fak5] > b:nth-of-type(2)::before {
     filter: url("#vers");
     transform: rotate(10deg);
 }
-k-wad[data-fak5] > b:nth-of-type(2)::after {
+k-wad[data-step5] > b:nth-of-type(2)::after {
     content: '?=';
     position: absolute;
     top: 10%;
     left: -1.2ch;
     font-size: 0.6em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     text-align: center;
     white-space: nowrap;
     color: var(--inverse);
     filter: url("#vers");
     transform: rotate(-10deg);
 }
-k-wad[data-fak5] > i-fak {
+k-wad[data-step5] > i-fak {
     visibility: visible;
     display: inline-grid;
 }
-k-wad[data-fak5] > i-fak > b:nth-of-type(1) {
+k-wad[data-step5] > i-fak > b:nth-of-type(1) {
     opacity: 0.3;
 }
-k-wad[data-fak5] > i-fak > b:nth-of-type(2) {
+k-wad[data-step5] > i-fak > b:nth-of-type(2) {
     font-size: 0.6em;
     width: 200%;
     top: 25%;
@@ -1888,14 +1887,14 @@ k-wad[data-fak5] > i-fak > b:nth-of-type(2) {
     overflow: visible;
 }
 
-k-wad[data-fak6] {
+k-wad[data-step6] {
     margin-top: 0.7em;
     color: var(--darkness);
 }
-k-wad[data-fak6] > b:nth-of-type(2) {
+k-wad[data-step6] > b:nth-of-type(2) {
     color: var(--inverse);
 }
-k-wad[data-fak6] > b:nth-of-type(2)::after {
+k-wad[data-step6] > b:nth-of-type(2)::after {
     content: '=';
     position: absolute;
     top: 10%;
@@ -1907,15 +1906,15 @@ k-wad[data-fak6] > b:nth-of-type(2)::after {
     color: var(--inverse);
     transform: rotate(-10deg);
 }
-k-wad[data-fak6] > i-fak {
+k-wad[data-step6] > i-fak {
     visibility: visible;
     display: inline-grid;
 }
-k-wad[data-fak6] > i-fak > b:nth-of-type(1) {
+k-wad[data-step6] > i-fak > b:nth-of-type(1) {
     font-size: 0.5;
     opacity: 0.5;
 }
-k-wad[data-fak6] > i-fak > b:nth-of-type(2) {
+k-wad[data-step6] > i-fak > b:nth-of-type(2) {
     font-size: 0.6em;
     width: 200%;
     left: -50%;
@@ -1925,10 +1924,10 @@ k-wad[data-fak6] > i-fak > b:nth-of-type(2) {
     filter: none;
     overflow: visible;
 }
-k-wad[data-fak6] > i-fak > b:nth-of-type(2) > b {
+k-wad[data-step6] > i-fak > b:nth-of-type(2) > b {
     padding: 5px;
 }
-k-wad[data-fak6] > i-fak > b:nth-of-type(2) > b::after {
+k-wad[data-step6] > i-fak > b:nth-of-type(2) > b::after {
     content: '';
     position: absolute;
     height: 100%;
@@ -1962,12 +1961,8 @@ k-wad[data-guess]::after {
     filter: url("#viva");
     visibility: visible;
 }
-k-wad[data-guess] > b {
-    font-weight: bold;
-}
-k-wad[data-var-y] {
-    --kwad-var: 'y';
-}
+k-wad[data-guess] > b { font-weight: bold; }
+k-wad[data-var-y] { --kwad-var: 'y'; }
 
 
 r-aze {
@@ -2001,7 +1996,7 @@ r-aze > :nth-child(1) {
     display: inline-block;
     top: 60%;
     right: calc(100% - 5px);
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     transform: rotate(-12deg);
     filter: var(--raze-filter);
     
@@ -2094,7 +2089,7 @@ r-oot > b:nth-of-type(1) {
 r-oot ~ sup {
     display: inline-block;
     font-size: 0.6em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     vertical-align: 100%;
     transform: rotate(-12deg) translate(0.3ch, 0);
 }
@@ -2104,7 +2099,16 @@ r-oot[data-viva] {
     --root-filter: url("#viva");
     --root-lil-filter: url("#lil-viva");
 }
-r-oot[data-viva] > b:nth-of-type(1),
+r-oot[data-viva] > b:nth-of-type(1) {
+    
+    top: -12%;
+    right: calc(100% + 0.8em);
+    font-family: "Luckiest Guy";
+    font-weight: normal;
+    filter: var(--root-lil-filter);
+    transform: rotate(var(--root-rot));
+    
+}
 r-oot ~ sup[data-viva] { filter: url("#lil-viva"); }
 r-oot[data-vapor] {
     --root-for-mig: var(--root-for-viva);
@@ -2116,7 +2120,7 @@ r-oot[data-vapor] > b:nth-of-type(1) {
     
     top: -12%;
     right: calc(100% + 0.8em);
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     font-weight: normal;
     filter: var(--root-lil-filter);
     transform: rotate(var(--root-rot));
@@ -2135,7 +2139,7 @@ r-oot[data-cank] > b:nth-of-type(1) {
     right: calc(100% + 0.8em - 2ch);
     padding-left: 1ch;
     padding-right: 2ch;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     font-weight: normal;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -2185,7 +2189,7 @@ fakt-left > b:nth-child(1) {
     left: calc(var(--fakt-wide)/-2 + var(--fakt-pos));
     top: 20%;
     font-size: 0.5em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     text-align: center;
     white-space: nowrap;
     overflow: visible;
@@ -2270,7 +2274,7 @@ rite-dist > b > b {
     height: 100%;
     width: 3ch;
     font-size: 0.5em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     text-align: center;
     white-space: nowrap;
     transform: rotate(-15deg) translate(-5px, -50%);
@@ -2366,7 +2370,7 @@ left-dist > b > b {
     height: 100%;
     width: 3ch;
     font-size: 0.5em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     text-align: center;
     white-space: nowrap;
     transform: rotate(15deg) translate(-5px, -50%);
@@ -2435,7 +2439,7 @@ left-fakt > b:nth-of-type(1) {
     height: 100%;
     right: 0;
     font-size: 0.7em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     text-align: center;
     white-space: nowrap;
     transform: rotate(-10deg) translate(-0px, -20%);
@@ -2493,7 +2497,7 @@ fakt-all > b > b:nth-of-type(1) {
     width: 300%;
     left: -100%;
     font-size: 0.3em;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     text-align: center;
     word-spacing: 0.5ch;
     color: var(--lightness);
@@ -2564,7 +2568,7 @@ l-ogb > b:nth-child(1) {
     transform: rotate(-12deg);
     font-size: 0.6em;
     font-weight: bold;
-    font-family: luckiest;
+    font-family: "Luckiest Guy";
     color: var(--lightness);
     filter: var(--logb-filter-base);
     -webkit-text-stroke: var(--logb-stroke);

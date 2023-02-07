@@ -23,6 +23,7 @@ body {
     width: 100%;
     max-width: 700px;
     font-size: 50px;
+    font-family: "Tinos";
     text-align: center;
     color: var(--lightness);
     background-color: var(--holder-back);
@@ -31,6 +32,8 @@ body {
 .mathrobatics {
     font-size: 50px;
 }
+
+c-omm + div { white-space: nowrap; }
 
 a {
     text-decoration: none;

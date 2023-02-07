@@ -431,39 +431,11 @@ a:hover {
     &lt;b&gt; numerator &lt;/b&gt;
     &lt;b&gt; denominator &lt;/b&gt; &lt;!-- b optional --&gt;
 &lt;/f-rak&gt;
-</pre><br>
-
-        if the denominator has no other tags, its
-        b tag is optional - for instance, this would
-        display 3/5:<br>
-        &lt;f-rak&gt;&lt;b&gt;3&lt;/b&gt;5&lt;/f-rak&gt;
-    </b>
-</li>
-
-<li id="s-umm">
-    <i>s-umm</i> sigma notation for summation
-    <b>
-        <dd>
-            3 <p-t></p-t>
-            <s-umm data-viva>
-                <b>5x<sup>2</sup></b>
-                <b>0</b>
-                <b>&infin;</b>
-            </s-umm> + 9
-        </dd><br>
-<pre>
-&lt;s-umm
-    data-viva  // illuminates everything
-    data-sigma // illuminates only sigma
-    data-from  // illuminates only from value
-    data-to    // illumiates only to value
-    data-ghost // displays in outline
-&gt;
-    &lt;b&gt; thing to sum &lt;/b&gt;
-    &lt;b&gt; from &lt;/b&gt; &lt;!-- optional --&gt;
-    &lt;b&gt; to &lt;/b&gt; &lt;!-- optional --&gt;
-&lt;/s-umm&gt;
 </pre>
+        if the denominator has no other tags, its
+        b tag is optional - for instance, this code
+        would display 3/5:<br>
+        &lt;f-rak&gt;&lt;b&gt;3&lt;/b&gt;5&lt;/f-rak&gt;
     </b>
 </li>
 
@@ -615,6 +587,34 @@ a:hover {
     &lt;b&gt; base &lt;/b&gt; &lt;-- optional --&gt;
     thing to log
 &lt;/l-ogb&gt;
+</pre>
+    </b>
+</li>
+
+<li id="s-umm">
+    <i>s-umm</i> sigma notation for summation
+    <b>
+        <dd>
+            3 <p-t></p-t>
+            <s-umm data-viva>
+                <b>5&theta;<sup>2</sup></b>
+                <b>0</b>
+                <b>2&pi;</b>
+            </s-umm>
+        </dd><br>
+<pre>
+&lt;s-umm
+    data-viva  // illuminates everything
+    data-sigma // illuminates only sigma
+    data-from  // illuminates only from value
+    data-to    // illumiates only to value
+    data-ghost // displays in outline
+    data-scrib // scribbles out notation
+&gt;
+    &lt;b&gt; thing to sum &lt;/b&gt;
+    &lt;b&gt; from &lt;/b&gt; &lt;!-- optional --&gt;
+    &lt;b&gt; to &lt;/b&gt; &lt;!-- optional --&gt;
+&lt;/s-umm&gt;
 </pre>
     </b>
 </li>
@@ -773,34 +773,6 @@ a:hover {
     </b>
 </li>
 
-<li id="s-umm">
-    <i>s-umm</i> sigma notation
-    <b>
-        <dd>
-    3 <p-t></p-t> <s-umm data-viva>
-        <b>&theta;<sup>2</sup></b>
-        <b>0</b>
-        <b>2&pi;</b>
-    </s-umm>
-        </dd>
-        sigma notation for summation
-<pre>
-&lt;s-umm
-    data-viva       // illuminates everything
-    data-viva-sigma // illuminates the sigma
-    data-viva-from  // illuminates from val
-    data-viva-to    // illuminates to val
-    data-ghost      // ghosts the notation
-    data-scrib      // scribbles out
-&gt;
-    thing to sum
-    <b>from</b> &lt;!-- optional --&gt;
-    <b>to</b> &lt;!-- optional --&gt;
-&lt;/s-umm&gt;
-</pre>
-    </b>
-</li>
-
 <li id="e-kwa">
     <i>e-kwa</i> something "equals" another
     <b>
@@ -902,6 +874,11 @@ a:hover {
     data-flip // mirrors the shape
     data-turn // rotates the shape
     data-norm // default font on note
+    data-big  // doubles normal size
+    style="
+        --cirk-wide: 20% // circle width
+        --cirk-high:  3% // circle height
+    "
 &gt;
     things to encircle
     &lt;n-ote&gt; note &lt;/n-ote&gt; &lt;!-- optional --&gt;
@@ -950,8 +927,8 @@ a:hover {
             <i-fak data-dark>
                 <b>12</b>
                 <b>
-                    1 12,<br>
-                    2 6,<br>
+                    1 12<br>
+                    2 6<br>
                     3 4
                 </b>
             </i-fak>
@@ -980,7 +957,20 @@ a:hover {
     <i>k-wad</i> quadratic expression solver
     <b>
         <dd>
-            <k-wad data-fak2>
+            <k-wad data-step2>
+                <b>3</b>x<sup>2</sup> +
+                <b>16</b>x +
+                <b>5</b>
+                <b>3&times;5</b>
+                <i-fak>
+                    <b>15</b>
+                    <b>
+                        1 15, <b>3 5</b>
+                    </b>
+                </i-fak>
+            </k-wad>
+            &nbsp;
+            <k-wad data-step5>
                 <b>3</b>x<sup>2</sup> +
                 <b>16</b>x +
                 <b>5</b>
@@ -996,12 +986,11 @@ a:hover {
         </dd>
         by entering a quadratic expression in a specific
         format, mathrobatics allows for a step-by-step
-        illuminated solution - this example displays step
-        number two; the various steps are selected
-        using the [data-fak#] parameter
+        illuminated solution; the various steps are selected
+        using the [data-step#] parameter
 <pre>
 &lt;k-wad
-    data-fak#  // step number 1 through 6
+    data-step#  // step number 1 through 6
     data-guess // displays (x+/-?)(x+/-?)
     data-var-y // sets guess var to y
     style="
@@ -1059,13 +1048,14 @@ a:hover {
         will be lifted to accomodate the symbol
 <pre>
 &lt;r-oot
-    data-viva // illuminated bar and index
-    data-cank // ghosted bar and cancelled index
+    data-viva  // illuminated bar and index
+    data-vapor // vaporized bar and index
+    data-cank  // ghosted bar and cancelled index
 &gt;
-    &lt;b&gt;index &lt;/b&gt; &lt;!-- optional --&gt;
+    &lt;b&gt;index&lt;/b&gt; &lt;!-- optional --&gt;
     radicand
 &lt;/r-oot&gt;
-&lt;!-- immediately follow sup gets formatted --&gt;
+&lt;!-- immediately following sup gets formatted --&gt;
 &lt;sup
     data-viva // correctly illuminates
 &gt;
