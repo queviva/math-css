@@ -259,8 +259,10 @@ sup {
     vertical-align: 70%;
 }
 sub { font-size: 0.5em; }
-:not(r-oot) + sup[data-viva],
-:not(r-oot) + sub[data-viva] { filter: url("#viva"); }
+:not(r-oot) sup[data-viva],
+:not(r-oot) sub[data-viva] {
+    filter: url("#viva");
+}
 up-dn {
    display: inline-block;
    vertical-align: -0.4em;
@@ -1666,14 +1668,15 @@ i-fak[data-vapor] > b:nth-of-type(1) {
     text-shadow: var(--text-vapor);
     filter: none;
 }
-i-fak[data-cirk] > b:nth-of-type(2) > c-irk {
-    --cirk-top: -5%;
+i-fak > b:nth-of-type(2) > c-irk {
+    --cirk-top: -10%;
 }
 
 i-arc {
     --iarc-filter: url("#viva");
     position: relative;
     display: inline-block;
+    /*border: 1px solid #900;*/
 }
 i-arc::before { content: '('; }
 i-arc::after { content: ')'; }
@@ -1683,10 +1686,20 @@ i-arc > svg {
     width: 100%;
     bottom: 90%;
     filter: var(--iarc-filter);
+    /*border: 1px solid #090;*/
 }
 i-arc[data-dark] { --iarc-filter: url("#lightness"); }
 i-arc[data-dark] + .iarc-fakt { filter: url("#lightness"); }
 i-arc[data-dark] c-irk { --cirk-filter: url("#lightness"); }
+i-arc[data-no-prens] {
+    margin-left: 0.5ch;
+    margin-right:0.5ch;
+}
+i-arc[data-no-prens]::after,
+i-arc[data-no-prens]::before {
+    content: '';
+}
+i-arc[data-blank] c-irk { color: rgba(0, 0, 0, 0); }
 .iarc-fakt {
     display: inline-block;
     margin: 0ch 0.5ch;

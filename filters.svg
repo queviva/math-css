@@ -1,5 +1,5 @@
-<svg id="SVGfilter" height="0" width="0">
-
+<svg xmlns='http://www.w3.org/2000/svg' height="0" width="0">
+  <defs>
     <filter id="lightness">
       <feFlood flood-color="var(--lightness)" result="F0"/>
       <feComposite in="F0" in2="SourceGraphic" operator="in"/>
@@ -264,5 +264,7 @@
         <feComposite in="B0" in2="B1" operator="out" result="Z1" />
         
     </filter>
+    <path id="test-path" fill="#900" d="M0 0H100V100Z"/>
+  </defs>
 
 </svg>

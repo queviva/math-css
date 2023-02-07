@@ -1,91 +1,98 @@
 
+
+const log = console.log;
+
 (async () => { await document.fonts.ready;
+
+const reg1 = new RegExp(/(\w)\*\*([^\(\[\<\s]+?)(=?\s|$)/g);
+const reg2 = new RegExp(/(\w)\*\*([\(\[)].+?[\)\]])/g);
+const reg3 = new RegExp(/(\w)\*\*(\<(.*?)\>.*?\<\/\3\>)/g);
+
+document.querySelectorAll('.mathrobatics b').forEach(b => {
+    
+    if (b.innerHTML.match(/\*\*/)) {
+        b.innerHTML = b.innerHTML
+        .replace(reg1,'$1<sup>$2</sup>')
+        .replace(reg2,'$1<sup>$2</sup>')
+        .replace(reg3,'$1<sup>$2</sup>')
+        .replace(/\\\*\*/g, '**');
+    }
+    
+});
+
 document.querySelectorAll('i-arc').forEach(
     (
-        obj, i, j, NS = 'http://www.w3.org/2000/svg',
-        valu = obj.children[0],
-        text = valu.innerText,
+        obj, idx, j, NS = 'http://www.w3.org/2000/svg',
+        high,
+        kidz = [],
         dset = obj.dataset,
         dist = void 0 !== dset.dist,
         rite = void 0 !== dset.rite,
-        min  = parseInt(dset.min) || 15,
-        dif  = parseInt(dset.dif) || 10,
-        high = min + dif * (obj.children.length - 1),
-        kidz = [], d = ''
+        cirk = void 0 !== dset.cirk,
+        val  = obj.children[0],
+        txt  = val.innerText,
+        min  = parseInt(dset.min) || 20,
+        dif  = parseInt(dset.dif) || 15,
+        svg  = document.createElementNS(NS, 'svg'),
+        path = document.createElementNS(NS, 'path')
     ) => {
-        const svg = document.createElementNS(NS, 'svg');
-        const path = document.createElementNS(NS, 'path');
-        svg.append(path);
-        valu.classList.add(dist ? 'iarc-dist' : 'iarc-fakt');
-        valu.innerText = text;
+        val.classList.add(dist ? 'iarc-dist' : 'iarc-fakt');
+        val.innerText = txt;
         obj.parentNode.insertBefore(
-           valu, rite ? obj.nextSibling : obj
+           val, rite ? obj.nextSibling : obj
         );
-        obj.style.marginTop = high + 'px';
-        !dist ||  valu.parentNode.insertBefore(
+        !dist ||  val.parentNode.insertBefore(
             document.createElement('g-t'),
-            rite ? valu : valu.nextSibling
+            rite ? val : val.nextSibling
         );
-        kidz = dist ? [...obj.children].map(c => {
+        kidz = cirk ? [...obj.querySelectorAll('c-irk')]
+            .sort((a, b) =>
+                a.getBoundingClientRect().left -
+                b.getBoundingClientRect().left
+        ): [...obj.children];
+        
+        !dist || (kidz = kidz.map(c => {
             let f = document.createElement('b');
-            f.innerText = '\u00d7' + text;
+            f.innerText = '\u00d7' + txt;
             f.classList.add('iarc-dist-lil');
             obj.insertBefore(f, c.nextSibling);
             return f;
-        }) : [...obj.children];
+        }));
+        high = min + dif * kidz.length - 1;
+        obj.style.marginTop = high + 'px';
+        svg.append(path);
         obj.append(svg);
-        const objRect = obj.getBoundingClientRect();
-        const valRect = valu.getBoundingClientRect();
+        let Rec = {
+            obj: obj.getBoundingClientRect(),
+            val: val.getBoundingClientRect()
+        }
         const wide = Math.abs(
             rite ?
-            valRect.right - objRect.left :
-            valRect.left - objRect.right
+            Rec.val.right - Rec.obj.left :
+            Rec.val.left - Rec.obj.right
         );
         svg.style.width  = wide + 'px';
         svg.style.height = high + 'px';
         rite ? svg.style.left = 0 : svg.style.right = 0;
-        kidz = kidz.map(k => {
-            if (!dist && k.tagName.match(/i-fak/i)) {
-                let f = k.querySelector('b:nth-of-type(2)');
-                f.innerHTML =
-                f.innerHTML.replace(
-                    text,
-                    '<c-irk data-blank>' + text +'</c-irk>'
-                );
-                k.setAttribute('data-dark', '1');
-                return f.children[0];
-            } else { return k; }
-        });
-        
-        rite || kidz.reverse();
-        
-        kidz.forEach((k, i) => {
-        
-            let kidRect = k.getBoundingClientRect();
-        
-        
-            let origin = [valRect.width / 2, high];
-            let target = [(kidRect.left + kidRect.width / 2 -
-                valRect.left), high];
-            if (rite) {
-                target = [svg.getBoundingClientRect().width - valRect.width / 2, high];
-                origin = [(kidRect.left + kidRect.width / 2 - objRect.left), high];
-            }
-            let xrad = Math.abs(origin[0] - target[0]) / 2;
-            let midPt = origin[0] + xrad;
-            let yrad = high - dif * i;
-            d += `\
-M ${ origin.join(' ') }\
-A ${ xrad } ${ yrad } 0 0 1 ${ target.join(' ') }\
-h ${(dist&&!rite)||(!dist&&rite)?-10:-2}\
-A ${ xrad-12 } ${ yrad *((xrad-12)/xrad) } 0 0 0\
-  ${ origin[0] + ((dist&&!rite)||(!dist&&rite)?2:10)}\
-  ${ high }\
-Z\
-            `;
-        
-        });
-        path.setAttribute('d', d);
-        
+        Rec.svg = svg.getBoundingClientRect();
+        path.setAttribute('d', (rite ? kidz : kidz.reverse())
+        .map((k, i) => {
+            let kidRect = k.getBoundingClientRect(),
+            
+            origin = rite ?
+                [(kidRect.left + kidRect.width / 2 -
+                Rec.obj.left), high]:
+                [Rec.val.width / 2, high],
+            target = rite ?
+                [Rec.svg.width -
+                Rec.val.width / 2, high]:
+                [(kidRect.left + kidRect.width / 2 -
+                Rec.val.left), high],
+            rad = {
+                x: Math.abs(origin[0] - target[0]) / 2,
+                y: high - dif * i
+            };
+            return `M ${ origin.join(' ') } A ${rad.x} ${rad.y} 0 0 1 ${ target.join(' ') } h ${(dist&&!rite)||(!dist&&rite)?-10:-2} A ${rad.x-12 } ${rad.y *((rad.x-12)/rad.x) } 0 0 0 ${ origin[0] + ((dist&&!rite)||(!dist&&rite)?2:10)} ${ high } Z`;
+        }).join('') );
     }
 )})();
