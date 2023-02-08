@@ -7,6 +7,7 @@ content="width=device-width, initial-scale=1.0">
 content="illuminated markeup specification mathrobatics">
 <link rel="stylesheet" href="mathrobatics.css">
 <link rel="stylesheet" href="demoStyles.css">
+<script src="mathrobatics.js"></script>
 <style id="list-style">
 
 ul {
@@ -414,7 +415,7 @@ a:hover {
     <b>
         <dd>
             x<sup>2</sup><p-t></p-t>
-            <f-rak data-viva>
+            <f-rak data-viva data-slash>
                 <b><v-iva>3</v-iva></b>
                 <b><v-iva>5</v-iva></b>
             </f-rak>
@@ -425,9 +426,13 @@ a:hover {
         more complicated if needed
 <pre>
 &lt;f-rak
-    data-viva   // illuminates only the bar
-    data-slash1 // optional slash-type bar
-&gt;
+    data-viva  // illuminates only the bar
+    data-slash // optional slash-type bar
+    data-wide  // wider slash-bar
+    style="
+        --frak-wide: 100% // width of slash
+        --slash-top: 50% - 6px // position of slash
+"&gt;
     &lt;b&gt; numerator &lt;/b&gt;
     &lt;b&gt; denominator &lt;/b&gt; &lt;!-- b optional --&gt;
 &lt;/f-rak&gt;
@@ -933,9 +938,9 @@ a:hover {
                 </b>
             </i-fak>
             -
-            <i-fak data-vapor data-dark data-cirk>
+            <i-fak data-vapor data-dark>
                 <b>3x<sup>2</sup></b>
-                <b>3, x, <c-irk>&nbsp;</c-irk></b>
+                <b>3, x, <c-irk data-opt3>&nbsp;</c-irk></b>
             </i-fak>
         </dd>
         ghosts out a value and presents illuminated
@@ -946,7 +951,6 @@ a:hover {
 &lt;i-fak
     data-dark  // faktors not illuminated
     data-vapor // value vaporized
-    data-cirk  // adjusts circled faktors
 &gt;
 &lt;/i-fak&gt;
 </pre>
@@ -987,7 +991,7 @@ a:hover {
         by entering a quadratic expression in a specific
         format, mathrobatics allows for a step-by-step
         illuminated solution; the various steps are selected
-        using the [data-step#] parameter
+        using the <i>[data-step#]</i> parameter
 <pre>
 &lt;k-wad
     data-step#  // step number 1 through 6
@@ -1015,20 +1019,6 @@ a:hover {
     </b>
 </li>
 
-<li><i>f-rom</i></li>
-<li><i>p-t|n-t|v-t|t-t|</i></li>
-<li><i>p-m</i></li>
-<li><i>i-mp</i></li>
-<li><i>d-dx|dy-dx|dz-dx</i></li>
-<li><i>s-tar</i></li>
-<li><i>q-fak</i></li>
-<li><i>g-ood</i></li>
-<li><i>f-x </i></li>
-<li><i>n-add|min|tim|ote|pad</i></li>
-<li><i>i-teg</i></li>
-<li><i>uv-table</i></li>
-<li><i>by-parts</i></li>
-<li><i>r-aze</i></li>
 <li id="r-oot">
     <i>r-oot</i> perfect nth-root formatting
     <b>
@@ -1059,11 +1049,12 @@ a:hover {
 &lt;sup
     data-viva // correctly illuminates
 &gt;
-    exonent
+    exponent
 &lt;/sup&gt;
 </pre>
     </b>
 </li>
+
 <li id="b">
     <i>b&nbsp;&nbsp;&nbsp;</i> b tag; overwrites bold
     <b>
@@ -1099,11 +1090,157 @@ a:hover {
     data-flip // flips the circle
     data-turn // rotates the circle
 &gt;
+    ...
 &lt;/b&gt;
 </pre>
     </b>
 </li>
-<li><i>fakt-all</i></li>
+
+<li id="s-tar">
+    <i>s-tar</i> enclosed in &star;'s
+    <b>
+        <dd>
+            <s-tar>stars</s-tar>
+        </dd>
+        encloses content in illuminated stars
+<pre>
+&lt;s-tar&gt;
+    ...
+&lt;/s-tar&gt;
+</pre>
+    </b>
+</li>
+
+<li id="g-ood">
+    <i>g-ood</i> illuminated gesture
+    <b>
+        <dd>
+            <g-ood>checks out</g-ood>
+        </dd>
+        places an illuminated gesture on the side
+<pre>
+&lt;g-ood
+    data-left // moves gesture to left side
+    data-opt# // alternative shapes
+&gt;
+    ...
+&lt;/g-ood&gt;
+</pre>
+    </b>
+</li>
+
+<li><i>f-rom</i></li>
+<li><i>p-t|n-t|v-t|t-t|</i></li>
+<li><i>p-m</i></li>
+<li><i>i-mp</i></li>
+<li><i>d-dx|dy-dx|dz-dx</i></li>
+<li><i>q-fak</i></li>
+<li><i>f-x </i></li>
+<li><i>n-add|min|tim|ote|pad</i></li>
+<li><i>i-teg</i></li>
+<li><i>uv-table</i></li>
+<li><i>by-parts</i></li>
+<li><i>r-aze</i></li>
+
+<hr>
+
+<li id="i-arc">
+    <i>i-arc</i> distribution|faktorization gestures
+    <b>
+        <dd>
+            <i-arc data-dist data-min="10" data-dif="5">
+                <b>3</b>
+                <b>x</b>
+                +
+                <b>1</b>
+                -
+                <b>z</b>
+            </i-arc>
+            +
+            <i-arc
+                data-rite
+                data-min="5"
+                data-dif="10"
+                data-cirk
+                data-blank
+            >
+                <b>x</b>
+                <i-fak data-dark>
+                    <b>3x<sup>2</sup></b>
+                    <b>3 <c-irk>x</c-irk> x</b>
+                </i-fak>
+                +
+                <i-fak data-dark>
+                    <b>15x</b>
+                    <b>5 3 <c-irk>x</c-irk></b>
+                </i-fak>
+            </i-arc>
+            
+        </dd>
+    only functions with
+    <a href="mathrobatics.js">mathrobatics.js</a>
+    installed
+    <br><br>
+    will create either default faktorization or
+    <i>[data-dist]</i> alternative distribution
+    gestures indicating that some specified value
+    is either being faktored from, or distributed to,
+    the enclosed values
+    
+<pre>
+&lt;i-arc
+    data-dist  // distribution [faktor is default]
+    data-rite  // value on right [left is default]
+    data-cirk  // gesture only to &lt;c-irk&gt; tags
+               // [defaults is all children]
+    data-blank // blanks out circled terms
+    data-dark  // no illumination
+    data-min   // minimum px height of arc gestures [20]
+    data-dif   // difference between gesture heights [15]
+    data-no-prens // does not enclose in ()'s
+&gt;
+    &lt;b&gt;
+        distribute|faktor value
+    &lt;/b&gt;
+    &lt;any-tag&gt; &lt;!-- any number of tags --&gt;
+    ...
+&lt;/i-arc&gt;
+</pre>
+    </b>
+</li>
+
+<li id="x-ponent">
+    <i>**exp</i> shorthand for exponent
+    <b>
+        <dd>
+            <b>
+                x**2
+                y**(3 + X<sub>i</sub>)
+                z**<v-iva>x**2 </v-iva>
+            </b>
+        </dd>
+        allows for exponents using ** intead of
+        &lt;sup&gt;&lt;/sup&gt; tags
+        <br><br>
+        requires
+        <a href="mathrobatics.js">mathrobatics.js</a>
+        and must be enclosed in a &lt;b&gt; tag
+        <br><br>
+        if you want to actually type ** after a werd
+        character, escape it with a backslash; use
+        ()'s, []'s, or an html tag to include spaces
+        in the exponent
+<pre>
+&lt;b&gt; &lt;!-- must be in a b-tab --&gt;
+    x\**2
+    x\**(3 + 5)
+    x\**[7 - y]
+    x\**&lt;v-iva&gt;7&lt;v-iva&gt;
+    x\\** &lt;!-- literal display of ** --&gt;
+&lt;/b&gt;
+</pre>
+    </b>
+</li>
 
 </ul>
 </div>

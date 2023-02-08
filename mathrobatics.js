@@ -8,6 +8,7 @@ const reg1 = new RegExp(/(\w)\*\*([^\(\[\<\s]+?)(=?\s|$)/g);
 const reg2 = new RegExp(/(\w)\*\*([\(\[)].+?[\)\]])/g);
 const reg3 = new RegExp(/(\w)\*\*(\<(.*?)\>.*?\<\/\3\>)/g);
 
+
 document.querySelectorAll('.mathrobatics b').forEach(b => {
     
     if (b.innerHTML.match(/\*\*/)) {
@@ -49,7 +50,7 @@ document.querySelectorAll('i-arc').forEach(
             .sort((a, b) =>
                 a.getBoundingClientRect().left -
                 b.getBoundingClientRect().left
-        ): [...obj.children];
+        ) : [...obj.children];
         
         !dist || (kidz = kidz.map(c => {
             let f = document.createElement('b');
