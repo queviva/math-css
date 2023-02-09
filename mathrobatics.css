@@ -105,6 +105,8 @@
     
     --logb-hat: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='100px' width='100px' fill-rule='evenodd' %3E%3Cpath d='M85 80A45 10 -10 0 0 15 80A45 10 -10 0 0 85 80ZM 75 80A40 8 -12 0 0 25 80A40 8 -12 0 0 75 80 Z' fill='%23000' /%3E %3Cpath d='M16 20Q45 -8 80 5Q75 40 78 70L76 70L76 55Q50 50 24 63L24 78Q50 70 21 78Q25 49 16 20Z' fill='%23000' /%3E %3C/svg%3E");
     
+    --raze-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 80Q40 40 50 0L100 80L80 90L50 20Q40 67 20 100Z' /%3E%3C/svg%3E");
+    
     --cank-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 94Q60 15 95 0L100 10Q60 20 10 100Z'/%3E%3C/svg%3E");
     
     --cank-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 90Q55 55 90 0L100 8Q65 50 10 100Z'/%3E%3C/svg%3E");
@@ -214,15 +216,9 @@ pre {
     overflow: auto;
 }
 
-v-iva {
-    filter: url("#viva");
-}
-v-ers {
-    filter: url("#vers");
-}
-i-ver {
-    color: var(--inverse);
-}
+v-iva { filter: url("#viva"); }
+v-ers { filter: url("#vers"); }
+i-ver { color: var(--inverse); }
 g-ost {
     color: var(--holder-back);
     text-shadow: var(--text-ghost);
@@ -241,9 +237,7 @@ l-uck[data-rot] {
 }
 l-uck[data-viva] { filter: url("#lil-viva"); }
 x-hsp { word-spacing: -0.3ch; }
-[data-norm] {
-    font-family: inherit;
-}
+/*[data-norm] { font-family: inherit; }*/
 
 
 em {
@@ -267,7 +261,7 @@ up-dn {
 }
 up-dn[data-viva] { filter: url("#viva"); }
 
-c-omm, rant {
+c-omm, r-ant {
     position: relative;
     display: inline-block;
     padding: 0px 10px;
@@ -281,7 +275,7 @@ r-ant {
     width: 70%;
     font-size: 0.4em;
 }
-c-omm::before, rant::before {
+c-omm::before, r-ant::before {
     content: '';
     position: absolute;
     width: 5px;
@@ -292,7 +286,7 @@ c-omm::before, rant::before {
     border-style: solid;
     border-color: var(--greyness);
 }
-c-omm::after, rant::after {
+c-omm::after, r-ant::after {
     content: '';
     position: absolute;
     width: 5px;
@@ -390,10 +384,11 @@ f-rak[data-vapor]:not([data-slash])::before {
     border-bottom: 3px solid;
 }
 f-rak[data-vapor-all] { filter: url("#vapor"); }
-f-rak[data-vapor-all]:not([data-slash])::before { border-bottom: 3px solid; }
+f-rak[data-vapor-all]:not([data-slash])::before {
+    border-bottom: 3px solid
+};
 
-p-rens,
-p-ren { word-spacing: -0.3ch; }
+p-rens, p-ren { word-spacing: -0.3ch; }
 p-rens::before,
 p-ren::before { content: '('; }
 p-rens::after,
@@ -415,7 +410,6 @@ p-rens[data-ghost-all],
 p-ren[data-ghost-all] {
     color: rgba(0,0,0,0);
     text-shadow: var(--text-ghost);
-    xfilter: url("#ghost");
 }
 p-rens[data-vapor]::before,
 p-ren[data-vapor]::before,
@@ -620,47 +614,142 @@ e-val[data-viva-from] { --eval-filter-from: url("#viva"); }
 e-val[data-viva-to] { --eval-filter-to: url("#viva"); }
 
 
-f-rom {
-    --from-filter-bar: none;
-    --from-filter-from: none;
-    --from-filter-to: none;
+w-ear {
+    --wear-filter-bar: none;
+    --wear-filter-from: none;
+    --wear-filter-to: none;
     position: relative;
-    display: inline-block;
-    margin: 1em 0.5em;
+    display: inline-flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    vertical-align: middle;
+    margin-left: 1em;
+    padding-left: 0.5ch;
+    height: calc(1.5 * 2.5em);
+    font-size: 0.4em;
+    text-align: left;
+    filter: var(--wear-filter-bar);
+    overflow: visible;
+    border-left: 0.2ch solid;
 }
-f-rom::after {
-    content: '|';
+w-ear > f-rom:nth-of-type(1) {
     position: absolute;
-    height: 100%;
-    left: 100%;
-    top: -9%;
-    font-size: 1em;
-    transform:scale(1,2.0);
+    font-size: 0.8em;
+    top: 100%;
+    left: -1.75ch;
     font-weight: bold;
-    filter: var(--from-filter-bar);
+    filter: var(--wear-filter-from);
 }
-f-rom > b:nth-child(1) {
+w-ear > t-o:nth-of-type(1) {
     position: absolute;
-    font-size: 0.4em;
-    top: calc(100% + 1.3em);
-    left: 100%;
-    filter: var(--from-filter-from);
+    font-size: 0.8em;
+    bottom: 100%;
+    left: -1.75ch;
+    font-weight: bold;
+    filter: var(--wear-filter-to);
 }
-f-rom > b:nth-child(2) {
+w-ear[data-viva] {
+    filter: url("#viva");
+}
+w-ear[data-viva-from] { --wear-filter-from: url("#viva"); }
+w-ear[data-viva-to] { --wear-filter-to: url("#viva"); }
+
+a-rea {
+    
+    --cirk-formula: '\03c0\00a0r\00b2';
+    --cirk-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath transform='scale(1 0.8) rotate(-90)' transform-origin='50 50' d='M90 35A40 35 0 0 0 50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A20 47 0 0 0 80 3A16 47 0 0 1 96 50A41 40 0 0 1 55 90A50 40 0 0 1 5 50A42 42 0 0 1 50 8A40 27 0 0 1 90 35Z'/%3E%3Cellipse cx='50' cy='50' rx='3' ry='3'/%3E%3C/svg%3E");
+    
+    --tri-formula: '\00bd\00a0\1d44f\00b7\210e';
+    --tri-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M3 70L45 0L100 70L10 80L30 40L17 74L95 68L45 8L0 80Z'/%3E%3Cellipse cx='50' cy='50' rx='3' ry='3'/%3E%3C/svg%3E");
+    --tri-icon-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M3 80 Q50 55 98 10 L98 80 L10 80Q30 78 55 60 Q30 80 27 77L 94 77L 94 20 Q45 65 10 78Z M84 79 v-12h12v2h-10v10Z'/%3E%3Cellipse cx='70' cy='57' rx='3' ry='3'/%3E%3C/svg%3E");
+    --tri-icon-scalene: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M3 80 Q50 55 98 10 L78 80 L10 80Q30 73 40 67 L25 77L 74 77L 91 22 Q45 65 10 78Z'/%3E%3Cellipse cx='65' cy='57' rx='3' ry='3'/%3E%3C/svg%3E");
+    
+    --rect-formula: '\1d464\00b7\210e';
+    --rect-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath transform='scale(1 1) translate(0 0) rotate(0)' transform-origin='50 50' d='M0 80Q10 50 0 20L100 20Q90 50 100 80Q50 70 10 80L15 20L13 75Q50 70 90 74L88 25L10 25L8 75Z'/%3E%3Cellipse cx='50' cy='50' rx='3' ry='3'/%3E%3C/svg%3E");
+    
+    --square-formula: 's\00b2';
+    --square-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath transform='scale(0.7 1)' transform-origin='50 50' d='M0 80Q10 50 0 20L100 20Q90 50 100 80Q50 70 10 80L15 20L13 75Q50 70 90 74L88 25L10 25L8 75Z'/%3E%3Cellipse cx='50' cy='50' rx='3' ry='3'/%3E%3C/svg%3E");
+    
+    --trap-formula: '\00bd(\1d44e+\1d44f)\00b7\210e';
+    --trap-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 80Q17 50 17 20L83 20Q84 50 100 80Q50 70 10 80L25 28L17 73Q50 70 90 74L78 25L22 25L8 75Z'/%3E%3Cellipse cx='50' cy='50' rx='3' ry='3'/%3E%3C/svg%3E");
+    
+    --para-formula: '\1d44f\210e';
+    --para-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 80Q17 50 20 20L100 20Q82 50 80 80Q50 70 10 80L25 28L17 73Q50 70 78 74L90 25L24 25L8 75Z'/%3E%3Cellipse cx='50' cy='50' rx='3' ry='3'/%3E%3C/svg%3E");
+    
+    --lips-formula: '\03c0\00b7\1d44e\00b7\1d44f';
+    --lips-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath transform='scale(1 0.5) rotate(90)' transform-origin='50 50' d='M90 35A40 35 0 0 0 50 0A50 50 0 0 0 0 50A50 50 0 0 0 50 100A50 50 0 0 0 100 50A20 47 0 0 0 80 3A16 47 0 0 1 96 50A41 40 0 0 1 55 90A50 40 0 0 1 5 50A42 42 0 0 1 50 8A40 27 0 0 1 90 35Z'/%3E%3Cellipse cx='50' cy='50' rx='3' ry='3'/%3E%3C/svg%3E");
+    
+    --formula: none;
+    --icon: none;
+    --icon-filter: url("#lightness");
+    --icon-rot: 0deg;
+    --icon-scale: 1, 1;
+    display: inline-block;
+    position: relative;
+    margin-right: -0.5ch;
+    margin-top: -1.25ch;
+}
+a-rea::before { content: '\1d468'; font-size: 1.5em; }
+a-rea::after { content: var(--formula); }
+a-rea[data-viva-a]::before { filter: url("#viva"); }
+a-rea[data-viva-formula]::after { filter: url("#viva"); }
+a-rea[data-viva] { filter: url("#viva"); }
+a-rea[data-viva-icon] { --icon-filter: url("#viva"); }
+a-rea track {
     position: absolute;
-    font-size: 0.4em;
-    bottom: calc(100% + 0.5em);
-    left: 100%;
-    filter: var(--from-filter-to);
+    height: 2ch;
+    width: 2ch;
+    bottom: -0.2ch;
+    left: 1ch;
+    transform: rotate(var(--icon-rot)) scale(var(--icon-scale));
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: var(--icon);
+    filter: var(--icon-filter);
 }
-f-rom[data-viva] {
-    --from-filter-bar: url("#viva");
-    --from-filter-from: url("#viva");
-    --from-filter-to: url("#viva");
+a-rea[data-cirk], a-rea[data-circle] {
+    --formula: '= ' var(--cirk-formula);
+    --icon: var(--cirk-icon);
 }
-f-rom[data-viva-bar] { --from-filter-bar: url("#viva"); }
-f-rom[data-viva-from] { --from-filter-from: url("#viva"); }
-f-rom[data-viva-to] { --from-filter-to: url("#viva"); }
+a-rea[data-tri], a-rea[data-triangle] {
+    --formula: '= ' var(--tri-formula);
+    --icon: var(--tri-icon);
+}
+a-rea[data-tri][data-right],
+a-rea[data-tri][data-opt1] { --icon: var(--tri-icon-right); }
+a-rea[data-tri][data-scalene],
+a-rea[data-tri][data-opt2] { --icon: var(--tri-icon-scalene);}
+a-rea[data-rect], a-rea[data-rectangle] {
+    --formula: '= ' var(--rect-formula);
+    --icon: var(--rect-icon);
+}
+a-rea[data-square] {
+    --formula: '= ' var(--square-formula);
+    --icon: var(--square-icon);
+}
+a-rea[data-trap], a-rea[data-trapezoid] {
+    --formula: '= ' var(--trap-formula);
+    --icon: var(--trap-icon);
+}
+a-rea[data-para], a-rea[data-parallelogram] {
+    --formula: '= ' var(--para-formula);
+    --icon: var(--para-icon);
+}
+a-rea[data-lips], a-rea[data-ellipse] {
+    --formula: '= ' var(--lips-formula);
+    --icon: var(--lips-icon);
+}
+a-rea[data-flip] track { --icon-scale: -1, 1; }
+a-rea[data-turn] track { --icon-rot:  180deg; }
+a-rea[data-big]  track { --icon-scale:  2, 2; }
+a-rea[data-no-form], a-rea[data-no-formula] {
+    --formula: '';
+    margin-right: 1ch;
+}
+
+v-olm { margin-right: -0.7ch; }
+v-olm::before { content: '\1d47d'; font-size: 1.5em; }
 
 p-t::after {
     content: "\00b7";
@@ -691,6 +780,7 @@ p-m::before {
     font-size: 0.6em;
     vertical-align:20%;
 }
+p-m[data-viva]::before { filter: url("#viva"); }
 i-mp::before {
     content: "\21d2";
     font-size: 0.6em;
@@ -700,6 +790,7 @@ i-mp::after {
     content: '\00a0\00a0';
     font-size: 0.6em;
 }
+i-mp[data-dark]::before { filter: none; }
 
 d-dx, dy-dx, dz-dx, dz-dy {
     --dd-top: 'd';
@@ -733,9 +824,7 @@ d-dx::before, dy-dx::before, dz-dx::before, dz-dy::before
 }
 
 d-dx::after, dy-dx::after, dz-dx::after, dz-dy::after
-{
-    content: var(--dd-bottom);
-}
+{ content: var(--dd-bottom); }
 
 d-dx[data-viva], dy-dx[data-viva],
 dz-dx[data-viva], dz-dy[data-viva] { filter: url("#viva"); }
@@ -800,7 +889,6 @@ c-ank::after, r-dux::after {
     filter: var(--rdux-filter);
 }
 r-dux > b:nth-of-type(1) {
-    
     position: absolute;
     top: var(--rdux-top);
     left: var(--rdux-left);
@@ -811,7 +899,6 @@ r-dux > b:nth-of-type(1) {
     word-spacing: -0.15em;
     filter: var(--rdux-filter-to);
     transform: rotate(-14deg);
-    
 }
 f-rak r-dux > b:nth-of-type(1) { font-size: 0.7em; }
 c-ank[data-dark], r-dux[data-dark] {
@@ -834,16 +921,12 @@ c-ank[data-hi], r-dux[data-hi] { --rdux-high: 100%; }
 r-dux[data-top] { --rdux-top: -20%; }
 
 q-fak {
-    
     --qfak-var: 'x';
     --qfak-filter: url("#lil-viva");
-    
     position: relative;
     font-weight: bold;
     color: rgba(0,0,0,0);
-    
     text-shadow: var(--text-ghost);
-    
 }
 q-fak::before {
     content: '(' var(--qfak-var) '\00a0\00b1\00a0?)\00a0(' var(--qfak-var) '\00a0\00b1\00a0?)';
@@ -857,7 +940,6 @@ q-fak::before {
     white-space: nowrap;
     color: var(--lightness);
     filter: var(--qfak-filter);
-    
 }
 q-fak[data-dark] { --qfak-filter: url("#lightness"); }
 q-fak[data-n] { --qfak-var: 'n'; }
@@ -866,10 +948,7 @@ q-fak[data-x] { --qfak-var: 'x'; }
 q-fak[data-y] { --qfak-var: 'y'; }
 q-fak[data-z] { --qfak-var: 'z'; }
 
-
-g-ood {
-    --good-filter: url("#viva");
-}
+g-ood { --good-filter: url("#viva"); }
 g-ood::before, g-ood::after {
     content: '';
     display: inline-block;
@@ -882,7 +961,6 @@ g-ood::before, g-ood::after {
     background-image: var(--good-00);
     filter: var(--good-filter);
 }
-
 g-ood::before { visibility: hidden; }
 g-ood::after { visibility: visible; }
 g-ood[data-left]::before { visibility: visible; }
@@ -890,42 +968,54 @@ g-ood[data-left]::after { visibility: hidden; }
 g-ood[data-dark] { --good-filter: url("#lightness"); }
 
 
-f-x {
-    --fx-var: 'x';
+f-x { --name: '\1d453'; --var: 'x'; --close: ') '; }
+g-x { --name: '\1d454'; --var: 'x'; --close: ') '; }
+h-x { --name: '\210e';  --var: 'x'; --close: ') '; }
+f-x::before, g-x::before, h-x::before {
+    content: var(--name) '(' var(--var) var(--close);
 }
-f-x::before {
-    /*content: '\0192';*/
-    content: 'f';
-    font-size: 1.3em;
-    font-style: italic;
-}
-f-x::after {
-    content: '(' var(--fx-var) ')';
-    font-size: 0.7em;
-    vertical-align: 10%;
-}
-f-x[data-viva] { filter: url("#viva"); }
-f-x[data-n] { --fx-var: 'n'; }
-f-x[data-q] { --fx-var: 'q'; }
-f-x[data-x] { --fx-var: 'x'; }
-f-x[data-y] { --fx-var: 'y'; }
-f-x[data-z] { --fx-var: 'z'; }
+f-x[data-viva]::before,
+g-x[data-viva]::before,
+h-x[data-viva]::before { filter: url("#viva"); }
+f-x[data-viva-all],
+g-x[data-viva-all],
+h-x[data-viva-all] { filter: url("#viva"); }
+[data-eq] { --close: ') = '; }
+[data-var-n] { --var: 'n'; }
+[data-var-q] { --var: 'q'; }
+[data-var-y] { --var: 'y'; }
+[data-var-z] { --var: 'z'; }
 
+
+f-ogx {
+    --fog1 : '\1d453';
+    --fog2 : '\1d454';
+    --filter: none;
+}
+g-ohx {
+    --fog1 : '\1d454';
+    --fog2 : '\210e';
+    --filter: none;
+}
+f-ogx::before, g-ohx::before {
+    content: var(--fog1) '\2218' var(--fog2) '(';
+    filter: var(--filter);
+}
+f-ogx::after, g-ohx::after {
+    content: ')'; filter: var(--filter);
+}
+f-ogx[data-viva], g-ohx[data-viva] { --filter: url("#viva"); }
 
 n-add, n-min, n-tim, n-div, n-ote, n-pad {
-    
     --note-rot: -10deg;
     --note-top: 0px;
     --note-left: 0px;
-    
     display: inline-block;
     font-size: 0.8em;
     font-family: "Luckiest Guy";
-    xvertical-align: 30%;
     transform: rotate(var(--note-rot));
     filter: url("#viva");
     z-index: 10;
-    
 }
 n-ote {
     font-size: 0.3em;
@@ -933,6 +1023,12 @@ n-ote {
     vertical-align: top;
     word-spacing: -0.1em;
     filter: url("#lil-viva");
+}
+n-pad {
+    width: 3ch;
+    margin-right: -3.5ch;
+    white-space: nowrap;
+    overflow: visible;
 }
 n-add::before {
     content: '+';
@@ -959,10 +1055,7 @@ n-min[data-dark],
 n-tim[data-dark],
 n-div[data-dark],
 n-ote[data-dark],
-n-pad[data-dark] {
-    filter: none;
-}
-
+n-pad[data-dark] { filter: none; }
 
 c-irk{
     --cirk-wide: calc(100% + 1ch);
@@ -979,7 +1072,6 @@ c-irk{
     z-index: 10;
 }
 c-irk::before {
-    
     content: '';
     position: absolute;
     display: inline-block;
@@ -996,7 +1088,6 @@ c-irk::before {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     filter: var(--cirk-filter);
-
 }
 c-irk[data-dark] {
     --cirk-filter: url("#lightness");
@@ -1007,30 +1098,17 @@ c-irk[data-vers] {
     --cirk-filter: url("#vers");
     --cirk-filter-lil: url("#vers");
 }
-c-irk[data-flip] {
-    --cirk-flip: -1;
-}
-c-irk[data-turn] {
-    --cirk-turn: 1;
-}
+c-irk[data-flip] { --cirk-flip: -1; }
+c-irk[data-turn] { --cirk-turn: 1; }
 c-irk[data-big] {
     --cirk-wide: calc(200% + 1ch);
     --cirk-high: 200%;
 }
-c-irk[data-opt1]::before {
-    --cirk-shape: var(--cirk-01);
-}
-c-irk[data-opt2]::before {
-    --cirk-shape: var(--cirk-02);
-}
-c-irk[data-opt3]::before {
-    --cirk-shape: var(--cirk-03);
-}
+c-irk[data-opt1]::before { --cirk-shape: var(--cirk-01); }
+c-irk[data-opt2]::before { --cirk-shape: var(--cirk-02); }
+c-irk[data-opt3]::before { --cirk-shape: var(--cirk-03); }
 c-irk > n-ote {
-    
     position: absolute;
-    /*top: -20%;*/
-    /*left: calc(100% + 1ch);*/
     top: -40%;
     left: 80%;
     font-size: 0.4em;
@@ -1047,30 +1125,25 @@ c-irk[data-norm] > n-ote {
 }
 
 p-owr {
-
     --powr-filter: url("#lil-viva");
     position: relative;
     margin-right: 1ch;
     margin-left: 1ch;
-    
 }
 p-owr::before, p-owr::after {
     content: '';
     position: absolute;
-    height: calc(100% + 0px);
+    height: 100%;
     bottom: 0;
 }
 p-owr::before {
-    
     width: calc(100% + 7px);
     left: -7px;
     background-size: 100% 100%;
     background-image: var(--powr-arc);
     filter: var(--powr-filter);
-    
 }
 p-owr::after {
-    
     width: 10px;
     height: 10px;
     top: 50%;
@@ -1078,21 +1151,16 @@ p-owr::after {
     background-size: 100% 100%;
     background-image: var(--powr-dot);
     filter: var(--powr-filter);
-
 }
 p-owr > sup {
-    
     --powr-filter: url("#viva");
-    
     position: absolute;
     margin-right: 200%;
     padding: 0px 5px;
     left: 100%;
     transform: rotate(-2deg);
-    
 }
 p-owr > sup::before {
-    
     content: '';
     position: absolute;
     height: 100%;
@@ -1102,10 +1170,8 @@ p-owr > sup::before {
     background-size: 100% 100%;
     background-image: var(--cirk-02);
     filter: var(--powr-filter);
-    
 }
 p-owr > sup::after {
-    
     content: '-1';
     position: absolute;
     font-size: 0.5em;
@@ -1114,20 +1180,11 @@ p-owr > sup::after {
     left: calc(100% + 2px);
     transform: rotate(-15deg);
     filter: var(--powr-filter);
-    
 }
-p-owr[data-dark] {
-    --powr-filter: url("#lightness");
-}
-p-owr[data-dark] > sup {
-    --powr-filter: url("#lightness");
-}
-p-owr[data-ghost] {
-    --powr-filter: url("#ghost");
-}
-p-owr[data-ghost] > sup {
-    --powr-filter: url("#ghost");
-}
+p-owr[data-dark] { --powr-filter: url("#lightness"); }
+p-owr[data-dark] > sup { --powr-filter: url("#lightness"); }
+p-owr[data-ghost] { --powr-filter: url("#ghost"); }
+p-owr[data-ghost] > sup { --powr-filter: url("#ghost"); }
 p-owr[data-margin2] { margin-right: 2ch; }
 p-owr[data-margin3] { margin-right: 3ch; }
 p-owr[data-margin4] { margin-right: 4ch; }
@@ -1137,8 +1194,6 @@ p-owr[data-opt1] > sup::before {
 p-owr[data-opt2] > sup::before {
     background-image: var(--cirk-01);
 }
-
-
 
 i-pow {
     
@@ -1217,7 +1272,6 @@ i-pow[data-dark],
 i-pow[data-dark] > sup {
     --ipow-filter: url("#lightness");
 }
-
 
 i-teg {
         
@@ -1306,25 +1360,20 @@ i-teg[data-cank]::after {
     
 }
 i-teg[data-vapor] {
-
     --iteg-filter-sigma: url("#vapor");
     --iteg-filter-from: url("#vapor");
     --iteg-filter-to: url("#vapor");
     --iteg-filter-diff: url("#vapor");
-
 }
 i-teg[data-iprt] {
-    
     --iprt-filter-u: url("#viva");
     --iprt-filter-v: url("#vers");
-    
-    position: relative;
-    
-}
-i-teg[data-iprt] > u-u {
     position: relative;
 }
-i-teg[data-iprt] > u-u::before {
+i-teg[data-iprt] > :first-child > u-u {
+    position: relative;
+}
+i-teg[data-iprt] > :first-child > u-u::before {
     content: '';
     position: absolute;
     height: 100%;
@@ -1334,7 +1383,7 @@ i-teg[data-iprt] > u-u::before {
     filter: var(--iprt-filter-u);
     
 }
-i-teg[data-iprt] > u-u::after {
+i-teg[data-iprt] > :first-child > u-u::after {
     content: 'u =';
     position: absolute;
     height: 100%;
@@ -1349,10 +1398,10 @@ i-teg[data-iprt] > u-u::after {
     filter: var(--iprt-filter-u);
     
 }
-i-teg[data-iprt] > v-v {
+i-teg[data-iprt] > :first-child > v-v {
     position: relative;
 }
-i-teg[data-iprt] > v-v::before {
+i-teg[data-iprt] > :first-child > v-v::before {
     content: '';
     position: absolute;
     height: 100%;
@@ -1362,7 +1411,7 @@ i-teg[data-iprt] > v-v::before {
     filter: var(--iprt-filter-v);
     
 }
-i-teg[data-iprt] > v-v::after {
+i-teg[data-iprt] > :first-child > v-v::after {
     content: 'v\' =';
     position: absolute;
     height: 100%;
@@ -1382,7 +1431,6 @@ i-teg[data-iprt][data-dark] {
     --iprt-filter-u: url("#lightness");
     --iprt-filter-v: url("#inverse");
 }
-
 
 uv-table {
     
@@ -1555,7 +1603,6 @@ uv-table[data-empty] > b:nth-child(4)::after {
     display: none;
 }
 
-
 by-parts {
     --by-parts-filter: url("#viva");
     position: relative;
@@ -1592,7 +1639,6 @@ by-parts[data-dark] {
     --by-parts-filter: url("#greyness");
 }
 
-
 e-kwa {
     position: relative;
     display: inline-grid;
@@ -1627,9 +1673,7 @@ e-kwa[data-norm] > b:nth-of-type(2) {
     font-family: inherit;
     transform: none;
 }
-e-kwa[data-dark] > b:nth-of-type(2) {
-    filter: none;
-}
+e-kwa[data-dark] > b:nth-of-type(2) { filter: none; }
 
 i-fak {
     --ifak-top : 63%;
@@ -1655,17 +1699,13 @@ i-fak > b:nth-of-type(2) {
     filter: url("#viva");
     top: var(--ifak-top);
 }
-i-fak[data-dark] > b:nth-of-type(2) {
-    filter: none;
-}
+i-fak[data-dark] > b:nth-of-type(2) { filter: none; }
 i-fak[data-vapor] > b:nth-of-type(1) {
     color: rgba(0,0,0,0);
     text-shadow: var(--text-vapor);
     filter: none;
 }
-i-fak > b:nth-of-type(2) > c-irk {
-    --cirk-top: -10%;
-}
+i-fak > b:nth-of-type(2) > c-irk { --cirk-top: -10%; }
 
 i-arc {
     --iarc-filter: url("#viva");
@@ -1974,40 +2014,33 @@ k-wad[data-var-y] { --kwad-var: 'y'; }
 
 
 r-aze {
-    
     --raze-filter: url("#viva");
     --raze-filter-arrow: url("#lil-viva");
-    
     position: relative;
-    margin-left: 1ch;
-    
+    margin-left: 2ch;
+    margin-right: 0.5ch;
 }
 r-aze::after {
-    
     content: '';
     position: absolute;
     display: inline-block;
-    height: 20px;
-    width: 17px;
-    right: 95%;
+    height: 0.5em;
+    width: 1ch;
+    left: -0.7ch;
     top: 30%;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 80Q40 40 50 0L100 80L80 90L50 20Q40 67 20 100Z' /%3E%3C/svg%3E");
-    
+    background-image: var(--raze-arrow);
     filter: var(--raze-filter-arrow);
-    
 }
 r-aze > :nth-child(1) {
-    
     position: absolute;
     display: inline-block;
     top: 60%;
-    right: calc(100% - 5px);
+    left: -1ch;
     font-family: "Luckiest Guy";
     transform: rotate(-12deg);
     filter: var(--raze-filter);
-    
 }
 r-aze > :nth-child(2) {
     display: inline;
@@ -2026,9 +2059,7 @@ r-aze[data-dark] {
     --raze-filter: none;
     --raze-filter-arrow: url("#lightness");
 }
-r-aze[data-dark-value] {
-    --raze-filter: none;
-}
+r-aze[data-dark-value] { --raze-filter: none; }
 r-aze[data-dark-arrow] {
     --raze-filter-arrow: none;
     --raze-filter-arrow: url("#lightness");
@@ -2135,12 +2166,10 @@ r-oot[data-vapor] > b:nth-of-type(1) {
     
 }
 r-oot[data-cank] {
-    
     --root-for-mig: var(--root-for-viva);
     --root-aft-mig: var(--root-aft-viva);
     --root-filter: url("#outline");
     --root-lil-filter: url("#lil-viva");
-    
 }
 r-oot[data-cank] > b:nth-of-type(1) {
     top: -18%;
@@ -2213,15 +2242,9 @@ fakt-left > b:nth-child(1)::after {
     content: "";
     margin-right: -500%;
 }
-fakt-left[data-dark] {
-    --fakt-filter: url("#lightness");
-}
-fakt-left[data-ghost] {
-    --fakt-filter: url("#ghost");
-}
-fakt-left[data-vapor] {
-    --fakt-filter: url("#vapor");
-}
+fakt-left[data-dark] { --fakt-filter: url("#lightness"); }
+fakt-left[data-ghost] { --fakt-filter: url("#ghost"); }
+fakt-left[data-vapor] { --fakt-filter: url("#vapor"); }
 fakt-left[data-norm] > b:nth-child(1) {
     font-family: inherit;
 }
@@ -2475,75 +2498,6 @@ left-fakt[data-norm] > b:nth-of-type(1) {
     
 }
 
-fakt-all {
-    
-    
-    --fakt-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H99.5A10 20 0 0 0 8 100Z'/%3E%3C/svg%3E");
-    
-    --fakt-high: 1ch;
-    --fakt-filter: url("#lil-viva");
-    --fakt-shade: var(--text-ghost);
-    --arc-wide: 100%;
-    
-    position: relative;
-    
-}
-fakt-all > b {
-    
-    position: relative;
-    display: inline;
-    font-weight: bold;
-    color: rgba(0,0,0,0);
-    text-shadow: var(--fakt-shade);
-    
-}
-fakt-all > b > b:nth-of-type(1) {
-    
-    position: absolute;
-    height: var(--fakt-high);
-    top: calc((100% - var(--fakt-high))/2 + 1ch);
-    width: 300%;
-    left: -100%;
-    font-size: 0.3em;
-    font-family: "Luckiest Guy";
-    text-align: center;
-    word-spacing: 0.5ch;
-    color: var(--lightness);
-    text-shadow: none;
-    filter: var(--fakt-filter);
-    
-}
-fakt-all > b::before {
-    content: '';
-    position: absolute;
-    display: inline-block;
-    width: var(--arc-wide);
-    xheight: 50%;
-    aspect-ratio: 8 / 1;
-    bottom: 90%;
-    right: 0.5ch;
-    background-size: 100% 100%;
-    background-image: var(--fakt-arc);
-    filter: var(--fakt-filter);
-}
-fakt-all[data-dark] {
-    
-    --fakt-filter: none;
-    
-}
-fakt-all[data-vapor] > b {
-    
-    color: rgba(0,0,0,0);
-    text-shadow: var(--text-vapor);
-    
-}
-fakt-all[data-vapor] > b > b:nth-of-type(1) {
-    --fakt-filter: url("#lightness");
-}
-fakt-all[data-vapor] > b::before {
-    -fakt-filter: url("#viva");
-}
-
 l-ogb {
     
     --logb-filter: none;
@@ -2634,13 +2588,10 @@ l-ogb[data-cank] > b:nth-child(1) {
     color: rgba(0,0,0,0);
 }
 l-ogb[data-arc] {
-    
     display: inline-block;
     margin-bottom: 1em;
-    
 }
 l-ogb[data-arc] > b:nth-child(1)::after {
-    
     content: '';
     position: absolute;
     height: calc(100% + 5px);
@@ -2652,10 +2603,8 @@ l-ogb[data-arc] > b:nth-child(1)::after {
     background-size: 100% 100%;
     background-image: var(--cirk-02);
     filter: url("#viva");
-    
 }
 l-ogb[data-arc] > b:nth-child(1)::before {
-    
     content: '';
     position: absolute;
     height: 3em;
@@ -2668,16 +2617,12 @@ l-ogb[data-arc] > b:nth-child(1)::before {
     background-image: var(--logb-arc);
     filter: url("#viva");
     z-index: -10;
-    
 }
 l-ogb[data-hat] {
-    
     display: inline-block;
     color: var(--midness);
-    
 }
 l-ogb[data-hat] > b:nth-child(1)::before {
-    
     content: '';
     position: absolute;
     height: 2em;
@@ -2690,5 +2635,4 @@ l-ogb[data-hat] > b:nth-child(1)::before {
     background-image: var(--logb-hat);
     filter: url("#viva");
     z-index: -10;
-    
 }

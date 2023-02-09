@@ -52,6 +52,7 @@ li > b {
 li > i {
     
     margin-right: 1ch;
+    font-family: monospace;
     font-size: 1.4em;
     
 }
@@ -389,7 +390,48 @@ a:hover {
     text-align: left;
 ">
 <ul>
-    
+ 
+<li id="b">
+    <i>b&nbsp;&nbsp;&nbsp;&nbsp;</i> b tag; overwrites bold
+    <b>
+        mathrobatics hijacks the html "b" tag
+        to use as its personal span-type element
+        <br><br>
+        any actual bold expressions should be placed
+        in an &lt;em&gt; tag, for emphasis, or in
+        some other tag whose <i>font-weight</i>
+        is set to bold
+        <br><br>
+        this allows mathrobatics to use the smallest
+        possible html tag to create spans and groupings
+        of elements
+        <br><br>
+        as the main tag used by mathrobatics, it has
+        a large number of [data-parameters]
+<pre>
+&lt;b
+    data-viva  // illuminated text
+    data-vers  // inverse illumination
+    data-ghost // ghosted text
+    data-vapor // vaporized text
+    data-blank // transparent text
+    data-pren  // short hand for prens parenthesis
+    data-prens // puts ()'s around it
+    data-prens-viva  // encloses in illuminated ()'s
+    data-prens-ghost // ghosts out enclosing ()'s
+    data-prens vapor // vaporizes enclosing ()'s
+    data-cirk // puts an illuminated circle around it
+    data-cank // draws cancel slash over it
+    data-opt# // alternative shapes
+    data-flip // flips the circle
+    data-turn // rotates the circle
+&gt;
+    ...
+&lt;/b&gt;
+</pre>
+    </b>
+</li>
+  
 <li id="c-omm">
     <i>c-omm</i> an expandable comment
     <b>
@@ -410,20 +452,54 @@ a:hover {
     </b>
 </li>
 
+<li id="r-ant">
+    <i>r-ant</i> longer comments
+    <b>
+        <dd style="text-align: center;margin-top:0;">
+            <r-ant style="margin:0;">
+                a longer, indepth comment that does
+                not expand but remains fully displayed
+            </r-ant>
+        </dd>
+        exactly like a &lt;c&#8209;omm&gt; comment
+        but without a mouse-over|touch expansion
+<pre>
+&lt;r-ant&gt;
+    longer, non-expanding comment
+&lt;/r-ant&gt;
+</pre>
+    </b>
+</li>
+
 <li id="f-rak">
     <i>f-rak</i> a simple fraktion tag
     <b>
         <dd>
             x<sup>2</sup><p-t></p-t>
-            <f-rak data-viva data-slash>
-                <b><v-iva>3</v-iva></b>
-                <b><v-iva>5</v-iva></b>
+            <f-rak data-viva-all><b>3</b>5</f-rak>
+            +&nbsp;
+            <f-rak data-viva-all data-slash data-wide>
+                <b>5</b>4
             </f-rak>
-            + 9
+            +
+            <f-rak>
+                <b>
+                    <f-rak>
+                        <b>sin<sup>2</sup></b>
+                        1
+                    </f-rak>
+                </b>
+                <b>
+                    <f-rak data-viva-all>
+                        <b>tan<sup>2</sup></b>
+                        <b>cos<sup>2</sup></b>
+                    </f-rak>
+                </b>
+            </f-rak>
             
         </dd>
         allows for extremely simple fraktions, or
-        more complicated if needed
+        more complicated ones if needed
 <pre>
 &lt;f-rak
     data-viva  // illuminates only the bar
@@ -441,133 +517,6 @@ a:hover {
         b tag is optional - for instance, this code
         would display 3/5:<br>
         &lt;f-rak&gt;&lt;b&gt;3&lt;/b&gt;5&lt;/f-rak&gt;
-    </b>
-</li>
-
-<li id="rite-dist">
-    <i>rite-dist</i> distribute-right gestures
-    <b>
-        <dd>
-            <rite-dist>
-                <b>3</b>
-                <b>x<sup>2</sup><b>3</b></b>
-                +
-                <b>5<b>3</b></b>
-            </rite-dist>
-            +
-            <rite-dist style="--arc2-wide:90%;" data-dark>
-                <b>x</b>
-                (x + 7)
-            </rite-dist>
-        </dd>
-        indicates that the leading coefficient has
-        moved into the other terms, and displays it
-        being multiplied - its markup is more
-        involved, though all data parameters and
-        styling are optional
-<pre>
-&lt;rite-dist
-    data-dark  // no illumination
-    data-norm  // regular font
-    style="
-        --arc1-wide: // first arc width
-        --arc2-wide: // second arc width
-    "
-&gt;
-    &lt;b&gt; leading coefficient &lt;/b&gt;
-    &lt;b&gt; first term
-        &lt;b&gt; ...muliplied by&lt;/b&gt; &lt;!-- optional --&gt;
-    &lt;/b&gt;
-    &lt;b&gt; second term
-        &lt;b&gt; ...muliplied by&lt;/b&gt; &lt;!-- optional --&gt;
-    &lt;/b&gt;
-    
-&lt;/rite-dist&gt;
-
-&lt;!-- more simple version --&gt;
-
-&lt;rite-dist&gt;
-    &lt;b&gt; leading coefficient &lt;/b&gt;
-    (item)
-&lt;/rite-dist&gt;
-</pre>
-    </b>
-</li>
-
-<li id="left-fakt">
-    <i>left-fakt</i> leftward faktorization gestures
-    <b>
-        <dd>
-            <left-fakt>
-                <b>3</b>
-                (3x + 9)
-            </left-fakt>
-        </dd>
-        
-        pulls a faktor out of two terms and
-        moves it to the left - arc distances
-        and be adjusted with css vars in the style
-    
-<pre>
-&lt;left-fakt
-    data-dark  // no illumination
-    data-vapor // vaporizes the gesture
-    data-norm  // uses normal font
-    style = "
-        --arc1-wide: 46%  // first arc width
-        --arc2-wide: 100% // second arc width
-    "
-&gt;
-    &lt;b&gt; faktor &lt;/b&gt;
-    expression
-&lt;/fakt-left&gt;
-</pre>
-    </b>
-</li>
-
-<li id="p-owr">
-    <i>p-owr</i> derivative power rule gestures
-    <b>
-        <dd>
-            <p-owr data-opt1 data-margin3>
-                3x<sup>5</sup>
-            </p-owr>
-        </dd>
-        presents illuminated gestures for using the
-        power rule to compute a derivative - it
-        recognizes a &lt;sup&gt; tag
-<pre>
-&lt;p-owr
-    data-dark    // not illuminated
-    data-ghost   // ghosts out the gestures
-    data-opt#    // uses different gestures
-    data-margin# // increases right margin
-&gt;
-    3x&lt;sup&gt;2&lt;/sup&gt; &lt;!-- use sup tag --&gt;
-&lt;/p-owr&gt;
-</pre>
-        
-    </b>
-</li>
-
-<li id="i-pow">
-    <i>i-pow</i> power rule for integration
-    <b>
-        <dd>
-        <i-teg>
-            <b><i-pow>3x<sup>5</sup></i-pow></b>
-            <b>dx</b>
-        </i-teg>
-        </dd>
-    creates gestures for computing the integral using
-    the power rule
-<pre>
-&lt;i-pow
-    data-dark // no illumination
-&gt;
-    3x&lt;sup&gt;5&lt;/sup&gt; &lt;-- use sup tag --&gt;
-&lt;/i-pow&gt;
-</pre>
     </b>
 </li>
 
@@ -606,7 +555,8 @@ a:hover {
                 <b>0</b>
                 <b>2&pi;</b>
             </s-umm>
-        </dd><br>
+        </dd>
+        sigma notation for summation
 <pre>
 &lt;s-umm
     data-viva  // illuminates everything
@@ -634,37 +584,6 @@ a:hover {
         the illumination filter
 <pre>
 &lt;v-iva&gt; anything &lt;/v-iva&gt;
-</pre>
-    </b>
-</li>
-
-<li id="[data-viva]">
-    <i>[data-viva]</i> parameter for luminance
-    <b>
-        <dd>
-            <b data-viva>vibrance</b>
-        </dd>
-        many tags illuminate through the use of
-        the data-viva parameter, and may have
-        several other illuminating or gesturing
-        options
-<pre>
-&lt;b data-viva&gt;
-    vibrant text
-&lt;/b&gt;
-</pre>
-    </b>
-</li>
-
-<li id="r-ant">
-    <i>r-ant</i> longer comments
-    <b>
-        a longer, indepth comment that does not expand
-        but remains fully displayed
-<pre>
-&lt;r-ant&gt;
-    longer, non-expanding comment
-&lt;/r-ant&gt;
 </pre>
     </b>
 </li>
@@ -952,6 +871,10 @@ a:hover {
     data-dark  // faktors not illuminated
     data-vapor // value vaporized
 &gt;
+    &lt;b&gt;value&lt;/b&gt;
+    &lt;b&gt;
+        list of faktors
+    &lt;/b&gt;
 &lt;/i-fak&gt;
 </pre>
     </b>
@@ -994,7 +917,7 @@ a:hover {
         using the <i>[data-step#]</i> parameter
 <pre>
 &lt;k-wad
-    data-step#  // step number 1 through 6
+    data-step# // step number 1 through 6
     data-guess // displays (x+/-?)(x+/-?)
     data-var-y // sets guess var to y
     style="
@@ -1031,8 +954,9 @@ a:hover {
                 <b>3</b>5x<sup>7</sup>
             </r-oot><sup><c-ank>3</c-ank></sup>
         </dd>
-        makes an illuminated gesture, or regular
-        nth&#8209;root symbol with correct over-bar
+        makes an illuminated gesture, or not,
+        nth&#8209;root radical with correct
+        over-bar
         <br><br>
         any following super-script, or exponent,
         will be lifted to accomodate the symbol
@@ -1045,7 +969,7 @@ a:hover {
     &lt;b&gt;index&lt;/b&gt; &lt;!-- optional --&gt;
     radicand
 &lt;/r-oot&gt;
-&lt;!-- immediately following sup gets formatted --&gt;
+&lt;!-- any immediately following sup gets formatted --&gt;
 &lt;sup
     data-viva // correctly illuminates
 &gt;
@@ -1055,43 +979,33 @@ a:hover {
     </b>
 </li>
 
-<li id="b">
-    <i>b&nbsp;&nbsp;&nbsp;</i> b tag; overwrites bold
+<li id="r-aze">
+    <i>r-aze</i> raised to power gesture
     <b>
-        mathrobatics hijacks the html "b" tag
-        to use as its personal span-type element
-        <br><br>
-        any actual bold expressions should be placed
-        in an &lt;em&gt; tag, for emphasis, or in
-        some other tag whose <i>font-weight</i>
-        is set to bold
-        <br><br>
-        this allows mathrobatics to use the smallest
-        possible html tag to create spans and groupings
-        of elements
-        <br><br>
-        as the main tag used by mathrobatics, it has
-        a large number of [data-parameters]
+        <dd>
+            <r-aze>
+                <b>3</b>
+                <b><l-ogb><b>3</b><b>x</b></l-ogb></b>
+            </r-aze>
+            =
+            <r-aze>
+                <b>3</b>
+                <b>k + 1</b>
+            </r-aze>
+        </dd>
+        gesture indicating that a value has been raised
+        to the power of the entire side of an ekwation;
+        typically used to solve for a variable trapped
+        inside a log-cabin
 <pre>
-&lt;b
-    data-viva  // illuminated text
-    data-vers  // inverse illumination
-    data-ghost // ghosted text
-    data-vapor // vaporized text
-    data-blank // transparent text
-    data-pren  // short hand for prens parenthesis
-    data-prens // puts ()'s around it
-    data-prens-viva  // encloses in illuminated ()'s
-    data-prens-ghost // ghosts out enclosing ()'s
-    data-prens vapor // vaporizes enclosing ()'s
-    data-cirk // puts an illuminated circle around it
-    data-cank // draws cancel slash over it
-    data-opt# // alternative shapes
-    data-flip // flips the circle
-    data-turn // rotates the circle
+&lt;r-aze
+    data-dark       // no illumination
+    data-dark-value // value not illuminated
+    data-dark-arrow // arrow not illuminated
 &gt;
-    ...
-&lt;/b&gt;
+    &lt;b&tg; base &lt;/b&tg;
+    &lt;b&tg; side to raze to &lt;/b&tg;
+&lt;/r-aze&gt;
 </pre>
     </b>
 </li>
@@ -1129,19 +1043,695 @@ a:hover {
     </b>
 </li>
 
-<li><i>f-rom</i></li>
-<li><i>p-t|n-t|v-t|t-t|</i></li>
-<li><i>p-m</i></li>
-<li><i>i-mp</i></li>
-<li><i>d-dx|dy-dx|dz-dx</i></li>
-<li><i>q-fak</i></li>
-<li><i>f-x </i></li>
-<li><i>n-add|min|tim|ote|pad</i></li>
-<li><i>i-teg</i></li>
-<li><i>uv-table</i></li>
-<li><i>by-parts</i></li>
-<li><i>r-aze</i></li>
+<li id="i-teg">
+    <i>i-teg</i> integral with solution gestures
+    <b>
+        <dd>
+            <i-teg data-iprt>
+                <b>
+                    <u-u>x</u-u><p-t></p-t>
+                    <v-v>sin(x)</v-v>
+                </b>
+                <b>dx</b>
+            </i-teg>
+        </dd>
+        presents a large-sigma notation for integration
+        with several gesture options for solutions
+<pre>
+&lt;i-teg
+    data-viva       // illuminates everything
+    data-viva-sigma // illuminates only sigma
+    data-viva-diff  // illuminates differential
+    data-viva-from  // illuminates from val
+    data-viva-to    // illuminates to val
+    data-ghost      // ghosts out the integral
+    data-vapor      // vaporizes the integral
+    data-iprt       // u and v' labels for by-parts
+    data-dark       // no illumination of by-parts
+&gt;
+    &lt;b&gt;
+        integrand
+        &lt;u-u&gt; &lt;!-- optional u for by-parts --&gt;
+        &lt;v-v&gt; &lt;!-- optional v' for by-parts --&gt;
+    &lt;/b&gt;
+    &lt;b&gt; differential &lt;/b&gt;
+    &lt;b&gt; from &lt;/b&gt; &lt;!-- optional --&gt;
+    &lt;b&gt; to &lt;/b&gt; &lt;!-- optional --&gt;
+&lt;/i-teg&gt;
+</pre>
+    </b>
+</li>
 
+<li id="p-owr">
+    <i>p-owr</i> derivative power rule gestures
+    <b>
+        <dd>
+            <p-owr data-opt1 data-margin3>
+                3x<sup>5</sup>
+            </p-owr>
+        </dd>
+        presents illuminated gestures for using the
+        power rule to compute a derivative - it
+        recognizes a &lt;sup&gt; tag
+<pre>
+&lt;p-owr
+    data-dark    // not illuminated
+    data-ghost   // ghosts out the gestures
+    data-opt#    // uses different gestures
+    data-margin# // increases right margin
+&gt;
+    3x&lt;sup&gt;2&lt;/sup&gt; &lt;!-- use sup tag --&gt;
+&lt;/p-owr&gt;
+</pre>
+        
+    </b>
+</li>
+
+<li id="i-pow">
+    <i>i-pow</i> power rule for integration
+    <b>
+        <dd>
+        <i-teg>
+            <b><i-pow>3x<sup>5</sup></i-pow></b>
+            <b>dx</b>
+        </i-teg>
+        </dd>
+    creates gestures for computing the integral using
+    the power rule
+<pre>
+&lt;i-pow
+    data-dark // no illumination
+&gt;
+    3x&lt;sup&gt;5&lt;/sup&gt; &lt;-- use sup tag --&gt;
+&lt;/i-pow&gt;
+</pre>
+    </b>
+</li>
+
+<li id="uv-table">
+    <i>uv-table</i> u|v' table for integration
+    <b>
+        <dd>
+            <uv-table data-empty>
+                <b>x</b>
+                <b>1</b>
+                <b>-cos(x)</b>
+                <b>sin(x)</b>
+            </uv-table>
+        </dd>
+        displays the uv table either empty or
+        completed and includes an instruction
+        on what steps to take aswell as a reminder
+        of the integration by parts formula
+<pre>
+&lt;uv-table
+    data-empty  // u' and v not shown
+&gt;
+    &lt;b&gt;u &lt;/b&gt;
+    &lt;b&gt;u'&lt;/b&gt;
+    &lt;b&gt;v &lt;/b&gt;
+    &lt;b&gt;v'&lt;/b&gt;
+&lt;/uv-table&gt;
+</pre>
+    </b>
+</li>
+
+<li id="by-parts">
+    <i>by-parts</i> integration by parts format
+    <b>
+        <dd>
+            <by-parts>
+                <b>x<sup>2</sup></b>
+                <b>sin(x)</b>
+                <b>sin(x)</b>
+                <b>2x dx</b>
+            </by-parts>
+        </dd>
+        clearly lays out the values from a uv-table
+        into the formula for integration by parts,
+        keeping the colors of u and v consistent
+        throughout the &lt;i&#8209;teg&gt; solution
+<pre>
+&lt;by-parts
+    data-dark // no illumination
+&gt;
+    &lt;b&gt;u &lt;/b&gt;
+    &lt;b&gt;v &lt;/b&gt;
+    &lt;b&gt;v &lt;/b&gt;
+    &lt;b&gt;u' dx&lt;/b&gt;
+&lt;/by-parts&gt;
+</pre>
+    </b>
+</li>
+
+<li id="rite-dist">
+    <i>rite-dist</i> distribute-right gestures
+    <b>
+        <dd>
+            <rite-dist>
+                <b>3</b>
+                <b>x<sup>2</sup><b>3</b></b>
+                +
+                <b>5<b>3</b></b>
+            </rite-dist>
+            +
+            <rite-dist style="--arc2-wide:90%;" data-dark>
+                <b>x</b>
+                (x + 7)
+            </rite-dist>
+        </dd>
+        indicates that the leading coefficient has
+        moved into the other terms, and displays it
+        being multiplied - its markup is more
+        involved, though all data parameters and
+        styling are optional
+<pre>
+&lt;rite-dist
+    data-dark  // no illumination
+    data-norm  // regular font
+    style="
+        --arc1-wide: // first arc width
+        --arc2-wide: // second arc width
+    "
+&gt;
+    &lt;b&gt; leading coefficient &lt;/b&gt;
+    &lt;b&gt; first term
+        &lt;b&gt; ...muliplied by&lt;/b&gt; &lt;!-- optional --&gt;
+    &lt;/b&gt;
+    &lt;b&gt; second term
+        &lt;b&gt; ...muliplied by&lt;/b&gt; &lt;!-- optional --&gt;
+    &lt;/b&gt;
+    
+&lt;/rite-dist&gt;
+
+&lt;!-- more simple version --&gt;
+
+&lt;rite-dist&gt;
+    &lt;b&gt; leading coefficient &lt;/b&gt;
+    (item)
+&lt;/rite-dist&gt;
+</pre>
+    </b>
+</li>
+
+<li id="left-fakt">
+    <i>left-fakt</i> leftward faktorization gestures
+    <b>
+        <dd>
+            <left-fakt>
+                <b>3</b>
+                (3x + 9)
+            </left-fakt>
+        </dd>
+        
+        pulls a faktor out of two terms and
+        moves it to the left - arc distances
+        and be adjusted with css vars in the style
+    
+<pre>
+&lt;left-fakt
+    data-dark  // no illumination
+    data-vapor // vaporizes the gesture
+    data-norm  // uses normal font
+    style = "
+        --arc1-wide: 46%  // first arc width
+        --arc2-wide: 100% // second arc width
+    "
+&gt;
+    &lt;b&gt; faktor &lt;/b&gt;
+    expression
+&lt;/fakt-left&gt;
+</pre>
+    </b>
+</li>
+
+<li id="p-t">
+    <i>p-t&nbsp;&nbsp;</i> mid-line <n-t></n-t> dot
+    <b>
+        <dd>
+            <b style="color:var(--greyness)">
+                n <n-t></n-t>
+            </b>
+            p <p-t></p-t>
+            v <v-t></v-t>
+            t <t-t></t-t>
+            Q
+        </dd>
+        shorthand for various multiplication symbols
+<pre>
+    &lt;n-t&gt; &lt;!-- inherit color dot -- &gt;
+    &lt;p-t&gt; &lt;!-- lightness dot -- &gt;
+    &lt;v-t&gt; &lt;!-- illuminated dot -- &gt;
+    &lt;t-t&gt; &lt;!-- x-shaped symbol -- &gt;
+</pre>
+    </b>
+</li>
+
+<li id="plus-minus">
+    <i>p-m&nbsp;&nbsp;</i> plus or minus <p-m></p-m>
+    <b>
+        <dd>
+            x = <p-m data-viva></p-m>5
+        </dd>
+        shorthand for the plus-or-minus symbol
+<pre>
+    &lt;p-m
+        data-viva // illuminated
+    &gt;&lt;/p-m&gt;
+</pre>
+    </b>
+</li>
+
+<li id="i-mp">
+    <i>i-mp&nbsp;</i> shorthand for implies <i-mp data-dark></i-mp>
+    <b>
+        <dd>
+            <i-mp></i-mp> que viva
+        </dd>
+<pre>
+    &lt;i-mp
+        data-dark // not illuminated
+    &gt;&lt;/i-mp&gt;
+</pre>
+    </b>
+</li>
+
+<li id="d-dx">
+    <i>d-dx&nbsp;</i> derivative symbol <d-dx></d-dx>
+    <b>
+        <dd>
+            <d-dx data-viva></d-dx>3x<sup>5</sup>
+        </dd>
+        shorthand for the correctly formated
+        derivative fraktion d/dx
+<pre>
+    &lt;d-dx
+        data-viva  // illuminated
+        data-ghost // ghosted out
+        data-vapor // vaporized
+        data-cank  // cancelled out
+    &gt;&lt;/d-dx&gt;
+</pre>
+    </b>
+</li>
+
+<li id="dy-dx">
+    <i>dy-dx</i> derivative symbol <dy-dx></dy-dx>
+    <b>
+        <dd>
+            <dy-dx data-viva></dy-dx>3x<sup>5</sup>
+        </dd>
+        shorthand for the correctly formated
+        derivative fraktion dy/dx
+<pre>
+    &lt;dy-dx
+        data-viva  // illuminated
+        data-ghost // ghosted out
+        data-vapor // vaporized
+        data-cank  // cancelled out
+    &gt;&lt;/dy-dx&gt;
+</pre>
+    </b>
+</li>
+
+<li id="dz-dx">
+    <i>dz-dx</i> derivative symbol <dz-dx></dz-dx>
+    <b>
+        <dd>
+            <dz-dx data-cank></dz-dx>3x<sup>5</sup>
+        </dd>
+        shorthand for the correctly formated
+        derivative fraktion dz/dx
+<pre>
+    &lt;dz-dx
+        data-viva  // illuminated
+        data-ghost // ghosted out
+        data-vapor // vaporized
+        data-cank  // cancelled out
+    &gt;&lt;/dz-dx&gt;
+</pre>
+    </b>
+</li>
+
+<li id="n-add">
+    <i>n-add</i> add a value
+    <b>
+        <dd>
+            x<sup>2</sup><n-add>3</n-add>
+            =
+            2<n-add>3</n-add>
+        </dd>
+        indicates a value should be
+        added,
+        typically to both sides, using the appropriate
+        symbol
+<pre>
+&lt;n-add
+    data-dark // not illuminated
+&gt;
+    value
+&lt;/n-add&gt;
+</pre>
+    </b>
+</li>
+
+<li id="n-min">
+    <i>n-min</i> subtract a value
+    <b>
+        <dd>
+            x<sup>2</sup><n-min>3</n-min>
+            =
+            2<n-min>3</n-min>
+        </dd>
+        indicates a value should be
+        subtracted,
+        typically from both sides, using the appropriate
+        symbol
+<pre>
+&lt;n-min
+    data-dark // not illuminated
+&gt;
+    value
+&lt;/n-min&gt;
+</pre>
+    </b>
+</li>
+
+<li id="n-tim">
+    <i>n-tim</i> multiply a value
+    <b>
+        <dd>
+            x<sup>2</sup><n-min>3</n-min>
+            =
+            2<n-min>3</n-min>
+        </dd>
+        indicates a value should be
+        multiplied,
+        typically on both sides, using the appropriate
+        symbol
+<pre>
+&lt;n-tim
+    data-dark // not illuminated
+&gt;
+    value
+&lt;/n-tim&gt;
+</pre>
+    </b>
+</li>
+
+<li id="n-ote">
+    <i>n-ote</i> appends a note
+    <b>
+        <dd>
+            3x<sup>2</sup>
+            <n-ote>what is<br>this?!!</n-ote>
+            + 5x + 2
+        </dd>
+        when you need to append a note to the side
+        of something
+<pre>
+&lt;n-ote
+    data-dark // not illuminated
+&gt;
+    things to note
+&lt;/n-ote&gt;
+</pre>
+    </b>
+</li>
+
+<li id="n-pad">
+    <i>n-pad</i> large overbearing note
+    <b>
+        <dd>
+            3x<sup>2</sup>
+            <n-pad>huge<br>deal</n-pad>
+            + 5x + 2
+        </dd>
+        displays a note in the middle of an expression
+        overtop of whatever may be near it - to
+        indicate that this note takes precedent over
+        the expression below it
+<pre>
+&lt;n-pad
+    data-dark // not illuminated
+&gt; note text &lt;/n-pad&gt;
+</pre>
+    </b>
+</li>
+
+<li id="q-fak">
+    <i>q-fak</i> kwadratic faktor guess
+    <b>
+        <dd>
+            <q-fak>x<sup>2</sup> + 3x + 2</q-fak>
+        </dd>
+        displays a reminder of what form a faktored
+        kwadratic expression should take
+        <br><br>
+        the [data&#8209;guess] parameter of the
+        &lt;k&#8209;wad&gt; tag does the same thing
+<pre>
+&lt;q-fak&gt; expression &lt;/q-fak&gt;
+</pre>
+    </b>
+</li>
+
+<li id="f-x">
+    <i>f-x&nbsp;&nbsp;</i> function notation
+        <span style="font-style:italic;">f(x)</span>
+    <b>
+        <dd>
+            <f-x data-viva-all data-eq>x<sup>2</sup> + 3</f-x>
+        </dd>
+        common "f of x" italic notation with options
+<pre>
+&lt;f-x
+    data-viva     // illuminates notation
+    data-viva-all // illuminates everything
+    data-eq       // includes = in notation
+    data-var-n    // changes variable to 'n|q|y|z'
+    style="
+        --var: 'x' // value of variable
+"&gt;
+    function
+&lt;/f-x&gt;
+</pre>
+    </b>
+</li>
+
+<li id="g-x">
+    <i>g-x&nbsp;&nbsp;</i> function notation
+        <span style="font-style:italic;">g(x)</span>
+    <b>
+        <dd>
+            <g-x data-eq>x<sup>3</sup> + 5</g-x>
+        </dd>
+        common "g of x" italic notation with options
+<pre>
+&lt;g-x
+    data-viva     // illuminates notation
+    data-viva-all // illuminates everything
+    data-eq       // includes = in notation
+    data-var-n    // changes variable to 'n|q|y|z'
+    style = "
+        --var: 'x' // value of variable
+"&gt;
+    function
+&lt;/g-x&gt;
+</pre>
+    </b>
+</li>
+
+<li id="h-x">
+    <i>h-x&nbsp;&nbsp;</i> function notation
+        <span style="font-style:italic;">h(x)</span>
+    <b>
+        <dd>
+            <f-x data-var-z></f-x><p-t></p-t>
+            <h-x data-viva data-var-n></h-x>
+            + <g-x></g-x>
+        </dd>
+        common "f of x" italic notation with options
+<pre>
+&lt;h-x
+    data-viva     // illuminates notation
+    data-viva-all // illuminates everything
+    data-eq       // includes = in notation
+    data-var-n    // changes variable to 'n|q|y|z'
+    style="
+        --var: 'x' // value of variable
+"&gt;
+    function
+&lt;/h-x&gt;
+</pre>
+    </b>
+</li>
+
+<li id="f-ogx">
+    <i>f-ogx</i> composite symbol <f-ogx>x</f-ogx>
+    <b>
+        <dd>
+            find <f-ogx data-viva>x+h</f-ogx>
+        </dd>
+        shorthand for composite function "f of g"
+<pre>
+&lt;f-ogx
+    data-viva // illuminates
+&gt;expression&lt;/f-ogx&gt;
+</pre>
+    </b>
+</li>
+
+<li id="g-ohx">
+    <i>g-ohx</i> composite symbol <g-ohx>x</g-ohx>
+    <b>
+        <dd>
+            <g-ohx><v-iva>n + 5</v-iva></g-ohx>
+        </dd>
+        shorthand for composite function "g of h"
+<pre>
+&lt;g-ohx
+    data-viva // illuminates
+&gt;expression&lt;/g-ohx&gt;
+</pre>
+    </b>
+</li>
+
+<li id="w-ear">
+    <i>w-ear</i> evaluate "where" values given
+    <b>
+        <dd>
+            <a-rea>=
+            &pi;r<sup>2</sup>
+            <p-t></p-t> h
+            <p-t></p-t> g
+            </a-rea>
+            <w-ear data-viva>
+                r = 1<br>
+                h = 3<br>
+                g = 5<br>
+                &pi; = 3.1415<br>
+                this = is cool
+            </w-ear>
+            <br><br>
+            sin(&theta;)
+            <w-ear data-viva-to data-viva-from>
+                <f-rom>0</f-rom>
+                <t-o>2&pi;</t-o>
+            </w-ear>
+        </dd>
+        provides a vertical evaluation bar with
+        optional to and from values
+<pre>
+&lt;w-ear&gt;
+    &lt;f-rom&gt; &lt;!-- optional from val --&gt;
+    &lt;t-o&gt;   &lt;!-- optional to val --&gt;
+    statements &lt;br&gt;
+    ... &lt;br&gt;
+&lt;/w-ear&gt;
+</pre>
+    </b>
+</li>
+
+<li id="a-rea">
+    <i>a-rea</i> area formulae and gestures &#x1d468;...
+    <b>
+        <dd>
+            <a-rea data-cirk data-viva-icon><track></a-rea>
+           &nbsp;&nbsp;&nbsp;
+            <a-rea data-viva-a data-viva-icon data-rect><track></a-rea>
+            <w-ear>
+                <b>w = <l-uck data-viva>???</l-uck></b>
+                <b>h = <l-uck data-viva>???</l-uck></b>
+            </w-ear>
+            <br><br>
+            <a-rea><sub style="font-size:0.4em;"><i>shape</i></sub></a-rea>
+            =
+            <b-rak><f-rak><b>1</b>2</f-rak> <p-t></p-t>
+            <a-rea data-no-form data-cirk><track></a-rea>
+            </b-rak>
+            +
+            <a-rea data-no-form data-square><track></a-rea>
+            -
+            <a-rea data-no-form data-triangle><track></a-rea>
+        </dd>
+        an area variable with optional ekwations and
+        gestures for several common shapes
+        <br><br>
+        uses a &lt;track&gt; tag to create a gesture icons
+        that can be manipulated by data-params or by
+        css style vars
+<pre>
+&lt;a-rea
+    data-viva       // illuminates everything
+    data-viva-a     // illuminates the A variable
+    data-viva-icon  // illuminates the gesture
+    data-no-formula // no formula for data-shape
+    data-cirk | -circle    // circle formula and gesture
+    data-tri  | -triangle  // triangle formula and gesture
+    data-rect | -rectangle // rectangle ...
+    data-lips | -ellipse   // ellipse ...
+    data-para | -parall..  // parallelogram ...
+    data-trap | -trapezoid // trapezoid ...
+    data-opt1 | -right     // right triangle
+    data-opt2 | -scalene   // scalene triangle
+    data-flip              // flips icon
+    data-turn              // rotates icon
+    data-big               // doubles the icon size
+    style ="
+        --icon-rot:  0deg; // icon rotation
+        --icon-scale: 1,1; // icon scale
+"&gt;
+    &lt;track&gt; &lt;!-- add track tag for icon --&gt;
+&lt;/a-rea&gt;
+</pre>
+    for example:
+<pre>
+&lt;a-rea data-no-formula data-cirk&gt;&lt;track&gt;
+...
+&lt;/a-rea&gt;
+</pre>
+    would display the circle icon but all for entering
+    any, or no, formula for area
+    </b>
+</li>
+
+<li id="v-olm">
+    <i>v-olm</i> volume formulae and gestures &#x1d47d;...
+    <b>
+        <dd>
+            <v-olm> =
+                <f-rak><b>4</b>3</f-rak>
+                &pi; r<sup>2</sup>
+            </v-olm>
+        </dd>
+        a volume variable with optional formulae
+        and gestures for several common objects
+        <br><br>
+        uses a &lt;track&gt; tag to create a gesture icons
+        that can be manipulated by data-params or by
+        css style vars
+<pre>
+&lt;v-olm
+    data-viva       // illuminates everything
+    data-viva-v     // illuminates the V variable
+    data-viva-icon  // illuminates the gesture
+    data-no-formula // no formula for data-shape
+    date-sphere            // sphere formula and gesture
+    data-cone              // cone formula and gesture
+    data-cube              // cube ...
+    data-box               // rectilinear solid ...
+    data-cyl  | -cylinder  // cylinder ...
+    data-pyr  | -pyramid   // pyramid ...
+    style ="
+        --icon-rot:  0deg; // icon rotation
+        --icon-scale: 1,1; // icon scale
+"&gt;
+    &lt;track&gt; &lt;!-- add track tag for icon --&gt;
+&lt;/v-olm&gt;
+</pre>
+    </b>
+</li>
 <hr>
 
 <li id="i-arc">
@@ -1192,11 +1782,12 @@ a:hover {
     data-dist  // distribution [faktor is default]
     data-rite  // value on right [left is default]
     data-cirk  // gesture only to &lt;c-irk&gt; tags
-               // [defaults is all children]
+               // [default is all children]
     data-blank // blanks out circled terms
     data-dark  // no illumination
     data-min   // minimum px height of arc gestures [20]
     data-dif   // difference between gesture heights [15]
+    data-size  // thickness of arc [10]
     data-no-prens // does not enclose in ()'s
 &gt;
     &lt;b&gt;
@@ -1235,7 +1826,7 @@ a:hover {
     x\**2
     x\**(3 + 5)
     x\**[7 - y]
-    x\**&lt;v-iva&gt;7&lt;v-iva&gt;
+    x\**&lt;v-iva&gt;7 + 1&lt;v-iva&gt;
     x\\** &lt;!-- literal display of ** --&gt;
 &lt;/b&gt;
 </pre>

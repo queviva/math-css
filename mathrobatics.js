@@ -30,10 +30,11 @@ document.querySelectorAll('i-arc').forEach(
         dist = void 0 !== dset.dist,
         rite = void 0 !== dset.rite,
         cirk = void 0 !== dset.cirk,
-        val  = obj.children[0],
-        txt  = val.innerText,
+        size = parseInt(dset.size) || 10,
         min  = parseInt(dset.min) || 20,
         dif  = parseInt(dset.dif) || 15,
+        val  = obj.children[0],
+        txt  = val.innerText,
         svg  = document.createElementNS(NS, 'svg'),
         path = document.createElementNS(NS, 'path')
     ) => {
@@ -93,7 +94,7 @@ document.querySelectorAll('i-arc').forEach(
                 x: Math.abs(origin[0] - target[0]) / 2,
                 y: high - dif * i
             };
-            return `M ${ origin.join(' ') } A ${rad.x} ${rad.y} 0 0 1 ${ target.join(' ') } h ${(dist&&!rite)||(!dist&&rite)?-10:-2} A ${rad.x-12 } ${rad.y *((rad.x-12)/rad.x) } 0 0 0 ${ origin[0] + ((dist&&!rite)||(!dist&&rite)?2:10)} ${ high } Z`;
+            return `M ${ origin.join(' ') } A ${rad.x} ${rad.y} 0 0 1 ${ target.join(' ') } h ${(dist&&!rite)||(!dist&&rite)?-size:-1} A ${rad.x-size-1 } ${rad.y *((rad.x-size-1)/rad.x) } 0 0 0 ${ origin[0] + ((dist&&!rite)||(!dist&&rite)?1:size)} ${ high } Z`;
         }).join('') );
     }
 )})();
