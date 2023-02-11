@@ -559,12 +559,12 @@ a:hover {
         sigma notation for summation
 <pre>
 &lt;s-umm
-    data-viva  // illuminates everything
-    data-sigma // illuminates only sigma
-    data-from  // illuminates only from value
-    data-to    // illumiates only to value
-    data-ghost // displays in outline
-    data-scrib // scribbles out notation
+    data-viva       // illuminates everything
+    data-viva-sigma // illuminates only sigma
+    data-viva-from  // illuminates only from value
+    data-viva-to    // illumiates only to value
+    data-ghost      // displays in outline
+    data-scrib      // scribbles out notation
 &gt;
     &lt;b&gt; thing to sum &lt;/b&gt;
     &lt;b&gt; from &lt;/b&gt; &lt;!-- optional --&gt;
@@ -1003,8 +1003,8 @@ a:hover {
     data-dark-value // value not illuminated
     data-dark-arrow // arrow not illuminated
 &gt;
-    &lt;b&tg; base &lt;/b&tg;
-    &lt;b&tg; side to raze to &lt;/b&tg;
+    &lt;b&gt; base &lt;/b&gt;
+    &lt;b&gt; side to raze to &lt;/b&gt;
 &lt;/r-aze&gt;
 </pre>
     </b>
@@ -1266,7 +1266,8 @@ a:hover {
 </li>
 
 <li id="p-t">
-    <i>p-t&nbsp;&nbsp;</i> mid-line <n-t></n-t> dot
+    <i>p-t&nbsp;&nbsp;</i>
+    mid-line dot <n-t></n-t> multiplication
     <b>
         <dd>
             <b style="color:var(--greyness)">
@@ -1421,9 +1422,9 @@ a:hover {
     <i>n-tim</i> multiply a value
     <b>
         <dd>
-            x<sup>2</sup><n-min>3</n-min>
+            x<sup>2</sup><n-tim>3</n-tim>
             =
-            2<n-min>3</n-min>
+            2<n-tim>3</n-tim>
         </dd>
         indicates a value should be
         multiplied,
@@ -1551,7 +1552,7 @@ a:hover {
             <h-x data-viva data-var-n></h-x>
             + <g-x></g-x>
         </dd>
-        common "f of x" italic notation with options
+        common "h of x" italic notation with options
 <pre>
 &lt;h-x
     data-viva     // illuminates notation

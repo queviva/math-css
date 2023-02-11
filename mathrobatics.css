@@ -2369,16 +2369,8 @@ rite-dist > b > b {
     filter: var(--dist-filter-lil);
 
 }
-rite-dist > b:nth-child(2) {
-    
-    margin-right: -0.5ch;
-    
-}
-rite-dist > b:nth-child(2)::before {
-    
-    content: '(';
-    
-}
+rite-dist > b:nth-child(2) {  margin-right: -0.5ch; }
+rite-dist > b:nth-child(2)::before { content: '('; }
 rite-dist > b > b::before {
     content: "\00d7";
     margin-left: -500%;
@@ -2402,11 +2394,7 @@ rite-dist[data-dark] > b:nth-child(1) {
     color: var(--lightness);
     text-shadow: none;
 }
-rite-dist[data-norm] > b > b {
-    
-    font-family: inherit;
-    
-}
+rite-dist[data-norm] > b > b { font-family: inherit; }
 
 left-dist {
     --arc1-wide: 35%;
@@ -2552,19 +2540,15 @@ left-fakt[data-vapor] > b:nth-of-type(1) {
 left-fakt[data-norm] > b:nth-of-type(1) {
     font-family: inherit;
     transform: none;
-    
 }
 
 l-ogb {
-    
     --logb-filter: none;
     --logb-filter-base: none;
     --logb-stroke: 0.7px var(--darkness);
-    
     position: relative;
     margin-left: 4ch;
     white-space: nowrap;
-
 }
 l-ogb::before {
     content: 'log\00a0(';
@@ -2593,11 +2577,7 @@ l-ogb > b:nth-child(1) {
     -webkit-text-stroke: var(--logb-stroke);
     
 }
-l-ogb > b:nth-child(2) {
-    
-    color: var(--lightness);
-    
-}
+l-ogb > b:nth-child(2) { color: var(--lightness); }
 l-ogb[data-viva] {
     --logb-filter: url("#viva");
     --logb-filter-base: url("#lil-viva");
@@ -2620,15 +2600,12 @@ l-ogb[data-ghost] > b:nth-child(1) {
     --logb-stroke: 0px #000;
     filter: none;
 }
-l-ogb[data-ghost] > b:nth-child(2) {
-    text-shadow: none;
-}
+l-ogb[data-ghost] > b:nth-child(2) { text-shadow: none; }
 l-ogb[data-cank] {
     --logb-filter: url("#viva");
     --logb-filter-base: url("#lil-viva");
 }
 l-ogb[data-cank]::before {
-    
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 60L18 2L30 60L43 20L60 85Q77 70 100 55Q70 80 60 100L45 50Q34 70 32 90L17 30Z'/%3E%3C/svg%3E");
@@ -2636,14 +2613,11 @@ l-ogb[data-cank]::before {
 
 }
 l-ogb[data-cank]::after {
-    
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 40L100 0L32 35L100 33L40 60L100 100L15 58L70 40Z'/%3E%3C/svg%3E");
 }
-l-ogb[data-cank] > b:nth-child(1) {
-    color: rgba(0,0,0,0);
-}
+l-ogb[data-cank] > b:nth-child(1) { color: rgba(0,0,0,0); }
 l-ogb[data-arc] {
     display: inline-block;
     margin-bottom: 1em;
@@ -2692,4 +2666,114 @@ l-ogb[data-hat] > b:nth-child(1)::before {
     background-image: var(--logb-hat);
     filter: url("#viva");
     z-index: -10;
+}
+
+
+g-eom {
+    --geom-icon: none;
+    --geom-icon-filter: url("#lightness");
+    position: relative;
+    display: inline-block;
+    height: 4em;
+    width: 4em;
+}
+g-eom::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: var(--geom-icon);
+    filter: var(--geom-icon-filter);
+}
+g-eom[data-cyl] {
+    --geom-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='\
+    M0 24 Q3 48 0 80 A50 20 0 0 0 100 80 Q90 50 97 20\
+    A48 16 -1 1 0 80 30\
+    A44 14 2 1 1 94 20 Q90 50 93 80 A45 20 0 0 1 4 80 Q8 54 5 30\
+    Z'/%3E%3Cellipse cx='50' cy='16' rx='6' ry='2.5'/%3E%3C/svg%3E");
+}
+g-eom[data-cyl] r-r {
+    position: absolute;
+    width: 50%;
+    height: 0.7em;
+    left: 50%;
+    top: -0.1em;
+    border-width: 0px 1px;
+    border-style: solid;
+    border-color: ;#090;
+    filter: url("#viva");
+    z-index: 10;
+}
+g-eom[data-cyl] r-r::after {
+    content: 'r';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: -25%;
+    font-size: 0.4em;
+    font-style: italic;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+}
+g-eom[data-cyl] d-d {
+    position: absolute;
+    width: 100%;
+    height: 1.2em;
+    left: 0%;
+    top: -0.6em;
+    border-width: 0px 1px;
+    border-style: solid;
+    border-color: ;#090;
+    filter: url("#viva");
+    z-index: 10;
+}
+g-eom[data-cyl] d-d::after {
+    content: 'd';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: -25%;
+    font-size: 0.4em;
+    font-style: italic;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+}
+g-eom[data-cyl] h-h {
+    position: absolute;
+    width: 20%;
+    height: 60%;
+    right: 100%;
+    bottom: 20%;
+    border-width: 1px 0px;
+    border-style: solid;
+    border-color: ;#090;
+    filter: url("#viva");
+}
+g-eom[data-cyl] h-h::after {
+    content: 'h';
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    right: 50%;
+    padding-right: 1ch;
+    font-size: 0.4em;
+    font-style:italic;
+    border-width: 0px 1px 0px 0px;
+    border-style: solid;
+}
+
+.svg-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
+    filter: url("#viva");
+     marker-start: url(#dot);
+    marker-mid: url(#dot);
+    marker-end: url(#dot);
 }

@@ -7,8 +7,9 @@ const log = console.log;
 const reg1 = new RegExp(/(\w)\*\*([^\(\[\<\s]+?)(=?\s|$)/g);
 const reg2 = new RegExp(/(\w)\*\*([\(\[)].+?[\)\]])/g);
 const reg3 = new RegExp(/(\w)\*\*(\<(.*?)\>.*?\<\/\3\>)/g);
+const NS = 'http://www.w3.org/2000/svg';
 
-
+// exponent short ** {
 document.querySelectorAll('.mathrobatics b').forEach(b => {
     
     if (b.innerHTML.match(/\*\*/)) {
@@ -20,10 +21,12 @@ document.querySelectorAll('.mathrobatics b').forEach(b => {
     }
     
 });
+//}
 
+// i-arc {
 document.querySelectorAll('i-arc').forEach(
     (
-        obj, idx, j, NS = 'http://www.w3.org/2000/svg',
+        obj, idx, j,
         high,
         kidz = [],
         dset = obj.dataset,
@@ -97,4 +100,47 @@ document.querySelectorAll('i-arc').forEach(
             return `M ${ origin.join(' ') } A ${rad.x} ${rad.y} 0 0 1 ${ target.join(' ') } h ${(dist&&!rite)||(!dist&&rite)?-size:-1} A ${rad.x-size-1 } ${rad.y *((rad.x-size-1)/rad.x) } 0 0 0 ${ origin[0] + ((dist&&!rite)||(!dist&&rite)?1:size)} ${ high } Z`;
         }).join('') );
     }
-)})();
+);
+//}
+
+
+// [data-line] {
+document.querySelectorAll('[data-line]').forEach(
+    (
+        obj, idx, j,
+        target = obj.dataset.line,
+        svg  = document.createElementNS(NS, 'svg'),
+    ) => {
+        svg.classList.add('svg-line');
+        obj.parentNode.append(svg);
+        svgRect = svg.getBoundingClientRect();
+        objRect = obj.getBoundingClientRect();
+        obj.parentNode.querySelectorAll(target)
+        .forEach(tar => {
+            const tarRect = tar.getBoundingClientRect();
+            const path = document.createElementNS(NS, 'path');
+            path.setAttribute('fill', 'none');
+            path.setAttribute('stroke', 'var(--lightness)');
+            path.setAttribute('stroke-width', '3');
+            const left1 =
+                -svgRect.left + objRect.left + objRect.width/2;
+            const left2 =
+                -svgRect.left + tarRect.left + tarRect.width/2;
+            const d = `\
+M${ left1 } \
+ ${ objRect.top } \
+C${ left1 }   \
+ ${ objRect.top - 100 } \
+ ${ left2 } \
+ ${ tarRect.top - 100 } \
+ ${ left2 } \
+ ${ tarRect.top }`;
+            path.setAttribute('d', d);
+            svg.append(path);
+        })
+    }
+);
+//}
+ 
+   
+})();
