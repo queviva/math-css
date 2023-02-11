@@ -108,7 +108,12 @@ document.querySelectorAll('i-arc').forEach(
 document.querySelectorAll('[data-line]').forEach(
     (
         obj, idx, j,
-        target = obj.dataset.line,
+        dset = obj.dataset,
+        target = dset.line,
+        lineDir = (dset.lineDir||'90').split(',').map(
+            v=>2*Math.PI*Number(v)/360),
+        lineSize = (dset.lineSize||'1').split(',').map(
+            v=>Math.abs(100*Number(v))),
         svg  = document.createElementNS(NS, 'svg'),
     ) => {
         svg.classList.add('svg-line');
@@ -116,7 +121,9 @@ document.querySelectorAll('[data-line]').forEach(
         svgRect = svg.getBoundingClientRect();
         objRect = obj.getBoundingClientRect();
         obj.parentNode.querySelectorAll(target)
-        .forEach(tar => {
+        .forEach((tar, i) => {
+            const tarLineSize = (parseFloat(tar.dataset.lineSize)||1)*100;
+            const tarLineDir = 2*Math.PI*(parseFloat(tar.dataset.lineDir)||90)/360;
             const tarRect = tar.getBoundingClientRect();
             const path = document.createElementNS(NS, 'path');
             path.setAttribute('fill', 'none');
@@ -127,16 +134,26 @@ document.querySelectorAll('[data-line]').forEach(
             const left2 =
                 -svgRect.left + tarRect.left + tarRect.width/2;
             const d = `\
-M${ left1 } \
- ${ objRect.top } \
-C${ left1 }   \
- ${ objRect.top - 100 } \
- ${ left2 } \
- ${ tarRect.top - 100 } \
- ${ left2 } \
- ${ tarRect.top }`;
+M${left1} \
+ ${objRect.top} \
+C${left1+(
+    (lineSize[i]||lineSize[0])*Math.cos(lineDir[i]||lineDir[0])
+ )} \
+ ${objRect.top-(
+    (lineSize[i]||lineSize[0])*Math.sin(lineDir[i]||lineDir[0])
+ )} \
+ ${left2      +(tarLineSize*Math.cos(tarLineDir))} \
+ ${tarRect.top-(tarLineSize*Math.sin(tarLineDir))} \
+ ${left2} \
+ ${tarRect.top}`;
             path.setAttribute('d', d);
             svg.append(path);
+            const cirk = document.createElementNS(NS,'circle');
+            cirk.setAttribute('cx', left2);
+            cirk.setAttribute('cy', tarRect.top);
+            cirk.setAttribute('r', 5);
+            svg.append(cirk);
+            
         })
     }
 );

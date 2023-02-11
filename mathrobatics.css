@@ -2773,7 +2773,7 @@ g-eom[data-cyl] h-h::after {
     left: 0;
     overflow: visible;
     filter: url("#viva");
-     marker-start: url(#dot);
+    marker-start: url(#dot);
     marker-mid: url(#dot);
     marker-end: url(#dot);
 }
