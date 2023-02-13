@@ -117,9 +117,6 @@ document.querySelectorAll('[data-line]').forEach((
     svg.classList.add('svg-line');
     obj.parentNode.append(svg);
     svgRect = svg.getBoundingClientRect();
-    svg.addEventListener('mouseover', e => {
-        log(svg.offsetLeft);
-    })
     objRect = obj.getBoundingClientRect();
     obj.parentNode.querySelectorAll(target)
     .forEach((tar, i) => {
@@ -202,23 +199,12 @@ Z\
             lips.setAttribute('ry', .015 * wide);
             svg.append(lips);
             
-            if (void 0 !== dset.tank) {
-                log('tank');
-                let p = document.createElementNS(NS, 'path');
-                let tank = `
-M 0 0 H 100 V 100 Z
-                `;
-                p.setAttribute('d', tank);
-                p.setAttribute('id', '#tank');
-                //p.setAttribute('fill', '#900');
-                //svg.append(p);
-            }
-            let h, r, d;
-            
+            let h, r, d, t;
+
             if (h = obj.querySelector('h-h')) {
                 if (!h.innerHTML) h.innerHTML = 'h';
                 h = h.style;
-                h.top = top + 'px';
+                h.bottom = top + 'px';
                 h.right = (wide + 8) + 'px';
                 h.height = (high - .3 * wide) + 'px';
             }
@@ -233,6 +219,41 @@ M 0 0 H 100 V 100 Z
                 if (!d.innerHTML) d.innerHTML = 'd';
                 d.style.bottom = 'calc(100% - ' +
                                   top + 'px + 3em)';
+            }
+                        
+            if (t = obj.querySelector('t-ank')) {
+                let qrt = 0.325 * high;
+                let fill = parseFloat(t.dataset.fill) || 75;
+                fill = fill/100;
+                qrt = bot - fill*(bot-top);
+                
+                let lid = document.createElementNS(NS, 'ellipse');
+                lid.setAttribute('cx', mid);
+                lid.setAttribute('cy', qrt);
+                lid.setAttribute('rx', mid-10);
+                lid.setAttribute('ry', top-5);
+                lid.setAttribute('fill', 'var(--inverse)');
+                lid.classList.add('tanklid');
+                svg.prepend(lid);
+                let p = document.createElementNS(NS, 'path');
+                let dd = `M10 ${qrt}V${bot-5}A${mid-20} ${top-8} 0 0 0 ${wide-10} ${bot-5}V${qrt}A${mid-20} ${top-10} 0 0 1 0 ${qrt}Z`;
+                p.setAttribute('d', dd);
+                p.classList.add('tankbody');
+                svg.prepend(p);
+                
+                let th, tr, td;
+                if (th = t.querySelector('h-h')) {
+                    th.style.height = high - top - qrt + 'px';
+                }
+                if (tr = t.querySelector('r-r')) {
+                    tr.style.bottom = 'calc(100% - ' +
+                                qrt +'px + 1.7em)';
+                }
+                if (td = t.querySelector('d-d')) {
+                    td.style.bottom = 'calc(100% - ' +
+                                qrt +'px + 2.7em)';
+                }
+                
             }
             
         }
