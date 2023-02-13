@@ -103,61 +103,142 @@ document.querySelectorAll('i-arc').forEach(
 );
 //}
 
-
 // [data-line] {
-document.querySelectorAll('[data-line]').forEach(
-    (
-        obj, idx, j,
-        dset = obj.dataset,
-        target = dset.line,
-        lineDir = (dset.lineDir||'90').split(',').map(
-            v=>2*Math.PI*Number(v)/360),
-        lineSize = (dset.lineSize||'1').split(',').map(
-            v=>Math.abs(100*Number(v))),
-        svg  = document.createElementNS(NS, 'svg'),
-    ) => {
-        svg.classList.add('svg-line');
-        obj.parentNode.append(svg);
-        svgRect = svg.getBoundingClientRect();
-        objRect = obj.getBoundingClientRect();
-        obj.parentNode.querySelectorAll(target)
-        .forEach((tar, i) => {
-            const tarLineSize = (parseFloat(tar.dataset.lineSize)||1)*100;
-            const tarLineDir = 2*Math.PI*(parseFloat(tar.dataset.lineDir)||90)/360;
-            const tarRect = tar.getBoundingClientRect();
-            const path = document.createElementNS(NS, 'path');
-            path.setAttribute('fill', 'none');
-            path.setAttribute('stroke', 'var(--lightness)');
-            path.setAttribute('stroke-width', '3');
-            const left1 =
-                -svgRect.left + objRect.left + objRect.width/2;
-            const left2 =
-                -svgRect.left + tarRect.left + tarRect.width/2;
-            const d = `\
+document.querySelectorAll('[data-line]').forEach((
+    obj, idx, j,
+    dset = obj.dataset,
+    target = dset.line,
+    lineDir = (dset.lineDir||'90').split(',').map(
+        v=>2*Math.PI*Number(v)/360),
+    lineSize = (dset.lineSize||'1').split(',').map(
+        v=>Math.abs(100*Number(v))),
+    svg  = document.createElementNS(NS, 'svg'),
+) => {
+    svg.classList.add('svg-line');
+    obj.parentNode.append(svg);
+    svgRect = svg.getBoundingClientRect();
+    svg.addEventListener('mouseover', e => {
+        log(svg.offsetLeft);
+    })
+    objRect = obj.getBoundingClientRect();
+    obj.parentNode.querySelectorAll(target)
+    .forEach((tar, i) => {
+        const tarLineSize = (parseFloat(tar.dataset.lineSize) || 1) * 100;
+        const tarLineDir = 2 * Math.PI * (parseFloat(tar.dataset.lineDir) || 90) / 360;
+        const tarRect = tar.getBoundingClientRect();
+        const path = document.createElementNS(NS, 'path');
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke', 'var(--lightness)');
+        path.setAttribute('stroke-width', '3');
+        const left1 = objRect.left + objRect.width / 2
+                    - svgRect.left;
+        const left2 = tarRect.left + tarRect.width / 2
+                    - svgRect.left;
+        const d = `\
 M${left1} \
- ${objRect.top} \
+${-svgRect.top + objRect.top} \
 C${left1+(
     (lineSize[i]||lineSize[0])*Math.cos(lineDir[i]||lineDir[0])
- )} \
- ${objRect.top-(
+)} \
+${-svgRect.top + objRect.top-(
     (lineSize[i]||lineSize[0])*Math.sin(lineDir[i]||lineDir[0])
- )} \
- ${left2      +(tarLineSize*Math.cos(tarLineDir))} \
- ${tarRect.top-(tarLineSize*Math.sin(tarLineDir))} \
- ${left2} \
- ${tarRect.top}`;
-            path.setAttribute('d', d);
-            svg.append(path);
-            const cirk = document.createElementNS(NS,'circle');
-            cirk.setAttribute('cx', left2);
-            cirk.setAttribute('cy', tarRect.top);
-            cirk.setAttribute('r', 5);
-            svg.append(cirk);
-            
-        })
-    }
-);
+)} \
+${left2      +(tarLineSize*Math.cos(tarLineDir))} \
+${-svgRect.top + tarRect.top-(tarLineSize*Math.sin(tarLineDir))} \
+${left2} \
+${-svgRect.top + tarRect.top}`;
+        path.setAttribute('d', d);
+        svg.append(path);
+        const cirk = document.createElementNS(NS, 'circle');
+        cirk.setAttribute('cx', left2);
+        cirk.setAttribute('cy', -svgRect.top + tarRect.top);
+        cirk.setAttribute('r', 5);
+        svg.append(cirk);
+    })
+});
 //}
  
+// g-eom {
+document.querySelectorAll('g-eom').forEach((
+    obj, idx, j,
+    dset = obj.dataset,
+    svg = document.createElementNS(NS, 'svg'),
+    path = document.createElementNS(NS, 'path'),
+    wide = Math.max((parseInt(dset.wide) || 100), 60),
+    high = Math.max((parseInt(dset.high) || 100), 0.6 * wide),
+    type = dset.type || 'cyl'
+) => {
+    obj.style.width  = wide + 'px';
+    obj.style.height = high + 'px';
+    svg.append(path);
+    obj.append(svg);
+    ({
+        sphere: () => {},
+        cyl: () => {
+            const top = 0.15 * wide;
+            const mid = 0.5  * wide;
+            const cen = 0.5  * high;
+            const bot = high - top;
+            path.setAttribute('d', `
+M0 ${top+10} \
+Q4 ${cen} 0 ${bot} \
+A${mid} ${top} 0 0 0 ${wide} ${bot} \
+Q${wide-8} ${cen} ${wide} ${top} \
+A${mid} ${top} 0 1 0 \
+ ${mid+mid*Math.cos(-1.68*Math.PI)} \
+ ${top+top*Math.sin(-1.68*Math.PI)} \
+L${mid+((mid-5)*Math.cos(-1.8*Math.PI))} \
+ ${top+((top-3)*Math.sin(-1.8*Math.PI))} \
+A${mid-5} ${top-3} 0 1 1 ${wide-5} ${top} \
+Q${wide-10} ${cen} ${wide-5} ${bot-2} \
+A${mid-10} ${top-5} 0 1 1 5 ${bot-2} \
+Q 8 ${cen} 4 ${top+18} \
+Z\
+            `);
+            const lips = document.createElementNS(NS, 'ellipse');
+            lips.setAttribute('cx', mid);
+            lips.setAttribute('cy', .14  * wide);
+            lips.setAttribute('rx', .04  * wide);
+            lips.setAttribute('ry', .015 * wide);
+            svg.append(lips);
+            
+            if (void 0 !== dset.tank) {
+                log('tank');
+                let p = document.createElementNS(NS, 'path');
+                let tank = `
+M 0 0 H 100 V 100 Z
+                `;
+                p.setAttribute('d', tank);
+                p.setAttribute('id', '#tank');
+                //p.setAttribute('fill', '#900');
+                //svg.append(p);
+            }
+            let h, r, d;
+            
+            if (h = obj.querySelector('h-h')) {
+                if (!h.innerHTML) h.innerHTML = 'h';
+                h = h.style;
+                h.top = top + 'px';
+                h.right = (wide + 8) + 'px';
+                h.height = (high - .3 * wide) + 'px';
+            }
+            
+            if (r = obj.querySelector('r-r')) {
+                if (!r.innerHTML) r.innerHTML = 'r';
+                r.style.bottom = 'calc(100% - ' +
+                                  top + 'px + 1.7em)';
+            }
+            
+            if (d = obj.querySelector('d-d')) {
+                if (!d.innerHTML) d.innerHTML = 'd';
+                d.style.bottom = 'calc(100% - ' +
+                                  top + 'px + 3em)';
+            }
+            
+        }
+    }[type])()
+    
+});
+//}
    
 })();
