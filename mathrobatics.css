@@ -2837,6 +2837,7 @@ g-eom {
     /*border: 1px solid #900;*/
     overflow: visible;
 }
+g-eom > * { position: absolute; }
 g-eom > svg {
     position: absolute;
     height: 100%;
@@ -2846,7 +2847,7 @@ g-eom > svg {
     top: 0;
     left: 0;
     /*border: 1px solid;*/
-    fill: var(--lightness);*/
+    fill: var(--lightness);
     overflow:visible;
 }
 g-eom > svg > .tanklid {
@@ -2860,6 +2861,44 @@ g-eom[data-dark] { --dimension-filter: url("#lightness"); }
 g-eom[data-grey] { --dimension-filter: url("#greyness"); }
 g-eom[data-ghost] { --dimension-filter: url("#ghost"); }
 g-eom[data-vapor] { --dimension-filter: url("#vapor"); }
+
+g-eom a-1, g-eom a-2, g-eom b-b, g-eom h-h,
+g-eom h-yp, g-eom w-w, g-eom l-l {
+    font-size: 0.3em;
+    white-space: nowrap;
+    filter: var(--dimension-filter);
+    z-index: 10;
+}
+g-eom h-h {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    right: 50%;
+    padding-right: 1ch;
+    font-style: italic;
+    border-width: 0px 1px 0px 0px;
+    border-style: solid;
+}
+
+g-eom[data-type="tri-rite"] > b-b { border: 0px 0px 1px 0px; }
+g-eom[data-type="tri-rite"] > b-b::after { content: ''; }
+g-eom[data-type="tri-rite"] > h-h {
+    width: 2ch;
+    padding-left: 1ch;
+    bottom: 0;
+    left: calc(100% + 15px);
+    border-width: 0px 0px 0px 1px;
+}
+g-eom[data-type="tri-rite"] > h-yp {
+    bottom: 0;
+    left: -7px;
+    text-align: center;
+    border-width: 0px 1px;
+    border-style: solid;
+    border-color: var(--lightness);
+    transform-origin: 0 100%;
+}
+
 
 g-eom[data-type="cyl"] > r-r,
 g-eom[data-type="cyl"] > t-ank r-r {
@@ -2929,7 +2968,6 @@ g-eom[data-type="cyl"] > t-ank d-d::after {
 
 g-eom[data-type="cyl"] > h-h,
 g-eom[data-type="cyl"] > t-ank h-h {
-    content: '';
     position: absolute;
     display: flex;
     align-items: center;

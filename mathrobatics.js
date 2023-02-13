@@ -161,15 +161,54 @@ document.querySelectorAll('g-eom').forEach((
     dset = obj.dataset,
     svg = document.createElementNS(NS, 'svg'),
     path = document.createElementNS(NS, 'path'),
-    wide = Math.max((parseInt(dset.wide) || 100), 60),
-    high = Math.max((parseInt(dset.high) || 100), 0.6 * wide),
-    type = dset.type || 'cyl'
+    wide = (parseInt(dset.wide) || 100),
+    high = (parseInt(dset.high) || 100),
+  //wide = Math.max((parseInt(dset.wide) || 100), 60),
+  //high = Math.max((parseInt(dset.high) || 100), 0.6 * wide),
+    type = (dset.type || 'cyl').replace(/-/g,'_')
 ) => {
     obj.style.width  = wide + 'px';
     obj.style.height = high + 'px';
     svg.append(path);
     obj.append(svg);
     ({
+        tri_rite: () => {
+            let theta = Math.atan(high/wide);
+            let phi   = Math.PI/2 - theta;
+            let b, h, a1, a2, hyp;
+            path.setAttribute('fill', 'none');
+            path.setAttribute('stroke', 'var(--lightness');
+            path.setAttribute('stroke-width', '5');
+            path.setAttribute('d', `M 0 ${high}H${wide}V0Z`);
+            const pp = document.createElementNS(NS, 'path');
+            pp.setAttribute('fill', 'none');
+            pp.setAttribute('stroke', 'var(--whiteness');
+            pp.setAttribute('stroke-width', '2');
+            let dd = `M${wide-20} ${high} v-20 h20`;
+            if (a1 = obj.querySelector('a-1')) {
+                if (!a1.innerHTML) a1.innerHTML = '&theta\;';
+                dd += `M40 ${high}A 40 40 0 0 0 ${40*Math.cos(-theta)} ${high+40*Math.sin(-theta)}`;
+                a1.style.top = high - 50 * Math.sin(theta/2)
+                    - a1.offsetHeight/2 +'px';
+                a1.style.left = 50 * Math.cos(theta/2) + 'px';
+            }
+            if (a2 = obj.querySelector('a-2')) {
+                dd += `M${wide} 40 A 40 40 0 0 1 ${wide-40*Math.cos(theta)} ${40*Math.sin(theta)}`;
+                if (!a2.innerHTML) a2.innerHTML = '&phi\;';
+                a2.style.top = 50 * Math.sin(Math.PI/2 - phi/2)
+                    - a2.offsetHeight/2 +'px';
+                a2.style.right = 50 * Math.cos(Math.PI/2 - phi/2) + 'px';
+            }
+            if (hyp = obj.querySelector('h-yp')) {
+                if (!hyp.innerHTML) hyp.innerHTML = '<i>hyp</i>';
+                hyp.style.width = (Math.sqrt(
+                    wide*wide + high*high
+                ) + 10) + 'px';
+                hyp.style.transform = 'rotate(' + -theta +'rad)';
+            }
+            pp.setAttribute('d', dd);
+            svg.prepend(pp);
+        },
         sphere: () => {},
         cyl: () => {
             const top = 0.15 * wide;

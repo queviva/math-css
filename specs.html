@@ -98,8 +98,29 @@ a:hover {
     color:var(--greyness);
     font-size: 24px;
 ">
-<svg id="SVGfilter" height="0" width="0">
+<svg id="SVGfilter" height="10" width="10">
 
+    <defs>
+        <marker id="dot" refX="10" refY="10"
+         vector-effect="non-scaling-size"
+         markerUnits="userSpaceOnUse"
+         markerWidth="20"
+         markerHeight="20"
+         orient="auto"
+        >
+            <circle id="dotdot" cx="10" cy="10" r="1"
+             vector-effect="non-scaling-size"
+             fill="#c30"
+             stroke="none"
+            ></circle>
+        </marker>
+        <linearGradient id="grad" xgradientTransform="rotate(90)">
+            <stop offset="5%" stop-color="rgba(0,0,0,0)" />
+            <stop offset="65%" stop-color="var(--inverse)" />
+            <stop offset="95%" stop-color="#fff" />
+        </linearGradient>
+    </defs>
+    
     <filter id="lightness">
       <feFlood flood-color="var(--lightness)" result="F0"/>
       <feComposite in="F0" in2="SourceGraphic" operator="in"/>
@@ -655,8 +676,9 @@ a:hover {
         </dd>
         larger, taller, brakette enclosure for
         encompassing statements which are themselves
-        often taller than simple []'s and accomodates
-        any exponents that may follow it
+        often taller than simple []'s
+        <br><br>
+        it accomodates any exponents that may follow
 <pre>
 &lt;b-rak
     data-viva      // illuminates []'s
@@ -931,11 +953,11 @@ a:hover {
     &lt;b&gt; a &lt;/b&gt; x<sup>2</sup> +
     &lt;b&gt; b &lt;/b&gt; x +
     &lt;b&gt; c &lt;/b&gt;
-    &lt;b&gt; a x c &lt;/b&gt; &lt;-- written out--&gt;
+    &lt;b&gt; a &times; c &lt;/b&gt; &lt;-- literally written out--&gt;
     &lt;i-fak&gt;
-        &lt;b&gt; axc &lt;/b&gt; &lt;-- actual val of a times c --&gt;
+        &lt;b&gt; a&times;c &lt;/b&gt; &lt;-- product of a times c --&gt;
         &lt;b&gt;
-            faktors of axc
+            faktors of the product a&times;c
             &lt;b&gt;
                 the two faktors to use
             &lt;/b&gt;
@@ -973,6 +995,7 @@ a:hover {
     &lt;b&gt;index&lt;/b&gt; &lt;!-- optional --&gt;
     radicand
 &lt;/r-oot&gt;
+
 &lt;!-- any immediately following sup gets formatted --&gt;
 &lt;sup
     data-viva // correctly illuminates
@@ -1250,7 +1273,7 @@ a:hover {
         
         pulls a faktor out of two terms and
         moves it to the left - arc distances
-        and be adjusted with css vars in the style
+        can be adjusted with css vars in the style
     
 <pre>
 &lt;left-fakt
@@ -1496,7 +1519,12 @@ a:hover {
         the [data&#8209;guess] parameter of the
         &lt;k&#8209;wad&gt; tag does the same thing
 <pre>
-&lt;q-fak&gt; expression &lt;/q-fak&gt;
+&lt;q-fak
+    data-dark // not illuminated
+    data-n    // changes var to n|q|x|y|z
+    style="
+        --qfak-var: 'x' // sets the display variable
+"&gt; expression &lt;/q-fak&gt;
 </pre>
     </b>
 </li>
@@ -1626,7 +1654,7 @@ a:hover {
             </w-ear>
         </dd>
         provides a vertical evaluation bar with
-        optional to and from values
+        optional <i>to</i> and <i>from</i> values
 <pre>
 &lt;w-ear
     data-viva      // illuminates everything
@@ -1911,15 +1939,21 @@ a:hover {
     <b>
         <dd>
             <br>
-            <g-eom
-                data-type="cyl"
-                data-high="80"
-                data-wide="200"
-            >
-                <d-d></d-d>
-                <r-r style="filter:url(#vers);"></r-r>
-                <h-h></h-h>
-            </g-eom>
+ <g-eom data-type="cyl" data-high="200" data-wide="200"
+    xdata-dark
+    xdata-grey
+    xdata-viva
+>
+    <d-d></d-d>
+    <!--<r-r></r-r>-->
+    <h-h></h-h>
+    <t-ank data-fill="35">
+        <h-h>h' = ans</h-h>
+        <r-r><i>r'=0</i></r-r>
+        <!--<d-d>d'=0</d-d>-->
+    </t-ank>
+</g-eom>
+
         </dd>
         only functions with
         <a href="mathrobatics.js">mathrobatics.js</a>
@@ -1934,6 +1968,10 @@ a:hover {
     one allows for the inclusion of standard dimension
     measurement lines that take custom labels or use
     defaults
+    <br><br>
+    adding a &tl;t-ank&gt; tag treats three-dimensional
+    objects as a partially filled tank for related-rates
+    calculus problems
 <pre>
 &lt;g-eom
     data-viva       // illuminates the drawing
@@ -1945,16 +1983,21 @@ a:hover {
         cirk        // circle: r, d
         square      // square: s
         rect        // rectangle: l, w
-        rite-tri    // right triangle: b, h, hyp, angle
-        306090-tri  // special triangle: b, h, hyp, angle
-        454590-tri  // special triangle: b, h, hyp, angle
-        345-tri     // pythagorean triangle: b, h, hyp
-        sphere      // sphere: r
+        tri-rite    // right triangle: b, h, hyp, angle
+        tri-306090  // special triangle: b, h, hyp, angle
+        tri-454590  // special triangle: b, h, hyp, angle
+        tri-345     // pythagorean triangle: b, h, hyp
+        tri-equ     // ekwilateral triangle: s, b, h
+        tri-scalene // scalene triangle: b, h
+        tri-iso     // isoscelese triangle: b, h
+        sphere      // sphere: r, d
         cyl         // cylinder: r, d, h
         cone        // cone: r, d, h, slant-h
         cube        // cube: s
         box         // box: l, w, h
         pyr         // pyramid: l, w, h
+        v-tank      // v-shaped tank: ...
+        u-tank      // u-shaped tank: ...
     "
 &gt;
     &lt;!-- if object has such a dimension,       --&gt;
@@ -1967,11 +2010,22 @@ a:hover {
     &lt;h-h&gt;height   'h'&lt;/h-h&gt;
     &lt;r-r&gt;radius   'r'&lt;/r-r&gt;
     &lt;d-d&gt;diameter 'd'&lt;/d-d&gt;
+    &lt;s-s&gt;side     's'&lt;/s-s&gt;
     &lt;a-a&gt;angle    '&theta;'&lt;/a-a&gt;
     &lt;b-b&gt;base     'b'&lt;/b-b&gt;
     &lt;b1-b1&gt;base-1 'b1'&lt;/b1-b1&gt;
     &lt;b2-b2&gt;base-2 'b2'&lt;/b2-b2&gt;
     &lt;hyp-hyp&gt;hypotenuse 'h'&lt;/hyp-hyp&gt;
+    &lt;!-- adding a tank tag treats 3D objects like --&t;
+    &lt;!-- a filling tank                           --&t;
+    &lt;t-ank
+        data-fill="75%" // how full the tank is
+    &gt;
+        &lt;!-- every dimension tag above can be --&t;
+        &lt;!-- repeated here to have another    --&t;
+        &lt;!-- label for partially full tank    --&t;
+        ...
+    &lt;/t-ank&gt;
     
 &lt;/g-eom&gt;
 </pre>
