@@ -1,0 +1,16 @@
+
+.mathrobatics {
+        
+    --airplane-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 100A10 20 0 0 1 100 100H99A10 20 0 0 0 16 100Z'/%3E%3C/svg%3E");
+}
+
+air-plane {
+    position: absolute;
+    display: inline-block;
+    font-size: 0.4em;
+    left: calc(100% + 20px);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: var(--airplane-00);
+    filter: url("#viva");
+}

@@ -180,11 +180,31 @@ document.querySelectorAll('g-eom').forEach((
             let pi2   = Math.PI/2;
             let b, h, a1, a2, hyp;
             
-            path.setAttribute('fill', 'none');
-            path.setAttribute('stroke', 'var(--lightness');
-            path.setAttribute('stroke-width', '5');
-            path.setAttribute('stroke-miterlimit', '500');
-            path.setAttribute('d', `M 0 ${high}H${wide}V0Z`);
+            if (void 0 === dset.opt1) {
+                path.setAttribute('fill', 'none');
+                path.setAttribute('stroke', 'var(--lightness');
+                path.setAttribute('stroke-width', '5');
+                path.setAttribute('stroke-miterlimit', '500');
+                path.setAttribute('d',`M0 ${high}H${wide}V0Z`);
+            } else {
+                path.setAttribute('d',
+                `M -10 ${high}
+                 Q${wide/2} ${high-5} ${wide+14} ${high+2}
+                 l10 10
+                 Q${wide/2} ${high-5} -20 ${high+10}z
+                 M -10 ${high+15}
+                 Q${10 + wide/2} ${10 + high/2}
+                  ${wide+15} ${-10}
+                 l5 13
+                 Q${10 + wide/2} ${10 + high/2}
+                  ${0} ${high+20}z
+                 M ${wide+12} ${-20}
+                 Q${wide-10} ${high/2} ${wide+10} ${high+25}
+                 l-5 13
+                 Q${wide-10} ${high/2} ${wide} ${-7}
+                 
+                 `);
+            }
             
             const pp = document.createElementNS(NS, 'path');
             pp.setAttribute('fill', 'none');

@@ -2862,21 +2862,17 @@ g-eom > t-ank {
 }
 
 g-eom[data-viva] > svg { filter: url("#viva"); }
-g-eom[data-dark] { --dimension-filter: url("#lightness"); }
+g-eom[data-dark] { --dimension-filter: none; }
 g-eom[data-grey] { --dimension-filter: url("#greyness"); }
 g-eom[data-ghost] { --dimension-filter: url("#ghost"); }
 g-eom[data-vapor] { --dimension-filter: url("#vapor"); }
-g-eom[data-nolines] * {
-    border-color: rgba(0,0,0,0);
-    --dimension-filter: none;
-}
 
 g-eom > t-ank[data-grey] { --tank-filter: url("#greyness"); }
 g-eom > t-ank[data-ghost] { --tank-filter: url("#ghost"); }
 g-eom > t-ank[data-vapor] { --tank-filter: url("#vapor"); }
 
-g-eom a-1, g-eom a-2, g-eom b-b, g-eom h-h,
-g-eom h-yp, g-eom w-w, g-eom l-l {
+g-eom > a-1, g-eom > a-2, g-eom > b-b, g-eom > h-h,
+g-eom > h-yp, g-eom > w-w, g-eom > l-l {
     font-size: 0.3em;
     white-space: nowrap;
     filter: var(--dimension-filter);
