@@ -2850,17 +2850,30 @@ g-eom > svg {
     fill: var(--lightness);
     overflow:visible;
 }
-g-eom > svg > .tanklid {
-    opacity: 0.5;
+g-eom > svg > .tanklid { fill: var(--inverse); }
+g-eom > svg > .tankbody { fill: url("#grad"); }
+g-eom > t-ank {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
 }
-g-eom > svg > .tankbody {
-    fill: url("#grad");
-}
+
 g-eom[data-viva] > svg { filter: url("#viva"); }
 g-eom[data-dark] { --dimension-filter: url("#lightness"); }
 g-eom[data-grey] { --dimension-filter: url("#greyness"); }
 g-eom[data-ghost] { --dimension-filter: url("#ghost"); }
 g-eom[data-vapor] { --dimension-filter: url("#vapor"); }
+g-eom[data-nolines] * {
+    border-color: rgba(0,0,0,0);
+    --dimension-filter: none;
+}
+
+g-eom > t-ank[data-grey] { --tank-filter: url("#greyness"); }
+g-eom > t-ank[data-ghost] { --tank-filter: url("#ghost"); }
+g-eom > t-ank[data-vapor] { --tank-filter: url("#vapor"); }
 
 g-eom a-1, g-eom a-2, g-eom b-b, g-eom h-h,
 g-eom h-yp, g-eom w-w, g-eom l-l {
@@ -2868,36 +2881,47 @@ g-eom h-yp, g-eom w-w, g-eom l-l {
     white-space: nowrap;
     filter: var(--dimension-filter);
     z-index: 10;
+    border-color: #900;
 }
-g-eom h-h {
+g-eom > h-h {
     display: flex;
     align-items: center;
     height: 100%;
     right: 50%;
     padding-right: 1ch;
-    font-style: italic;
     border-width: 0px 1px 0px 0px;
     border-style: solid;
 }
 
-g-eom[data-type="tri-rite"] > b-b { border: 0px 0px 1px 0px; }
-g-eom[data-type="tri-rite"] > b-b::after { content: ''; }
+g-eom[data-type="tri-rite"] > b-b {
+    width: 100%;
+    margin-top: 0.2em;
+    top: calc(100% + 10px);
+    left: 0;
+}
 g-eom[data-type="tri-rite"] > h-h {
-    width: 2ch;
-    padding-left: 1ch;
-    bottom: 0;
-    left: calc(100% + 15px);
-    border-width: 0px 0px 0px 1px;
+    position: absolute;
+    display: inline-flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    vertical-align: middle;
+    margin-left: 1em;
+    padding-left: 0.5ch;
+    height: calc(1.5 * 2.5em);
+    left: 100%;
+    font-size: 0.3em;
+    text-align: left;
+    border: none;
+    filter: var(--dimension-filter);
+    overflow: visible;
 }
 g-eom[data-type="tri-rite"] > h-yp {
     bottom: 0;
-    left: -7px;
     text-align: center;
-    border-width: 0px 1px;
-    border-style: solid;
-    border-color: var(--lightness);
     transform-origin: 0 100%;
 }
+
 
 
 g-eom[data-type="cyl"] > r-r,

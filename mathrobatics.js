@@ -173,39 +173,101 @@ document.querySelectorAll('g-eom').forEach((
     obj.append(svg);
     ({
         tri_rite: () => {
+            
             let theta = Math.atan(high/wide);
-            let phi   = Math.PI/2 - theta;
+            let phi   = Math.atan(wide/high);
+            let len   = Math.sqrt(wide*wide+high*high);
+            let pi2   = Math.PI/2;
             let b, h, a1, a2, hyp;
+            
             path.setAttribute('fill', 'none');
             path.setAttribute('stroke', 'var(--lightness');
             path.setAttribute('stroke-width', '5');
+            path.setAttribute('stroke-miterlimit', '500');
             path.setAttribute('d', `M 0 ${high}H${wide}V0Z`);
+            
             const pp = document.createElementNS(NS, 'path');
             pp.setAttribute('fill', 'none');
             pp.setAttribute('stroke', 'var(--whiteness');
-            pp.setAttribute('stroke-width', '2');
+            pp.setAttribute('stroke-width', '1');
             let dd = `M${wide-20} ${high} v-20 h20`;
+            if (void 0 !== dset.drawlines) {
+                let len = Math.sqrt(wide*wide + high*high);
+                dd += `
+                M0 ${high+10}H${wide}
+                M${wide+10} 0V${high}
+                M${10*Math.cos(pi2 + theta)}
+                 ${high - 10*Math.sin(pi2 + theta)}
+                L${wide + 10*Math.cos(pi2 + theta)}
+                 ${-10*Math.sin(pi2 + theta)}
+                `;
+            }
             if (a1 = obj.querySelector('a-1')) {
+                let len = parseInt(a1.dataset.size) || wide/5;
                 if (!a1.innerHTML) a1.innerHTML = '&theta\;';
-                dd += `M40 ${high}A 40 40 0 0 0 ${40*Math.cos(-theta)} ${high+40*Math.sin(-theta)}`;
-                a1.style.top = high - 50 * Math.sin(theta/2)
+                if (void 0 === a1.dataset.noline) {
+                    dd += `M${len} ${high}A ${len} ${len} 0 0 0 ${len*Math.cos(-theta)} ${high+len*Math.sin(-theta)}`;
+                }
+                a1.style.top = high - (len+10) * Math.sin(theta/2)
                     - a1.offsetHeight/2 +'px';
-                a1.style.left = 50 * Math.cos(theta/2) + 'px';
+                a1.style.left = (len+10) * Math.cos(theta/2) + 'px';
             }
             if (a2 = obj.querySelector('a-2')) {
-                dd += `M${wide} 40 A 40 40 0 0 1 ${wide-40*Math.cos(theta)} ${40*Math.sin(theta)}`;
+                let len = parseInt(a2.dataset.size) || high/5;
+                let adj = parseInt(
+                    window.getComputedStyle(a2).fontSize
+                );
+                if (void 0 === a2.dataset.noline) {
+                    dd += `M${wide} ${len} A ${len} ${len} 0 0 1 ${wide-len*Math.cos(theta)} ${len*Math.sin(theta)}`;
+                }
                 if (!a2.innerHTML) a2.innerHTML = '&phi\;';
-                a2.style.top = 50 * Math.sin(Math.PI/2 - phi/2)
-                    - a2.offsetHeight/2 +'px';
-                a2.style.right = 50 * Math.cos(Math.PI/2 - phi/2) + 'px';
+                a2.style.top = (len+20) * Math.sin(
+                    pi2 - phi/2
+                ) - a2.offsetHeight/2 +'px';
+                a2.style.right = (len+20) * Math.cos(
+                    pi2 - phi/2
+                ) - adj/2 + 'px';
+            }
+            if (b = obj.querySelector('b-b')) {
+                if (!b.innerHTML) b.innerHTML = 'b';
+                if (void 0 !== b.dataset.drawline) {
+                    dd += `M0 ${high+10}H${wide}`;
+                }
+            }
+            if (h = obj.querySelector('h-h')) {
+                if (!h.innerHTML) h.innerHTML = 'h';
+                h.style.height = high + 'px';
+                if (void 0 !== h.dataset.drawline) {
+                    dd += `M${wide+10} 0V${high}`;
+                }
             }
             if (hyp = obj.querySelector('h-yp')) {
-                if (!hyp.innerHTML) hyp.innerHTML = '<i>hyp</i>';
-                hyp.style.width = (Math.sqrt(
-                    wide*wide + high*high
-                ) + 10) + 'px';
-                hyp.style.transform = 'rotate(' + -theta +'rad)';
+                if (!hyp.innerHTML) hyp.innerHTML = 'hyp';
+                if (void 0 !== hyp.dataset.drawline) {
+                    dd += `M${10*Math.cos(pi2 + theta)} ${high - 10*Math.sin(pi2 + theta)}L${wide + 10*Math.cos(pi2 + theta)} ${-10*Math.sin(pi2 + theta)}`;
+                }
+                if (
+                    hyp.innerText.length < 4 ||
+                    void 0 !== hyp.dataset.noturn
+                ) {
+                    hyp = hyp.style;
+                    hyp.width = 'auto';
+                    hyp.padding = '10px';
+                    hyp.bottom = high/2 + 'px';
+                    hyp.right = wide/2 + 'px';
+                } else {
+                    hyp = hyp.style;
+                    hyp.width = (len + 10) + 'px';
+                    hyp.transform = 'rotate(' + -theta + 'rad)';
+                
+                    hyp.paddingBottom = '5px';
+                    hyp.left = 10 * Math.cos(theta + pi2) +
+                        'px';
+                    hyp.bottom = 10 * Math.sin(theta + pi2) +
+                        'px';
+                }
             }
+            
             pp.setAttribute('d', dd);
             svg.prepend(pp);
         },
@@ -261,36 +323,32 @@ Z\
             }
                         
             if (t = obj.querySelector('t-ank')) {
-                let qrt = 0.325 * high;
-                let fill = parseFloat(t.dataset.fill) || 75;
-                fill = fill/100;
-                qrt = bot - fill*(bot-top);
+                let fil = parseFloat(t.dataset.fill) || 75;
+                fil = fil/100;
+                fil = bot - fil*(bot-top);
                 
-                let lid = document.createElementNS(NS, 'ellipse');
-                lid.setAttribute('cx', mid);
-                lid.setAttribute('cy', qrt);
-                lid.setAttribute('rx', mid-10);
-                lid.setAttribute('ry', top-5);
-                lid.setAttribute('fill', 'var(--inverse)');
-                lid.classList.add('tanklid');
-                svg.prepend(lid);
                 let p = document.createElementNS(NS, 'path');
-                let dd = `M10 ${qrt}V${bot-5}A${mid-20} ${top-8} 0 0 0 ${wide-10} ${bot-5}V${qrt}A${mid-20} ${top-10} 0 0 1 0 ${qrt}Z`;
-                p.setAttribute('d', dd);
                 p.classList.add('tankbody');
+                p.setAttribute('d', `M10 ${fil}V${bot-5}A${mid-20} ${top-8} 0 0 0 ${wide-10} ${bot-5}V${fil}A${mid-20} ${top-10} 0 0 1 10 ${fil}Z`);
                 svg.prepend(p);
+                
+                let lid = document.createElementNS(NS, 'path');
+                lid.classList.add('tanklid');
+                lid.setAttribute('d', `M10 ${fil}V${bot-5}A${mid-20} ${top-8} 0 0 0 ${wide-10} ${bot-5}V${fil}A${mid-20} ${top-10} 0 0 0 10 ${fil}Z`);
+                svg.prepend(lid);
                 
                 let th, tr, td;
                 if (th = t.querySelector('h-h')) {
-                    th.style.height = high - top - qrt + 'px';
+                    th.style.height = high - 5 - top - fil + 'px';
+                    th.style.bottom = top + 5 + 'px';
                 }
                 if (tr = t.querySelector('r-r')) {
                     tr.style.bottom = 'calc(100% - ' +
-                                qrt +'px + 1.7em)';
+                                fil +'px + 1.7em)';
                 }
                 if (td = t.querySelector('d-d')) {
                     td.style.bottom = 'calc(100% - ' +
-                                qrt +'px + 2.7em)';
+                                fil +'px + 2.7em)';
                 }
                 
             }
