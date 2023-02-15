@@ -8,6 +8,9 @@ const reg1 = new RegExp(/(\w)\*\*([^\(\[\<\s]+?)(=?\s|$)/g);
 const reg2 = new RegExp(/(\w)\*\*([\(\[)].+?[\)\]])/g);
 const reg3 = new RegExp(/(\w)\*\*(\<(.*?)\>.*?\<\/\3\>)/g);
 const NS = 'http://www.w3.org/2000/svg';
+const sin = Math.sin;
+const cos = Math.cos;
+const nsp = () => document.createElementNS(NS, 'path');
 
 // exponent short ** {
 document.querySelectorAll('.mathrobatics b').forEach(b => {
@@ -39,7 +42,7 @@ document.querySelectorAll('i-arc').forEach(
         val  = obj.children[0],
         txt  = val.innerText,
         svg  = document.createElementNS(NS, 'svg'),
-        path = document.createElementNS(NS, 'path')
+        path = nsp()
     ) => {
         val.classList.add(dist ? 'iarc-dist' : 'iarc-fakt');
         val.innerText = txt;
@@ -135,13 +138,13 @@ document.querySelectorAll('[data-line]').forEach((
 M${left1} \
 ${-svgRect.top + objRect.top} \
 C${left1+(
-    (lineSize[i]||lineSize[0])*Math.cos(lineDir[i]||lineDir[0])
+    (lineSize[i]||lineSize[0])*cos(lineDir[i]||lineDir[0])
 )} \
 ${-svgRect.top + objRect.top-(
-    (lineSize[i]||lineSize[0])*Math.sin(lineDir[i]||lineDir[0])
+    (lineSize[i]||lineSize[0])*sin(lineDir[i]||lineDir[0])
 )} \
-${left2      +(tarLineSize*Math.cos(tarLineDir))} \
-${-svgRect.top + tarRect.top-(tarLineSize*Math.sin(tarLineDir))} \
+${left2      +(tarLineSize*cos(tarLineDir))} \
+${-svgRect.top + tarRect.top-(tarLineSize*sin(tarLineDir))} \
 ${left2} \
 ${-svgRect.top + tarRect.top}`;
         path.setAttribute('d', d);
@@ -160,112 +163,252 @@ document.querySelectorAll('g-eom').forEach((
     obj, idx, j,
     dset = obj.dataset,
     svg = document.createElementNS(NS, 'svg'),
-    path = document.createElementNS(NS, 'path'),
     wide = (parseInt(dset.wide) || 100),
     high = (parseInt(dset.high) || 100),
-  //wide = Math.max((parseInt(dset.wide) || 100), 60),
-  //high = Math.max((parseInt(dset.high) || 100), 0.6 * wide),
     type = (dset.type || 'cyl').replace(/-/g,'_')
 ) => {
     obj.style.width  = wide + 'px';
     obj.style.height = high + 'px';
-    svg.append(path);
     obj.append(svg);
     ({
         tri_rite: () => {
             
-            let theta = Math.atan(high/wide);
-            let phi   = Math.atan(wide/high);
-            let len   = Math.sqrt(wide*wide+high*high);
-            let pi2   = Math.PI/2;
-            let b, h, a1, a2, hyp;
+            const theta = Math.atan(high/wide);
+            const phi   = Math.atan(wide/high);
+            const len   = Math.sqrt(wide*wide+high*high);
+            const pi2   = Math.PI/2;
+            const opt1  = void 0 !== dset.opt1;
+            const opty  = parseInt(
+                (Object.entries(dset).join('')
+                .match(/opt\d+/)||['opt0'])[0]
+                .match(/\d+/)[0]
+            );
             
-            if (void 0 === dset.opt1) {
-                path.setAttribute('fill', 'none');
-                path.setAttribute('stroke', 'var(--lightness');
-                path.setAttribute('stroke-width', '5');
-                path.setAttribute('stroke-miterlimit', '500');
-                path.setAttribute('d',`M0 ${high}H${wide}V0Z`);
-            } else {
-                path.setAttribute('d',
-                `M -10 ${high}
-                 Q${wide/2} ${high-5} ${wide+14} ${high+2}
-                 l10 10
-                 Q${wide/2} ${high-5} -20 ${high+10}z
-                 M -10 ${high+15}
-                 Q${10 + wide/2} ${10 + high/2}
-                  ${wide+15} ${-10}
-                 l5 13
-                 Q${10 + wide/2} ${10 + high/2}
-                  ${0} ${high+20}z
-                 M ${wide+12} ${-20}
-                 Q${wide-10} ${high/2} ${wide+10} ${high+25}
-                 l-5 13
-                 Q${wide-10} ${high/2} ${wide} ${-7}
-                 
-                 `);
-            }
+            const lines = void 0 !== dset.drawlines;
+            let a1, a2, b, h, hyp;
             
-            const pp = document.createElementNS(NS, 'path');
-            pp.setAttribute('fill', 'none');
-            pp.setAttribute('stroke', 'var(--whiteness');
-            pp.setAttribute('stroke-width', '1');
-            let dd = `M${wide-20} ${high} v-20 h20`;
-            if (void 0 !== dset.drawlines) {
-                let len = Math.sqrt(wide*wide + high*high);
-                dd += `
-                M0 ${high+10}H${wide}
-                M${wide+10} 0V${high}
-                M${10*Math.cos(pi2 + theta)}
-                 ${high - 10*Math.sin(pi2 + theta)}
-                L${wide + 10*Math.cos(pi2 + theta)}
-                 ${-10*Math.sin(pi2 + theta)}
-                `;
-            }
+            const optArrow1 = //{
+            `M0 0l5 30l2 -28l-3 32m20 -10l-21 -5l17 -6l-21 5l17 6l-16 -7l${Math.max(.25*wide, 55)} -2`;
+            //}
+            
+            const optArrow2 = //{
+            `M0 0l3 30l-2 -27l-3 33m-20 -10l21 -5l-17 -8l23 7l-17 7l16 -8l${-1*Math.max(.25*wide, 55)} -2`;
+            //}
+            
+            const makeLines = {
+                shape: [
+                    () => {
+    const p = nsp();
+    p.classList.add('shape');
+    p.setAttribute('d',`M0 ${high}H${wide}V0Z`);
+    svg.prepend(p);
+                    },
+                    () => {
+    const p = nsp();
+    p.setAttribute('d',
+        `M -10 ${high}Q${wide/2} ${high-5} ${wide+14} ${high+2}l10 10Q${wide/2} ${high-5} -20 ${high+10}zM -10 ${high+15}Q${10 + wide/2} ${10 + high/2} ${wide+15} ${-10}l5 13Q${10 + wide/2} ${10 + high/2} ${0} ${high+20}zM ${wide+12} ${-20}Q${wide-10} ${high/2} ${wide+10} ${high+25}l-5 13Q${wide-10} ${high/2} ${wide} ${-7}`);
+    svg.prepend(p);
+                    }
+                ],
+                square: [
+                    () => {
+    const p = nsp();
+    p.classList.add('measureline');
+    p.setAttribute('d', `M${wide-20} ${high} v-20 h20`);
+    svg.prepend(p);
+                    },
+                    () => {
+    const p = nsp();
+    p.classList.add('measureline');
+    p.setAttribute('d',`M${wide-20} ${high}l-1 -20 l24 1l-26 2l4 18`);
+    svg.prepend(p);
+                    }
+                ],
+                a1: [
+                    () => {
+    const len = parseInt(a1.dataset.size) || wide/5;
+    const p = nsp();
+    p.classList.add('measureline');
+    p.setAttribute('d', `M${len} ${high}A ${len} ${len} 0 0 0 ${len*cos(-theta)} ${high+len*sin(-theta)}`);
+    svg.prepend(p);
+                    },
+                    () => {
+    const len = parseInt(a1.dataset.size) || wide/5;
+    const p = nsp();
+    p.classList.add('measureline');
+    p.setAttribute('d', `M${len} 0A ${len} ${len} 0 0 0 ${len*cos(-theta)} ${len*sin(-theta)}A ${len} ${len} 0 0 1 ${len+3} 13A ${len} ${len} 0 0 0 ${8+len*cos(-theta)} ${3+len*sin(-theta)}`);
+    p.setAttribute('transform',
+        'translate(' + 0 + ' ' + high + ')'
+    );
+    svg.append(p);
+                        
+                    }
+                ],
+                a2: [
+                    () => {
+    const len = parseInt(a2.dataset.size) || high/5;
+    const p = nsp();
+    p.classList.add('measureline');
+    p.setAttribute('d',
+        `M${wide} ${len} A ${len} ${len} 0 0 1 ${wide-len*cos(theta)} ${len*sin(theta)}`
+    );
+    svg.prepend(p);
+                    },
+                    () => {
+    const len = parseInt(a2.dataset.size) || high/5;
+    const p = nsp();
+    p.classList.add('measureline');
+    p.setAttribute('d', `M0 ${len}A${len} ${len} 0 0 1 ${-len*cos(theta)} ${len*sin(theta)}A${len} ${len} 0 0 0 ${8} ${len+5}A${len} ${len} 0 0 1 ${-4-len*cos(theta)} ${len*sin(theta)}`);
+    p.setAttribute('transform',
+        'translate(' + wide + ' ' + 0 + ')'
+    );
+    svg.append(p);
+                    }
+                ],
+                b: [
+                    () => {
+    const p = nsp();
+    p.classList.add('measureline');
+    p.setAttribute('d',
+        `M0 ${high+10}H${wide}`
+    );
+    svg.append(p);
+                    },
+                    () => {
+    const p1 = nsp();
+    p1.classList.add('measureline');
+    p1.setAttribute('d', optArrow1);
+    p1.setAttribute(
+        'transform',
+        'translate(' + -10 +' '+ (high + 15) +')'
+    );
+    svg.append(p1);
+    const p2 = nsp();
+    p2.classList.add('measureline');
+    p2.setAttribute('d', optArrow2);
+    p2.setAttribute(
+        'transform',
+        'translate(' + wide + ' ' + (high + 15) + ')'
+    );
+    svg.append(p2);
+                    }
+                ],
+                h: [
+                    () => {
+    const p = nsp();
+    p.classList.add('measureline');
+    p.setAttribute('d',
+        `M${wide+10} 0V${high}`
+    );
+    svg.append(p);
+                    },
+                    () => {
+    const p1 = nsp();
+    p1.classList.add('measureline');
+    p1.setAttribute('d', optArrow1);
+    p1.setAttribute(
+        'transform',
+        'translate(' + (wide+15) +' '+ (high + 10) +')' +
+        'rotate(-90)'
+    );
+    svg.append(p1);
+    const p2 = nsp();
+    p2.classList.add('measureline');
+    p2.setAttribute('d', optArrow2);
+    p2.setAttribute(
+        'transform',
+        'translate(' + (wide+15) + ' ' + -5 + ')' +
+        'rotate(-90)'
+    );
+    svg.append(p2);
+                    }
+                ],
+                hyp: [
+                    () => {
+    const p = nsp();
+    p.classList.add('measureline');
+    p.setAttribute('d',
+        `M${10*cos(pi2 + theta)} ${high - 10*sin(pi2 + theta)}L${wide + 10*cos(pi2 + theta)} ${-10*sin(pi2 + theta)}`
+    );
+    svg.append(p);
+                    },
+                    () => {
+    const p1 = nsp();
+    p1.classList.add('measureline');
+    p1.setAttribute('d', optArrow1);
+    p1.setAttribute(
+        'transform',
+        'translate('+
+            ((30 * cos(pi2 + theta)))
+            +' '+
+            (high - (30 * sin(pi2 + theta)))
+        +')' +
+        'rotate('+ (360 * -theta/(2*Math.PI)) +')'
+    );
+    svg.append(p1);
+    const p2 = nsp();
+    p2.classList.add('measureline');
+    p2.setAttribute('d', optArrow2);
+    p2.setAttribute(
+        'transform',
+        'translate(' +
+            (wide + 30 * cos(pi2 + theta))
+            + ' ' +
+            (-30 * sin(pi2 + theta))
+        + ')' +
+        'rotate('+ (360 * -theta/(2*Math.PI)) +')'
+    );
+    svg.append(p2);
+                    }
+                ]
+            };
+            
+            makeLines.shape[opty]();
+            makeLines.square[opty]();
+
             if (a1 = obj.querySelector('a-1')) {
+                a1.innerHTML || (a1.innerHTML = '&theta\;');
+                if (lines || void 0 === a1.dataset.noline)
+                    makeLines.a1[opty]();
                 let len = parseInt(a1.dataset.size) || wide/5;
-                if (!a1.innerHTML) a1.innerHTML = '&theta\;';
-                if (void 0 === a1.dataset.noline) {
-                    dd += `M${len} ${high}A ${len} ${len} 0 0 0 ${len*Math.cos(-theta)} ${high+len*Math.sin(-theta)}`;
-                }
-                a1.style.top = high - (len+10) * Math.sin(theta/2)
+                a1.style.top = high - (len+10) * sin(theta/2)
                     - a1.offsetHeight/2 +'px';
-                a1.style.left = (len+10) * Math.cos(theta/2) + 'px';
+                a1.style.left = (len+10) * cos(theta/2) + 'px';
             }
+            
             if (a2 = obj.querySelector('a-2')) {
+                a2.innerHTML || (a2.innerHTML = '&phi\;');
+                if (lines || void 0 === a2.dataset.noline)
+                    makeLines.a2[opty]();
                 let len = parseInt(a2.dataset.size) || high/5;
                 let adj = parseInt(
                     window.getComputedStyle(a2).fontSize
                 );
-                if (void 0 === a2.dataset.noline) {
-                    dd += `M${wide} ${len} A ${len} ${len} 0 0 1 ${wide-len*Math.cos(theta)} ${len*Math.sin(theta)}`;
-                }
+                
                 if (!a2.innerHTML) a2.innerHTML = '&phi\;';
-                a2.style.top = (len+20) * Math.sin(
+                a2.style.top = (len+20) * sin(
                     pi2 - phi/2
                 ) - a2.offsetHeight/2 +'px';
-                a2.style.right = (len+20) * Math.cos(
+                a2.style.right = (len+20) * cos(
                     pi2 - phi/2
                 ) - adj/2 + 'px';
             }
+
             if (b = obj.querySelector('b-b')) {
-                if (!b.innerHTML) b.innerHTML = 'b';
-                if (void 0 !== b.dataset.drawline) {
-                    dd += `M0 ${high+10}H${wide}`;
-                }
+                b.innerHTML || (b.innerHTML = 'b');
+                if (lines || void 0 !== b.dataset.drawline)
+                    makeLines.b[opty]();
             }
             if (h = obj.querySelector('h-h')) {
-                if (!h.innerHTML) h.innerHTML = 'h';
+                h.innerHTML || (h.innerHTML = 'h');
+                if (lines || void 0 !== h.dataset.drawline)
+                    makeLines.h[opty]();
                 h.style.height = high + 'px';
-                if (void 0 !== h.dataset.drawline) {
-                    dd += `M${wide+10} 0V${high}`;
-                }
             }
             if (hyp = obj.querySelector('h-yp')) {
-                if (!hyp.innerHTML) hyp.innerHTML = 'hyp';
-                if (void 0 !== hyp.dataset.drawline) {
-                    dd += `M${10*Math.cos(pi2 + theta)} ${high - 10*Math.sin(pi2 + theta)}L${wide + 10*Math.cos(pi2 + theta)} ${-10*Math.sin(pi2 + theta)}`;
-                }
+                hyp.innerHTML || (hyp.innerHTML = 'hyp');
+                if (lines || void 0 !== hyp.dataset.drawline)
+                    makeLines.hyp[opty]();
                 if (
                     hyp.innerText.length < 4 ||
                     void 0 !== hyp.dataset.noturn
@@ -281,15 +424,13 @@ document.querySelectorAll('g-eom').forEach((
                     hyp.transform = 'rotate(' + -theta + 'rad)';
                 
                     hyp.paddingBottom = '5px';
-                    hyp.left = 10 * Math.cos(theta + pi2) +
+                    hyp.left = 10 * cos(theta + pi2) +
                         'px';
-                    hyp.bottom = 10 * Math.sin(theta + pi2) +
+                    hyp.bottom = 10 * sin(theta + pi2) +
                         'px';
                 }
             }
             
-            pp.setAttribute('d', dd);
-            svg.prepend(pp);
         },
         sphere: () => {},
         cyl: () => {
@@ -297,22 +438,10 @@ document.querySelectorAll('g-eom').forEach((
             const mid = 0.5  * wide;
             const cen = 0.5  * high;
             const bot = high - top;
-            path.setAttribute('d', `
-M0 ${top+10} \
-Q4 ${cen} 0 ${bot} \
-A${mid} ${top} 0 0 0 ${wide} ${bot} \
-Q${wide-8} ${cen} ${wide} ${top} \
-A${mid} ${top} 0 1 0 \
- ${mid+mid*Math.cos(-1.68*Math.PI)} \
- ${top+top*Math.sin(-1.68*Math.PI)} \
-L${mid+((mid-5)*Math.cos(-1.8*Math.PI))} \
- ${top+((top-3)*Math.sin(-1.8*Math.PI))} \
-A${mid-5} ${top-3} 0 1 1 ${wide-5} ${top} \
-Q${wide-10} ${cen} ${wide-5} ${bot-2} \
-A${mid-10} ${top-5} 0 1 1 5 ${bot-2} \
-Q 8 ${cen} 4 ${top+18} \
-Z\
-            `);
+            let shape = nsp();
+            shape.setAttribute('d', `M0 ${top+10}  Q4 ${cen} 0 ${bot}  A${mid} ${top} 0 0 0 ${wide} ${bot}  Q${wide-8} ${cen} ${wide} ${top}  A${mid} ${top} 0 1 0  ${mid+mid*cos(-1.68*Math.PI)}  ${top+top*sin(-1.68*Math.PI)}  L${mid+((mid-5)*cos(-1.8*Math.PI))}  ${top+((top-3)*sin(-1.8*Math.PI))}  A${mid-5} ${top-3} 0 1 1 ${wide-5} ${top}  Q${wide-10} ${cen} ${wide-5} ${bot-2}  A${mid-10} ${top-5} 0 1 1 5 ${bot-2}  Q 8 ${cen} 4 ${top+18}Z`);
+            svg.prepend(shape);
+            
             const lips = document.createElementNS(NS, 'ellipse');
             lips.setAttribute('cx', mid);
             lips.setAttribute('cy', .14  * wide);
@@ -321,8 +450,9 @@ Z\
             svg.append(lips);
             
             let h, r, d, t;
+            const kidz = Array.from(obj.children);
 
-            if (h = obj.querySelector('h-h')) {
+            if (h = kidz.find(v => v.tagName === 'H-H')) {
                 if (!h.innerHTML) h.innerHTML = 'h';
                 h = h.style;
                 h.bottom = top + 'px';
@@ -330,43 +460,45 @@ Z\
                 h.height = (high - .3 * wide) + 'px';
             }
             
-            if (r = obj.querySelector('r-r')) {
+            if (r = kidz.find(v => v.tagName === 'R-R')) {
                 if (!r.innerHTML) r.innerHTML = 'r';
                 r.style.bottom = 'calc(100% - ' +
                                   top + 'px + 1.7em)';
             }
             
-            if (d = obj.querySelector('d-d')) {
+            if (d = kidz.find(v => v.tagName === 'D-D')) {
                 if (!d.innerHTML) d.innerHTML = 'd';
                 d.style.bottom = 'calc(100% - ' +
                                   top + 'px + 3em)';
             }
                         
-            if (t = obj.querySelector('t-ank')) {
-                let fil = parseFloat(t.dataset.fill) || 75;
-                fil = fil/100;
-                fil = bot - fil*(bot-top);
+            if (t = kidz.find(v => v.tagName === 'T-ANK')) {
                 
-                let p = document.createElementNS(NS, 'path');
-                p.classList.add('tankbody');
-                p.setAttribute('d', `M10 ${fil}V${bot-5}A${mid-20} ${top-8} 0 0 0 ${wide-10} ${bot-5}V${fil}A${mid-20} ${top-10} 0 0 1 10 ${fil}Z`);
-                svg.prepend(p);
+                let fil =  bot - ((parseFloat(t.dataset.fill) || 75)/100) * (bot-top);
                 
-                let lid = document.createElementNS(NS, 'path');
-                lid.classList.add('tanklid');
-                lid.setAttribute('d', `M10 ${fil}V${bot-5}A${mid-20} ${top-8} 0 0 0 ${wide-10} ${bot-5}V${fil}A${mid-20} ${top-10} 0 0 0 10 ${fil}Z`);
-                svg.prepend(lid);
+                let shade = nsp();
+                shade.classList.add('tankshade');
+                shade.setAttribute('d', `M10 ${fil}V${bot-5}A${mid-20} ${top-8} 0 0 0 ${wide-10} ${bot-5}V${fil}A${mid-20} ${top-10} 0 0 1 10 ${fil}Z`);
+                svg.prepend(shade);
+                
+                let stuff = nsp();
+                stuff.classList.add('tankstuff');
+                stuff.setAttribute('d', `M10 ${fil}V${bot-5}A${mid-20} ${top-8} 0 0 0 ${wide-10} ${bot-5}V${fil}A${mid-20} ${top-10} 0 0 0 10 ${fil}Z`);
+                svg.prepend(stuff);
                 
                 let th, tr, td;
                 if (th = t.querySelector('h-h')) {
+                    th.innerHTML || (th.innerHTML = 'h\'');
                     th.style.height = high - 5 - top - fil + 'px';
                     th.style.bottom = top + 5 + 'px';
                 }
                 if (tr = t.querySelector('r-r')) {
+                    tr.innerHTML || (tr.innerHTML = 'r\'');
                     tr.style.bottom = 'calc(100% - ' +
                                 fil +'px + 1.7em)';
                 }
                 if (td = t.querySelector('d-d')) {
+                    td.innerHTML || (td.innerHTML = 'd\'');
                     td.style.bottom = 'calc(100% - ' +
                                 fil +'px + 2.7em)';
                 }

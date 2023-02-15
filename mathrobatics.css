@@ -854,7 +854,7 @@ i-mp::after {
 }
 i-mp[data-dark]::before { filter: none; }
 
-d-dx, dy-dx, dz-dx, dz-dy {
+d-dx, dy-dx, dz-dx, dz-dy, quotient-rule {
     --dd-top: 'd';
     --dd-bottom: 'dx';
     display: inline-grid;
@@ -866,26 +866,20 @@ d-dx, dy-dx, dz-dx, dz-dy {
     font-style: italic;
     
 }
-dy-dx {
-    --dd-top: 'dy';
-    --dd-bottom: 'dx';
-}
-dz-dx {
-    --dd-top: 'dz';
-    --dd-bottom: 'dx';
-}
-dz-dy {
-    --dd-top: 'dz';
-    --dd-bottom: 'dy';
-}
+dy-dx { --dd-top: 'dy'; --dd-bottom: 'dx'; }
+dz-dx { --dd-top: 'dz'; --dd-bottom: 'dx'; }
+dz-dy { --dd-top: 'dz'; --dd-bottom: 'dy'; }
+quotient-rule {--dd-top:'f\'g - fg\'';--dd-bottom:'g\00b2'; }
 
-d-dx::before, dy-dx::before, dz-dx::before, dz-dy::before
+d-dx::before, dy-dx::before, dz-dx::before,
+dz-dy::before, quotient-rule::before
 {
     content: '\00a0 ' var(--dd-top) '\00a0';
     border-bottom: 1px solid;
 }
 
-d-dx::after, dy-dx::after, dz-dx::after, dz-dy::after
+d-dx::after, dy-dx::after, dz-dx::after,
+dz-dy::after, quotient-rule::after
 { content: var(--dd-bottom); }
 
 d-dx[data-viva], dy-dx[data-viva],
@@ -2850,8 +2844,19 @@ g-eom > svg {
     fill: var(--lightness);
     overflow:visible;
 }
-g-eom > svg > .tanklid { fill: var(--inverse); }
-g-eom > svg > .tankbody { fill: url("#grad"); }
+g-eom > svg > .tankstuff { fill: var(--inverse); }
+g-eom > svg > .tankshade { fill: url("#grad"); }
+g-eom > svg > .shape {
+    fill: none;
+    stroke: var(--lightness);
+    stroke-width: 5;
+    stroke.miterlimit: 500;
+}
+g-eom > svg > .measureline {
+    fill: none;
+    stroke: var(--whiteness);
+    stroke-width: 1;
+}
 g-eom > t-ank {
     position: relative;
     display: inline-block;
