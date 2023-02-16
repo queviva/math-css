@@ -182,11 +182,19 @@ document.querySelectorAll('g-eom').forEach((
             const pi2   = Math.PI/2;
             const kidz  = Array.from(obj.children);
             const lines = void 0 !== dset.drawlines;
-            const opty  = parseInt(
+            const optx  = parseInt( //{
                 (Object.entries(dset).join('')
                 .match(/opt\d+/)||['opt0'])[0]
                 .match(/\d+/)[0]
-            );
+            );//}
+            
+            kidz.forEach(k => {
+            
+                let v = Object.entries(k.dataset).join('')
+                    .match(/opt\d+/);
+                k.dataset.optx = v ?
+                    parseInt(v[0].match(/\d+/)[0]) : optx
+            });
             
             let a1, a2, b, h, hyp;
             let t, ta1, ta2, th, tb,
@@ -244,7 +252,6 @@ document.querySelectorAll('g-eom').forEach((
         'translate(' + 0 + ' ' + high + ')'
     );
     svg.append(p);
-                        
                     }
                 ],
                 a2: [
@@ -331,7 +338,7 @@ document.querySelectorAll('g-eom').forEach((
     );
     svg.append(p);
                     },
-                    () => {
+                    (fil) => {
     const p1 = nsp();
     p1.classList.add('measureline');
     p1.setAttribute('d', optArrow1);
@@ -370,7 +377,15 @@ document.querySelectorAll('g-eom').forEach((
     `)
     svg.prepend(p);
                     },
-                    () => {}
+                    (len, fil) => {
+    const p = nsp();
+    p.classList.add('tankmeasure');
+    p.setAttribute('d', `M${len} 0A ${len} ${len} 0 0 0 ${len*cos(-theta)} ${len*sin(-theta)}A ${len} ${len} 0 0 1 ${len+3} 13A ${len} ${len} 0 0 0 ${8+len*cos(-theta)} ${3+len*sin(-theta)}`);
+    p.setAttribute('transform',
+        'translate(' + wide*fil + ' ' + (1-fil)*high + ')'
+    );
+    svg.append(p);
+                    }
                 ],
                 ta2: [
                     (len, fil) => {
@@ -386,7 +401,15 @@ document.querySelectorAll('g-eom').forEach((
     `)
     svg.prepend(p);
                     },
-                    () => {}
+                    (len, fil) => {
+    const p = nsp();
+    p.classList.add('tankmeasure');
+    p.setAttribute('d', `M0 ${len}A${len} ${len} 0 0 1 ${-len*cos(theta)} ${len*sin(theta)}A${len} ${len} 0 0 0 ${8} ${len+5}A${len} ${len} 0 0 1 ${-4-len*cos(theta)} ${len*sin(theta)}`);
+    p.setAttribute('transform',
+        'translate(' + wide*fil + ' ' + (1-fil)*high + ')'
+    );
+    svg.append(p);
+                    }
                 ],
                 tb: [
                     (fil) => {
@@ -399,7 +422,23 @@ document.querySelectorAll('g-eom').forEach((
     svg.append(p);
                         
                     },
-                    (fil) => {}
+                    (fil) => {
+    const p = nsp();
+    const L = fil*wide;
+    const T = (1-fil)*high;
+    const W = (1-fil)*wide;
+    p.classList.add('tankshape');
+    p.setAttribute('d',
+        `
+        M${L-10} ${T-4}
+        q${W/2} ${3} ${W+16} ${0}
+        l5 9
+        q${-W/2} ${-4} ${-W-3} ${0}
+        Z
+        `
+    );
+    svg.append(p);
+                    }
                 ],
                 b1: [
                     (fil, adj) => {
@@ -411,7 +450,16 @@ document.querySelectorAll('g-eom').forEach((
     `);
     svg.append(p);
                     },
-                    (fil, adj) => {}
+                    (fil, adj) => {
+    const p = nsp();
+    p.classList.add('tankmeasure');
+    p.setAttribute('d', `
+        M0 ${high+adj}
+        q ${wide*fil/2} -5 ${wide*fil} 2
+        l ${-5 + wide*fil/-2} -7
+    `);
+    svg.append(p);
+                    }
                 ],
                 b2: [
                     (fil, adj) => {
@@ -431,7 +479,17 @@ document.querySelectorAll('g-eom').forEach((
         svg.append(dot);
     }
                     },
-                    (fil, adj) => {}
+                    (fil, adj) => {
+    const p = nsp();
+    const W = wide*(1-fil);
+    p.classList.add('tankmeasure');
+    p.setAttribute('d', `
+        M${wide*fil} ${high+adj}
+        q${W/2} -5 ${W+10} 2
+        q${-W/2} -5 ${-W} 2
+    `);
+    svg.append(p);
+                    }
                 ],
                 th: [
                     (fil) => {
@@ -444,10 +502,19 @@ document.querySelectorAll('g-eom').forEach((
         `
     );
     svg.append(p);
-                        
                     },
                     (fil) => {
-                        
+    const p = nsp();
+    const L = fil*wide;
+    const T = (1-fil)*high;
+    p.classList.add('tankshape');
+    p.setAttribute('d', `
+        M${L-2} ${T-12}
+        Q${L+4} ${T+high/2} ${L} ${high+2}l8 13
+        Q${L+8} ${T+high/2} ${L+4} ${T-8}
+        Z
+    `);
+    svg.append(p);
                     }
                 ],
                 h1: [
@@ -460,7 +527,19 @@ document.querySelectorAll('g-eom').forEach((
     `);
     svg.append(p);
                     },
-                    (fil, adj) => {}
+                    (fil, adj) => {
+    const p = nsp();
+    const L = wide + adj;
+    const T = (1-fil)*high;
+    const mid = T + (high-T)/2;
+    p.classList.add('tankmeasure');
+    p.setAttribute('d', `
+        M${L} ${T}
+        Q${L-5} ${mid} ${L+2} ${high+4}
+        Q${L-3} ${mid} ${L+5} ${T+3}
+    `);
+    svg.append(p);
+                    }
                 ],
                 h2: [
                     (fil, adj) => {
@@ -480,7 +559,20 @@ document.querySelectorAll('g-eom').forEach((
         svg.append(dot);
     }
                     },
-                    (fil, adj) => {}
+                    (fil, adj) => {
+    const p = nsp();
+    const L = wide + adj;
+    const B = (1-fil)*high;
+    const mid = B/2;
+    p.classList.add('tankmeasure');
+    p.setAttribute('d', `
+        M${L} ${0}
+        Q${L-7} ${B/2} ${L-2} ${B+3}
+        Q${L-4} ${B/2} ${L+1} ${-3}
+        L${L+2} ${B/2-3}
+    `);
+    svg.append(p);
+                    }
                 ],
                 hyp1 : [
                     (fil, adj) => {
@@ -495,7 +587,21 @@ document.querySelectorAll('g-eom').forEach((
     svg.append(p);
                     },
                     (fil, adj) => {
-                        
+    const p = nsp();
+    p.classList.add('tankmeasure');
+    p.setAttribute('d', `
+        M${adj*cos(pi2 + theta)}
+         ${high - adj*sin(pi2 + theta)}
+        Q${(fil*wide)/2}
+         ${((1-fil)*high)+(fil*high/2)}
+         ${(fil*wide) + adj*cos(pi2 + theta)}
+         ${((1-fil)*high) - adj*sin(pi2 + theta)}
+        Q${(fil*wide)/2}
+         ${((1-fil)*high)+(fil*high/2)}
+         ${(3+adj)*cos(pi2 + theta)}
+         ${high - (9-adj)*sin(pi2 + theta)}
+    `);
+    svg.append(p);
                     }
                 ],
                 hyp2 : [
@@ -521,31 +627,46 @@ document.querySelectorAll('g-eom').forEach((
         svg.append(dot);
     }
                     },
-                    (fil, adj) => {}
+                    (fil, adj) => {
+    const p = nsp();
+    p.classList.add('tankmeasure');
+    p.setAttribute('d', `
+        M${(fil*wide) + (adj+8)*cos(pi2 + theta)}
+         ${((1-fil)*high) - (adj-9)*sin(pi2 + theta)}
+        L${wide + adj*cos(pi2 + theta)} ${-adj*sin(pi2 + theta)}
+        L${(fil*wide) + (adj-4)*cos(pi2 + theta)}
+         ${((1-fil)*high) - (adj+4)*sin(pi2 + theta)}
+    `);
+    svg.append(p);
+                    }
                 ]
                 
             };
             
-            makeLines.shape[opty]();
-            makeLines.square[opty]();
+            makeLines.shape[optx]();
+            makeLines.square[optx]();
 
-            if (a1 = kidz.find(v => v.tagName === 'A-1')) {
+            if (a1 = kidz.find(v => v.tagName=== 'A-1')) {
                 a1.innerHTML || (a1.innerHTML = '&theta\;');
                 let len = parseInt(a1.dataset.size) || wide/5;
-                if (lines || void 0 === a1.dataset.noline)
-                    makeLines.a1[opty](len);
+                if (void 0 === a1.dataset.noline)
+                    makeLines.a1[
+                        parseInt(a1.dataset.optx)
+                    ](len);
                 a1.style.top = high - (len+10) * sin(theta/2)
                     - a1.offsetHeight/2 +'px';
                 a1.style.left = (len+10) * cos(theta/2) + 'px';
             }
-            if (a2 = kidz.find(v => v.tagName === 'A-2')) {
+            if (a2 = kidz.find(v => v.tagName=== 'A-2')) {
                 a2.innerHTML || (a2.innerHTML = '&phi\;');
                 let len = parseInt(a2.dataset.size) || high/5;
                 let adj = parseInt(
                     window.getComputedStyle(a2).fontSize
                 ) / 2;
-                if (lines || void 0 === a2.dataset.noline)
-                    makeLines.a2[opty](len);
+                if (void 0 === a2.dataset.noline)
+                    makeLines.a2[
+                        parseInt(a2.dataset.optx)
+                    ](len);
                 a2.style.top = (len+20) * sin(
                     pi2 - phi/2
                 ) - a2.offsetHeight/2 +'px';
@@ -556,20 +677,26 @@ document.querySelectorAll('g-eom').forEach((
             if (b = kidz.find(v => v.tagName === 'B-B')) {
                 b.innerHTML || (b.innerHTML = 'b');
                 if (lines || void 0 !== b.dataset.drawline)
-                    makeLines.b[opty]();
+                    makeLines.b[
+                        parseInt(b.dataset.optx)
+                    ]();
                 b.style.top = high + 10 +'px';
             }
             if (h = kidz.find(v => v.tagName === 'H-H')) {
                 h.innerHTML || (h.innerHTML = 'h');
                 if (lines || void 0 !== h.dataset.drawline)
-                    makeLines.h[opty]();
+                    makeLines.h[
+                        parseInt(h.dataset.optx)
+                    ]();
                 h.style.height = high + 'px';
                 h.style.left = '100%';
             }
             if (hyp = kidz.find(v=>v.tagName==='H-YP')) {
                 hyp.innerHTML || (hyp.innerHTML = 'hyp');
                 if (lines || void 0 !== hyp.dataset.drawline)
-                    makeLines.hyp[opty]();
+                    makeLines.hyp[
+                        parseInt(hyp.dataset.optx)
+                    ]();
                 if (
                     hyp.innerText.length < 4 ||
                     void 0 !== hyp.dataset.noturn
@@ -593,6 +720,15 @@ document.querySelectorAll('g-eom').forEach((
             }
             if (t = kidz.find(v=>v.tagName==='T-ANK')) {
                 
+                Array.from(t.children).forEach(k => {
+            
+                    let v = Object.entries(k.dataset).join('')
+                    .match(/opt\d+/);
+                    k.dataset.optx = v ?
+                        (v[0].match(/\d+/)[0]) :
+                        t.dataset.optx
+                });
+                
                 const fil = (
                     parseInt(t.dataset.fill) || 75
                 ) / 100;
@@ -602,7 +738,9 @@ document.querySelectorAll('g-eom').forEach((
                     let len = parseInt(ta1.dataset.size) ||
                         (1-fil)*wide / 4;
                     if (lines || void 0 === ta1.dataset.noline)
-                        makeLines.ta1[opty](len, fil);
+                        makeLines.ta1[
+                            parseInt(ta1.dataset.optx)
+                        ](len, fil);
                     ta1.style.top =
                         -fil*high +
                         (high -
@@ -621,7 +759,9 @@ document.querySelectorAll('g-eom').forEach((
                         window.getComputedStyle(ta2).fontSize
                     ) / 2;
                     if (lines || void 0 === ta2.dataset.noline)
-                        makeLines.ta2[opty](len, fil);
+                        makeLines.ta2[
+                            parseInt(ta2.dataset.optx)
+                        ](len, fil);
                     ta2.style.top =
                         (1-fil)*high +
                         ((len + 20) *
@@ -637,7 +777,9 @@ document.querySelectorAll('g-eom').forEach((
                         ) - adj) + 'px';
                 }
                 if (tb = t.querySelector('b-b')) {
-                    makeLines.tb[opty](fil);
+                    makeLines.tb[
+                        parseInt(tb.dataset.optx)
+                    ](fil);
                     tb.innerHTML || (tb.innerHTML = `
                     <b>b<sub>2</sub></b>
                     `);
@@ -651,7 +793,9 @@ document.querySelectorAll('g-eom').forEach((
                     `);
                     let adj = b ? 20 : 10;
                     if (lines||void 0!==b1.dataset.drawline)
-                        makeLines.b1[opty](fil, adj);
+                        makeLines.b1[
+                            parseInt(b1.dataset.optx)
+                        ](fil, adj);
                     b1.style.width = wide * fil + 'px';
                     b1.style.left = 0;
                     b1.style.top = (high + adj) + 'px';
@@ -662,13 +806,17 @@ document.querySelectorAll('g-eom').forEach((
                     `);
                     let adj = b ? 20 : 10;
                     if (lines||void 0!==h2.dataset.drawline)
-                        makeLines.b2[opty](fil, adj);
+                        makeLines.b2[
+                            parseInt(b2.dataset.optx)
+                        ](fil, adj);
                     b2.style.width = wide * (1-fil) + 'px';
                     b2.style.top = (high + adj) + 'px';
                     b2.style.left = (wide * fil) + 'px';
                 }
                 if (th = t.querySelector('h-h')) {
-                    makeLines.th[opty](fil);
+                    makeLines.th[
+                        parseInt(th.dataset.optx)
+                    ](fil);
                     th.innerHTML || (th.innerHTML = `
                     <b>h<sub>1</sub></b>
                     `);
@@ -682,7 +830,9 @@ document.querySelectorAll('g-eom').forEach((
                     `);
                     let adj = h ? 20 : 10;
                     if (lines||void 0!==h1.dataset.drawline)
-                        makeLines.h1[opty](fil, adj);
+                        makeLines.h1[
+                            parseInt(h1.dataset.optx)
+                        ](fil, adj);
                     h1.style.height = high * fil + 'px';
                     h1.style.left = (wide + adj) + 'px';
                     h1.style.bottom = 0;
@@ -693,7 +843,9 @@ document.querySelectorAll('g-eom').forEach((
                     `);
                     let adj = h ? 20 : 10;
                     if (lines||void 0!==h2.dataset.drawline)
-                        makeLines.h2[opty](fil, adj);
+                        makeLines.h2[
+                            parseInt(h2.dataset.optx)
+                        ](fil, adj);
                     h2.style.height = high * (1-fil) + 'px';
                     h2.style.left = (wide + adj) + 'px';
                     h2.style.top = 0;
@@ -708,7 +860,9 @@ document.querySelectorAll('g-eom').forEach((
                         20 : 10
                     );
                     if (lines || void 0 !== hyp1.dataset.drawline)
-                        makeLines.hyp1[opty](fil, adj);
+                        makeLines.hyp1[
+                            parseInt(hyp1.dataset.optx)
+                        ](fil, adj);
                     if (
                         hyp1.innerText.length < 4 ||
                         void 0 !== hyp1.dataset.noturn
@@ -736,7 +890,7 @@ document.querySelectorAll('g-eom').forEach((
                 }
                 if (hyp2 = t.querySelector('hyp-2')) {
                     hyp2.innerHTML||(hyp2.innerHTML =
-                        'ratmashyp<sub>2</sub>'
+                        'hyp<sub>2</sub>'
                     );
                     let adj = (
                         (lines && hyp) ||
@@ -744,7 +898,9 @@ document.querySelectorAll('g-eom').forEach((
                         20 : 10
                     );
                     if (lines || void 0 !== hyp2.dataset.drawline)
-                        makeLines.hyp2[opty](fil, adj);
+                        makeLines.hyp2[
+                            parseInt(hyp2.dataset.optx)
+                        ](fil, adj);
                     if (
                         hyp2.innerText.length < 4 ||
                         void 0 !== hyp2.dataset.noturn
