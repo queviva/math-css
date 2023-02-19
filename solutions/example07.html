@@ -1,0 +1,718 @@
+<!doctype html><html lang="en">
+<head>
+<title>proving grounds</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+<meta name="description"
+content="fakt-left dist-rite">
+<link rel="stylesheet" href="../mathrobatics.css">
+<link rel="stylesheet" href="../mathrobatics-ikons.css">
+<link rel="stylesheet" href="../demoStyles.css">
+<script defer src="../mathrobatics.js"></script>
+</head>
+
+<body>
+<div id="hold" class="holder mathrobatics">
+<svg id="SVGfilter" height="10" width="10">
+
+    <defs>
+        <marker id="dot" refX="10" refY="10"
+         vector-effect="non-scaling-size"
+         markerUnits="userSpaceOnUse"
+         markerWidth="20"
+         markerHeight="20"
+         orient="auto"
+        >
+            <circle id="dotdot" cx="10" cy="10" r="1"
+             vector-effect="non-scaling-size"
+             fill="#c30"
+             stroke="none"
+            ></circle>
+        </marker>
+        <linearGradient id="grad" xgradientTransform="rotate(90)">
+            <stop offset="5%" stop-color="rgba(0,0,0,1)" />
+            <stop offset="80%" stop-color="rgba(0,0,0,0)" />
+            <stop offset="88%" stop-color="rgba(255,255,255,0)" />
+            <stop offset="98%" stop-color="rgba(255,255,255,0.9)" />
+        </linearGradient>
+    </defs>
+    
+    <filter id="lightness">
+      <feFlood flood-color="var(--lightness)" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="midness">
+      <feFlood flood-color="var(--midness)" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+
+    <filter id="darkness">
+      <feFlood flood-color="var(--darkness)" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="inverse">
+      <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 120),
+            var(--nose-s),
+            var(--nose-l)
+      )" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="greyness">
+      <feFlood flood-color="hsl(
+        var(--nose-h),
+        calc(0.1 * var(--nose-s)),
+        calc(0.6 * var(--nose-l))
+      )" result="F0"/>
+      <feComposite in="F0" in2="SourceGraphic" operator="in"/>
+    </filter>
+    
+    <filter id="outline">
+        <feMorphology operator="dilate" radius="0.5" result="X0" />
+        <feFlood in="X0" flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            calc(0.7 * var(--nose-l))
+        )" result="F0"/>
+        <feComposite in="F0" in2="X0" operator="in" result="Z0" />
+        <feComposite in="Z0" in2="SourceGraphic" operator="out" result="Z1" />
+        <feGaussianBlur stdDeviation="0.5" in="Z1" />
+    </filter>
+    
+    <filter id="viva"
+        x="-200%"
+        y="-200%"
+        height="900%"
+        width="900%"
+    >
+        <feGaussianBlur stdDeviation="0.3" result="B0"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            90%
+        )" result="F0"/>
+        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
+        
+        <feGaussianBlur stdDeviation="2" result="B1"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 12),
+            var(--nose-s),
+            50%
+        )" result="F1"/>
+        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
+        
+        <feGaussianBlur stdDeviation="3" result="B2"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 20),
+            calc(var(--nose-s) * 0.69),
+            45%
+        )" result="F2"/>
+        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
+        
+        <feGaussianBlur stdDeviation="4" result="B3"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 40),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F3"/>
+        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
+        
+        <feGaussianBlur stdDeviation="8" result="B4"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F4"/>
+        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
+        
+        <feMerge>
+			<feMergeNode in="Z4"/>
+			<feMergeNode in="Z3"/>
+			<feMergeNode in="Z2"/>
+			<feMergeNode in="Z1"/>
+			<feMergeNode in="Z0"/>
+		</feMerge>
+		
+    </filter>
+
+    <filter id="lil-viva"
+        x="-75%"
+        y="-75%"
+        height="300%"
+        width="300%"
+    >
+        <feGaussianBlur stdDeviation="0.3" result="B0"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            var(--nose-s),
+            90%
+        )" result="F0"/>
+        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
+        
+        <feGaussianBlur stdDeviation="0.7" result="B1"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 12),
+            var(--nose-s),
+            50%
+        )" result="F1"/>
+        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
+        
+        <feGaussianBlur stdDeviation="0.9" result="B2"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 20),
+            calc(var(--nose-s) * 0.69),
+            42%
+        )" result="F2"/>
+        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
+        
+        <feGaussianBlur stdDeviation="2" result="B3"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 40),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F3"/>
+        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
+        
+        <feGaussianBlur stdDeviation="4" result="B4"/>
+        <feFlood flood-color="hsl(
+            var(--nose-h),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F4"/>
+        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
+        
+        <feMerge>
+			<feMergeNode in="Z4"/>
+			<feMergeNode in="Z3"/>
+			<feMergeNode in="Z2"/>
+			<feMergeNode in="Z1"/>
+			<feMergeNode in="Z0"/>
+		</feMerge>
+		
+    </filter>
+    
+    <filter id="vers"
+        x="-100%"
+        y="-100%"
+        height="300%"
+        width="300%"
+    >
+        <feGaussianBlur stdDeviation="0.3" result="B0"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 120),
+            var(--nose-s),
+            90%
+        )" result="F0"/>
+        <feComposite in="F0" in2="B0" operator="in" result="Z0"/>
+        
+        <feGaussianBlur stdDeviation="2" result="B1"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 12 + 120),
+            var(--nose-s),
+            50%
+        )" result="F1"/>
+        <feComposite in="F1" in2="B1" operator="in" result="Z1"/>
+        
+        <feGaussianBlur stdDeviation="3" result="B2"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 20 + 120),
+            calc(var(--nose-s) * 0.69),
+            45%
+        )" result="F2"/>
+        <feComposite in="F2" in2="B2" operator="in" result="Z2"/>
+        
+        <feGaussianBlur stdDeviation="4" result="B3"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) - 40 + 120),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F3"/>
+        <feComposite in="F3" in2="B3" operator="in" result="Z3"/>
+        
+        <feGaussianBlur stdDeviation="8" result="B4"/>
+        <feFlood flood-color="hsl(
+            calc(var(--nose-h) + 120),
+            calc(var(--nose-s) * 1.1),
+            50%
+        )" result="F4"/>
+        <feComposite in="F4" in2="B4" operator="in" result="Z4"/>
+        
+        <feMerge>
+			<feMergeNode in="Z4"/>
+			<feMergeNode in="Z3"/>
+			<feMergeNode in="Z2"/>
+			<feMergeNode in="Z1"/>
+			<feMergeNode in="Z0"/>
+		</feMerge>
+		
+    </filter>
+
+    <filter id="ghost"
+        x="-200%"
+        y="-200%"
+        height="900%"
+        width="900%"
+    >
+
+        <feFlood flood-color="hsla(
+            var(--nose-h),
+            var(--nose-s),
+            var(--nose-l),
+            1
+        )" result="F0"/>
+        <feComposite in="F0" in2="SourceGraphic" operator="in" result="C0" />
+        <feGaussianBlur in="C0" stdDeviation="5" result="B0" />
+        
+        <feFlood flood-color="rgba(255,255,255,0.5)" result="F1" />
+        <feComposite in="F1" in2="SourceGraphic" operator="in" result="C1" />
+        <feGaussianBlur in="C1" stdDeviation="7.5" result="B1" />
+        
+        <feMerge out="Merge">
+            <feMergeNode in="B1" />
+            <feMergeNode in="B0" />
+        </feMerge>
+        
+        <feComposite in="Merge" in2="SourceGraphic" operator="out" />
+        
+    </filter>
+    
+    <filter id="vapor"
+        x="-200%"
+        y="-200%"
+        height="900%"
+        width="900%"
+    >
+        <feMorphology operator="dilate" radius="2.5" result="M0" />
+        <feFlood flood-color="hsla(
+            var(--nose-h),
+            var(--nose-s),
+            calc(1.5 * var(--nose-l)),
+            0.5
+        )" result="F0"/>
+        <feComposite in="F0" in2="M0" operator="in" result="C0" />
+        <feGaussianBlur in="C0" stdDeviation="20" result="B0" />
+        
+        <feFlood flood-color="#000" result="F1" />
+        <feComposite in="F1" in2="SourceGraphic" operator="in" result="C1" />
+        <feGaussianBlur in="C1" stdDeviation="1" result="B1" />
+        <feComposite in="B0" in2="B1" operator="out" result="Z1" />
+        
+    </filter>
+  
+</svg>
+<div class="qr">
+<c-omm>
+    a man is walking away from a lamppost
+    <b>
+        he walks at 3/ft away from a 24-foot tall
+        lamppost; what is the rate of change of
+        the length of his shadow?
+    </b>
+</c-omm>
+<div style="padding-left:80px;">
+    <d-raft style="width:100px;">
+        <i data-viva>
+            length of<br>
+            shadow
+        </i>
+    </d-raft>
+    <b style="
+        position: relative;
+        display: inline-block;
+        padding: 0px 3px;
+        bottom: 0;
+        border: 1px solid;
+        height: 100px;
+        xwidth: 0px;
+        vertical-align: 50px;
+    "><n-ote>guy</n-ote></b>
+    <d-raft style="width:100px;">
+        <i data-viva>
+            distance to<br>
+            some guy
+        </i>
+    </d-raft>
+    <i-kon data-lamppost data-ghost style="
+        height: 200px;
+        transform-origin: 50% calc(100% - 100px);
+        transform: scale(0.5, 0.5);
+    "></i-kon>
+    <n-ote>lamp!</n-ote>
+</div>
+
+
+<c-omm>
+    looks like it's <em>Rite Triangle</em> to the rescue
+    <b>
+        try to lay everything out in a shape that you
+        can recognize
+    </b>
+</c-omm>
+<div>
+<g-eom
+    data-type="tri-rite"
+    data-wide="300"
+    data-high="225"
+    data-opt1
+>
+    <h-h data-drawline>height of lamp</h-h>
+    <t-ank data-opt1 data-fill="60%">
+        <h-h>guy</h-h>
+        <b-1 data-drawline>
+            b<sub>1</sub> = lenght of<br>shadow
+        </b-1>
+        <b-2 data-drawline>
+            b<sub>2</sub> = distance<br>to guy
+        </b-2>
+    </t-ank>
+</g-eom>
+<i-kon data-lamppost data-ghost style="
+    height: 300px;
+"></i-kon>
+</div>
+
+<br>
+<c-omm>
+    the trick is that there's a <em>similar triangle</em>
+</c-omm>
+<div>
+<g-eom
+    data-type="tri-rite"
+    data-wide="300"
+    data-high="225"
+>
+    <a-1 data-opt1 data-drawline>
+        &theta; = angle to<br>guy's head
+    </a-1>
+    <t-ank data-fill="60%" data-drawlines>
+        <a-1 data-opt1>also = &theta;<br></a-1>
+        <h-h data-noline></h-h>
+        <h-2 data-opt1></h-2>
+        <b-b data-opt1 data-noline>
+            <n-ote data-dark style="font-size:0.8em;">
+            also = b<sub>2</sub>
+            </n-ote>
+        </b-b>
+        <b-1></b-1>
+        <b-2></b-2>
+        
+    </t-ank>
+</g-eom>
+<i-kon data-lamppost data-ghost style="
+    height: 300px;
+"></i-kon>
+</div>
+
+<c-omm>
+    so what can we do with similar triangles?
+    <b>
+        we can use the similar triangles to
+        relate b<sub>1</sub> to b<sub>2</sub>
+        <br><br>
+        since b<up-dn>'<br>2</up-dn> is given,
+        we can solve that equation for
+        b<up-dn>'<br>1</up-dn>, which is the
+        desired result
+    </b>
+</c-omm>
+<div>
+<g-eom
+    data-type="tri-rite"
+    data-wide="300"
+    data-high="225"
+>
+    <a-1 data-drawline> </a-1>
+    <t-ank data-fill="60%">
+        <a-1 data-drawline> </a-1>
+        <h-h></h-h>
+        <h-2 data-drawline></h-2>
+        <b-b>b<up-dn>'<br>2</up-dn> = given</b-b>
+        <b-1 data-drawline>
+            b<up-dn>'<br>1</up-dn> = answer
+        </b-1>
+    </t-ank>
+</g-eom>
+<i-kon data-lamppost data-ghost style="
+    height: 300px;
+"></i-kon>
+</div>
+
+<c-omm>
+    from rules of similar triangles
+</c-omm>
+<div>
+    <f-rak>
+        <b>b<sub>1</sub></b>
+        <b>h<sub>1</sub></b>
+    </f-rak>
+    =
+    <f-rak>
+        <b>b<sub>2</sub></b>
+        <b>h<sub>2</sub></b>
+    </f-rak>
+</div>
+
+<c-omm>
+    multiply by h<sub>1</sub> to help solve for b<sub>1</sub>
+</c-omm>
+<div>
+    <n-tim>h<sub>1</sub></n-tim>
+    <f-rak>
+        <b>b<sub>1</sub></b>
+        <b>h<sub>1</sub></b>
+    </f-rak>
+    =
+    <n-tim>h<sub>1</sub></n-tim>
+    <f-rak>
+        <b>b<sub>2</sub></b>
+        <b>h<sub>2</sub></b>
+    </f-rak>
+</div>
+
+<c-omm>
+    cancel on one side; multiply on the other
+</c-omm>
+<div>
+    <c-ank>h<sub>1</sub></c-ank><v-t></v-t><f-rak>
+        <b>b<sub>1</sub></b>
+        <r-dux data-opt1>
+            <b>1</b>
+            <b>h<sub>1</sub></b>
+        </r-dux>
+    </f-rak>
+    =
+    h<sub>1</sub><v-t></v-t><f-rak>
+        <b>b<sub>2</sub></b>
+        <b>h<sub>2</sub></b>
+    </f-rak>
+</div>
+
+<c-omm>
+    we'll try to get the h's into thier own fraction
+</c-omm>
+<div>
+    <f-rak data-vapor>
+        <b>b<sub>1</sub></b>
+        <g-ost>1</g-ost>
+    </f-rak>
+    =
+    <f-rak>
+        <b>h<sub>1</sub></b>
+        <v-iva>1</v-iva>
+    </f-rak>
+    <p-t></p-t>
+    <f-rak>
+        <b>b<sub>2</sub></b>
+        <b>h<sub>2</sub></b>
+    </f-rak>
+    <br><br>
+    <b>b<sub>1</sub></b>
+    =
+    <f-rak data-viva>
+        <b>
+            h<sub>1</sub> <v-t></v-t>
+            b<sub>2</sub>
+        </b>
+        <b>
+            1 <v-t></v-t>
+            h<sub>2</sub>
+        </b>
+    </f-rak>
+    <br><br>
+    b<sub>1</sub>
+    =
+    <f-rak>
+        <b>h<sub>1</sub></b>
+        <b>h<sub>2</sub></b>
+    </f-rak>
+    <v-t></v-t>
+    b<sub>2</sub>
+</div>
+
+<c-omm>
+    h<sub>1</sub> is the difference between the
+    height of the guy and the height of the lamp
+</c-omm>
+<div>
+<g-eom data-type="tri-rite"
+ data-high="225"
+ data-wide="300">
+    <h-h data-drawline>lamp height</h-h>
+    <t-ank data-fill="60">
+        <b-b> </b-b>
+        <h-h>guy's height</h-h>
+        <h-2 data-drawline>= lamp - guy</h-2>
+    </t-ank>
+</g-eom>
+<i-kon data-lamppost data-vapor style="
+    height:300px;
+    left: 10px;
+"></i-kon>
+</div>
+
+<c-omm>
+    since both h<sub>1</sub> and h<sub>2</sub>
+    are constants, so is their ratio
+</c-omm>
+<div>
+b<sub>2</sub>
+=
+<b-rak data-viva>
+    <f-rak>
+        <b>h<sub>1</sub></b>
+        <b>h<sub>2</sub></b>
+    </f-rak>
+</b-rak>
+<p-t></p-t>
+b<sub>1</sub>
+</div>
+
+<c-omm>
+    this derivative is rather simple
+</c-omm>
+<div>
+<v-iva>
+b<up-dn>&#x2032;<br>2</up-dn>
+</v-iva>
+=
+<b-rak>
+    <f-rak>
+        <b>h<sub>1</sub></b>
+        <b>h<sub>2</sub></b>
+    </f-rak>
+</b-rak>
+<p-t></p-t>
+<v-iva>
+b<up-dn>&#x2032;<br>1</up-dn>
+</v-iva>
+</div>
+
+<c-omm>
+    b<up-dn>'<br>2</up-dn>
+    is the answer when computed with these values
+    <b>
+        it is the rate of change of the length of
+        the shadow
+    </b>
+</c-omm>
+<div>
+b<up-dn>&#x2032;<br>2</up-dn>
+=
+<b-rak>
+    <f-rak>
+        <b>h<sub>1</sub></b>
+        <b>h<sub>2</sub></b>
+    </f-rak>
+</b-rak>
+<p-t></p-t>
+b<up-dn>&#x2032;<br>1</up-dn>
+<w-ear data-viva>
+    <b>b<up-dn>&#x2032;<br>2</up-dn> = <i>ans</i></b>
+    <b>h<sub>1</sub> = lamp - guy = 24ft - 6ft</b>
+    <b>h<sub>2</sub> = guy = 6ft</b>
+    <b>b<up-dn>&#x2032;<br>1</up-dn> = 3ft/s </b>
+</w-ear>
+</div>
+
+<c-omm>
+    replace those values in the equation
+</c-omm>
+<div>
+<e-kwa>
+    <b>b<up-dn>&#x2032;<br>2</up-dn></b>
+    <b><i>ans</i></b>
+</e-kwa>
+=
+<b-rak><f-rak>
+    <e-kwa>
+        <b>h<sub>1</sub></b>
+        <b>18ft</b>
+    </e-kwa>
+    <e-kwa>
+        <b>h<sub>2</sub></b>
+        <b>6ft</b>
+    </e-kwa>
+</f-rak></b-rak>
+<p-t></p-t>
+<e-kwa>
+    <b>b<up-dn>'<br>1</up-dn></b>
+    <b>3ft/s</b>
+</e-kwa>
+
+</div>
+
+<c-omm>
+    do some mathrobatics
+</c-omm>
+<div>
+<i>ans</i>
+=
+<b-rak data-vapor><f-rak>
+    <b>18<v-t></v-t><i>ft</i></b>
+    <b>6<v-t></v-t><i>ft</i></b>
+</f-rak></b-rak>
+<p-t></p-t>
+3<i>ft/s</i>
+</div>
+
+<c-omm>
+    reduce; cancel values and units
+</c-omm>
+<div>
+<i>ans</i> =
+<f-rak>
+    <b>
+        <r-dux><b>3</b><b>18</b></r-dux>
+        <p-t></p-t>
+        <c-ank><i>ft</i></c-ank>
+    </b>
+    <b>
+        <r-dux><b>1</b><b>6</b></r-dux>
+        <p-t></p-t>
+        <c-ank data-opt1><i>ft</i></c-ank>
+    </b>
+</f-rak>
+<p-t></p-t>3<i>ft/s</i>
+</div>
+
+<c-omm>
+    getting closer ...
+</c-omm>
+<div>
+ans =
+<f-rak>
+    <b>3</b>
+    <g-ost>1</g-ost>
+</f-rak>
+<p-t></p-t>
+3<i>ft/s</i>
+<br><br>
+ans = <c-url data-lo>3 <v-t></v-t> 3</c-url> <i>ft/s</i>
+</div>
+
+<c-omm>
+    the rate of change of the length of the shadow...
+</c-omm>
+<div>
+    <s-tar>9<i>ft/s</i></s-tar>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div end_qr>
+
+<div class="signature"></div>
+</div>
+</body>
+</html>
