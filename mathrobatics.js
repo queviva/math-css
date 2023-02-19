@@ -30,83 +30,84 @@ document.querySelectorAll(
 //}
 
 // i-arc {
-document.querySelectorAll('i-arc').forEach(
-    (
-        obj, idx, j,
-        high,
-        kidz = [],
-        dset = obj.dataset,
-        dist = void 0 !== dset.dist,
-        rite = void 0 !== dset.rite,
-        cirk = void 0 !== dset.cirk,
-        size = parseInt(dset.size) || 10,
-        min  = parseInt(dset.min) || 20,
-        dif  = parseInt(dset.dif) || 15,
-        val  = obj.children[0],
-        txt  = val.innerText,
-        svg  = document.createElementNS(NS, 'svg'),
-        path = nsp()
-    ) => {
-        val.classList.add(dist ? 'iarc-dist' : 'iarc-fakt');
-        val.innerText = txt;
-        obj.parentNode.insertBefore(
-           val, rite ? obj.nextSibling : obj
-        );
-        !dist ||  val.parentNode.insertBefore(
-            document.createElement('g-t'),
-            rite ? val : val.nextSibling
-        );
-        kidz = cirk ? [...obj.querySelectorAll('c-irk')]
-            .sort((a, b) =>
-                a.getBoundingClientRect().left -
-                b.getBoundingClientRect().left
+document.querySelectorAll('i-arc').forEach((
+    obj, idx, j,
+    high,
+    kidz = [],
+    dset = obj.dataset,
+    dist = void 0 !== dset.dist,
+    rite = void 0 !== dset.rite,
+    cirk = void 0 !== dset.cirk,
+    size = parseInt(dset.size) || 10,
+    min  = parseInt(dset.min) || 20,
+    dif  = parseInt(dset.dif) || 15,
+    val  = obj.children[0],
+    txt  = val.innerText,
+    svg  = document.createElementNS(NS, 'svg'),
+    path = nsp()
+) => {
+    
+    val.classList.add(dist ? 'iarc-dist' : 'iarc-fakt');
+    val.innerText = txt;
+    obj.parentNode.insertBefore(
+        val, rite ? obj.nextSibling : obj
+    );
+    
+    !dist || val.parentNode.insertBefore(
+        document.createElement('g-t'),
+        rite ? val : val.nextSibling
+    );
+    
+    kidz = cirk ? [...obj.querySelectorAll('c-irk')]
+        .sort((a, b) =>
+            a.getBoundingClientRect().left -
+            b.getBoundingClientRect().left
         ) : [...obj.children];
-        
-        !dist || (kidz = kidz.map(c => {
-            let f = document.createElement('b');
-            f.innerText = '\u00d7' + txt;
-            f.classList.add('iarc-dist-lil');
-            obj.insertBefore(f, c.nextSibling);
-            return f;
-        }));
-        high = min + dif * kidz.length - 1;
-        obj.style.marginTop = high + 'px';
-        svg.append(path);
-        obj.append(svg);
-        let Rec = {
-            obj: obj.getBoundingClientRect(),
-            val: val.getBoundingClientRect()
-        }
-        const wide = Math.abs(
-            rite ?
-            Rec.val.right - Rec.obj.left :
-            Rec.val.left - Rec.obj.right
-        );
-        svg.style.width  = wide + 'px';
-        svg.style.height = high + 'px';
-        rite ? svg.style.left = 0 : svg.style.right = 0;
-        Rec.svg = svg.getBoundingClientRect();
-        path.setAttribute('d', (rite ? kidz : kidz.reverse())
-        .map((k, i) => {
-            let kidRect = k.getBoundingClientRect(),
-            
-            origin = rite ?
-                [(kidRect.left + kidRect.width / 2 -
-                Rec.obj.left), high]:
-                [Rec.val.width / 2, high],
-            target = rite ?
-                [Rec.svg.width -
-                Rec.val.width / 2, high]:
-                [(kidRect.left + kidRect.width / 2 -
-                Rec.val.left), high],
-            rad = {
-                x: Math.abs(origin[0] - target[0]) / 2,
-                y: high - dif * i
-            };
-            return `M ${ origin.join(' ') } A ${rad.x} ${rad.y} 0 0 1 ${ target.join(' ') } h ${(dist&&!rite)||(!dist&&rite)?-size:-1} A ${rad.x-size-1 } ${rad.y *((rad.x-size-1)/rad.x) } 0 0 0 ${ origin[0] + ((dist&&!rite)||(!dist&&rite)?1:size)} ${ high } Z`;
-        }).join('') );
+
+    !dist || (kidz = kidz.map(c => {
+        let f = document.createElement('b');
+        f.innerText = '\u00d7' + txt;
+        f.classList.add('iarc-dist-lil');
+        obj.insertBefore(f, c.nextSibling);
+        return f;
+    }));
+    
+    high = min + dif * kidz.length - 1;
+    obj.style.marginTop = high + 'px';
+    svg.append(path);
+    obj.append(svg);
+    let Rec = {
+        obj: obj.getBoundingClientRect(),
+        val: val.getBoundingClientRect()
     }
-);
+    const wide = Math.abs(
+        rite ?
+        Rec.val.right - Rec.obj.left :
+        Rec.val.left - Rec.obj.right
+    );
+    svg.style.width = wide + 'px';
+    svg.style.height = high + 'px';
+    rite ? svg.style.left = 0 : svg.style.right = 0;
+    Rec.svg = svg.getBoundingClientRect();
+    path.setAttribute('d', (rite ? kidz : kidz.reverse())
+    .map((k, i) => {
+        let kidRect = k.getBoundingClientRect(),
+    
+        origin = rite ? [(kidRect.left + kidRect.width / 2 -
+                Rec.obj.left), high] : [Rec.val.width / 2, high],
+        target = rite ? [Rec.svg.width -
+            Rec.val.width / 2, high
+        ] : [
+            (kidRect.left + kidRect.width / 2 -
+             Rec.val.left), high
+        ],
+        rad = {
+            x: Math.abs(origin[0] - target[0]) / 2,
+            y: high - dif * i
+        };
+        return `M ${ origin.join(' ') } A ${rad.x} ${rad.y} 0 0 1 ${ target.join(' ') } h ${(dist&&!rite)||(!dist&&rite)?-size:-1} A ${rad.x-size-1 } ${rad.y *((rad.x-size-1)/rad.x) } 0 0 0 ${ origin[0] + ((dist&&!rite)||(!dist&&rite)?1:size)} ${ high } Z`;
+    }).join(''));
+});
 //}
 
 // [data-line] {
@@ -192,8 +193,15 @@ document.querySelectorAll('g-eom').forEach((
             
                 let v = Object.entries(k.dataset).join('')
                     .match(/opt\d+/);
+                    
                 k.dataset.optx = v ?
-                    parseInt(v[0].match(/\d+/)[0]) : optx
+                    parseInt(v[0].match(/\d+/)[0]) : optx;
+                    
+                k.dataset.drawline = (
+                    void 0 === k.dataset.noline &&
+                    (lines||void 0 !== k.dataset.drawline)
+                ) ? 'si' : 'no';
+                
             });
             
             let a1, a2, b, h, hyp;
@@ -209,141 +217,115 @@ document.querySelectorAll('g-eom').forEach((
             //}
             
             const makeLines = {
+                draw: (d, cls, xform) => {
+    const p = nsp();
+    p.setAttribute('d', d);
+    if (cls) p.classList.add(cls);
+    if (xform) p.setAttribute('transform', xform);
+    svg.append(p);
+                },
                 shape: [
-                    () => {
-    const p = nsp();
-    p.classList.add('shape');
-    p.setAttribute('d',`M0 ${high}H${wide}V0Z`);
-    svg.prepend(p);
-                    },
-                    () => {
-    const p = nsp();
-    p.setAttribute('d',
-        `M -10 ${high}Q${wide/2} ${high-5} ${wide+14} ${high+2}l10 10Q${wide/2} ${high-5} -20 ${high+10}zM -10 ${high+15}Q${10 + wide/2} ${10 + high/2} ${wide+15} ${-10}l5 13Q${10 + wide/2} ${10 + high/2} ${0} ${high+20}zM ${wide+12} ${-20}Q${wide-10} ${high/2} ${wide+10} ${high+25}l-5 13Q${wide-10} ${high/2} ${wide} ${-7}`);
-    svg.prepend(p);
-                    }
+                    () => makeLines.draw(
+    `M0 ${high}H${wide}V0Z`,
+    'shape'
+                    ),
+                    () => makeLines.draw(
+        `M -10 ${high}Q${wide/2} ${high-5} ${wide+14} ${high+2}l10 10Q${wide/2} ${high-5} -20 ${high+10}zM -10 ${high+15}Q${10 + wide/2} ${10 + high/2} ${wide+15} ${-10}l5 13Q${10 + wide/2} ${10 + high/2} ${0} ${high+20}zM ${wide+12} ${-20}Q${wide-10} ${high/2} ${wide+10} ${high+25}l-5 13Q${wide-10} ${high/2} ${wide} ${-7}Z`
+                    )
                 ],
                 square: [
-                    () => {
-    const p = nsp();
-    p.classList.add('measureline');
-    p.setAttribute('d', `M${wide-20} ${high} v-20 h20`);
-    svg.prepend(p);
-                    },
-                    () => {
-    const p = nsp();
-    p.classList.add('measureline');
-    p.setAttribute('d',`M${wide-20} ${high}l-1 -20 l24 1l-26 2l4 18`);
-    svg.prepend(p);
-                    }
+                    () => makeLines.draw(
+    `M${wide-20} ${high} v-20 h20`,
+    'measureline'
+                    ),
+                    () => makeLines.draw(
+    `M${wide-20} ${high}l-1 -20 l24 1l-26 2l4 18`,
+    'measureline'
+                    )
                 ],
                 a1: [
-                    (len) => {
-    const p = nsp();
-    p.classList.add('measureline');
-    p.setAttribute('d', `M${len} ${high}A ${len} ${len} 0 0 0 ${len*cos(-theta)} ${high+len*sin(-theta)}`);
-    svg.prepend(p);
-                    },
-                    (len) => {
-    const p = nsp();
-    p.classList.add('measureline');
-    p.setAttribute('d', `M${len} 0A ${len} ${len} 0 0 0 ${len*cos(-theta)} ${len*sin(-theta)}A ${len} ${len} 0 0 1 ${len+3} 13A ${len} ${len} 0 0 0 ${8+len*cos(-theta)} ${3+len*sin(-theta)}`);
-    p.setAttribute('transform',
-        'translate(' + 0 + ' ' + high + ')'
-    );
-    svg.append(p);
-                    }
+                    (len) => makeLines.draw(
+    `M${len} ${high}A ${len} ${len} 0 0 0 ${len*cos(-theta)} ${high+len*sin(-theta)}`,
+    'measureline'
+                    ),
+                    (len) => makeLines.draw(
+    `
+    M${len} ${high}
+    A ${len} ${len} 0 0 0
+      ${len*cos(-theta)} ${(len*sin(-theta))+high}
+    A ${len} ${len} 0 0 1
+      ${len+3} ${13+high}
+    A ${len} ${len} 0 0 0
+      ${8+len*cos(-theta)} ${(3+len*sin(-theta))+high}
+    `,
+    'measureline'
+                    )
                 ],
                 a2: [
-                    (len) => {
-    const p = nsp();
-    p.classList.add('measureline');
-    p.setAttribute('d',
-        `M${wide} ${len} A ${len} ${len} 0 0 1 ${wide-len*cos(theta)} ${len*sin(theta)}`
-    );
-    svg.prepend(p);
-                    },
-                    (len) => {
-    const p = nsp();
-    p.classList.add('measureline');
-    p.setAttribute('d', `M0 ${len}A${len} ${len} 0 0 1 ${-len*cos(theta)} ${len*sin(theta)}A${len} ${len} 0 0 0 ${8} ${len+5}A${len} ${len} 0 0 1 ${-4-len*cos(theta)} ${len*sin(theta)}`);
-    p.setAttribute('transform',
-        'translate(' + wide + ' ' + 0 + ')'
-    );
-    svg.append(p);
-                    }
+                    (len) => makeLines.draw(
+    `M${wide} ${len} A ${len} ${len} 0 0 1 ${wide-len*cos(theta)} ${len*sin(theta)}`,
+    'measureline'
+                    ),
+                    (len) => makeLines.draw(
+    `
+    M${wide} ${len}
+    A${len} ${len} 0 0 1
+     ${(-len*cos(theta))+wide} ${len*sin(theta)}
+    A${len} ${len} 0 0 0
+     ${8+wide} ${len+5}
+    A${len} ${len} 0 0 1
+     ${(-4-len*cos(theta))+wide} ${len*sin(theta)}`,
+    'measureline'
+                    )
                 ],
                 b: [
+                    () => makeLines.draw(
+    `M0 ${high + 10}H${wide}`,
+    'measureline'
+                    ),
                     () => {
-    const p = nsp();
-    p.classList.add('measureline');
-    p.setAttribute('d',
-        `M0 ${high + 10}H${wide}`
-    );
-    svg.append(p);
-                    },
-                    () => {
-    const p1 = nsp();
-    p1.classList.add('measureline');
-    p1.setAttribute('d', optArrow1);
-    p1.setAttribute(
-        'transform',
+    makeLines.draw(
+        optArrow1,
+        'measureline',
         'translate(' + -10 +' '+ (high + 15) +')'
     );
-    svg.append(p1);
-    const p2 = nsp();
-    p2.classList.add('measureline');
-    p2.setAttribute('d', optArrow2);
-    p2.setAttribute(
-        'transform',
+    makeLines.draw(
+        optArrow2,
+        'measureline',
         'translate(' + wide + ' ' + (high + 15) + ')'
     );
-    svg.append(p2);
                     }
                 ],
                 h: [
+                    () => makeLines.draw(
+    `M${wide + 10} 0V${high}`,
+    'measureline'
+                    ),
                     () => {
-    const p = nsp();
-    p.classList.add('measureline');
-    p.setAttribute('d', `M${wide + 10} 0V${high}`);
-    svg.append(p);
-                    },
-                    () => {
-    const p1 = nsp();
-    p1.classList.add('measureline');
-    p1.setAttribute('d', optArrow1);
-    p1.setAttribute(
-        'transform',
+    makeLines.draw(
+        optArrow1,
+        'measureline',
         'translate(' + (wide+15) +' '+ (high + 10) +')' +
         'rotate(-90)'
     );
-    svg.append(p1);
-    const p2 = nsp();
-    p2.classList.add('measureline');
-    p2.setAttribute('d', optArrow2);
-    p2.setAttribute(
-        'transform',
+    makeLines.draw(
+        optArrow2,
+        'measureline',
         'translate(' + (wide+15) + ' ' + -5 + ')' +
         'rotate(-90)'
     );
-    svg.append(p2);
                     }
                 ],
                 hyp: [
+                    (fil) => makeLines.draw(
+    `M${10*cos(pi2 + theta)} ${high - 10*sin(pi2 + theta)}L${wide + 10*cos(pi2 + theta)} ${-10*sin(pi2 + theta)}`,
+    'measureline'
+                    ),
                     (fil) => {
-    const p = nsp();
-    p.classList.add('measureline');
-    p.setAttribute('d',
-        `M${10*cos(pi2 + theta)} ${high - 10*sin(pi2 + theta)}L${wide + 10*cos(pi2 + theta)} ${-10*sin(pi2 + theta)}`
-    );
-    svg.append(p);
-                    },
-                    (fil) => {
-    const p1 = nsp();
-    p1.classList.add('measureline');
-    p1.setAttribute('d', optArrow1);
-    p1.setAttribute(
-        'transform',
+                        
+    makeLines.draw(
+        optArrow1,
+        'measureline',
         'translate('+
             ((30 * cos(pi2 + theta)))
             +' '+
@@ -351,12 +333,9 @@ document.querySelectorAll('g-eom').forEach((
         +')' +
         'rotate('+ (360 * -theta/(2*Math.PI)) +')'
     );
-    svg.append(p1);
-    const p2 = nsp();
-    p2.classList.add('measureline');
-    p2.setAttribute('d', optArrow2);
-    p2.setAttribute(
-        'transform',
+    makeLines.draw(
+        optArrow2,
+        'measureline',
         'translate(' +
             (wide + 30 * cos(pi2 + theta))
             + ' ' +
@@ -364,112 +343,86 @@ document.querySelectorAll('g-eom').forEach((
         + ')' +
         'rotate('+ (360 * -theta/(2*Math.PI)) +')'
     );
-    svg.append(p2);
                     }
                 ],
                 ta1: [
-                    (len, fil) => {
-    const p = nsp();
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `M${len} ${high}A ${len} ${len} 0 0 0 ${len*cos(-theta)} ${high+len*sin(-theta)}`);
-    p.setAttribute('transform', `
-        translate(${fil*wide} ${-fil*high})
-    `)
-    svg.prepend(p);
-                    },
-                    (len, fil) => {
-    const p = nsp();
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `M${len} 0A ${len} ${len} 0 0 0 ${len*cos(-theta)} ${len*sin(-theta)}A ${len} ${len} 0 0 1 ${len+3} 13A ${len} ${len} 0 0 0 ${8+len*cos(-theta)} ${3+len*sin(-theta)}`);
-    p.setAttribute('transform',
-        'translate(' + wide*fil + ' ' + (1-fil)*high + ')'
-    );
-    svg.append(p);
-                    }
+                    (len, fil) => makeLines.draw(
+    `M${len} ${high}A ${len} ${len} 0 0 0 ${len*cos(-theta)} ${high+len*sin(-theta)}`,
+    'tankmeasure',
+    `translate(${fil*wide} ${-fil*high})`
+                    ),
+                    (len, fil) => makeLines.draw(
+    `M${len} 0A ${len} ${len} 0 0 0 ${len*cos(-theta)} ${len*sin(-theta)}A ${len} ${len} 0 0 1 ${len+3} 13A ${len} ${len} 0 0 0 ${8+len*cos(-theta)} ${3+len*sin(-theta)}`,
+    'tankmeasure',
+    `translate(${fil*wide} ${(1-fil)*high})`
+                    )
                 ],
                 ta2: [
-                    (len, fil) => {
-    const p = nsp();
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `
-        M${wide} ${len}
-        A${len} ${len} 0 0 1
-         ${wide-len*cos(theta)} ${len*sin(theta)}
-    `);
-    p.setAttribute('transform', `
-        translate(${-(1-fil)*wide} ${(1-fil)*high})
-    `)
-    svg.prepend(p);
-                    },
-                    (len, fil) => {
-    const p = nsp();
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `M0 ${len}A${len} ${len} 0 0 1 ${-len*cos(theta)} ${len*sin(theta)}A${len} ${len} 0 0 0 ${8} ${len+5}A${len} ${len} 0 0 1 ${-4-len*cos(theta)} ${len*sin(theta)}`);
-    p.setAttribute('transform',
-        'translate(' + wide*fil + ' ' + (1-fil)*high + ')'
-    );
-    svg.append(p);
-                    }
+                    (len, fil) => makeLines.draw(
+    `M${wide} ${len}A${len} ${len} 0 0 1 ${wide-len*cos(theta)} ${len*sin(theta)}`,
+    'tankmeasure',
+    `translate(${-(1-fil)*wide} ${(1-fil)*high})`
+                    ),
+                    (len, fil) => makeLines.draw(
+    `M0 ${len}A${len} ${len} 0 0 1 ${-len*cos(theta)} ${len*sin(theta)}A${len} ${len} 0 0 0 ${8} ${len+5}A${len} ${len} 0 0 1 ${-4-len*cos(theta)} ${len*sin(theta)}`,
+    'tankmeasure',
+    `translate(${fil*wide} ${(1-fil)*high})`
+                    )
                 ],
                 tb: [
+                    (fil) => makeLines.draw(
+    `M${fil*wide} ${(1-fil)*high}H${wide}Z`,
+    'tankline'
+                    ),
                     (fil) => {
-    const p = nsp();
-    p.classList.add('tankline');
-    p.setAttribute('d', `
-        M${fil*wide} ${high*(1-fil)}
-        H${wide}
-    `);
-    svg.append(p);
-                        
-                    },
-                    (fil) => {
-    const p = nsp();
     const L = fil*wide;
     const T = (1-fil)*high;
     const W = (1-fil)*wide;
-    p.classList.add('tankshape');
-    p.setAttribute('d',
-        `
+    makeLines.draw(`
         M${L-10} ${T-4}
         q${W/2} ${3} ${W+16} ${0}
         l5 9
-        q${-W/2} ${-4} ${-W-3} ${0}
-        Z
-        `
+        q${-W/2} ${-4} ${-W-3} ${0}Z`,
+        'tankshape'
     );
-    svg.append(p);
+                    }
+                ],
+                b0: [
+                    (fil) => makeLines.draw(
+    `M${wide*fil} ${(1-fil)*high + 10}H${wide}`,
+    'tankmeasure'
+                    ),
+                    (fil) => {
+    const L = wide*fil;
+    const W = wide - L;
+    const T = (1-fil)*high;
+    makeLines.draw(`
+        M${L-2} ${T + 10}
+        q ${W/2} -6 ${W+8} ${2}
+        q ${-W/2} -4 ${-W-20} 1`,
+        'tankmeasure'
+    );
                     }
                 ],
                 b1: [
-                    (fil, adj) => {
-    const p = nsp();
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `
-        M0 ${high+adj}
-        H${wide*fil}
-    `);
-    svg.append(p);
-                    },
-                    (fil, adj) => {
-    const p = nsp();
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `
-        M0 ${high+adj}
-        q ${wide*fil/2} -5 ${wide*fil} 2
-        l ${-5 + wide*fil/-2} -7
-    `);
-    svg.append(p);
-                    }
+                    (fil, adj) => makeLines.draw(
+    `M0 ${high+adj}H${wide*fil}`,
+    'tankmeasure'
+                    ),
+                    (fil, adj) => makeLines.draw(`
+    M0 ${high+adj}
+    q ${wide*fil/2} -5 ${wide*fil} 2
+    l ${-5 + wide*fil/-2} -7`,
+    'tankmeasure'
+                    )
                 ],
                 b2: [
                     (fil, adj) => {
-    const p = nsp();
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `
+    makeLines.draw(`
         M${wide*fil} ${high+adj}
-        H${wide}
-    `);
-    svg.append(p);
+        H${wide}`,
+        'tankmeasure'
+    );
     if (b1) {
         const dot = document.createElementNS(NS, 'circle');
         dot.classList.add('tankmeasuredot');
@@ -480,76 +433,71 @@ document.querySelectorAll('g-eom').forEach((
     }
                     },
                     (fil, adj) => {
-    const p = nsp();
     const W = wide*(1-fil);
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `
+    makeLines.draw(`
         M${wide*fil} ${high+adj}
         q${W/2} -5 ${W+10} 2
-        q${-W/2} -5 ${-W} 2
-    `);
-    svg.append(p);
+        q${-W/2} -5 ${-W} 2`,
+        'tankmeasure'
+    );
                     }
                 ],
                 th: [
+                    (fil) => makeLines.draw(
+    `M${fil*wide} ${(1-fil)*high}V${high}`,
+    'tankline'
+                    ),
                     (fil) => {
-    const p = nsp();
-    p.classList.add('tankline');
-    p.setAttribute('d',
-        `
-        M${fil*wide} ${high*(1-fil)}
-        V${high}
-        `
-    );
-    svg.append(p);
-                    },
-                    (fil) => {
-    const p = nsp();
     const L = fil*wide;
     const T = (1-fil)*high;
-    p.classList.add('tankshape');
-    p.setAttribute('d', `
+    makeLines.draw(`
         M${L-2} ${T-12}
         Q${L+4} ${T+high/2} ${L} ${high+2}l8 13
-        Q${L+8} ${T+high/2} ${L+4} ${T-8}
-        Z
-    `);
-    svg.append(p);
+        Q${L+8} ${T+high/2} ${L+4} ${T-8}Z`,
+        'tankshape'
+    );
+                    }
+                ],
+                h0: [
+                    (fil) => makeLines.draw(
+    `M${wide*fil + 10} ${(1-fil)*high}V${high}`,
+    'tankmeasure'
+                    ),
+                    (fil) => {
+    const L = fil*wide + 10;
+    const T = (1-fil)*high;
+    const mid = T + (high-T)/2;
+    makeLines.draw(`
+        M${L} ${T}
+        Q${L-3} ${mid} ${L+2} ${high+8}
+        Q${L-2} ${mid} ${L+5} ${T-13}`,
+        'tankmeasure'
+    );
                     }
                 ],
                 h1: [
+                    (fil, adj) => makeLines.draw(
+    `M${wide + adj} ${(1-fil)*high}V${high}`,
+    'tankmeasure'
+                    ),
                     (fil, adj) => {
-    const p = nsp();
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `
-        M${wide + adj} ${high*(1-fil)}
-        V${high}
-    `);
-    svg.append(p);
-                    },
-                    (fil, adj) => {
-    const p = nsp();
     const L = wide + adj;
     const T = (1-fil)*high;
     const mid = T + (high-T)/2;
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `
-        M${L} ${T}
-        Q${L-5} ${mid} ${L+2} ${high+4}
-        Q${L-3} ${mid} ${L+5} ${T+3}
-    `);
-    svg.append(p);
+    makeLines.draw(
+        `M${L} ${T}
+         Q${L-5} ${mid} ${L+2} ${high+4}
+         Q${L-3} ${mid} ${L+5} ${T+3}`,
+        'tankmeasure'
+    );
                     }
                 ],
                 h2: [
                     (fil, adj) => {
-    const p = nsp();
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `
-        M${wide + adj} 0
-        V${high * (1-fil)}
-    `);
-    svg.append(p);
+    makeLines.draw(
+        `M${wide + adj} 0V${high * (1-fil)}`,
+        'tankmeasure'
+    );
     if (h1) {
         const dot = document.createElementNS(NS, 'circle');
         dot.classList.add('tankmeasuredot');
@@ -560,87 +508,71 @@ document.querySelectorAll('g-eom').forEach((
     }
                     },
                     (fil, adj) => {
-    const p = nsp();
     const L = wide + adj;
     const B = (1-fil)*high;
     const mid = B/2;
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `
+    makeLines.draw(`
         M${L} ${0}
         Q${L-7} ${B/2} ${L-2} ${B+3}
         Q${L-4} ${B/2} ${L+1} ${-3}
-        L${L+2} ${B/2-3}
-    `);
-    svg.append(p);
+        L${L+2} ${B/2-3}`,
+        'tankmeasure'
+    );
                     }
                 ],
                 hyp1 : [
-                    (fil, adj) => {
-    const p = nsp();
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `
-        M${adj*cos(pi2 + theta)}
-         ${high - adj*sin(pi2 + theta)}
-        L${(fil*wide) + adj*cos(pi2 + theta)}
-         ${((1-fil)*high) - adj*sin(pi2 + theta)}
-    `);
-    svg.append(p);
-                    },
-                    (fil, adj) => {
-    const p = nsp();
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `
-        M${adj*cos(pi2 + theta)}
-         ${high - adj*sin(pi2 + theta)}
-        Q${(fil*wide)/2}
-         ${((1-fil)*high)+(fil*high/2)}
-         ${(fil*wide) + adj*cos(pi2 + theta)}
-         ${((1-fil)*high) - adj*sin(pi2 + theta)}
-        Q${(fil*wide)/2}
-         ${((1-fil)*high)+(fil*high/2)}
-         ${(3+adj)*cos(pi2 + theta)}
-         ${high - (9-adj)*sin(pi2 + theta)}
-    `);
-    svg.append(p);
-                    }
+                    (fil, adj) => makeLines.draw(`
+    M${adj*cos(pi2 + theta)}
+     ${high - adj*sin(pi2 + theta)}
+    L${(fil*wide) + adj*cos(pi2 + theta)}
+     ${((1-fil)*high) - adj*sin(pi2 + theta)}`,
+    'tankmeasure'
+                    ),
+                    (fil, adj) => makeLines.draw(
+    `M${adj*cos(pi2 + theta)}
+      ${high - adj*sin(pi2 + theta)}
+     Q${(fil*wide)/2}
+      ${((1-fil)*high)+(fil*high/2)}
+      ${(fil*wide) + adj*cos(pi2 + theta)}
+      ${((1-fil)*high) - adj*sin(pi2 + theta)}
+     Q${(fil*wide)/2}
+      ${((1-fil)*high)+(fil*high/2)}
+      ${(3+adj)*cos(pi2 + theta)}
+      ${high - (29-adj)*sin(pi2 + theta)}
+    `,
+    'tankmeasure')
                 ],
                 hyp2 : [
                     (fil, adj) => {
-    const p = nsp();
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `
-        M${(fil*wide) + adj*cos(pi2 + theta)}
-         ${((1-fil)*high) - adj*sin(pi2 + theta)}
-        L${wide + adj*cos(pi2 + theta)} ${-adj*sin(pi2 + theta)}
-    `);
-    svg.append(p);
+    makeLines.draw(
+        `M${(fil*wide) + adj*cos(pi2 + theta)}
+          ${((1-fil)*high) - adj*sin(pi2 + theta)}
+         L${wide + adj*cos(pi2 + theta)}
+          ${-adj*sin(pi2 + theta)}`,
+        'tankmeasure'
+    );
     if (hyp1) {
         const dot = document.createElementNS(NS, 'circle');
         dot.classList.add('tankmeasuredot');
         dot.setAttribute('cx',
-        (fil*wide) + adj*cos(pi2 + theta)
+            (fil*wide) + adj*cos(pi2 + theta)
         );
         dot.setAttribute('cy',
-        ((1-fil)*high) - adj*sin(pi2 + theta)
+            ((1-fil)*high) - adj*sin(pi2 + theta)
         )
         dot.setAttribute('r', 2);
         svg.append(dot);
     }
                     },
-                    (fil, adj) => {
-    const p = nsp();
-    p.classList.add('tankmeasure');
-    p.setAttribute('d', `
-        M${(fil*wide) + (adj+8)*cos(pi2 + theta)}
-         ${((1-fil)*high) - (adj-9)*sin(pi2 + theta)}
-        L${wide + adj*cos(pi2 + theta)} ${-adj*sin(pi2 + theta)}
-        L${(fil*wide) + (adj-4)*cos(pi2 + theta)}
-         ${((1-fil)*high) - (adj+4)*sin(pi2 + theta)}
-    `);
-    svg.append(p);
-                    }
+                    (fil, adj) => makeLines.draw(
+    `M${(fil*wide) + (adj+8)*cos(pi2 + theta)}
+      ${((1-fil)*high) - (adj-9)*sin(pi2 + theta)}
+     L${wide + adj*cos(pi2 + theta)} ${-adj*sin(pi2 + theta)}
+     L${(fil*wide) + (adj-4)*cos(pi2 + theta)}
+      ${((1-fil)*high) - (adj+4)*sin(pi2 + theta)}`,
+    'tankmeasure'
+                    )
                 ]
-                
             };
             
             makeLines.shape[optx]();
@@ -649,10 +581,9 @@ document.querySelectorAll('g-eom').forEach((
             if (a1 = kidz.find(v => v.tagName=== 'A-1')) {
                 a1.innerHTML || (a1.innerHTML = '&theta\;');
                 let len = parseInt(a1.dataset.size) || wide/5;
-                if (void 0 === a1.dataset.noline)
-                    makeLines.a1[
+                if (a1.dataset.drawline==='si') makeLines.a1[
                         parseInt(a1.dataset.optx)
-                    ](len);
+                ](len);
                 a1.style.top = high - (len+10) * sin(theta/2)
                     - a1.offsetHeight/2 +'px';
                 a1.style.left = (len+10) * cos(theta/2) + 'px';
@@ -663,10 +594,9 @@ document.querySelectorAll('g-eom').forEach((
                 let adj = parseInt(
                     window.getComputedStyle(a2).fontSize
                 ) / 2;
-                if (void 0 === a2.dataset.noline)
-                    makeLines.a2[
+                if (a2.dataset.drawline==='si') makeLines.a2[
                         parseInt(a2.dataset.optx)
-                    ](len);
+                ](len);
                 a2.style.top = (len+20) * sin(
                     pi2 - phi/2
                 ) - a2.offsetHeight/2 +'px';
@@ -676,49 +606,50 @@ document.querySelectorAll('g-eom').forEach((
             }
             if (b = kidz.find(v => v.tagName === 'B-B')) {
                 b.innerHTML || (b.innerHTML = 'b');
-                if (lines || void 0 !== b.dataset.drawline)
-                    makeLines.b[
+                if (b.dataset.drawline==='si') makeLines.b[
                         parseInt(b.dataset.optx)
-                    ]();
-                b.style.top = high + 10 +'px';
+                ]();
+                b.style.top = high + (
+                    parseInt(b.dataset.optx) === 0?10:20
+                ) +'px';
             }
             if (h = kidz.find(v => v.tagName === 'H-H')) {
                 h.innerHTML || (h.innerHTML = 'h');
-                if (lines || void 0 !== h.dataset.drawline)
-                    makeLines.h[
+                if (h.dataset.drawline==='si') makeLines.h[
                         parseInt(h.dataset.optx)
-                    ]();
+                ]();
                 h.style.height = high + 'px';
-                h.style.left = '100%';
+                h.style.left = wide + (
+                    parseInt(h.dataset.optx) === 0 ? 0: 10
+                ) +'px';
             }
             if (hyp = kidz.find(v=>v.tagName==='H-YP')) {
                 hyp.innerHTML || (hyp.innerHTML = 'hyp');
-                if (lines || void 0 !== hyp.dataset.drawline)
-                    makeLines.hyp[
+                if (hyp.dataset.drawline==='si') makeLines.hyp[
                         parseInt(hyp.dataset.optx)
-                    ]();
+                ]();
                 if (
                     hyp.innerText.length < 4 ||
                     void 0 !== hyp.dataset.noturn
                 ) {
-                    hyp = hyp.style;
-                    hyp.width = 'auto';
-                    hyp.padding = '10px';
-                    hyp.bottom = high/2 + 'px';
-                    hyp.right = wide/2 + 'px';
+                    hyp.style.width = 'auto';
+                    hyp.style.padding = '10px';
+                    hyp.style.bottom = high/2 + 'px';
+                    hyp.style.right = wide/2 + 'px';
                 } else {
-                    hyp = hyp.style;
-                    hyp.width = (len + 10) + 'px';
-                    hyp.transform = 'rotate(' + -theta + 'rad)';
+                    hyp.style.width = (len + 10) + 'px';
+                    hyp.style.transform = 'rotate(' + -theta + 'rad)';
                 
-                    hyp.paddingBottom = '5px';
-                    hyp.left = 10 * cos(theta + pi2) +
+                    hyp.style.paddingBottom = '5px';
+                    hyp.style.left = 10 * cos(theta + pi2) +
                         'px';
-                    hyp.bottom = 10 * sin(theta + pi2) +
+                    hyp.style.bottom = 10 * sin(theta + pi2) +
                         'px';
                 }
             }
             if (t = kidz.find(v=>v.tagName==='T-ANK')) {
+                
+                tlines = void 0 !== t.dataset.drawlines;
                 
                 Array.from(t.children).forEach(k => {
             
@@ -726,7 +657,11 @@ document.querySelectorAll('g-eom').forEach((
                     .match(/opt\d+/);
                     k.dataset.optx = v ?
                         (v[0].match(/\d+/)[0]) :
-                        t.dataset.optx
+                        t.dataset.optx;
+                    k.dataset.drawline = (
+                        void 0 === k.dataset.noline &&
+                        (tlines||void 0 !== k.dataset.drawline)
+                    ) ? 'si' : 'no';
                 });
                 
                 const fil = (
@@ -737,20 +672,18 @@ document.querySelectorAll('g-eom').forEach((
                     ta1.innerHTML || (ta1.innerHTML = '&theta\;');
                     let len = parseInt(ta1.dataset.size) ||
                         (1-fil)*wide / 4;
-                    if (lines || void 0 === ta1.dataset.noline)
+                    if (ta1.dataset.drawline === 'si') {
                         makeLines.ta1[
                             parseInt(ta1.dataset.optx)
                         ](len, fil);
-                    ta1.style.top =
-                        -fil*high +
-                        (high -
-                        (len + 10) * sin(theta / 2) -
-                        ta1.offsetHeight / 2
-                        )+ 'px';
-                    ta1.style.left =
-                        fil*wide +
-                        ((len + 10) * cos(theta / 2)
-                        )+ 'px';
+                    }
+                    ta1.style.top = (-fil*high) +
+                        (high - (len+10) * sin(theta/2)
+                        - ta1.offsetHeight
+                    )+ 'px';
+                    ta1.style.left = (fil*wide) +
+                        ((len+10) * cos(theta/2)
+                    )+ 'px';
                 }
                 if (ta2 = t.querySelector('a-2')) {
                     ta2.innerHTML || (ta2.innerHTML = '&phi\;');
@@ -758,7 +691,7 @@ document.querySelectorAll('g-eom').forEach((
                     let adj = parseInt(
                         window.getComputedStyle(ta2).fontSize
                     ) / 2;
-                    if (lines || void 0 === ta2.dataset.noline)
+                    if (ta2.dataset.drawline === 'si')
                         makeLines.ta2[
                             parseInt(ta2.dataset.optx)
                         ](len, fil);
@@ -768,7 +701,7 @@ document.querySelectorAll('g-eom').forEach((
                         sin(
                             pi2 - phi / 2
                         )
-                        - a2.offsetHeight / 2)
+                        - ta2.offsetHeight / 2)
                         + 'px';
                     ta2.style.right =
                         (1-fil)*wide +
@@ -783,16 +716,23 @@ document.querySelectorAll('g-eom').forEach((
                     tb.innerHTML || (tb.innerHTML = `
                     <b>b<sub>2</sub></b>
                     `);
+                    let adj = 0;
+                    if (tb.dataset.drawline === 'si') {
+                        adj += 10;
+                        makeLines.b0[
+                            parseInt(tb.dataset.optx)
+                        ](fil);
+                    }
                     tb.style.width = (wide * (1-fil)) + 'px';
                     tb.style.left = (wide * fil) + 'px';
-                    tb.style.top = (high * (1-fil)) +'px';
+                    tb.style.top = (high * (1-fil)+adj) +'px';
                 }
                 if (b1 = t.querySelector('b-1')) {
                     b1.innerHTML || (b1.innerHTML = `
                     <b>b<sub>1</sub></b>
                     `);
                     let adj = b ? 20 : 10;
-                    if (lines||void 0!==b1.dataset.drawline)
+                    if (b1.dataset.drawline === 'si')
                         makeLines.b1[
                             parseInt(b1.dataset.optx)
                         ](fil, adj);
@@ -805,7 +745,7 @@ document.querySelectorAll('g-eom').forEach((
                     <b>b<sub>2</sub></b>
                     `);
                     let adj = b ? 20 : 10;
-                    if (lines||void 0!==h2.dataset.drawline)
+                    if (b2.dataset.drawline==='si')
                         makeLines.b2[
                             parseInt(b2.dataset.optx)
                         ](fil, adj);
@@ -820,8 +760,15 @@ document.querySelectorAll('g-eom').forEach((
                     th.innerHTML || (th.innerHTML = `
                     <b>h<sub>1</sub></b>
                     `);
-                    th.style.height = high * fil + 'px';
-                    th.style.left = wide * fil + 'px';
+                    let adj = 0;
+                    if (th.dataset.drawline === 'si') {
+                        adj += 10;
+                        makeLines.h0[
+                            parseInt(th.dataset.optx)
+                        ](fil);
+                    }
+                    th.style.height = (high*fil) + 'px';
+                    th.style.left = (wide*fil + adj) + 'px';
                     th.style.bottom = 0;
                 }
                 if (h1 = t.querySelector('h-1')) {
@@ -829,7 +776,7 @@ document.querySelectorAll('g-eom').forEach((
                     <b>h<sub>1</sub></b>
                     `);
                     let adj = h ? 20 : 10;
-                    if (lines||void 0!==h1.dataset.drawline)
+                    if (h1.dataset.drawline==='si')
                         makeLines.h1[
                             parseInt(h1.dataset.optx)
                         ](fil, adj);
@@ -842,7 +789,7 @@ document.querySelectorAll('g-eom').forEach((
                     <b>h<sub>2</sub></b>
                     `);
                     let adj = h ? 20 : 10;
-                    if (lines||void 0!==h2.dataset.drawline)
+                    if (h2.dataset.drawline === 'si')
                         makeLines.h2[
                             parseInt(h2.dataset.optx)
                         ](fil, adj);
@@ -855,11 +802,9 @@ document.querySelectorAll('g-eom').forEach((
                         'hyp<sub>1</sub>'
                     );
                     let adj = (
-                        (lines && hyp) ||
-                        (hyp && hyp.dataset.drawline) ?
-                        20 : 10
-                    );
-                    if (lines || void 0 !== hyp1.dataset.drawline)
+                        hyp && hyp.dataset.drawline === 'si'
+                    ) ? 20: 10;
+                    if (hyp1.dataset.drawline === 'si')
                         makeLines.hyp1[
                             parseInt(hyp1.dataset.optx)
                         ](fil, adj);
@@ -885,7 +830,6 @@ document.querySelectorAll('g-eom').forEach((
                             'px';
                         hyp1.bottom = adj * sin(theta + pi2) +
                             'px';
-                        hyp1.border = '1px solid';
                     }
                 }
                 if (hyp2 = t.querySelector('hyp-2')) {
@@ -893,11 +837,9 @@ document.querySelectorAll('g-eom').forEach((
                         'hyp<sub>2</sub>'
                     );
                     let adj = (
-                        (lines && hyp) ||
-                        (hyp && hyp.dataset.drawline) ?
-                        20 : 10
-                    );
-                    if (lines || void 0 !== hyp2.dataset.drawline)
+                        hyp && hyp.dataset.drawline === 'si'
+                    ) ? 20 : 10;
+                    if (hyp2.dataset.drawline === 'si')
                         makeLines.hyp2[
                             parseInt(hyp2.dataset.optx)
                         ](fil, adj);
@@ -914,8 +856,6 @@ document.querySelectorAll('g-eom').forEach((
                         ) + 'px';
                     }
                     else {
-        //${(fil*wide) + adj*cos(pi2 + theta)}
-        //${((1-fil)*high) - adj*sin(pi2 + theta)}
                         hyp2 = hyp2.style;
                         hyp2.width = (len*(1-fil) ) + 'px';
                         hyp2.transform = 'rotate(' + -theta + 'rad)';
@@ -928,7 +868,6 @@ document.querySelectorAll('g-eom').forEach((
                             (fil * high) +
                             (adj * sin(theta + pi2)) +
                             'px';
-                        hyp2.border = '1px solid';
                     }
                 }
             }

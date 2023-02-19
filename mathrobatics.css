@@ -107,7 +107,7 @@
     
     --raze-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none'%3E%3Cpath d='M0 80Q40 40 50 0L100 80L80 90L50 20Q40 67 20 100Z' /%3E%3C/svg%3E");
     
-    --cank-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 94Q60 15 95 0L100 10Q60 20 10 100Z'/%3E%3C/svg%3E");
+    --cank-00: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 94Q30 40 95 0L100 10Q33 43 10 100Z'/%3E%3C/svg%3E");
     
     --cank-01: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='100px' preserveAspectRatio='none' %3E%3Cpath d='M0 90Q55 55 90 0L100 8Q65 50 10 100Z'/%3E%3C/svg%3E");
     
@@ -171,14 +171,8 @@ b[data-vapor] {
     text-shadow: var(--text-vapor);
 }
 b[data-blank] { color: rgba(0,0,0,0); }
-b[data-pren]::before,
-b[data-prens]::before {
-    content: '(';
-}
-b[data-pren]::after,
-b[data-prens]::after {
-    content: ')';
-}
+b[data-pren]::before, b[data-prens]::before { content: '('; }
+b[data-pren]::after, b[data-prens]::after { content: ')'; }
 b[data-prens-viva]::before {
     content: '(';
     filter: url("#viva");
@@ -207,6 +201,8 @@ b[data-prens-vapor]::after {
     color: rgba(0,0,0,0);
     text-shadow: var(--text-vapor);
 }
+b[data-italic] { font-style: italic; }
+i[data-viva] { filter: url("#lil-viva"); }
 
 pre {
     background-color: var(--blackness);
@@ -955,6 +951,7 @@ r-dux > b:nth-of-type(1) {
     word-spacing: -0.15em;
     filter: var(--rdux-filter-to);
     transform: rotate(-14deg);
+    z-index:10;
 }
 f-rak r-dux > b:nth-of-type(1) { font-size: 0.7em; }
 c-ank[data-dark], r-dux[data-dark] {
@@ -977,7 +974,6 @@ c-ank[data-hi], r-dux[data-hi] { --rdux-high: 100%; }
 r-dux[data-top] { --rdux-top: -20%; }
 
 q-fak {
-    --qfak-var: 'x';
     --qfak-filter: url("#lil-viva");
     position: relative;
     font-weight: bold;
@@ -985,7 +981,7 @@ q-fak {
     text-shadow: var(--text-ghost);
 }
 q-fak::before {
-    content: '(' var(--qfak-var) '\00a0\00b1\00a0?)\00a0(' var(--qfak-var) '\00a0\00b1\00a0?)';
+    content: '(' var(--variable, 'x') '\00a0\00b1\00a0?)\00a0(' var(--variable, 'x') '\00a0\00b1\00a0?)';
     position: absolute;
     left: -50%;
     bottom: -15%;
@@ -998,11 +994,11 @@ q-fak::before {
     filter: var(--qfak-filter);
 }
 q-fak[data-dark] { --qfak-filter: url("#lightness"); }
-q-fak[data-n] { --qfak-var: 'n'; }
-q-fak[data-q] { --qfak-var: 'q'; }
-q-fak[data-x] { --qfak-var: 'x'; }
-q-fak[data-y] { --qfak-var: 'y'; }
-q-fak[data-z] { --qfak-var: 'z'; }
+q-fak[data-n] { --variable: 'n'; }
+q-fak[data-q] { --variable: 'q'; }
+q-fak[data-x] { --variable: 'x'; }
+q-fak[data-y] { --variable: 'y'; }
+q-fak[data-z] { --variable: 'z'; }
 
 g-ood { --good-filter: url("#viva"); }
 g-ood::before, g-ood::after {
@@ -1024,11 +1020,11 @@ g-ood[data-left]::after { visibility: hidden; }
 g-ood[data-dark] { --good-filter: url("#lightness"); }
 
 
-f-x { --name: '\1d453'; --var: 'x'; --close: ') '; }
-g-x { --name: '\1d454'; --var: 'x'; --close: ') '; }
-h-x { --name: '\210e';  --var: 'x'; --close: ') '; }
+f-x { --name: '\1d453'; --close: ') '; }
+g-x { --name: '\1d454'; --close: ') '; }
+h-x { --name: '\210e';  --close: ') '; }
 f-x::before, g-x::before, h-x::before {
-    content: var(--name) '(' var(--var) var(--close);
+    content: var(--name) '(' var(--variable, 'x') var(--close);
 }
 f-x[data-viva]::before,
 g-x[data-viva]::before,
@@ -1037,10 +1033,10 @@ f-x[data-viva-all],
 g-x[data-viva-all],
 h-x[data-viva-all] { filter: url("#viva"); }
 [data-eq] { --close: ') = '; }
-[data-var-n] { --var: 'n'; }
-[data-var-q] { --var: 'q'; }
-[data-var-y] { --var: 'y'; }
-[data-var-z] { --var: 'z'; }
+[data-var-n] { --variable: 'n'; }
+[data-var-q] { --variable: 'q'; }
+[data-var-y] { --variable: 'y'; }
+[data-var-z] { --variable: 'z'; }
 
 
 f-ogx {
@@ -2767,38 +2763,65 @@ g-eom[data-cyl] h-h::after {
 }
 */
 
-s-in, s-in2, c-os, c-os2, t-an, t-an2,
-c-sc, c-cs2, s-ec, s-ec2, c-ot, c-ot2,
-s-in-1, c-os-1, t-an-1, c-sc-1, s-ec-1, c-ot-1 {
-    --trig-type: '';
-    --trig-var: '\03b8';
-    --trig-pow: '';
-    --trig-o-pren: '(';
-    --trig-c-pren: ')';
+s-in, c-os, t-an,
+c-sc, s-ec, c-ot,
+a-sin, a-cos, a-tan { --power: ''; }
+s-in2, c-os2, t-an2,
+c-sc2, s-ec2, c-ot2 { --power: '\00b2'; }
+sin-1, cos-1, tan-1,
+csc-1, sec-1, cot-1 { --power: '\207b\00b9'; }
+s-in, s-in2, sin-1 { --trig-type: 'sin'; }
+c-os, c-os2, cos-1 { --trig-type: 'cos'; }
+t-an, t-an2, tan-1 { --trig-type: 'tan'; }
+c-sc, c-sc2, csc-1 { --trig-type: 'csc'; }
+s-ec, s-ec2, sec-1 { --trig-type: 'sec'; }
+c-ot, c-ot2, cot-1 { --trig-type: 'cot'; }
+a-sin { --trig-type: 'asin'; }
+a-cos { --trig-type: 'acos'; }
+a-tan { --trig-type: 'atan'; }
+s-in::before, s-in2::before, sin-1::before,
+c-os::before, c-os2::before, cos-1::before,
+t-an::before, t-an2::before, tan-1::before,
+s-ec::before, s-ec2::before, sec-1::before,
+c-sc::before, c-sc2::before, csc-1::before,
+c-ot::before, c-ot2::before, cot-1::before,
+a-sin::before, a-cos::before, a-tan::before {
+    content: var(--trig-type) var(--power) var(--trig-o-pren,'(');
+    filter: var(--trig-filter, none);
 }
-s-in2, c-os2, t-an2, c-sc2, s-ec2, c-ot2 {
-    --trig-pow: '\00b2';
+s-in::after, s-in2::after, sin-1::after,
+c-os::after, c-os2::after, cos-1::after,
+t-an::after, t-an2::after, tan-1::after,
+s-ec::after, s-ec2::after, sec-1::after,
+c-sc::after, c-sc2::after, csc-1::after,
+c-ot::after, c-ot2::after, cot-1::after,
+a-sin::after, a-cos::after, a-tan::after {
+    content: var(--variable,'\03b8') var(--trig-c-pren,')');
+    filter: var(--trig-filter, none);
 }
-s-in-1, c-os-1, t-an-1, c-sc-1, s-ec-1, c-ot-1 {
-    --trig-pow: '\207b\00b9';
-}
-s-in, s-in2, s-in-1 { --trig-type: 'sin'; }
-c-os, c-os2, c-os-1 { --trig-type: 'cos'; }
-t-an, t-an2, t-an-1 { --trig-type: 'tan'; }
-c-sc, c-sc2, c-sc-1 { --trig-type: 'csc'; }
-s-ec, s-ec2, s-ec-1 { --trig-type: 'sec'; }
-c-ot, c-ot2, c-ot-1 { --trig-type: 'cot'; }
-s-in::after, s-in2::after, s-in-1::after,
-c-os::after, c-os2::after, c-os-1::after,
-t-an::after, t-an2::after, t-an-1::after,
-s-ec::after, s-ec2::after, s-ec-1::after,
-c-sc::after, c-sc2::after, c-sc-1::after,
-c-ot::after, c-ot2::after, c-ot-1::after {
-    content: var(--trig-type) var(--trig-pow) var(--trig-o-pren) var(--trig-var) var(--trig-c-pren);
-}
-[data-no-prens] { --trig-o-pren: ''; --trig-c-pren: ''; }
+[data-trig-viva] { --trig-filter: url("#lil-viva"); }
+s-in[data-viva], c-os[data-viva], t-an[data-viva],
+c-sc[data-viva], s-ec[data-viva], c-ot[data-viva],
+s-in2[data-viva], c-os2[data-viva], t-an2[data-viva],
+c-sc2[data-viva], s-ec2[data-viva], c-ot2[data-viva],
+sin-1[data-viva], cos-1[data-viva], tan-1[data-viva],
+csc-1[data-viva], sec-1[data-viva], cot-1[data-viva],
+a-sin[data-viva], a-cos[data-viva], a-tan[data-viva]
+{ --trig-filter: url("#lil-viva"); }
+[data-no-prens] { --trig-o-pren: '\00a0'; --trig-c-pren: ''; }
+[data-prens] { --trig-o-pren: '('; --trig-c-pren: ')'; }
+[data-var-none] { --variable: ''; }
+[data-var-x] { --variable: '\1D465'; }
+[data-var-theta] { --variable: '\03b8'; }
+[data-var-phi] { --variable: '\1d719'; }
+[data-pow-3] { --power: '\00b3'; }
+[data-pow-4] { --power: '\2074'; }
+[data-pow-5] { --power: '\2075'; }
+[data-pow-6] { --power: '\2076'; }
+[data-pow-7] { --power: '\2077'; }
+[data-pow-8] { --power: '\2078'; }
 
-/*[data-line]*/
+/* for drawing [data-line]*/
 .svg-line {
     position: absolute;
     top: 0;
@@ -2816,6 +2839,37 @@ c-ot::after, c-ot2::after, c-ot-1::after {
     marker-end: url(#dot);
     */
 }
+
+d-raft {
+    position: relative;
+    display: inline-flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    vertical-align: middle;
+    font-size: 0.3em;
+    text-align: center;
+    margin-left: 2ch;
+    margin-right: 2ch;
+    transform: rotate(var(--draft-rot));
+}
+d-raft::before {
+    content: '\2b05';
+    position: absolute;
+    right: 100%;
+    padding-right: 0.5ch;
+    border-width: 0px 0px 0px 1px;
+    border-style: solid;
+}
+d-raft::after {
+    content: '\27a1';
+    position: absolute;
+    left: 100%;
+    padding-left: 0.5ch;
+    border-width: 0px 1px 0px 0px;
+    border-style: solid;
+}
+d-raft[data-turn] { --draft-rot: 90deg; }
+d-raft[data-flip] { --draft-rot: -90deg; }
 
 
 g-eom {

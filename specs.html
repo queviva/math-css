@@ -6,6 +6,7 @@ content="width=device-width, initial-scale=1.0">
 <meta name="description"
 content="illuminated markeup specification mathrobatics">
 <link rel="stylesheet" href="mathrobatics.css">
+<link rel="stylesheet" href="mathrobatics-ikons.css">
 <link rel="stylesheet" href="demoStyles.css">
 <script src="mathrobatics.js"></script>
 <style id="list-style">
@@ -1066,6 +1067,80 @@ a:hover {
 &gt;
     ...
 &lt;/g-ood&gt;
+</pre>
+    </b>
+</li>
+
+<li id="t-rig" >
+    <i>t-rig</i> trig functions
+        <b>
+        <dd data-var-x data-no-prens>
+            <s-in2></s-in2> + <c-os2></c-os2> = 1
+            <br>
+            <tan-1
+                data-viva
+                data-prens
+                data-var-none
+            >3/4</tan-1>
+            <b style="font-size:1.3em">
+                <s-in data-pow-8></s-in>
+            </b>
+            
+        </dd>
+        tags for common trig function that allow for
+        use of a consistent variable, with or without
+        parenthesis, typically good for trig proofs
+        <br><br>
+        a parent tag can be used to set the variable
+        and parentesis use for the rest of the tags
+        <br><br>
+        there are dozens of these tags
+<pre>
+&lt;s-in&gt;&lt;/s-in&gt; sin(x)
+&lt;c-os&gt;&lt;/c-os&gt; cos(x)
+&lt;t-an&gt;&lt;/t-an&gt; tan(x)
+&lt;c-sc&gt;&lt;/c-sc&gt; csc(x)
+&lt;s-ec&gt;&lt;/s-ec&gt; sec(x)
+&lt;c-ot&gt;&lt;/c-ot&gt; cot(x)
+&lt;s-in2&gt;&lt;/s-in2&gt; sin2(x)
+&lt;c-os2&gt;&lt;/c-os2&gt; cos2(x)
+&lt;t-an2&gt;&lt;/t-an2&gt; tan2(x)
+&lt;c-sc2&gt;&lt;/c-sc2&gt; csc2(x)
+&lt;s-ec2&gt;&lt;/s-ec2&gt; sec2(x)
+&lt;c-ot2&gt;&lt;/c-ot2&gt; cot2(x)
+&lt;sin-1&gt;&lt;/sin-1&gt; inverse sine
+&lt;cos-1&gt;&lt;/cos-1&gt; inverse cosine
+&lt;tan-1&gt;&lt;/tan-1&gt; inverse tangent
+&lt;a-sin&gt;&lt;/a-sin&gt; inverse sine
+&lt;a-cos&gt;&lt;/a-cos&gt; inverse cosine
+&lt;a-tan&gt;&lt;/a-tan&gt; inverse tangent
+
+
+
+&lt;!--   --&gt;
+&lt;tag
+    data-var-x     // sets variable to x
+    data-var-theta // sets variable to &theta;
+    data-var-phi   // sets variable to &phi;
+    data-var-none  // no variable
+    data-no-prens  // removes enclosing ()'s
+    data-prens     // includes enclosing ()'s
+&gt;
+    &lt;-- any trig tag also has these options --&gt;
+    &lt;-- that override the parent values     --&gt;
+    &lt;t-rig
+        data-var-x     // sets variable to x
+        data-var-theta // sets variable to &theta;
+        data-var-phi   // sets variable to &phi;
+        data-var-none  // no variable
+        data-no-prens  // removes enclosing ()'s
+        data-prens     // includes enclosing ()'s
+        data-pow-3     // raises to third power
+        data-pow-4     // raises to fourth power
+        data-pow-8     // raises to eighth power
+    &gt;
+    &lt;/t-rig&gt;
+&lt;/tag&gt;
 </pre>
     </b>
 </li>
