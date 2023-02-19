@@ -317,11 +317,11 @@ document.querySelectorAll('g-eom').forEach((
                     }
                 ],
                 hyp: [
-                    (fil) => makeLines.draw(
+                    () => makeLines.draw(
     `M${10*cos(pi2 + theta)} ${high - 10*sin(pi2 + theta)}L${wide + 10*cos(pi2 + theta)} ${-10*sin(pi2 + theta)}`,
-    'measureline'
+    'measureline',log('fuck')
                     ),
-                    (fil) => {
+                    () => {
                         
     makeLines.draw(
         optArrow1,
