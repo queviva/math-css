@@ -878,8 +878,9 @@ document.querySelectorAll('g-eom').forEach((
             const mid = 0.5  * wide;
             const cen = 0.5  * high;
             const bot = high - top;
-            let shape = nsp();
+            let shape = nsp(); //{
             shape.setAttribute('d', `M0 ${top+10}  Q4 ${cen} 0 ${bot}  A${mid} ${top} 0 0 0 ${wide} ${bot}  Q${wide-8} ${cen} ${wide} ${top}  A${mid} ${top} 0 1 0  ${mid+mid*cos(-1.68*Math.PI)}  ${top+top*sin(-1.68*Math.PI)}  L${mid+((mid-5)*cos(-1.8*Math.PI))}  ${top+((top-3)*sin(-1.8*Math.PI))}  A${mid-5} ${top-3} 0 1 1 ${wide-5} ${top}  Q${wide-10} ${cen} ${wide-5} ${bot-2}  A${mid-10} ${top-5} 0 1 1 5 ${bot-2}  Q 8 ${cen} 4 ${top+18}Z`);
+            //}
             svg.prepend(shape);
             
             const lips = document.createElementNS(NS, 'ellipse');
@@ -931,6 +932,7 @@ document.querySelectorAll('g-eom').forEach((
                     th.innerHTML || (th.innerHTML = 'h\'');
                     th.style.height = high - 5 - top - fil + 'px';
                     th.style.bottom = top + 5 + 'px';
+                    th.style.left = wide + 8 + 'px';
                 }
                 if (tr = t.querySelector('r-r')) {
                     tr.innerHTML || (tr.innerHTML = 'r\'');
