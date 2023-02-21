@@ -125,7 +125,7 @@ document.querySelectorAll('[data-line]').forEach((
     obj.parentNode.append(svg);
     svgRect = svg.getBoundingClientRect();
     objRect = obj.getBoundingClientRect();
-    obj.parentNode.querySelectorAll(target)
+    document.querySelectorAll(target)
     .forEach((tar, i) => {
         const tarLineSize = (parseFloat(tar.dataset.lineSize) || 1) * 100;
         const tarLineDir = 2 * Math.PI * (parseFloat(tar.dataset.lineDir) || 90) / 360;

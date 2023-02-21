@@ -11,11 +11,11 @@ content="illuminated markeup specification mathrobatics">
 <script src="mathrobatics.js"></script>
 <style id="list-style">
 
-ul {
+.mathrobatics ul {
     list-style-type: circle;
 }
 
-li {
+.mathrobatics li {
     
     position: relative;
     display: list-item;
@@ -28,7 +28,7 @@ li {
     
 }
 
-li > b {
+.mathrobatics li > b {
     
     position: absolute;
     display: inline-block;
@@ -50,7 +50,7 @@ li > b {
     
 }
 
-li > i {
+.mathrobatics li > i {
     
     margin-right: 1ch;
     font-family: monospace;
@@ -58,36 +58,38 @@ li > i {
     
 }
 
-li:hover > i {
+.mathrobatics li:hover > i {
     
     filter: url("#viva");
 }
 
-li > i:hover ~ b, li > b:hover {
+.mathrobatics li > i:hover ~ b,
+.mathrobatics li > b:hover {
     opacity: 1;
     transition: opacity ease-out 400ms;
     pointer-events: auto;
 }
 
-li > b > dd {
+.mathrobatics li > b > dd {
     margin: 10px 0;
     font-size: 30px;
     text-align: center;
     color: var(--lightness);
 }
 
-pre {
+.mathrobatics pre {
     margin-top: 1ch;
     color: var(--holder-back);
     background-color: var(--greyness);
 }
 
-a, a:visited {
+.mathrobatics a,
+.mathrobatics a:visited {
     color: var(--greyness);
     font-style: italic;
 }
 
-a:hover {
+.mathrobatics a:hover {
     filter: url("#viva");
 }
 </style>
