@@ -840,6 +840,36 @@ content="illuminated markeup specification mathrobatics">
     </b>
 </li>
 
+<li id="m-ove">
+    <i>m-ove</i> move left|rite, top|bottom
+    <b>
+        <dd>
+            <m-ove data-top-rite>3x</m-ove>
+            +
+            <m-ove data-bot-left data-inverse>5x<sup>2</sup></m-ove>
+            =
+            <m-ove data-bot-rite data-dark>7x</m-ove>
+            -
+            <m-ove data-top-left data-ghost>5x<sup>3</sup></m-ove>
+        </dd>
+        gesture indicating that an item should be
+        moved, either left or right - the gesture
+        can be draw from either the top or bottom
+        of the circled item
+<pre>
+&lt;m-ove
+    data-top-rite  // to the right, from the top
+    data-top-right // to the right, from the top
+    data-bot-rite  // to the right, from the bottom
+    data-bot-right // to the right, from the bottom
+    data-top-left  // to the left, from the top
+    data-bot-left  // to the left, from the bottom
+    data-dark      // no illumination
+&gt; ... &lt;/m-ove&gt;
+</pre>
+    </b>
+</li>
+
 <li id="e-val">
     <i>e-val</i> evaluate expression in []'s
     <b>
