@@ -461,6 +461,11 @@ walking away from lamp">
 
 <c-omm>
     multiply by h<sub>1</sub> to help solve for b<sub>1</sub>
+    <b>
+        again, we're trying to solve this ekwation for
+        b<sub>1</sub> because its rate-of-change is the
+        desired result
+    </b>
 </c-omm>
 <div>
     <n-tim>h<sub>1</sub></n-tim>
@@ -495,7 +500,14 @@ walking away from lamp">
 </div>
 
 <c-omm>
-    we'll try to get the h's into thier own fraction
+    we'll try to get the h's into their own fraction
+    <b>
+        because, we'll see that h<sub>1</sub> and
+        h<sub>2</sub> are both just constants,
+        which is to say, they are <i>numbers</i>
+        that don't change
+    </b>
+    
 </c-omm>
 <div>
     <v-por style="opacity:0.3">h<sub>1</sub>&middot;</v-por>
@@ -748,11 +760,11 @@ ans = <c-url data-lo>3 <v-t></v-t> 3</c-url> <i>ft/s</i>
  data-high="225"
  data-wide="300">
     <!--<h-h data-drawline>lamp height</h-h>-->
-    <b-b data-drawline> </b-b>
+    <b-b data-drawline>b<sub>ase</sub> = ...</b-b>
     <t-ank data-fill="60" data-drawlines>
         <h-h data-noline> </h-h>
-        <b-1> base = b<sub>1</sub> ... </b-1>
-        <b-2> plus b<sub>2</sub> ... </b-2>
+        <b-1> b<sub>1</sub> + ... </b-1>
+        <b-2> b<sub>2</sub> </b-2>
     </t-ank>
 </g-eom>
 <i-kon data-lamppost data-vapor style="
@@ -773,9 +785,12 @@ ans = <c-url data-lo>3 <v-t></v-t> 3</c-url> <i>ft/s</i>
     this derivative is also quite easy
 </c-omm>
 <div>
-    <d-dx></d-dx>b<sub>ase</sub>
+    <d-dx data-viva></d-dx>b<sub>ase</sub>
     =
-    <d-dx></d-dx>(b<sub>1</sub> + b<sub>2</sub>)
+    <d-dx data-viva></d-dx>
+        <p-rens data-viva/>
+        b<sub>1</sub> + b<sub>2</sub>
+        </p-rens>
 </div>
 
 <c-omm>

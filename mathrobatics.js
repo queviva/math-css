@@ -732,6 +732,9 @@ document.querySelectorAll('g-eom').forEach((
                     <b>b<sub>1</sub></b>
                     `);
                     let adj = b ? 20 : 10;
+                    if (adj === 20 && b.innerHTML.match(/\S/)) {
+                        adj += 20;
+                    }
                     if (b1.dataset.drawline === 'si')
                         makeLines.b1[
                             parseInt(b1.dataset.optx)
@@ -745,6 +748,9 @@ document.querySelectorAll('g-eom').forEach((
                     <b>b<sub>2</sub></b>
                     `);
                     let adj = b ? 20 : 10;
+                    if (adj === 20 && b.innerHTML.match(/\S/)) {
+                        adj += 20;
+                    }
                     if (b2.dataset.drawline==='si')
                         makeLines.b2[
                             parseInt(b2.dataset.optx)
