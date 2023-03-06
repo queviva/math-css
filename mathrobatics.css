@@ -3149,19 +3149,22 @@
 .mathrobatics g-eom > t-ank[data-ghost] { --tank-filter: url("#ghost"); }
 .mathrobatics g-eom > t-ank[data-vapor] { --tank-filter: url("#vapor"); }
 
-.mathrobatics g-oem[data-type="tri-rite"] > a-1,
-.mathrobatics g-oem[data-type="tri-rite"] > a-2,
-.mathrobatics g-oem[data-type="tri-rite"] > b-b,
-.mathrobatics g-oem[data-type="tri-rite"] > b-1,
-.mathrobatics g-oem[data-type="tri-rite"] > b-2,
-.mathrobatics g-oem[data-type="tri-rite"] > h-h,
-.mathrobatics g-oem[data-type="tri-rite"] > h-1,
-.mathrobatics g-oem[data-type="tri-rite"] > h-2,
-.mathrobatics g-oem[data-type="tri-rite"] > h-yp,
-.mathrobatics g-oem[data-type="tri-rite"] > t-ank > a-1,
-.mathrobatics g-oem[data-type="tri-rite"] > t-ank > a-2,
-.mathrobatics g-oem[data-type="tri-rite"] > t-ank > hyp-1,
-.mathrobatics g-oem[data-type="tri-rite"] > t-ank> hyp-2,
+.mathrobatics g-eom[data-type="tri-rite"] > a-1,
+.mathrobatics g-eom[data-type="tri-rite"] > a-2,
+.mathrobatics g-eom[data-type="tri-rite"] > b-b,
+.mathrobatics g-eom[data-type="tri-rite"] > b-1,
+.mathrobatics g-eom[data-type="tri-rite"] > b-2,
+.mathrobatics g-eom[data-type="tri-rite"] > h-h,
+.mathrobatics g-eom[data-type="tri-rite"] > h-1,
+.mathrobatics g-eom[data-type="tri-rite"] > h-2,
+.mathrobatics g-eom[data-type="tri-rite"] > h-yp,
+.mathrobatics g-eom[data-type="tri-rite"] > t-ank > a-1,
+.mathrobatics g-eom[data-type="tri-rite"] > t-ank > a-2,
+.mathrobatics g-eom[data-type="tri-rite"] > t-ank > b-b,
+.mathrobatics g-eom[data-type="tri-rite"] > t-ank > b-1,
+.mathrobatics g-eom[data-type="tri-rite"] > t-ank > b-2,
+.mathrobatics g-eom[data-type="tri-rite"] > t-ank > hyp-1,
+.mathrobatics g-eom[data-type="tri-rite"] > t-ank > hyp-2
 {
     font-size: 0.3em;
     white-space: nowrap;
@@ -3169,9 +3172,10 @@
     z-index: 10;
     border-color: #909;
 }
-.mathrobatics g-oem[data-type="tri-rite"] > h-h,
-.mathrobatics g-oem[data-type="tri-rite"] > t-ank > h-1,
-.mathrobatics g-oem[data-type="tri-rite"] > t-ank > h-2 {
+
+.mathrobatics g-eom[data-type="tri-rite"] > h-h,
+.mathrobatics g-eom[data-type="tri-rite"] > t-ank > h-1,
+.mathrobatics g-eom[data-type="tri-rite"] > t-ank > h-2 {
     display: flex;
     align-items: center;
     height: 100%;
