@@ -1104,9 +1104,13 @@
 .mathrobatics g-ohx[data-viva] { --filter: url("#viva"); }
 
 .mathrobatics n-add,
+.mathrobatics add-n,
 .mathrobatics n-min,
+.mathrobatics min-n,
 .mathrobatics n-tim,
+.mathrobatics tim-n,
 .mathrobatics n-div,
+.mathrobatics div-n,
 .mathrobatics n-ote,
 .mathrobatics n-pad {
     --note-rot: -10deg;
@@ -1132,22 +1136,42 @@
     white-space: nowrap;
     overflow: visible;
 }
-.mathrobatics n-add::before {
+.mathrobatics n-add::after {
     content: '+';
     font-size: 0.5em;
     vertical-align: 50%;
 }
-.mathrobatics n-min::before{
+.mathrobatics add-n::before {
+    content: '+';
+    font-size: 0.5em;
+    vertical-align: 50%;
+}
+.mathrobatics n-min::after {
     content: '-';
     font-size: 0.5em;
     vertical-align: 50%;
 }
-.mathrobatics n-tim::before {
+.mathrobatics min-n::before {
+    content: '-';
+    font-size: 0.5em;
+    vertical-align: 50%;
+}
+.mathrobatics n-tim::after {
     content: '\00d7';
     font-size: 0.5em;
     vertical-align: 50%;
 }
-.mathrobatics n-div::before {
+.mathrobatics tim-n::before {
+    content: '\00d7';
+    font-size: 0.5em;
+    vertical-align: 50%;
+}
+.mathrobatics n-div::after {
+    content: '\00f7';
+    font-size: 0.5em;
+    vertical-align: 50%;
+}
+.mathrobatics div-n::before {
     content: '\00f7';
     font-size: 0.5em;
     vertical-align: 50%;
@@ -1158,6 +1182,13 @@
 .mathrobatics n-div[data-dark],
 .mathrobatics n-ote[data-dark],
 .mathrobatics n-pad[data-dark] { filter: none; }
+.mathrobatics n-add[data-norm],
+.mathrobatics add-n[data-norm],
+.mathrobatics n-min[data-norm],
+.mathrobatics n-tim[data-norm],
+.mathrobatics n-div[data-norm],
+.mathrobatics n-ote[data-norm],
+.mathrobatics n-pad[data-norm] { font-family: serif; }
 
 .mathrobatics c-irk{
     --cirk-wide: calc(100% + 1ch);
@@ -2860,8 +2891,8 @@
 .mathrobatics m-ove[data-dark] {--move-filter:url("#lightness");}
 .mathrobatics m-ove[data-inverse] {--move-filter:url("#inverse");}
 .mathrobatics m-ove[data-vers] {--move-filter:url("#vers");}
-.mathrobatics m-ove[data-ghost] {--move-filter:url("#ghost");}
-.mathrobatics m-ove[data-vapor] {--move-filter:url("#vapor");}
+.mathrobatics m-ove[data-ghost] {color:rgba(0,0,0,0);text-shadow: var(--text-ghost);}
+.mathrobatics m-ove[data-vapor] {color:rgba(0,0,0,0);text-shadow: var(--text-vapor);}
 
 .mathrobatics s-in,
 .mathrobatics c-os,

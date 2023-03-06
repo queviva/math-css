@@ -865,6 +865,10 @@ content="illuminated markeup specification mathrobatics">
     data-top-left  // to the left, from the top
     data-bot-left  // to the left, from the bottom
     data-dark      // no illumination
+    data-inverse   // inverse color
+    data-verse     // inverse illumination
+    data-ghost     // ghosts out the term
+    data-vapor     // vaporizes the term
 &gt; ... &lt;/m-ove&gt;
 </pre>
     </b>
@@ -1124,7 +1128,7 @@ content="illuminated markeup specification mathrobatics">
         parenthesis, typically good for trig proofs
         <br><br>
         a parent tag can be used to set the variable
-        and parentesis use for the rest of the tags
+        and parenthesis use for the rest of the tags
         <br><br>
         there are dozens of these tags
 <pre>
@@ -1149,15 +1153,18 @@ content="illuminated markeup specification mathrobatics">
 
 
 
-&lt;!--   --&gt;
-&lt;tag
+&lt;!-- optionally, set values in parent tag   --&gt;
+&lt;parent
     data-var-x     // sets variable to x
     data-var-theta // sets variable to &theta;
     data-var-phi   // sets variable to &phi;
     data-var-none  // no variable
     data-no-prens  // removes enclosing ()'s
     data-prens     // includes enclosing ()'s
-&gt;
+    style ="
+        --variable // directly set the variable
+        --power    // directly set the exponent
+"&gt;
     &lt;-- any trig tag also has these options --&gt;
     &lt;-- that override the parent values     --&gt;
     &lt;t-rig
@@ -1172,7 +1179,7 @@ content="illuminated markeup specification mathrobatics">
         data-pow-8     // raises to eighth power
     &gt;
     &lt;/t-rig&gt;
-&lt;/tag&gt;
+&lt;/parent&gt;
 </pre>
     </b>
 </li>
@@ -1508,20 +1515,22 @@ content="illuminated markeup specification mathrobatics">
     </b>
 </li>
 
-<li id="n-add">
-    <i>n-add</i> add a value
+<li id="add-n">
+    <i>add-n</i> add a value
     <b>
         <dd>
-            x<sup>2</sup><n-add>3</n-add>
+            x<sup>2</sup><add-n>3</add-n>
             =
-            2<n-add>3</n-add>
+            2<add-n>3</add-n>
         </dd>
         indicates a value should be
         added,
         typically to both sides, using the appropriate
         symbol
+        <br><br>
+        also &lt;n-add&gt;
 <pre>
-&lt;n-add
+&lt;n-add or &lt;add-n
     data-dark // not illuminated
 &gt;
     value
@@ -1530,52 +1539,56 @@ content="illuminated markeup specification mathrobatics">
     </b>
 </li>
 
-<li id="n-min">
-    <i>n-min</i> subtract a value
+<li id="min-n">
+    <i>min-n</i> subtract a value
     <b>
         <dd>
-            x<sup>2</sup><n-min>3</n-min>
+            x<sup>2</sup><min-n>3</min-n>
             =
-            2<n-min>3</n-min>
+            2<min-n>3</min-n>
         </dd>
         indicates a value should be
         subtracted,
         typically from both sides, using the appropriate
         symbol
+        <br><br>
+        also &lt;n-min&gt;
 <pre>
-&lt;n-min
+&lt;min-n or &lt;n-min
     data-dark // not illuminated
 &gt;
     value
-&lt;/n-min&gt;
+&lt;/min-n&gt;
 </pre>
     </b>
 </li>
 
-<li id="n-tim">
-    <i>n-tim</i> multiply a value
+<li id="tim-n">
+    <i>tim-n</i> multiply a value
     <b>
         <dd>
-            x<sup>2</sup><n-tim>3</n-tim>
+            x<sup>2</sup><tim-n>3</tim-n>
             =
-            2<n-tim>3</n-tim>
+            2<tim-n>3</tim-n>
         </dd>
         indicates a value should be
         multiplied,
         typically on both sides, using the appropriate
         symbol
+        <br><br>
+        also &lt;n-tim&gt;
 <pre>
-&lt;n-tim
+&lt;tim-n or &lt;n-tim
     data-dark // not illuminated
 &gt;
     value
-&lt;/n-tim&gt;
+&lt;/tim-n&gt;
 </pre>
     </b>
 </li>
 
 <li id="n-ote">
-    <i>n-ote</i> appends a note
+    <i>n-ote</i> appends a small note
     <b>
         <dd>
             3x<sup>2</sup>
@@ -1960,10 +1973,10 @@ content="illuminated markeup specification mathrobatics">
                // [default is all children]
     data-blank // blanks out circled terms
     data-dark  // no illumination
-    data-min   // minimum px height of arc gestures [20]
-    data-dif   // difference between gesture heights [15]
-    data-size  // thickness of arc [10]
-    data-no-prens // does not enclose in ()'s
+    data-no-prens   // does not enclose in ()'s
+    data-min="20"   // minimum px height of arc gestures [20]
+    data-dif="15"   // difference between gesture heights [15]
+    data-size="10"  // thickness of arc [10]
 &gt;
     &lt;b&gt;
         distribute|faktor value
